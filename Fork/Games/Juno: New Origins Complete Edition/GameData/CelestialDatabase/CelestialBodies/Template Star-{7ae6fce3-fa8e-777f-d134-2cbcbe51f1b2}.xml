@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Star" author="Jundroo" version="1.0" versionTag="" xmlVersion="2" seaLevel="0" hasTerrainPhysics="false" hasWater="false" radius="139101716" surfaceGravity="274" angularVelocity="0" uniformHeight="true" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="true" skyShaderEnabled="true" equirectMapBrightness="1" equirectMapLight="0" isTemplate="true">
+  <FileReferences />
+  <Description>A giant natural fusion reactor covered in flames.</Description>
+  <MusicKeywords>Gameplay,Moon Non Earth</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="true" surfaceAirDensity="1" meanMassPerMolecule="1" meanNightSurfaceTemperature="5778" meanDaySurfaceTemperature="5778" meanGamma="1.4" crushAltitude="50000000" fadeDistance="10000" desc="" />
+  <Terrain uvSizeExponent="8">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="29" minSubdivisionLevel="3" maxSubdivisionLevel="13" quadSphereActivationDistance="0" quadSphereTransitionDistance="0">
+      <Quality qualityLevel="Low" automatic="false" mobileOnly="false" targetVertexDistance="30" terrainQuadEdgeVertexCount="13" waterQuadEdgeVertexCount="7" />
+      <Quality qualityLevel="Medium" automatic="false" mobileOnly="false" targetVertexDistance="20" terrainQuadEdgeVertexCount="19" waterQuadEdgeVertexCount="10" />
+      <Quality qualityLevel="High" automatic="false" mobileOnly="false" targetVertexDistance="10" terrainQuadEdgeVertexCount="25" waterQuadEdgeVertexCount="25" />
+    </QualitySettings>
+    <WaterConfigDefault useDefaultConfig="false" waterColorGradient="1,1,1,1|1,1,1,1" waterColorGradientMaxDepth="0" emissiveness="0" metallicness="0" smoothness="0.95" waveAmplitudeScale="100" transparencyDepthScale="100" transparencyStrength="13" reflectionStrength="50" foamStrength="53" textureStrength="100" underwaterColor="0.05882351,0.3411765,0.5882353" underwaterDarkColor="0,0,0" underwaterLightFadeDepth="150" underwaterLightFadeDistance="150" underwaterColorIntensity="0.5" reflectionDistortion="20" refractionDistortion="2" transparencyDepth="140" fresnelBias="0.2" foamDepth="0.35" foamColor="1,1,1" waveAmplitude="0.5" waveLength="50" waveSpeed="2" />
+    <Modifiers>
+      <Modifier type="VertexData.GetConstant" enabled="true" name="Get constant" container="" pass="Biome" dataIndexOutput="0" value="1" />
+      <Modifier type="VertexData.Biomes.AddBiome" enabled="true" name="Add biome" container="" dataIndexInput="0" biomeIndex="0" />
+      <Modifier type="VertexData.Biomes.ApplyBiomeData" enabled="true" name="Apply biomes" container="" />
+    </Modifiers>
+    <Biomes>
+      <Biome name="Default">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers>
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="General noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="3" strength="2" fractalType="FBMPowerV1" octaves="8" fractalLacunarityType="Default" lacunarity="2.5" fractalAmplitudeType="Default" gain="0.5" interpolation="Quintic" powerExponent="2" dataIndex="0" mapName="General" mapMinValue="-2" mapMaxValue="2" mapSampleMode="Bilinear" mapColorGradient="0,0,0,0|1,1,1,1" mapIgnore="true" mapNoiseCombine="false">
+            <DomainWarping domainWarpingType="Fractal" seed="0" frequency="2" amplitude="0.1" octaves="4" gain="0.5" lacunarity="2" interpolation="Quintic" />
+          </Modifier>
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Detail noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="50" strength="0.5" fractalType="RigidMulti" octaves="8" fractalLacunarityType="Default" lacunarity="2.5" fractalAmplitudeType="Default" gain="0.5" interpolation="Quintic" dataIndex="1" mapName="" />
+          <Modifier type="VertexData.BasicArithmetic" enabled="true" name="Add" container="" pass="Height" dataIndexInputA="0" dataIndexInputB="1" constantValueInputC="1" dataIndexOutput="0" arithmeticType="Add_A_PLUS_B" />
+          <Modifier type="VertexData.Biomes.SingleValueBasedSubBiomes" enabled="true" name="Subbiomes" container="" pass="Height" dataIndexInput="0">
+            <SubBiome range="-1,1">
+              <Data name="" slopeRange="1,1">
+                <PrimaryData emissiveness="1" metallicness="0" smoothness="0" textureIndex="0" tireTrackStrength="0" color="0,0,0,0" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0" textureIndex="0" tireTrackStrength="0" color="0,0,0,0" />
+              </Data>
+            </SubBiome>
+          </Modifier>
+          <Modifier type="VertexData.DebugVisualize" enabled="true" name="Color gradient" container="" pass="Height" dataIndex="0" minInputValue="-0.75" maxInputValue="1.25">
+            <Gradient>
+              <ColorKeys length="5">
+                <Item value="2,0.2588235,0,0" />
+                <Item value="4,0.6431373,0,0.2500038" />
+                <Item value="2,0.854902,0.2117647,0.5000076" />
+                <Item value="2.828427,1.907802,0.8984416,0.7608454" />
+                <Item value="8,8,8,1" />
+              </ColorKeys>
+              <AlphaKeys length="2">
+                <Item value="1,0" />
+                <Item value="1,1" />
+              </AlphaKeys>
+            </Gradient>
+          </Modifier>
+        </Modifiers>
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="0.5,0.5,0.5,1" ambientLightNight="0.5,0.5,0.5,1" atmosScale="1" atmosScaleSpace="2" atmosScaleSurface="20" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="50" fresnelBias="0" g="-0.95" km="0" kr="0.0001" maxColorValue="2" noonColor="1,1,1,1" samples="4" scaleDepth="0.25" scaleDepthMax="1" scaleDepthMin="1" waveLength="0.5411765,0.6941177,1,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5,0.5,0.5,1" ambientLightNight="0.5,0.5,0.5,1" atmosScale="1" atmosScaleSpace="0" atmosScaleSurface="0" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="50" fresnelBias="0" g="0" km="0" kr="0.01" maxColorValue="2" noonColor="1,1,1,1" samples="2" scaleDepth="0.1" scaleDepthMax="0.8" scaleDepthMin="0.002" waveLength="0.5411765,0.6941177,1,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="true" scaleDepthAuto="false" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

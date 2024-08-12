@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="Basic" url="" theme="Custom" boundsMin="-1,-11.837,-1" boundsMax="1,0.8933247,1.25" xmlVersion="1">
+  <Assembly>
+    <Parts>
+      <Part id="0" partType="CommandPod1" position="-1.980789E-05,-8.862583E-05,-9.260199E-05" rotation="0,0,0" drag="14.02464,14.02467,1.714667,0.6176767,14.08481,14.0856" activated="true" rootPart="true" materials="4,1,2,3">
+        <CommandPodData.State currentStage="1" />
+      </Part>
+      <Part id="1" partType="Fuselage1" position="-2.598761E-05,-4.891202,-0.0001208782" rotation="0,0,0" drag="0,0,0,0,0,0" activated="true" commandPodId="0" materials="4,1,2,3">
+        <FuselageData.State symmetryId="9a828d10-cdb3-4c09-b293-cef3c1ba7577" />
+      </Part>
+      <Part id="2" partType="Engine1" position="-2.217292E-05,-9.668363,-8.773804E-05" rotation="0,0,0" drag="2.504772,2.504772,0.004394643,1.764968,2.504763,2.504763" activated="true" activationStage="0" commandPodId="0" materials="4,1,2,3">
+        <EngineData.State />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="1" partB="0" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="2" partB="1" attachPointsA="0" attachPointsB="1" />
+    </Connections>
+    <Bodies>
+      <Body partIds="0,1,2" mass="250" connected="true" position="-2.485513E-05,-4.845585,-0.0001285076" rotation="0,0,0" />
+    </Bodies>
+  </Assembly>
+  <Theme name="Custom">
+    <Material color="E70000" m="0.65" s="0.08" />
+    <Material color="00FF00" m="0.5" s="0.7" />
+    <Material color="A2A2FF" m="0.5" s="0.85" />
+    <Material color="FFFFFF" m="0.5" s="0.7" />
+    <Material color="003FFF" m="0.5" s="0.85" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.5" s="0.85" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.5" s="0.7" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+    <Material color="FFFFFF" m="0.65" s="0.08" />
+  </Theme>
+</Craft>

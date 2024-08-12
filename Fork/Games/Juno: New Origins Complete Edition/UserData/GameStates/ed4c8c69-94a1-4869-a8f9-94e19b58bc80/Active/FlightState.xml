@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FlightState xmlVersion="3" time="100.16277030482888" totalFlightTimeInRealtimeSeconds="80.843868021853268" playerNodeId="3" minNodeId="3">
+  <PlanetarySystem hash="95b3794d-038b-2f48-4646-497456d62794" />
+  <Nodes>
+    <Planet name="Juno" rotation="0" trueAnomaly="0" />
+    <Planet name="Vulco" rotation="-0.00010124696458934533" trueAnomaly="0.00010124898955959559" />
+    <Planet name="Sergeaa" rotation="-0.00017481701296405636" trueAnomaly="4.700043249185871" />
+    <Planet name="Droo" rotation="1.9875130705025481" trueAnomaly="5.7250198906135106" />
+    <Planet name="Brigo" rotation="-0.0066958864612901422" trueAnomaly="4.2533479134622212" />
+    <Planet name="Luna" rotation="-0.0016739716153151725" trueAnomaly="0.0018716583686726391" />
+    <Planet name="T.T." rotation="0.058272337654683572" trueAnomaly="3.0006197343037049" />
+    <Planet name="Cylero" rotation="-0.012486929497432077" trueAnomaly="3.4000080903585994" />
+    <Planet name="Niobe" rotation="0.011654467530937636" trueAnomaly="3.0109276120980004" />
+    <Planet name="Herma" rotation="-0.017481701296404639" trueAnomaly="5.7550818826467349" />
+    <Planet name="Handrew's Comet" rotation="4.2674817012955879" trueAnomaly="3.8500014574714649" />
+    <Planet name="Tydos" rotation="-0.0012486929497432468" trueAnomaly="5.0000016651547909" />
+    <Planet name="Nebra" rotation="3.7875130705025506" trueAnomaly="2.7597572987378451" />
+    <Planet name="Miros" rotation="4.4825182987044121" trueAnomaly="3.3029130384548626" />
+    <Planet name="Orcus" rotation="-0.0062434647487160395" trueAnomaly="4.751680140686573" />
+    <Planet name="Urados" rotation="0" trueAnomaly="0.26000025340510624" />
+    <Planet name="Jastrus" rotation="-0.034756530436764854" trueAnomaly="1.834756360777694" />
+    <Planet name="Boreas" rotation="-0.00437042532410116" trueAnomaly="4.0012455151153716" />
+    <Planet name="Taurus" rotation="0.00874085064820232" trueAnomaly="0.40024501409025004" />
+    <Planet name="Hypatchion" rotation="-0.021852126620506326" trueAnomaly="0.00019965156982304754" />
+  </Nodes>
+  <MapView>
+    <MapOptions gizmoAlignment="ReferenceOrbit" maneuverNodeSensitivityLinear="0.5" orbitUiVerbosity="High" fontSize="Default" version="2" />
+    <ManeuverNodes>
+      <NodeChain craftId="3" />
+    </ManeuverNodes>
+    <MapItems>
+      <StructureDefaults showOrbitLines="false" showIcons="true" />
+      <CraftDefaults showOrbitLines="false" showIcons="true" />
+      <PlanetDefaults showOrbitLines="false" showIcons="true" showSpheresOfInfluence="false" />
+    </MapItems>
+  </MapView>
+</FlightState>

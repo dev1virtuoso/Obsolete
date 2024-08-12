@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FlightState xmlVersion="3" time="14855735.979612643" totalFlightTimeInRealtimeSeconds="4897.9800287985709" playerNodeId="11" minNodeId="11">
+  <PlanetarySystem hash="95b3794d-038b-2f48-4646-497456d62794" />
+  <Nodes>
+    <Planet name="Juno" rotation="0" trueAnomaly="0" />
+    <Planet name="Vulco" rotation="-2.4501686664875941" trueAnomaly="2.4501814190573126" />
+    <Planet name="Sergeaa" rotation="-0.79540933640800848" trueAnomaly="4.8313602693694007" />
+    <Planet name="Droo" rotation="-2.7542743411258264" trueAnomaly="2.352025571399182" />
+    <Planet name="Brigo" rotation="-0.36345285118866483" trueAnomaly="4.4317251072002035" />
+    <Planet name="Luna" rotation="-3.2324558653139888" trueAnomaly="3.223115863150722" />
+    <Planet name="T.T." rotation="3.337057670385398" trueAnomaly="1.6044025486967046" />
+    <Planet name="Cylero" rotation="-4.7542743411258268" trueAnomaly="4.6974797395457468" />
+    <Planet name="Niobe" rotation="0.66741153407722453" trueAnomaly="2.7094314579990666" />
+    <Planet name="Herma" rotation="-4.1427099547012887" trueAnomaly="0.18996173161694338" />
+    <Planet name="Handrew's Comet" rotation="2.1095246475208063" trueAnomaly="4.13082183786052" />
+    <Planet name="Tydos" rotation="-2.9887015569875079" trueAnomaly="5.2497991386376723" />
+    <Planet name="Nebra" rotation="-0.9542743411258654" trueAnomaly="4.8071453928867642" />
+    <Planet name="Miros" rotation="-5.9258952618799414" trueAnomaly="5.4842074407980794" />
+    <Planet name="Orcus" rotation="-2.377137170563115" trueAnomaly="2.614080588613986" />
+    <Planet name="Urados" rotation="0" trueAnomaly="0.29756589174990367" />
+    <Planet name="Jastrus" rotation="-2.7357217187675089" trueAnomaly="4.5356825523301625" />
+    <Planet name="Boreas" rotation="-1.03567748867533" trueAnomaly="0.23662568266838654" />
+    <Planet name="Taurus" rotation="2.0713549773506839" trueAnomaly="5.3228763564572521" />
+    <Planet name="Hypatchion" rotation="-5.1783874433735777" trueAnomaly="5.0747063725834938" />
+    <Craft id="11" name="JUICE" parent="Droo" position="-1304122.60905133,4360.73021610993,1862677.47770941" velocity="-2167.03892943589,-1.2042647600174,-1516.49557745356" heading="0.178133815526962,0.236339017748833,-0.576101243495941,-0.761918485164642" inContactWithPlanet="false" hasCommandPod="true" craftMass="97.01744" craftPartCount="98" allowPlayerControl="true" waterDepth="0" initialNodes="11">
+      <InitialCrafts>
+        <InitialCraft nodeId="11" name="JUICE" launchPlanetName="Droo" launchLocationName="JUICE" launchLocationType="Orbital" launchTime="14855702.3296109" launchMass="9701.744" launchPrice="0" initialCrewCount="0" />
+      </InitialCrafts>
+      <Orbit argumentOfPeriapsis="0.075621297852913966" eccentricity="0.00022510096453506992" inclination="0.0019711935859714055" prograde="true" rightAscensionOfAscendingNode="0.37750825119189058" semiMajorAxis="2273753.9858601559" time="14855735.979612643" trueAnomaly="1.7284817913546968" />
+    </Craft>
+  </Nodes>
+  <MapView>
+    <MapOptions gizmoAlignment="ReferenceOrbit" maneuverNodeSensitivityLinear="0.5" orbitUiVerbosity="High" fontSize="Default" version="2" />
+    <ManeuverNodes>
+      <NodeChain craftId="11" />
+    </ManeuverNodes>
+    <MapItems>
+      <StructureDefaults showOrbitLines="false" showIcons="true" />
+      <CraftDefaults showOrbitLines="false" showIcons="true" />
+      <PlanetDefaults showOrbitLines="true" showIcons="true" showSpheresOfInfluence="false" />
+    </MapItems>
+  </MapView>
+</FlightState>

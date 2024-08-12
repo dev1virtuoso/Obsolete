@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Contracts>
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Race-Air-3" />
+      <Contract customer="shotwell" id="Location-Port" money="500000" name="Splashdown!" unlockLocations="DSC Bay" priority="100" probability="@Probability" expiration="30" deadline="120" difficulty="2">
+         <Description
+            short="Get a payload to the DSC port."
+            long="If you demonstrate that you are capable of getting your crafts to the water safely, we will let you use our port in the future. This will make water recovery substantially cheaper." />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI">
+               <Location locationId="Droo.DSC.Port" range="500" description="Go to the bay in front of the port">
+                  <Expression expression="InWater" description="Don't hit the water faster than 20m/s">
+                     <Expression expression="20 > SurfaceVelocity" description="Were you going over 20m/s?" displayExpression="SurfaceVelocity" displayFormat="velocity" onFail="Stop" listedInMenu="false" />
+                  </Expression>
+               </Location>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Location-Ali" techNodes="jets3" />
+      <Contract customer="shotwell" id="Location-DSC Short runway" money="2000000" name="Pilot License" unlockLocations="DSC Secondary Runway" priority="100" probability="@Probability" expiration="30" deadline="120" difficulty="2">
+         <Description
+            short="Land a craft safely in the village."
+            long="Our space center runways are a very valuable asset we can't afford losing, we need to ensure you can safely land in a rough situation first. Make a crewed craft capable of reaching Mach 3 and then land it safely on the runway at the village." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount op="greater" num="2" partId="Eva" description="Bring two droods aboard" visibility="HiddenWhenPassed" showValue="false" onFail="Stop">
+                     <Expression expression="MachNumber > 3" description="Get to Mach 3" displayExpression="MachNumber" displayFormat="n3" />
+                     <Location locationId="Droo.Village.RunwayEnd" description="Approach the village runway from the bottom of the ramp" visibility="HiddenWhenPassed" distanceMode="GreatCircle" />
+                     <Any num="2" listedInMenu="false" visibility="Hidden">
+                        <Expression expression="10 > SurfaceVelocityLateral" description="Slow down under 10m/s before you enter the parking area" visibility="HiddenWhenPassed" displayExpression="SurfaceVelocity" displayFormat="velocity" />
+                        <Location locationId="Droo.Village.RunwayTop" description="Get to the end of the runway" listedInMenu="false">
+                           <Expression expression="10 > SurfaceVelocityLateral" onFail="Cancel" listedInMenu="false" visibility="Hidden" />
+                        </Location>
+                     </Any>
+                  </PartCount>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Location-DSC Short runway,Packages-research" />
+      <Contract customer="shotwell" id="Location-DSC Large runway" money="10000000" name="A Precision Job" unlockLocations="DSC Westward Runway;DSC Eastward Runway" priority="100" probability="@Probability" expiration="30" deadline="120" difficulty="3">
+         <Description
+            short="Bring a large payload to the Hippolyta GS."
+            long="We are looking for someone capable of carrying a very large payload all the way down to the Hippolyta Ground Station, the Station has no runway so we can't ship it ourselves. If you can pull this off we will let you use our best runway at the DSC." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Payload payloadId="Payload-Package-Supplies" payloadName="Supplies Container" destroyCraftOnComplete="Immediately" allowWarp="true">
+                     <Location locationId="Droo.GS.Rainforest" description="Go to the Hippolita Ground Station" distanceMode="GreatCircle">
+                        <CraftExpression expression="Grounded" description="Leave the payload in the ground" alwaysEvaluateChildren="true">
+                           <CraftExpression expression="PartCount = 1" description="Dettach everything from the container" />
+                        </CraftExpression>
+                     </Location>
+                  </Payload>
+               </Planet >
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Heliosynch-orbit" techNodes="lander2" />
+      <Contract customer="shotwell" id="Location-Launchpad" money="50000000" name="Raining Rockets" unlockLocations="DSC Launch Pad" priority="100" probability="@Probability" expiration="30" deadline="120" difficulty="3">
+         <Description
+            short="Land a booster on the Drone Ship."
+            long="If you want to get the chance to launch from our best launchpad, we need to verify you know what you are doing. Get on a suborbital trajectory and then land on the barge to unlock the raised launchpad." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Orbit property="apoapsis" value="75e3" op="Greater" />
+                  <Expression expression="!InWater" description="Don't touch the water" onFail="Stop">
+                     <Location locationId="Droo.DroneShip" description="Aim for the center of the Drone Ship" >
+                        <Expression expression="TimeGrounded > 5" description="Hold on grounded for 5 seconds" displayExpression="TimeGrounded" displayFormat="time" />
+                     </Location>
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+         <Const name="Mass" value="1000000" />
+      </Params>
+      <Prereqs contracts="SPE-Habitation" techNodes="liquidengine6" />
+      <Contract customer="shotwell" id="Location-Large-Pad" money="10000000" name="Speedy Pollution" unlockLocations="DSC Large Pad" priority="100" probability="@Probability" expiration="30" deadline="120" difficulty="2">
+         <Description
+            short="Get a large payload to space."
+            long="We want to see if you can put a @Mass:mass craft into orbit. If you can, we will let you use our large launchpad. It's just a patch of concrete, but it will let you launch really huge things." />
+         <Requirements>
+            <TrackedLaunch>
+               <Expression expression="Mass > @Mass" description="Craft mass always above @Mass:mass" displayExpression="Mass" displayFormat="mass" onFail="Stop">
+                  <Orbit property="periapsis" value="80e3" op="Greater" />
+               </Expression>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 50" />
+      </Params>
+      <Prereqs contracts="Location-Large-Pad,Location-DSC Large runway" techNodes="crafts4" />
+      <Contract customer="shotwell" id="Location-Lunapad" money="100000000" name="Lunar Driver" unlockLocations="Luna Base" priority="100" probability="@Probability" expiration="90" deadline="360" difficulty="3">
+         <Description
+            short="Get a rover to Luna to drive around the South Pole base."
+            long="In order for you to use our infrastructure at Luna we need to check that you can actually get there by yourself and survive in that environment, for that, get a rover to the base and drive until you exit the crater without flying there." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI"/>
+               <Planet name="Luna" description="Go to Luna">
+                  <Location locationId="Luna.Base" description="Get to the base on Luna" />
+                  <Expression expression="TimeGrounded > 3" description="Stay grounded for 3 seconds" displayExpression="max(0, 3 - TimeGrounded)" displayFormat="time" visibility="HiddenWhenPassed" listedInMenu="false" />
+                  <Expression expression="TimeGrounded > -30" visibility="HiddenWhenPassed" description="This is about driving, don't cheat!" listedInMenu="false">
+                     <Location locationId="Luna.Base" description="Get back to the base on Luna" listedInMenu="false" visibility="HiddenWhenPassed" />
+                     <Expression expression="TimeGrounded > 3" description="Stay grounded" displayExpression="max(0, 3 - TimeGrounded)" displayFormat="time" visibility="HiddenWhenPassed" />
+                     <Location name="Crater Center" latLonAgl="-65.7,-87.7,0" range="-35000" description="Leave the crater by getting at least 35km away from its center" distanceMode="GreatCircle" loadDistance="0" autoSelectTarget="false" showTargetButton="false" />
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 1" />
+      </Params>
+      <Prereqs contracts="Location-Lunapad" />
+      <Contract customer="shotwell" id="GrandTour" money="1000000000" name="The Grand Tour" priority="1000" probability="@Probability" difficulty="3">
+         <Description
+            short="Bring a probe around the system and out."
+            long="After spending all of our budget building the infrastructure in Luna we are running short, I need you to make something really impressive so we can ask for more funds.&lt;br&gt;&lt;br&gt;We have a Traveler Probe ready, bring it to at least 3 of Droo's planets and then get it out of the Sphere of Influence of Juno." />
+         <Requirements>
+            <TrackedLaunch>
+               <Payload payloadId="Payload-Probe-4" payloadName="Traveler Probe" allowWarp="true" description="Launch with the Traveler Probe" showValue="false" onFail="Warn">
+                  <Any num="3" description="Fly by at least 3 different planets">
+                     <Planet name="Vulco" listedInMenu="false" visibility="Hidden" />
+                     <Planet name="Sergeaa" listedInMenu="false" visibility="Hidden" />
+                     <Planet name="Cylero" listedInMenu="false" visibility="Hidden" />
+                     <Planet name="Tydos" listedInMenu="false" visibility="Hidden" />
+                     <Planet name="Urados" listedInMenu="false" visibility="Hidden" />
+                  </Any>
+                  <Planet name="Juno" description="Get in orbit of Juno">
+                     <CraftExpression expression="Apoapsis > 10000000000000" description="Bring your Apoapsis out of the Juno System" displayExpression="Apoapsis" displayFormat="distance">
+                        <CraftExpression expression="PayloadActivated" description="Release the Traveler" showValue="false" visibility="HiddenWhenPassed" />
+                     </CraftExpression>
+                  </Planet>
+                  <Tutorial description="Godspeed Traveler of stars!" visibility="HiddenWhenPassed" listedInMenu="false">
+                     <Button highlight="false" stepText="This is a present from a small distant world, a token of our sounds, our science, our images, our music, our thoughts, and our feelings. We are attempting to survive our time so we may live into yours. We hope someday, having solved the problems we face, to join a community of galactic civilizations. This record represents our hope and our determination, and our good will in a vast and awesome universe." />
+                  </Tutorial>
+               </Payload>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Location-Launchpad" techNodes="crew2" />
+      <Contract customer="shotwell" id="SPE-Radix" money="50000000" name="Space Port Esperanza" subtitle="Radix Module" priority="100" probability="@Probability" difficulty="2" flairText="Station">
+         <Description
+			   short="Bring Radix to orbit."
+			   long="We need your help to construct the Space Port Esperanza (SPE) in Low Droo Orbit. As a first step, you will have to bring up the Radix Module. This is a very important step in the DSC's efforts to colonize the Juno System, so if you get this right many contracts will follow.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-0" description="Launch with the Radix Module" showValue="false" onFail="Warn">
+                     <Orbit tolerance="1" property="inclination" value="30" alwaysEvaluateChildren="true">
+                        <Orbit tolerance="5000" property="apoapsis" value="300000" alwaysEvaluateChildren="true">
+                           <Orbit tolerance="5000" property="periapsis" value="300000">
+                              <PartCount num="0" payloadId="Droo-Station-0" description="Detach the Radix Module" listedInMenu="false" showValue="false" />
+                           </Orbit>
+                        </Orbit>
+                     </Orbit>
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="SPE-Radix" />
+      <Contract customer="shotwell" id="SPE-Expansion" money="200000000" name="Space Port Esperanza" subtitle="Expansion Module" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Now that Radix is up in orbit we want to start building up SPE. Dock the Expansion Module to the Radix Module, it will bring needed resources and increased docking capabilities, but you need to bring some monoprop yourself to maneuver it.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-1" description="Launch with the Expansion Module" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Radix Module" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-1" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="SPE-Expansion" />
+      <Contract customer="shotwell" id="SPE-Docking" money="200000000" name="Space Port Esperanza" subtitle="Nexus Cross" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the Nexus Cross to the Space Port Esperanza. These docking hubs further expand the docking capabilities of the SPE, and will be used for docking future DSC Modules and even your own, but you need to bring some monoprop yourself to maneuver it.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-Module-1" description="Launch with the Nexus Cross" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-Module-1" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="SPE-Docking" />
+      <Contract customer="shotwell" id="SPE-Habitation" money="200000000" name="Space Port Esperanza" subtitle="Habitation Module" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the Habitation Module to the Space Port Esperanza. These modules create a comfortable and spacious place for inhabitants to reside, but you need to bring some monoprop yourself to maneuver it.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-Module-2" description="Launch with the Habitation Module" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-Module-2" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 1" />
+      </Params>
+      <Prereqs contracts="SPE-Habitation" />
+      <Contract customer="shotwell" id="SPE-Cupola" money="200000000" name="Space Port Esperanza" subtitle="Cupola Module" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the Cupola Module to the Space Port Esperanza. This module will provide excellent views of Droo to any crew or tourists inside, but you need to bring some monoprop yourself to maneuver it.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-2" description="Launch with the Cupola Module" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-2" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="100 * pow(0.2 * floor(6 - 0.5 * NumCompletions), 2)" />
+      </Params>
+      <Prereqs contracts="SPE-Habitation" />
+      <Contract customer="shotwell" id="SPE-Solar" money="50000000" name="Space Port Esperanza" subtitle="Solar Array" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the Solar Array to the Space Port Esperanza. Once all the solar arrays are docked to the SPE, they will provide enough power for all operations, but you need to bring some monoprop yourself to maneuver it.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-Module-4" description="Launch with the Solar Array" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-Module-4" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Random name="Module" min="0" max="2" round="1"/>
+         <List name="ID" index="@Module" values="Droo-Station-Module-1;Droo-Station-Module-2;Droo-Station-Module-3" />
+         <List name="Name" index="@Module" values="Docking Hub;Habitation Module;Space Lab" />
+         <Expression name="Probability" value="100 * pow(1 - 0.05 * NumCompletions, 2)" />
+      </Params>
+      <Prereqs contracts="SPE-Habitation" />
+      <Contract customer="shotwell" id="SPE-Structure" money="100000000" name="Space Port Esperanza" subtitle="@Name" priority="100" probability="@Probability" maxInstances="3" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the @Name to the Space Port Esperanza.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="@ID" description="Launch with the @Name" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="@ID" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="SPE-Structure" />
+      <Contract customer="shotwell" id="SPE-Fuel-Core" money="100000000" name="Space Port Esperanza" subtitle="Fuel Depot Core" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the Fuel Depot Core to the Space Port Esperanza. This core infrastructure will allow us to expand upon our resources aboard the SPE, including keeping fuel for any of your future missions that need a bit of extra gas.&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-Fuel-0" description="Launch with the Fuel Depot Core" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-Fuel-0" description="Detach the module" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Module" value="min(3, ((NumCompletions + 2) % 4) + 1)" />
+         <List name="Name" index="@Module" values=";Methalox;Kerolox;Hydrolox" />
+         <Expression name="Probability" value="NumCompletions > 7 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="SPE-Fuel-Core" />
+      <Contract customer="shotwell" id="SPE-Fuel-Ballz" money="100000000" name="Space Port Esperanza" subtitle="@Name Sphere" priority="100" probability="@Probability" difficulty="3" flairText="Station">
+         <Description
+			   short="Expand the Space Port Esperanza."
+			   long="Dock the @Name Fuel Sphere to the Fuel Depot Core. These fueling spheres have unique docking interfaces, so make sure you dock to the Depot Core!&lt;br&gt;&lt;br&gt;We don't like to leave any debris around Droo if we can avoid it. Make sure you safely deorbit your stage!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Droo-Station-Fuel-@Module" description="Launch with the @Name Fuel Sphere" showValue="false" onFail="Warn">
+                     <TrackSpawnedCraft craftTrackingId="SpacePortEsperanza" listedInMenu="false" visibility="Hidden">
+                        <SpawnedCraftDistance range="100" description="Approach the Space Port Esperanza" autoSelectTarget="true" showTargetButton="true" />
+                     </TrackSpawnedCraft>
+                     <CraftEvent event="Docked" description="Dock to the Space Port Esperanza" dockedCraftTrackingId="SpacePortEsperanza" />
+                     <PartCount active="true" num="1" payloadId="Droo-Station-Fuel-@Module" description="Detach the Fuel Sphere" listedInMenu="false" showValue="false" />
+                  </PartCount>
+                  <Expression expression="70e3 > Periapsis" description="Deorbit your stage by bringing it back into the atmosphere" displayExpression="Periapsis" displayFormat="distance" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <!-- 6 point constellation -->
+   <!-- Tourists to space and back -->
+   <!-- Station crew and supplies -->
+</Contracts>

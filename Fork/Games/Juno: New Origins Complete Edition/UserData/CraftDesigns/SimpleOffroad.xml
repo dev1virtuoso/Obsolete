@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="SimpleOffroad" parent="def64a09-e284-42e4-8e4e-a29187212b65" initialBoundsMin="-1.251897,-1.198433,-2.160578" initialBoundsMax="1.264985,1.277265,1.5586" removeInvalidParts="true" price="126386" xmlVersion="15" activeCommandPod="0" localCenterOfMass="0.006554094,-0.802284,-0.02998191">
+  <Assembly>
+    <Parts>
+      <Part id="53" partType="CommandDisc1" position="0.006554166,0.02998179,0.8022841" rotation="270,180,0" name="Engine " rootPart="true" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.01256528,0,0.4035001,0,0.1508108,0.2990581" area="0.03158079,0,0.4115806,0,0.1508108,0.2990581" />
+        <Config centerOfMass="1.876262E-09,-0.07336122,1.702313E-08" />
+        <Fuselage bottomScale="0.375,0.3660753" cornerRadiuses="0,0,0,0,0,0,0,0" deformations="0,0,0" depthCurve="0" offset="0,0.4700118,0" topScale="0.375,0.1757814" volume="0.382018656" volumeInner="0.36566788" version="3" />
+        <FuelTank capacity="524183.08693165332" fuel="524183.08693165332" subPriority="8" utilization="0.55" />
+        <Gyroscope powerScale="0" utilization="0" />
+        <CommandPod activationGroupNames="Headlights,Spotlights,Brakelights,,,,,Engine,," activationGroupStates="false,false,false,false,false,false,false,false,false,false" configureBattery="1" craftConfigType="Plane" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="270,180,0" reorientCraftOnConfigChange="false" useDefaultPilotSeatRotation="false">
+          <Controls />
+        </CommandPod>
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1">
+          <Program name="New Program">
+            <Variables />
+            <Instructions>
+              <Event event="FlightStart" id="0" style="flight-start" pos="-422,-185" />
+              <Comment id="1" style="comment">
+                <Constant style="comment-text" canReplace="false" text="Activate AG8 when there is pitch input and AG3 when there is brake input" />
+              </Comment>
+              <While id="2" style="while">
+                <Constant style="true" bool="true" />
+                <Instructions>
+                  <SetActivationGroup id="3" style="set-ag">
+                    <Constant text="8" />
+                    <CraftProperty property="Input.Pitch" style="prop-input" />
+                  </SetActivationGroup>
+                  <SetActivationGroup id="4" style="set-ag">
+                    <Constant text="3" />
+                    <CraftProperty property="Input.Brake" style="prop-input" />
+                  </SetActivationGroup>
+                  <WaitSeconds id="5" style="wait-seconds">
+                    <Constant text="0" />
+                  </WaitSeconds>
+                </Instructions>
+              </While>
+            </Instructions>
+            <Expressions />
+          </Program>
+        </FlightProgram>
+      </Part>
+      <Part id="125" partType="Strut1" position="0.006554086,-0.2117395,0.7628852" rotation="90,-7.328929E-06,0" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.07130751,0,0,0.4601407,0.2211909,0.08021843" area="0.07130751,0,0,0.4601407,0.2211909,0.08021843" />
+        <Config centerOfMass="-1.857798E-08,0.1576792,-0.02697563" heatShieldScale="0" />
+        <Fuselage bottomScale="0.3749999,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.649791E-08,0.5251212,-0.08983728" topScale="0.3745,0.2588112" volume="0.24304615" volumeInner="0.229355752" version="3" />
+      </Part>
+      <Part id="131" partType="Strut1" position="0.006554336,-0.3019986,-0.2621347" rotation="90,-7.328929E-06,0" name="Chassis" commandPodId="53" materials="3,0,0,0,0" texture="Default">
+        <Drag drag="0,0.02633593,0.2166985,0.5283815,0.09433673,0.1018237" area="0,0.02633593,0.2166985,0.5283815,0.09433673,0.1018237" />
+        <Config centerOfMass="2.058804E-08,-1.784602E-06,1.563618E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.75,0.0500008" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.464917E-08,0.5000134,3.576279E-07" topScale="0.75,0.05" volume="0.150005266" volumeInner="0.132504717" version="3" />
+      </Part>
+      <Part id="136" partType="HingeRotator1" position="-0.3114451,-0.4015658,1.212881" rotation="285,89.99978,180" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.002907103,0,0,0.007033213,0,0" area="0.0031246,0,0,0.008128793,0,0" />
+        <Config heatShieldScale="0" symmetryId="add68f04-1e56-42a0-96dd-d040e18768cf" />
+        <JointRotator baseMode="None" scale="0.5" consumptionMultiplier="1" range="25" speed="0" symmetryId="dc3108f0-69c3-4cec-9148-7ac50a4182d7" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="a22ef44d-765a-4374-bf0c-70b3bc17e7c1" />
+      </Part>
+      <Part id="137" partType="Strut1" position="0.2250286,-0.5453132,1.212881" rotation="75.00023,270,180" name="Scissor Arm" commandPodId="53" materials="4,4,4,4,4" texture="Default">
+        <Drag drag="0.09965259,0.0364908,0.004540045,0.09534112,0,0" area="0.09965259,0.0364908,0.004706145,0.09882891,0,0" />
+        <Config centerOfMass="2.181119E-09,-2.206158E-09,1.912261E-09" heatShieldScale="0" symmetryId="62397790-c8a1-4a13-9224-61040910fcd2" />
+        <Fuselage bottomScale="0.05,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-1.490126E-07,0.5000045,3.745767E-07" topScale="0.05,0.05" volume="0.01000009" volumeInner="0.00790006947" symmetryId="0293e6db-92e3-44fc-8245-2c730017c01e" version="3" />
+      </Part>
+      <Part id="172" partType="HingeRotator1" position="0.324553,-0.4015658,1.012882" rotation="285,270.0001,179.9999" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.002945614,0,0,0.006352036,0,0" area="0.0031246,0,0,0.007273131,0,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" scale="0.5" consumptionMultiplier="1" range="25" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="173" partType="Strut1" position="-0.2119197,-0.5453141,1.012882" rotation="75.00058,90.00073,180.0001" name="Scissor Arm" commandPodId="53" materials="4,4,4,4,4" texture="Default">
+        <Drag drag="0.07967712,0.05066287,0,0.08172095,0,0" area="0.07967712,0.05066287,0,0.08471061,0,0" />
+        <Config centerOfMass="7.259389E-10,-2.206602E-09,1.912305E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.05,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="1.490126E-07,0.5000045,3.745767E-07" topScale="0.05,0.05" volume="0.01000009" volumeInner="0.00790006947" version="3" />
+      </Part>
+      <Part id="182" partType="RoverWheel1" position="0.9449878,-0.72483,1.112881" rotation="12.46819,87.24832,0" name="Offroad Wheel FR" commandPodId="53" materials="4,17,0,1,1">
+        <Drag drag="0.2017132,0.02978783,0.2227852,0.2276993,0.003748978,0.5212127" area="0.3166956,0.06316109,0.3572446,0.3769254,0.01005403,0.6207954" />
+        <Config heatShieldScale="0" maxTemperature="700" />
+        <ResizableWheel brakeTorque="1500" gearRatio="0.7" size="0.900000036" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="102.040817" tractionForward="1.5" tractionSideways="0.5" turningAngle="30" width="0.8" version="3" />
+        <InputController inputId="Turn" />
+        <InputController input="Pitch" inputId="RPM" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="183" partType="Strut1" position="0.7562953,-0.6876671,1.112881" rotation="75.00011,270,90.00008" name="Scissor Arm" commandPodId="53" materials="4,4,4,4,4" texture="Default">
+        <Drag drag="0.01004336,0.0002231857,0.003714583,0.01527105,0,0.0007851964" area="0.01004336,0.0002231857,0.003850483,0.01582975,0,0.001283494" />
+        <Config centerOfMass="1.231736E-09,6.316772E-10,2.416789E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.05,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-2.266695E-07,0.1500047,6.340476E-06" topScale="0.05,0.05" volume="0.00300009456" volumeInner="0.002300075" version="3" />
+      </Part>
+      <Part id="184" partType="Strut1" position="-0.7431884,-0.6876679,1.112881" rotation="285,270,270.0001" name="Scissor Arm" commandPodId="53" materials="4,4,4,4,4" texture="Default">
+        <Drag drag="0.01004336,0.0001115928,0.00290422,0.01527105,0.0002617321,0" area="0.01004336,0.0001115928,0.003636567,0.01582975,0.0004278313,0" />
+        <Config centerOfMass="9.243175E-10,1.338845E-09,2.20635E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.05,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="2.266695E-07,0.1500047,6.340476E-06" topScale="0.05,0.05" volume="0.00300009456" volumeInner="0.002300075" version="3" />
+      </Part>
+      <Part id="186" partType="HingeRotator1" position="0.785399,-0.6863169,1.112881" rotation="344.9999,90.00124,-0.002414793" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.005016428,0.002617837,0.01009849,0.006190971,0,0.0004488035" area="0.005914424,0.0031246,0.01476017,0.006417469,0,0.000641747" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" scale="0.900000036" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="187" partType="Shock1" position="0.5949267,0.02453283,1.112855" rotation="15.00002,270.0011,0.002397998" name="Front Shock Top" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0.01900141,0,0,0.01002635,0,0.03006312" area="0.02812142,0,0,0.015188,0,0.04577804" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2" thickness="1.1" version="2" />
+      </Part>
+      <Part id="194" partType="Shock1" position="0.7081611,-0.3980606,1.11287" rotation="345,90.00114,-0.002404185" name="Front Shock Bottom" commandPodId="53" materials="3,3,4,1,3">
+        <Drag drag="0.02171203,0.004391507,0.004806811,0.007661537,0,0.004636517" area="0.03169239,0.006360795,0.006417469,0.009412286,0,0.008342708" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2.5" size="0.75" spring="2.5" thickness="1.4" version="2" />
+      </Part>
+      <Part id="195" partType="HingeRotator1" position="-0.7722908,-0.6863169,1.112881" rotation="344.9999,269.9988,0.002414793" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.005052312,0.002495741,0.0101094,0.006397337,0.001123267,0" area="0.005914424,0.003013007,0.01433234,0.006631384,0.00149741,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" scale="0.900000036" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="196" partType="Shock1" position="-0.695053,-0.3980606,1.11287" rotation="345,269.9989,0.002404185" name="Front Shock Bottom" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0.02128928,0.00438713,0.005834445,0.006682558,0.00350654,0" area="0.03225034,0.006249202,0.007487046,0.008556624,0.007700962,0" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2.5" size="0.75" spring="2.5" thickness="1.4" version="2" />
+      </Part>
+      <Part id="197" partType="Shock1" position="-0.5818195,0.02453273,1.112855" rotation="15.00002,89.99891,-0.002405953" name="Front Shock Top" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0.01887232,0,0,0.01221668,0.0297536,0" area="0.02823301,0,0,0.01732716,0.04620588,0" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2" thickness="1.1" version="2" />
+      </Part>
+      <Part id="233" partType="HingeRotator1" position="-0.5167512,0.2673664,1.112844" rotation="345,269.9989,0.002404185" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.0071205,0,0.0002432766,0.008023094,0.01948057,0" area="0.007588318,0,0.0004278313,0.009412286,0.02652553,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" scale="0.900000036" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="244" partType="EvaChair1" position="-0.3934457,-0.3460299,-0.4827366" rotation="355,-8.212152E-06,5.086225E-06" name="Seat Left" commandPodId="53" materials="3,1,0,1,1">
+        <Drag drag="0,0.03409835,0.04648594,0.1363677,0.1875712,0" area="0,0.03872262,0.06995057,0.1418261,0.2156289,0" />
+        <Config heatShieldScale="0" />
+        <EvaChair forwardLook="0.7" version="2">
+          <armTargets x="402" y="244" z="403" w="244" />
+          <legTargets x="-1" y="-1" z="-1" w="-1" />
+        </EvaChair>
+        <CrewCompartment crewExitPosition="-0.830093,0.5499941,0.1618058" crewExitRotation="-1.433488E-06,285,1.638033E-06" />
+      </Part>
+      <Part id="252" partType="HingeRotator1" position="-0.5890449,-0.4052288,0.2378736" rotation="80.00003,-4.302571E-06,180" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.001529916,0.005197602,0,0.02249975,0.01004313,0" area="0.002566636,0.007030353,0,0.02652553,0.01090969,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" range="15" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="253" partType="Strut1" position="-0.5890449,-0.5554879,-0.6183814" rotation="80.00002,-1.090643E-05,-3.376851E-06" name="Rear Arm" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0.005892095,0.004120626,0,0.3585727,0.1131611,0" area="0.03414739,0.02388089,0,0.3672989,0.1131611,0" />
+        <Config centerOfMass="3.132949E-09,3.018778E-09,1.861049E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.125,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.309941E-08,0.7445378,0.0007112625" topScale="0.125,0.05" volume="0.03722688" volumeInner="0.0317651145" version="3" />
+      </Part>
+      <Part id="256" partType="Strut1" position="-0.6390443,-0.684074,-1.476729" rotation="90,-7.529582E-06,0" name="Rear Arm" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0.005914424,0.04050808,0.02139155,0.09818717,0.001069578,0" area="0.005914424,0.04050808,0.02139155,0.09818717,0.001069578,0" />
+        <Config centerOfMass="4.465974E-09,-3.634234E-09,2.772461E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.2,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-4.317764E-08,0.125,9.23872E-07" topScale="0.2,0.05" volume="0.009999999" volumeInner="0.008350001" version="3" />
+      </Part>
+      <Part id="257" partType="Strut1" position="0.006554386,-0.07076441,-1.212128" rotation="270,-1.233788E-05,0" name="Chassis" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0,0.2485335,0.0414997,0.3902168,0.3116795,0.3112516" area="0,0.2731794,0.0414997,0.4582154,0.3116795,0.3112516" />
+        <Config centerOfMass="4.462916E-09,-0.08299167,0.01824932" heatShieldScale="0" />
+        <Fuselage bottomScale="0.25,0.2875049" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0.25,0" depthCurve="0" offset="-8.465679E-08,0.5000411,-0.006247282" topScale="0.25,0.2749964" volume="0.246895522" volumeInner="0.2346336" version="3" />
+      </Part>
+      <Part id="258" partType="Strut1" position="0.006554386,-0.02114728,-0.8205948" rotation="19.99978,180,-5.330414E-06" name="Chassis" commandPodId="53" materials="3,0,0,0,0" texture="Default">
+        <Drag drag="0.007982167,0.3435405,0.01233414,0.08205836,0.0539069,0.05604608" area="0.008481061,0.365456,0.03615176,0.1381895,0.0539069,0.05604608" />
+        <Config centerOfMass="1.036882E-08,-0.000445943,-1.342642E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.75,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.437789E-08,0.3000018,2.782792E-06" topScale="0.745,0.05" volume="0.08970054" volumeInner="0.0786354542" version="3" />
+      </Part>
+      <Part id="259" partType="Strut1" position="0.006554576,0.2426762,-1.500815" rotation="90,180,0" name="Chassis" commandPodId="53" materials="3,0,0,0,0" texture="Default">
+        <Drag drag="0.0005579641,0.09862623,0.903599,0.6473216,0.1018237,0.1221455" area="0.0005579641,0.1090266,0.903599,0.6473216,0.1018237,0.1221455" />
+        <Config centerOfMass="8.586633E-09,-0.009578561,-2.053714E-07" heatShieldScale="0" />
+        <Fuselage bottomScale="0.75,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.44417E-08,0.6250015,1.341105E-05" topScale="0.7,0.05" volume="0.181250438" volumeInner="0.160424337" version="3" />
+      </Part>
+      <Part id="260" partType="HingeRotator1" position="-0.572203,-0.5630145,-1.468047" rotation="20,90.00019,10.00054" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0.01041008,0,0.001385838,0.001367382,0" area="0,0.01339115,0,0.00149741,0.002139157,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="262" partType="HingeRotator1" position="-0.3364913,0.08459653,-1.346521" rotation="19.99998,90.00021,10.00057" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0.008492435,0,0.01880443,0.02138989,0" area="0,0.01082451,0,0.0248142,0.0316595,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="263" partType="HingeRotator1" position="-0.589044,-0.6340858,-1.476729" rotation="0.0005284349,-6.830152E-06,8.168441E-06" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.0003614733,0.02211772,0.001546904,0,0.001283494,0" area="0.0004463713,0.02466204,0.002139157,0,0.001283494,0" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="272" partType="HingeRotator1" position="0.6021522,-0.4052288,0.2378736" rotation="80.00003,4.302575E-06,180" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.001549171,0.005576142,0,0.02295358,0,0.01175361" area="0.002678229,0.007476725,0,0.02716727,0,0.01262102" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" range="15" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="273" partType="Strut1" position="0.6021519,-0.5554879,-0.6183814" rotation="80.00002,1.090643E-05,3.376852E-06" name="Rear Arm" commandPodId="53" materials="3,4,4,4,4" texture="Default">
+        <Drag drag="0.005699544,0.003889565,0,0.3585727,0,0.1131611" area="0.03303148,0.02254177,0,0.3672989,0,0.1131611" />
+        <Config centerOfMass="3.300404E-09,7.039327E-09,1.606459E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.125,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="8.309941E-08,0.7445378,0.0007112625" topScale="0.125,0.05" volume="0.03722688" volumeInner="0.0317651145" version="3" />
+      </Part>
+      <Part id="274" partType="Strut1" position="0.6521521,-0.684074,-1.476729" rotation="90,7.529582E-06,0" name="Rear Arm" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0.006695574,0.04128922,0.02096372,0.09455064,0,0.001069578" area="0.006695574,0.04128922,0.02096372,0.09455064,0,0.001069578" />
+        <Config centerOfMass="1.938335E-09,-2.360834E-09,1.92659E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.2,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="4.317764E-08,0.125,9.23872E-07" topScale="0.2,0.05" volume="0.009999999" volumeInner="0.008350001" version="3" />
+      </Part>
+      <Part id="275" partType="HingeRotator1" position="0.6021519,-0.6340858,-1.476729" rotation="0.0005284349,6.830152E-06,-8.168441E-06" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.0007229466,0.0224118,0.001061189,0.00149741,0,0.001283494" area="0.0008927426,0.02522,0.00149741,0.00149741,0,0.001283494" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="276" partType="RoverWheel1" position="0.945752,-0.684074,-1.42673" rotation="358,90.00003,4.698617E-06" name="Offroad Wheel RR" commandPodId="53" materials="4,17,0,1,1">
+        <Drag drag="0.02443489,0.2003434,0.2001453,0.2019197,0.0007742908,0.5337762" area="0.04977014,0.301967,0.3161718,0.3125351,0.002139157,0.6090297" />
+        <Config heatShieldScale="0" maxTemperature="700" />
+        <ResizableWheel brakeTorque="10000" gearRatio="0.7" size="0.900000036" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="612.2449" tractionForward="0.7" tractionSideways="0.8" width="0.8" version="3" />
+        <InputController inputId="Turn" inspectorEnabled="false" partPropertiesEnabled="false" />
+        <InputController input="Pitch" inputId="RPM" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="277" partType="HingeRotator1" position="0.5853105,-0.5630145,-1.468047" rotation="20.00001,269.9998,349.9995" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0.0105895,0,0.001458821,0,0.001367382" area="0,0.01339115,0,0.001711325,0,0.002139157" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="278" partType="Shock1" position="0.4085439,-0.07735103,-1.376911" rotation="340,89.99986,10.00052" name="Rear Shock Top" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0,0.01952963,0,0.01081491,0,0.01959971" area="0,0.02979531,0,0.015188,0,0.03144558" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2.5" size="0.7" thickness="1.5" version="2" />
+      </Part>
+      <Part id="279" partType="HingeRotator1" position="0.3495996,0.08459653,-1.346521" rotation="19.99999,269.9998,349.9994" name="Rear Hinge" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0.008593526,0,0.0199252,0,0.02130768" area="0,0.0110477,0,0.02716727,0,0.03144558" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="280" partType="Shock1" position="0.5053809,-0.34341,-1.426838" rotation="19.99999,269.9998,349.9995" name="Rear Shock Bottom" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0,0.01286643,0,0.004673428,0,0.0005494697" area="0,0.02220699,0,0.005775722,0,0.001069578" />
+        <Config heatShieldScale="0" />
+        <Suspension size="0.45" spring="2.5" thickness="2.5" version="2" />
+      </Part>
+      <Part id="281" partType="Shock1" position="-0.3954357,-0.07735266,-1.376911" rotation="340,270.0002,349.9995" name="Rear Shock Top" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0,0.01947449,0,0.01157913,0.01879941,0" area="0,0.03046487,0,0.01582975,0.02973426,0" />
+        <Config heatShieldScale="0" />
+        <Suspension damper="2.5" size="0.7" thickness="1.5" version="2" />
+      </Part>
+      <Part id="282" partType="Shock1" position="-0.4922729,-0.34341,-1.426838" rotation="20.00002,90.00022,10.0005" name="Rear Shock Bottom" commandPodId="53" materials="3,3,4,3,3">
+        <Drag drag="0,0.01327211,0,0.004203652,0.001697903,0" area="0,0.0220954,0,0.00492006,0.002566988,0" />
+        <Config heatShieldScale="0" />
+        <Suspension size="0.45" spring="2.5" thickness="2.5" version="2" />
+      </Part>
+      <Part id="283" partType="Strut1" position="0.006554116,0.2481223,0.9300081" rotation="75.00005,180,180" name="Chassis" commandPodId="53" materials="1,4,4,4,4" texture="Default">
+        <Drag drag="0.05558503,0,0.4556416,0.07994747,0.06946293,0.05603906" area="0.2176083,0,0.4723342,0.09433673,0.06973666,0.05625999" />
+        <Config centerOfMass="2.452897E-09,-0.03809516,-7.22159E-07" heatShieldScale="0" />
+        <Fuselage bottomScale="0.5,0.05" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.466056E-08,0.5999987,1.141425E-05" topScale="0.375,0.05" volume="0.104999743" volumeInner="0.0924183" version="3" />
+      </Part>
+      <Part id="284" partType="Strut1" position="-0.4678192,0.3594786,1.09392" rotation="1.528385,275.7149,345.0763" name="Chassis" commandPodId="53" materials="1,4,4,4,4" texture="Default">
+        <Drag drag="0.008047808,0,0.06730908,0.02611618,0.05103432,0" area="0.01830124,0,0.09604803,0.03679352,0.05732958,0" />
+        <Config centerOfMass="-0.05555544,-0.04444507,-0.02222844" heatShieldScale="0" />
+        <Fuselage bottomScale="0.6,0.025" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0.1249997,0.1000014,0.05001398" topScale="0,0.025" volume="0.006000083" volumeInner="0.00403927127" version="3" />
+      </Part>
+      <Part id="285" partType="Strut1" position="0.4809276,0.3594786,1.09392" rotation="1.528383,84.28513,14.92371" name="Body Panel" commandPodId="53" materials="1,4,4,4,4" texture="Default">
+        <Drag drag="0.008003608,0,0.0695192,0.02559435,0,0.06055561" area="0.01841283,0,0.09882891,0.03636568,0,0.06802535" />
+        <Config centerOfMass="0.05555542,-0.04444508,-0.02222844" heatShieldScale="0" />
+        <Fuselage bottomScale="0.6,0.025" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-0.1249997,0.1000014,0.05001398" topScale="0,0.025" volume="0.00600008341" volumeInner="0.00403927127" version="3" />
+      </Part>
+      <Part id="286" partType="Inlet1" position="0.006554086,0.7623972,0.1969834" rotation="60,6.091311E-06,1.001792E-05" name="Roof" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.1339779,0.02524235,0.08846606,0,0.01725921,0.01747229" area="0.1638196,0.02912575,0.1247125,0,0.01732716,0.01754108" />
+        <Config centerOfMass="-9.040568E-09,-3.491897E-05,0.008438041" heatShieldScale="0" />
+        <Fuselage bottomScale="0.74,0.3631349" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="-10" deformations="0.1,0,0.1" depthCurve="0" offset="3.240926E-10,0.01249977,0.002265713" topScale="0.74,0.3585984" volume="0.0253684558" volumeInner="0.01636878" version="3" />
+        <Inlet />
+      </Part>
+      <Part id="287" partType="Strut1" position="0.619225,0.4100103,0.8007119" rotation="87.9789,180,180.0002" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.003191554,0,0.1786206,0.1105872,0,0.03893269" area="0.02019832,0,0.1786206,0.111022,0,0.03893269" />
+        <Config centerOfMass="-0.0005647696,-0.1551054,0.008667105" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1234009,0.05250105" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0.001547593,0.4250196,-0.02374959" topScale="0.125,0.005" volume="0.012119852" volumeInner="0.009370915" version="3" />
+      </Part>
+      <Part id="289" partType="Inlet1" position="0.006826366,1.086769,-0.460712" rotation="2.218677,2.82139E-07,9.353868E-06" name="Roof" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.02527867,0.01557484,0.1530517,0,0.02460029,0.0248142" area="0.03258511,0.01807805,0.1722029,0,0.0248142,0.02502812" />
+        <Config centerOfMass="1.618174E-08,-2.377712E-06,-1.180028E-06" heatShieldScale="0" />
+        <Fuselage bottomScale="0.665,0.4858686" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="-10" deformations="0,0,0" depthCurve="0" offset="1.076036E-09,0.0125004,0.006304217" topScale="0.665,0.4854529" volume="0.032297466" volumeInner="0.0209163763" version="3" />
+        <Inlet />
+      </Part>
+      <Part id="290" partType="Inlet1" position="0.006826366,0.889399,-0.9993846" rotation="73.94739,180,-2.170961E-06" name="Roof" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.03577465,0.09828204,0.05579099,0,0.01096842,0.01138618" area="0.04084285,0.1214136,0.0939089,0,0.01112361,0.01155144" />
+        <Config centerOfMass="4.934112E-09,9.722996E-05,0.005548013" heatShieldScale="0" />
+        <Fuselage bottomScale="0.74,0.231562" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="-10" deformations="0.1,0,0.1" depthCurve="0" offset="8.930228E-10,0.01250004,0.005094249" topScale="0.74,0.2398117" volume="0.0165688377" volumeInner="0.0105294352" version="3" />
+        <Inlet />
+      </Part>
+      <Part id="291" partType="Strut1" position="0.006554476,0.4558316,-1.016512" rotation="19.99978,180,-5.330414E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.03382178,0.001115928,0.04646508,0.03323502,0.04684763,0.03807702" area="0.03782989,0.001115928,0.1067437,0.03593785,0.04684763,0.03807702" />
+        <Config centerOfMass="2.922571E-08,-0.08685772,0.01249419" heatShieldScale="0" />
+        <Fuselage bottomScale="0.74,0.1098219" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-6.861779E-08,0.2152189,-0.03095851" topScale="0.75,0.00500001" volume="0.0734908953" volumeInner="0.0646345541" version="3" />
+      </Part>
+      <Part id="292" partType="Inlet1" position="0.006826366,0.4856968,-1.585955" rotation="1.344693E-05,6.39723E-06,4.605049E-06" name="Trunk" commandPodId="53" materials="0,0,1,1,1" texture="Default">
+        <Drag drag="0.0004463713,0.43032,0.1586711,0,0.3586288,0.3542005" area="0.0004463713,0.5450996,0.2066442,0,0.3653736,0.3606674" />
+        <Config centerOfMass="1.924246E-08,-0.0286894,0.06560355" heatShieldScale="0" />
+        <Fuselage bottomScale="0.74,0.5162805" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="-10" deformations="0.25,0.25,0.25" depthCurve="0" offset="4.686136E-10,0.2048756,-0.006859708" topScale="0.75,0.5371205" volume="0.49662143" volumeInner="0.474229455" version="3" />
+        <Inlet />
+      </Part>
+      <Part id="293" partType="Strut1" position="0.006554336,-0.007706533,-0.2289004" rotation="270,-1.233788E-05,0" name="Interior Divider" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0,0,0.122399,0.1120161,0.1227872,0.1182951" area="0,0,0.1238568,0.113375,0.1227872,0.1182951" />
+        <Config centerOfMass="-2.95686E-09,-0.06565122,0.02122889" heatShieldScale="0" />
+        <Fuselage bottomScale="0.075,0.2875049" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0.25,0" depthCurve="0" offset="-8.534138E-08,0.6082392,0.04431748" topScale="0.075,0.3886301" volume="0.105931923" volumeInner="0.09620483" version="3" />
+      </Part>
+      <Part id="295" partType="Strut1" position="0.006554286,-0.3318389,0.3431121" rotation="90,0,0" name="Chassis" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0.08150109,0.1115932,0.006417469,0.2360248,0.01882457,0.03251517" area="0.1341354,0.1115932,0.006417469,0.2639751,0.01882457,0.03251517" />
+        <Config centerOfMass="3.682533E-08,-0.02298369,0.005657709" heatShieldScale="0" />
+        <Fuselage bottomScale="0.75,0.1084114" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.412086E-08,0.1250046,-0.03077134" topScale="0.75,0.04496213" volume="0.0575171933" volumeInner="0.0508616641" version="3" />
+      </Part>
+      <Part id="299" partType="Strut1" position="0.006553816,-0.01509481,1.405342" rotation="90,-7.328929E-06,0" name="Chassis" commandPodId="53" materials="1,4,4,4,4" texture="Default">
+        <Drag drag="0.2940136,0,0.08864006,0.07917467,0.03058992,0.03679352" area="0.3248409,0,0.08898889,0.1668549,0.03058992,0.03679352" />
+        <Config centerOfMass="4.472576E-08,-0.03519376,0.0340035" heatShieldScale="0" />
+        <Fuselage bottomScale="0.375,0.2566749" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.648425E-08,0.1175002,-0.1135263" topScale="0.375,0.05" volume="0.0540515333" volumeInner="0.04829636" version="3" />
+      </Part>
+      <Part id="300" partType="HingeRotator1" position="0.5298594,0.2673664,1.112844" rotation="345,90.00108,-0.002405953" name="Front Hinge" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0.007102121,0,0.0002432766,0.007403999,0,0.01103469" area="0.007588318,0,0.0004278313,0.008770539,0,0.01582975" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" scale="0.900000036" consumptionMultiplier="1" speed="0" version="2" />
+        <InputController inputId="Rotator" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="304" partType="EvaChair1" position="0.406554,-0.3460299,-0.4827366" rotation="355.0001,8.212191E-06,-5.086225E-06" name="Seat Right" commandPodId="53" materials="3,1,0,1,1">
+        <Drag drag="0.0001724219,0.03411893,0.03925313,0.1359416,0,0.1882297" area="0.0002231857,0.03950376,0.06139401,0.1413983,0,0.2166985" />
+        <Config heatShieldScale="0" />
+        <EvaChair snapRange="5" version="2">
+          <armTargets x="-1" y="-1" z="407" w="399" />
+          <legTargets x="-1" y="-1" z="-1" w="-1" />
+        </EvaChair>
+        <CrewCompartment crewExitPosition="0.9000116,0.5000007,0.2000184" crewExitRotation="-5.508794E-05,89.99954,0.0001284393" />
+      </Part>
+      <Part id="306" partType="RoverWheel1" position="-0.9326441,-0.684074,-1.42673" rotation="358,270,-5.018977E-06" name="Offroad Wheel RL" commandPodId="53" materials="4,17,0,1,1">
+        <Drag drag="0.02463576,0.2008428,0.2011235,0.1991353,0.5328281,0.0005746362" area="0.04843105,0.3024133,0.3110377,0.307401,0.6077462,0.001283494" />
+        <Config heatShieldScale="0" maxTemperature="700" />
+        <ResizableWheel brakeTorque="10000" direction="Reversed" directionReverse="true" gearRatio="0.7" size="0.900000036" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="612.2449" tractionForward="0.7" tractionSideways="0.8" width="0.8" version="3" />
+        <InputController inputId="Turn" inspectorEnabled="false" partPropertiesEnabled="false" />
+        <InputController input="Pitch" inputId="RPM" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="307" partType="RoverWheel1" position="-0.9318799,-0.72483,1.112881" rotation="12.46819,272.7517,-4.371976E-07" name="Offroad Wheel FL" commandPodId="53" materials="4,17,0,1,1">
+        <Drag drag="0.2020329,0.02931656,0.2240619,0.227816,0.517701,0.003584556" area="0.3168072,0.06193357,0.3602395,0.3756419,0.6197258,0.009412286" />
+        <Config heatShieldScale="0" maxTemperature="700" />
+        <ResizableWheel brakeTorque="1500" direction="Reversed" directionReverse="true" gearRatio="0.7" size="0.900000036" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="102.040817" tractionForward="1.5" tractionSideways="0.5" turningAngle="30" width="0.8" version="3" />
+        <InputController inputId="Turn" />
+        <InputController input="Pitch" inputId="RPM" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="310" partType="Strut1" position="0.006553006,0.02341822,0.4185067" rotation="1.315451E-12,180,-5.155638E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.2319881,0,0,0.1520048,0.0124071,0.1501691" area="0.2328968,0,0,0.180118,0.0124071,0.1501691" />
+        <Config centerOfMass="2.500999E-08,0.05102267,0.0005929815" heatShieldScale="0" />
+        <Fuselage bottomScale="0.735,0.075" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.348512E-08,0.3750049,0.004358232" topScale="0.7345,0.1412822" volume="0.238364846" volumeInner="0.222499683" version="3" />
+      </Part>
+      <Part id="311" partType="Strut1" position="0.006553146,0.3756754,0.2783661" rotation="60.00002,180,-1.031128E-05" name="Dash" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.03306868,0,0.1878122,0,0.01283493,0.03615176" area="0.06639734,0,0.2539208,0,0.01283493,0.03615176" />
+        <Config centerOfMass="1.123012E-08,3.916372E-10,4.382074E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.735,0.1124885" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.504493E-08,0.1250001,2.235174E-08" topScale="0.735,0.1124885" volume="0.08267911" volumeInner="0.0751345158" version="3" />
+      </Part>
+      <Part id="348" partType="Light1" position="0.3773631,-0.01432745,1.372844" rotation="350.344,182.613,74.77925" name="Headlight" activationGroup="1" commandPodId="53" materials="6,4,4,4,4" symmetryId="7b5af52c-cf14-47f0-89c5-a2370903afcd">
+        <Drag drag="0.04925787,0.001852004,0.03307221,0.0393521,0,0.02915377" area="0.06115243,0.004017344,0.04492237,0.05240948,0,0.04342495" />
+        <Config heatShieldScale="0" symmetryId="328e6308-7ec7-410c-9929-d2de70cdf773" />
+        <LightPart extension="0.3" hideBase="true" range="150" rotation="-85" spotLightAngle="60" symmetryId="87816509-b3ad-44ea-a27d-e9f575d56526" />
+        <Light color="0.9098039,1,1,1" intensity="1.375" range="150" rotationX="270" symmetryId="5078cf1d-5a3b-4101-ba80-98e36bc23d48" />
+      </Part>
+      <Part id="349" partType="Light1" position="-0.3642548,-0.01432743,1.372844" rotation="350.344,177.3871,285.2208" name="Headlight" activationGroup="1" commandPodId="53" materials="6,4,4,4,4" symmetryId="7b5af52c-cf14-47f0-89c5-a2370903afcd" mirrored="true">
+        <Drag drag="0.04916773,0.001546546,0.03333226,0.03920611,0.02854222,0" area="0.06159879,0.003682565,0.04599196,0.05283732,0.0440667,0" />
+        <Config heatShieldScale="0" symmetryId="328e6308-7ec7-410c-9929-d2de70cdf773" />
+        <LightPart extension="0.3" hideBase="true" range="150" rotation="-85" spotLightAngle="60" symmetryId="87816509-b3ad-44ea-a27d-e9f575d56526" />
+        <Light color="0.9098039,1,1,1" intensity="1.375" range="150" rotationX="270" symmetryId="5078cf1d-5a3b-4101-ba80-98e36bc23d48" />
+      </Part>
+      <Part id="354" partType="Mfd1" position="0.4254012,0.4298674,0.1845024" rotation="29.99998,1.70445E-05,1.163479E-05" name="Nav Screen" commandPodId="53" materials="22,22,22,22,22">
+        <Drag drag="0,0,0.007138066,0,0,0.0008556626" area="0,0,0.01433234,0,0,0.0008556626" />
+        <Config heatShieldScale="0" />
+        <Mfd height="0.215662658" mfdProgram="Navball" width="0.3313253" wattsperm2="80" />
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1" />
+      </Part>
+      <Part id="355" partType="Mfd1" position="0.006555146,0.4298674,0.1845025" rotation="29.99999,-1.729644E-05,1.119646E-05" name="Map Screen" commandPodId="53" materials="22,22,22,22,22">
+        <Drag drag="0,0,0.009375375,0,0,0" area="0,0,0.01882457,0,0,0" />
+        <Config heatShieldScale="0" />
+        <Mfd height="0.215662658" mfdProgram="Map" width="0.466265082" wattsperm2="80" />
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1" />
+      </Part>
+      <Part id="356" partType="Mfd1" position="-0.6122932,0.4298674,0.1845024" rotation="29.99999,-1.729644E-05,1.119646E-05" name="Basic Information Screen" commandPodId="53" materials="22,22,22,22,22">
+        <Drag drag="0,0,0.003515767,0,0.005347891,0" area="0,0,0.007059215,0,0.005347891,0" />
+        <Config heatShieldScale="0" />
+        <Mfd height="0.215662658" mfdProgram="Basic" width="0.215662658" wattsperm2="80" />
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1" />
+      </Part>
+      <Part id="357" partType="Rotator1" position="-0.3985957,0.4283602,0.1870793" rotation="75.00005,180,-2.096808E-05" name="Steering Rotator" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0,0.00686795,0,0.007009722,0.00722196" area="0,0,0.009626201,0,0.01048186,0.01069578" />
+        <Config heatShieldScale="0" />
+        <JointRotator baseMode="None" consumptionMultiplier="1" range="40" speed="1" version="2" />
+        <InputController input="Yaw" invert="true" invertOnMirror="false" inputId="Rotator" />
+      </Part>
+      <Part id="358" partType="Fuselage1" position="-0.398596,0.4572,0.05864595" rotation="75.0001,180,180" name="Steering Wheel" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0,0,0.0005117198,0,0.0008489516,0.001121589" area="0,0,0.000641747,0,0.001069578,0.00149741" />
+        <Config centerOfMass="1.235255E-08,0.00128819,-0.0004353038" heatShieldScale="0" />
+        <Fuselage bottomScale="0.035,0.02422219" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="1.489373E-07,0.01592635,-0.005381824" topScale="0.035,0.035" volume="0.0001025289" volumeInner="3.63118161E-05" version="3" />
+        <FuelTank capacity="0.0563909187912941" fuel="0.0563909187912941" fuelType="None" />
+      </Part>
+      <Part id="365" partType="Light1" position="0.1785428,1.10099,0.0328483" rotation="329.999,180,-3.488893E-06" name="Roof Light" activationGroup="2" commandPodId="53" materials="6,0,0,0,0" mirrored="true">
+        <Drag drag="0.02613944,0.02324545,0.01711408,0,0,0" area="0.02789823,0.02544319,0.02246113,0,0,0" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.1" scale="0.75" hideBase="true" range="400" rotation="-60" spotLightAngle="50" />
+        <Light color="0.9098039,1,1,1" range="400" rotationX="270" spotLightAngle="50" />
+      </Part>
+      <Part id="368" partType="Light1" position="0.5135121,1.10099,0.0328483" rotation="329.999,185,-4.066685E-06" name="Roof Light" activationGroup="2" commandPodId="53" materials="6,0,0,0,0" mirrored="true">
+        <Drag drag="0.02570749,0.02274744,0.01681964,0,0,0.01610574" area="0.02979531,0.0268939,0.02246113,0,0,0.02160547" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.1" scale="0.75" hideBase="true" range="400" rotation="-60" spotLightAngle="50" />
+        <Light color="0.9098039,1,1,1" intensity="1.03298616" range="400" rotationX="270" spotLightAngle="50" />
+      </Part>
+      <Part id="372" partType="Light1" position="-0.1654345,1.10099,0.0328483" rotation="329.999,180,3.488894E-06" name="Roof Light" activationGroup="2" commandPodId="53" materials="6,0,0,0,0" mirrored="true">
+        <Drag drag="0.02581297,0.0231448,0.01684648,0,0,0" area="0.02890257,0.02611274,0.02246113,0,0,0" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.1" scale="0.75" hideBase="true" range="400" rotation="-60" spotLightAngle="50" />
+        <Light color="0.9098039,1,1,1" intensity="1.03298616" range="400" rotationX="270" spotLightAngle="50" />
+      </Part>
+      <Part id="373" partType="Light1" position="-0.5004041,1.10099,0.0328483" rotation="329.999,175,3.820219E-06" name="Roof Light" activationGroup="2" commandPodId="53" materials="6,0,0,0,0" mirrored="true">
+        <Drag drag="0.02580508,0.02321219,0.01616531,0,0.01594971,0" area="0.03068805,0.02767505,0.02181938,0,0.02160547,0" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.1" scale="0.75" hideBase="true" range="400" rotation="-60" spotLightAngle="50" />
+        <Light color="0.9098039,1,1,1" intensity="1.03298616" range="400" rotationX="270" spotLightAngle="50" />
+      </Part>
+      <Part id="380" partType="Fuselage1" position="-0.2401975,0.4326479,-1.456538" rotation="90,180,0" name="Gas Can" commandPodId="53" materials="17,17,17,17,17" texture="Default">
+        <Drag drag="0,0.01964035,0.1779788,0.0489868,0.01026795,0" area="0,0.01964035,0.1779788,0.0489868,0.01026795,0" />
+        <Config centerOfMass="2.304247E-09,-7.419831E-10,1.880016E-08" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1881622,0.2381622" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="8.972358E-09,0.2382671,7.271767E-06" topScale="0.1881622,0.2381622" volume="0.08541994" volumeInner="0.07956426" version="3" />
+        <FuelTank autoFuelType="false" capacity="46.9809684753418" fuel="46.9809684753418" fuelType="Jet" subPriority="14" />
+      </Part>
+      <Part id="381" partType="Generator1" position="-0.2349476,0.5181378,-1.658783" rotation="89.98022,180,0" name="Fuel Cell" activationGroup="8" commandPodId="53" materials="3,4,18,17,0">
+        <Drag drag="0,0.006394053,0.02682249,0,0.001712164,0.001322922" area="0,0.008481061,0.02802293,0,0.002139157,0.001711325" />
+        <Config />
+        <Generator fuelConsumptionScale="0.1" scale="0.35" soundVolume="0.5" version="3" />
+      </Part>
+      <Part id="383" partType="Strut1" position="0.7405661,0.273975,-0.3932694" rotation="0.01394949,269.0001,0.799875" name="Chassis" commandPodId="53" materials="3,3,3,3,3" texture="Default">
+        <Drag drag="0,0,0.0136906,0,0,0.04834505" area="0,0,0.0136906,0,0,0.04834505" />
+        <Config centerOfMass="9.230509E-09,5.683153E-10,3.372813E-10" heatShieldScale="0" />
+        <Fuselage bottomScale="0.5,0.0081" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-1.433614E-09,0.02500001,5.209386E-09" topScale="0.5,0.0081" volume="0.000810000231" volumeInner="0.000369900226" version="3" />
+      </Part>
+      <Part id="385" partType="Strut1" position="-0.7208363,-0.001998243,0.3266298" rotation="-1.193903E-05,90,3.285601E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.0006669313,0,0.000641747,1.761658E-05,0.2231161,0" area="0.000669557,0,0.000641747,0.0002139157,0.2231161,0" />
+        <Config centerOfMass="0.002982308,0.03919433,-4.848231E-05" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1456558,0.0073681" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0.02282708,0.3,-0.0003710929" topScale="0.2412826,0.008110812" volume="0.00360783515" volumeInner="0.00225505047" version="3" />
+      </Part>
+      <Part id="386" partType="Strut1" position="-0.7206277,0.4028446,0.2585329" rotation="-1.193903E-05,90,3.285601E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="5.951618E-05,0,0.0003749816,0,0.04791722,0" area="0.0001115928,0,0.000641747,0,0.04791722,0" />
+        <Config centerOfMass="-0.02182515,-0.05054784,-0.0002795523" heatShieldScale="0" />
+        <Fuselage bottomScale="0.2412826,0.008110812" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0.04526834,0.1048431,0.0005798303" topScale="0,0.006208947" volume="0.000756562746" volumeInner="0.00042933214" version="3" />
+      </Part>
+      <Part id="387" partType="Strut1" position="-0.6061168,0.4100103,0.8007119" rotation="87.9789,180,179.9998" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0.003303147,0,0.1760535,0.1088826,0.04684763,0" area="0.02030991,0,0.1760535,0.1093107,0.04684763,0" />
+        <Config centerOfMass="0.0005647748,-0.1551053,0.008667105" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1234009,0.05250105" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-0.001547593,0.4250196,-0.02374959" topScale="0.125,0.005" volume="0.012119852" volumeInner="0.009370916" version="3" />
+      </Part>
+      <Part id="388" partType="Strut1" position="0.7339447,-0.001998243,0.3266298" rotation="-1.193903E-05,270,-3.285601E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0,0,0,1.761658E-05,0,0.09904283" area="0,0,0,0.0002139157,0,0.09904283" />
+        <Config centerOfMass="-0.002982304,0.03919431,-4.848217E-05" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1456558,0.0073681" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-0.02282708,0.3,-0.0003710929" topScale="0.2412826,0.008110812" volume="0.00360783515" volumeInner="0.00225505047" version="3" />
+      </Part>
+      <Part id="389" partType="Strut1" position="0.7337359,0.4028446,0.2585329" rotation="-1.193903E-05,270,-3.285601E-06" name="Chassis" commandPodId="53" materials="0,0,0,0,0" texture="Default">
+        <Drag drag="0,0,0.0003749816,0,0,0.004278314" area="0,0,0.000641747,0,0,0.004278314" />
+        <Config centerOfMass="0.02182516,-0.05054784,-0.0002795526" heatShieldScale="0" />
+        <Fuselage bottomScale="0.2412826,0.008110812" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-0.04526834,0.1048431,0.0005798303" topScale="0,0.006208947" volume="0.0007565627" volumeInner="0.00042933214" version="3" />
+      </Part>
+      <Part id="390" partType="Strut1" position="-0.7274579,0.273975,-0.3932694" rotation="0.01394951,90.99992,359.2001" name="Chassis" commandPodId="53" materials="3,0,0,0,0" texture="Default">
+        <Drag drag="8.752379E-06,0,0.01540192,0,0.0477033,0" area="0.0005579641,0,0.01540192,0,0.0477033,0" />
+        <Config centerOfMass="9.230509E-09,5.683153E-10,3.372813E-10" heatShieldScale="0" />
+        <Fuselage bottomScale="0.5,0.0081" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="1.433614E-09,0.02500001,5.209386E-09" topScale="0.5,0.0081" volume="0.000810000231" volumeInner="0.000369900226" version="3" />
+      </Part>
+      <Part id="391" partType="Fuselage1" position="-0.2504936,-0.1732821,0.2915429" rotation="60.00002,180,180" name="Gas Pedal" commandPodId="53" materials="4,4,3,3,3" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config centerOfMass="-2.971194E-10,-1.184532E-10,5.765484E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.05,0.1" cornerRadiuses="0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="1.788128E-07,0.01592636,7.03151E-06" topScale="0.05,0.1" volume="0.0006133959" volumeInner="0.000332098716" version="3" />
+        <FuelTank capacity="0.32782229781150818" fuel="0.32782229781150818" fuelType="None" subPriority="2" />
+      </Part>
+      <Part id="392" partType="Fuselage1" position="-0.5571914,-0.1732821,0.2915429" rotation="60.00002,180,180" name="Brake Pedal" commandPodId="53" materials="4,3,3,3,3" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config centerOfMass="-7.336872E-10,-5.018932E-10,3.023183E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.05,0.075" cornerRadiuses="0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-1.792222E-07,0.01592636,7.028691E-06" topScale="0.05,0.075" volume="0.000460046838" volumeInner="0.00024194314" version="3" />
+        <FuelTank capacity="0.24586668610572815" fuel="0.24586668610572815" fuelType="None" subPriority="2" />
+      </Part>
+      <Part id="393" partType="Light1" position="0.5991095,0.2070561,-1.860247" rotation="85.83261,3.038551E-05,180" name="Brakelight" activationGroup="3" commandPodId="53" materials="5,4,4,4,4" style="SquareSpotlight">
+        <Drag drag="0,0.03410891,0.005700224,0.03215196,0,0.01525596" area="0,0.0377183,0.005775722,0.03379867,0,0.01604367" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.3" scale="0.8" hideBase="true" intensity="0.5" range="50" spotLightAngle="105" />
+        <Light color="0.5450981,0,0,1" intensity="0.320000023" mask="Square1" range="50" rotationX="270" spotLightAngle="105" />
+      </Part>
+      <Part id="397" partType="Light1" position="-0.5860013,0.2070561,-1.860247" rotation="85.83261,-3.038551E-05,180" name="Brakelight" activationGroup="3" commandPodId="53" materials="5,4,4,4,4" style="SquareSpotlight">
+        <Drag drag="0,0.03452247,0.005539997,0.03215364,0.02927624,0" area="0,0.03749512,0.005561807,0.03379867,0.030376,0" />
+        <Config heatShieldScale="0" />
+        <LightPart extension="0.3" scale="0.8" hideBase="true" intensity="0.5" range="50" spotLightAngle="105" />
+        <Light color="0.5450981,0,0,1" intensity="0.320000023" mask="Square1" range="50" rotationX="270" spotLightAngle="105" />
+      </Part>
+      <Part id="399" partType="Label1" position="0.7054092,0.5857583,-1.350116" rotation="2.099407,99.51311,355.2874" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" />
+        <Label designText="JUNDROO" fontSize="0.75" />
+      </Part>
+      <Part id="400" partType="Label1" position="-0.692301,0.5857583,-1.350116" rotation="2.099408,260.4869,4.712656" commandPodId="53" materials="4,4,4,4,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" />
+        <Label designText="MODX-OR" fontSize="0.75" />
+      </Part>
+      <Part id="402" partType="Fuselage1" position="-0.5261698,0.4855183,-0.08552757" rotation="70.00024,180,250" name="Steering Wheel" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.001073042,0,0.002502394,0,0.003988898,0" area="0.001785485,0,0.004064398,0,0.00492006,0" />
+        <Config centerOfMass="1.490443E-08,0.001771335,0.001578603" heatShieldScale="0" />
+        <Fuselage bottomScale="0.025,0.1" clampDistances="-1,1,-1,1,-1,1,-0.7,0.75" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="2.078901E-07,0.02499999,7.047021E-06" topScale="0.025,0.1" volume="0.0004312497" volumeInner="0.000230197242" version="3" />
+        <FuelTank capacity="0.23718740046024323" fuel="0.23718740046024323" fuelType="None" />
+      </Part>
+      <Part id="403" partType="Fuselage1" position="-0.2711698,0.4850233,-0.08552757" rotation="289.9999,0.0001347989,69.99986" name="Steering Wheel" commandPodId="53" materials="3,3,3,3,3">
+        <Drag drag="0.0008997445,0,0.002364817,0,7.298299E-05,0.009734422" area="0.001897078,0,0.003636567,0,0.0002139157,0.01197927" />
+        <Config centerOfMass="-1.530794E-08,-0.001771335,-0.001578599" heatShieldScale="0" />
+        <Fuselage bottomScale="0.025,0.1" clampDistances="-1,1,-0.75,0.7,-1,1,-1,1" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="2.078901E-07,0.02499999,7.047021E-06" topScale="0.025,0.1" volume="0.000431249733" volumeInner="0.000230197213" version="3" />
+        <FuelTank capacity="0.23718735575675964" fuel="0.23718735575675964" fuelType="None" />
+      </Part>
+      <Part id="404" partType="CargoBay1" position="-0.3985962,0.5255942,-0.07575698" rotation="29.9999,-2.07477E-06,-7.083719E-06" name="Steering Wheel" commandPodId="53" materials="4,2,4,4,3" partStyle="CargoBay-8">
+        <Drag drag="0,0,0.001551937,0,0.003986381,0.003568616" area="0,0,0.002353073,0,0.005561807,0.004706145" />
+        <Config centerOfMass="1.211695E-09,4.544035E-10,5.180403E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.15,0.15" deadWeightPercentage="-10" deformations="0,0,0" depthCurve="0" meshMassMultiplier="0.6" offset="0,0.02500553,-6.332932E-08" topScale="0.15,0.15" volume="0.00349483" volumeInner="0.0025610202" version="3" />
+        <CargoBay openAngle="0" openSpeed="0" secondaryDoorAngle="0" soundVolume="0" />
+        <SubPartRotator enabledRotation="0,0,0" />
+        <SubPartRotator enabledRotation="0,0,0" />
+      </Part>
+      <Part id="405" partType="Eva" position="-0.3934458,0.2087747,-0.4288862" rotation="355,-8.212152E-06,5.086225E-06" name="Drood" commandPodId="405" materials="15,16,17,18,19">
+        <Drag drag="0.1139149,0.04448925,0.2064111,0.0009546512,0.3447066,0.03526757" area="0.1737515,0.06349587,0.3153161,0.00149741,0.4524395,0.04941464" />
+        <Config heatShieldScale="0" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" pidPitch="10,0,0" pidRoll="0.6,0,0" pilotSeatRotation="5.000017,7.798533E-06,-4.387181E-06" stageCalculationVersion="2">
+          <Controls />
+        </CommandPod>
+        <Eva crewId="1" crewName="Yuri G." />
+        <CameraVantage nightVisionColor="#80FF8080" />
+        <FuelTank subPriority="-4" />
+      </Part>
+      <Part id="406" partType="Eva" position="0.4065541,0.2087745,-0.4288852" rotation="355.0001,8.212191E-06,-5.086225E-06" name="Drood" commandPodId="406" materials="15,16,17,18,19">
+        <Drag drag="0.136956,0.04556226,0.2363289,0.005741329,0.003306884,0.3073584" area="0.1981908,0.06684372,0.3750001,0.009840117,0.007700962,0.4064465" />
+        <Config heatShieldScale="0" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" pidPitch="10,0,0" pidRoll="0.6,0,0" pilotSeatRotation="4.999908,-7.798581E-06,4.387193E-06" stageCalculationVersion="2">
+          <Controls />
+        </CommandPod>
+        <Eva crewId="2" crewName="Sally R." />
+        <CameraVantage nightVisionColor="#80FF8080" />
+        <FuelTank subPriority="-4" />
+      </Part>
+      <Part id="407" partType="CargoBay1" position="0.7396485,0.2754033,-0.3732547" rotation="280,5.900024E-05,88.77425" name="Steering Wheel" commandPodId="53" materials="3,3,3,3,3" partStyle="CargoBay-8">
+        <Drag drag="0,0,0,0,0,0.0008573404" area="0,0,0,0,0,0.001069578" />
+        <Config centerOfMass="3.3438E-09,-7.319902E-12,7.41988E-10" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1,0.025" deadWeightPercentage="-10" deformations="0,0,0" depthCurve="0" meshMassMultiplier="0.6" offset="0,0.005005545,0" topScale="0.1,0.025" volume="7.773183E-05" volumeInner="3.0412144E-05" version="3" />
+        <CargoBay openAngle="0" openSpeed="0" secondaryDoorAngle="0" soundVolume="0" />
+        <SubPartRotator enabledRotation="0,0,0" />
+        <SubPartRotator enabledRotation="0,0,0" />
+      </Part>
+      <Part id="408" partType="Fuselage1" position="0.2533059,0.4326452,-1.55246" rotation="90,180,0" name="Gas Can" commandPodId="53" materials="17,17,17,17,17" texture="Default">
+        <Drag drag="0,0.02034663,0.1536824,0.1204342,0.002983075,0.0136369" area="0,0.02109106,0.2156289,0.1204342,0.00299482,0.0136906" />
+        <Config centerOfMass="-7.973759E-10,-0.03866796,0.02748123" heatShieldScale="0" />
+        <Fuselage bottomScale="0.1881622,0.2381622" cornerRadiuses="0,0,0,0,0,0,0,0" deadWeightPercentage="0" deformations="0.27,0.19,0.27" depthCurve="0" offset="-5.86641E-10,0.3341885,1.296401E-05" topScale="0.1881622,0.2381622" volume="0.09430054" volumeInner="0.08782412" version="3" />
+        <FuelTank autoFuelType="false" capacity="51.86529541015625" fuel="51.86529541015625" fuelType="Jet" subPriority="15" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="137" partB="136" attachPointsA="1" attachPointsB="0" symmetryId="a86b73e5-cf15-48fd-bcba-b297a56ebc40">
+        <BodyJoint body="1" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.2549873,-0.5855379,1.066077" connectedPosition="-0.9744502,0.2534295,0.08791733" axis="-3.814697E-06,-5.960464E-08,1" secondaryAxis="-0.2588192,-0.9659263,-1.043081E-06" />
+      </Connection>
+      <Connection partA="173" partB="172" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="1" connectedBody="3" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.273986,-0.5855379,0.8660781" connectedPosition="0.9744499,0.2534296,-0.08791614" axis="3.576279E-07,4.172325E-07,-1" secondaryAxis="0.2588191,-0.9659263,-3.129244E-07" />
+      </Connection>
+      <Connection partA="183" partB="137" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="184" partB="173" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="182" partB="183" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="4" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.09128714,0.020208,-0.004387498" connectedPosition="0.1371831,-0.0352881,-0.01647043" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="186" partB="183" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="194" partB="186" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="2" connectedBody="6" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.04017299,0.09015763,-0.01208699" connectedPosition="0.04852945,-0.1811157,6.914139E-06" axis="-1.084805E-05,-4.070997E-05,-1" secondaryAxis="-0.9659256,-0.2588208,2.098083E-05" />
+      </Connection>
+      <Connection partA="195" partB="184" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="196" partB="195" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="3" connectedBody="7" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.04017305,0.09015775,0.01207876" connectedPosition="-0.04852933,-0.1811157,6.914139E-06" axis="-1.013279E-05,4.070997E-05,1" secondaryAxis="0.9659256,-0.258821,2.026558E-05" />
+      </Connection>
+      <Connection partA="196" partB="197" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="7" connectedBody="8" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.04852867,0.1811111,-6.914139E-06" connectedPosition="-0.0647049,-0.2414822,8.106232E-06" axis="0.2588194,0.9659259,-3.701448E-05" secondaryAxis="0.9659259,-0.2588195,1.853704E-05" />
+      </Connection>
+      <Connection partA="172" partB="125" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="136" partB="125" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="233" partB="197" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="8" connectedBody="9" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.06470484,0.2414814,-9.298325E-06" connectedPosition="-0.0003634095,-0.001352251,1.66893E-06" axis="0.2588193,0.9659259,-3.7089E-05" secondaryAxis="-0.9659259,0.2588193,-1.829863E-05" />
+      </Connection>
+      <Connection partA="53" partB="233" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="9" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.02870828,0.1071407,-4.053116E-06" connectedPosition="-0.4850976,0.2048737,0.966036" axis="-8.225441E-06,4.053116E-05,1" secondaryAxis="0.9659259,-0.2588195,1.853704E-05" />
+      </Connection>
+      <Connection partA="53" partB="125" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="125" partB="131" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="244" partB="131" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="252" partB="131" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="253" partB="252" attachPointsA="2" attachPointsB="0">
+        <BodyJoint body="1" connectedBody="10" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.5860996,-0.5965335,-0.03183454" connectedPosition="0.003042221,0.1943941,1.418781" axis="-1,-1.518075E-08,-1.611886E-07" secondaryAxis="1.30399E-08,0.9848078,-0.1736477" />
+      </Connection>
+      <Connection partA="256" partB="253" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="258" partB="257" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="263" partB="256" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="260" partB="263" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="10" connectedBody="11" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.003043175,0.1120086,-0.1729162" connectedPosition="-0.01684099,0.05372894,-0.00868082" axis="1,1.425662E-07,1.192099E-07" secondaryAxis="1.192086E-07,9.119511E-06,-1" />
+      </Connection>
+      <Connection partA="272" partB="131" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="273" partB="272" attachPointsA="2" attachPointsB="0">
+        <BodyJoint body="1" connectedBody="13" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.6050976,-0.5965335,-0.03183454" connectedPosition="-0.003042638,0.1943941,1.418781" axis="-1,-1.518076E-08,-1.100055E-08" secondaryAxis="-1.303992E-08,0.9848078,-0.1736477" />
+      </Connection>
+      <Connection partA="274" partB="273" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="275" partB="274" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="276" partB="274" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="13" connectedBody="14" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.2470142,-0.06604642,-0.1229184" connectedPosition="-0.09354299,-0.003266633,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="277" partB="275" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="13" connectedBody="15" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.003042996,0.1120086,-0.1729162" connectedPosition="0.01684135,0.05372894,-0.00868082" axis="1,-1.425662E-07,-1.192099E-07" secondaryAxis="-1.192086E-07,9.119511E-06,-1" />
+      </Connection>
+      <Connection partA="262" partB="259" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="12" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.0420357,0.115492,0.02167237" connectedPosition="-0.2915102,0.03045508,-1.471653" axis="0.05939078,0.1631851,-0.9848063" secondaryAxis="-0.9396929,0.3420197,3.486872E-06" />
+      </Connection>
+      <Connection partA="279" partB="259" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="17" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.0420357,0.115492,0.02167249" connectedPosition="0.3105093,0.03045505,-1.471652" axis="0.05939102,-0.1631859,0.9848062" secondaryAxis="0.9396929,0.3420199,3.546476E-06" />
+      </Connection>
+      <Connection partA="282" partB="260" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="11" connectedBody="20" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="0.0420357,0.115492,0.02167237" connectedPosition="-0.03789437,-0.1041125,-0.01953661" axis="0.05939108,0.1631846,-0.9848064" secondaryAxis="-0.9396927,0.3420201,3.099442E-06" />
+      </Connection>
+      <Connection partA="281" partB="262" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="19" connectedBody="12" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.05894428,0.1619476,0.03038967" connectedPosition="-1.192093E-07,-1.549721E-06,-3.576279E-07" axis="0.3368247,0.9254152,0.1736552" secondaryAxis="0.9396927,-0.3420208,-3.546476E-06" />
+      </Connection>
+      <Connection partA="281" partB="282" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="20" connectedBody="19" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.03789276,0.1041092,0.01953626" connectedPosition="-0.05894446,-0.1619481,-0.03039074" axis="0.3368244,0.9254152,0.1736555" secondaryAxis="-0.9396927,0.3420202,3.635883E-06" />
+      </Connection>
+      <Connection partA="280" partB="277" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="15" connectedBody="18" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.04203576,0.115492,0.02167225" connectedPosition="0.03789383,-0.1041125,-0.01953673" axis="0.05939031,-0.1631837,0.9848065" secondaryAxis="0.9396927,0.3420202,3.546476E-06" />
+      </Connection>
+      <Connection partA="284" partB="283" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="285" partB="283" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="287" partB="285" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="286" partB="53" attachPointsA="0" attachPointsB="3" />
+      <Connection partA="289" partB="286" attachPointsA="0" attachPointsB="1" />
+      <Connection partA="290" partB="289" attachPointsA="0" attachPointsB="1" />
+      <Connection partA="259" partB="258" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="291" partB="258" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="257" partB="131" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="293" partB="131" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="283" partB="131" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="295" partB="131" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="299" partB="125" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="53" partB="300" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="21" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.02870828,0.1071407,-4.172325E-06" connectedPosition="0.5040965,0.2048737,0.9660359" axis="-7.867813E-06,-4.056096E-05,-1" secondaryAxis="-0.9659259,-0.2588195,1.814961E-05" />
+      </Connection>
+      <Connection partA="187" partB="300" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="5" connectedBody="21" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.06470484,0.2414815,-9.179115E-06" connectedPosition="0.0003624558,-0.001352131,1.788139E-06" axis="-0.2588193,0.9659259,-3.691018E-05" secondaryAxis="0.9659258,0.2588193,-1.847744E-05" />
+      </Connection>
+      <Connection partA="187" partB="194" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="6" connectedBody="5" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.04852861,0.1811111,-6.914139E-06" connectedPosition="0.06470579,-0.2414823,8.106232E-06" axis="-0.2588195,0.9659258,-3.680587E-05" secondaryAxis="-0.9659261,-0.2588196,1.92821E-05" />
+      </Connection>
+      <Connection partA="304" partB="131" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="306" partB="256" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="10" connectedBody="22" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.247014,-0.06604642,-0.1229184" connectedPosition="0.09354305,-0.003266633,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="307" partB="184" attachPointsA="0" attachPointsB="0">
+        <BodyJoint body="23" connectedBody="3" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.09128714,0.020208,-0.004387617" connectedPosition="-0.1371834,-0.03528798,0.007695198" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="310" partB="299" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="311" partB="310" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="348" partB="283" attachPointsA="0" attachPointsB="0" symmetryId="fbd76169-b5b3-455c-9f01-f8b96d1370f0" />
+      <Connection partA="349" partB="283" attachPointsA="0" attachPointsB="0" symmetryId="fbd76169-b5b3-455c-9f01-f8b96d1370f0" />
+      <Connection partA="354" partB="311" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="355" partB="311" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="356" partB="311" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="357" partB="311" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="358" partB="357" attachPointsA="2" attachPointsB="0">
+        <BodyJoint body="1" connectedBody="24" breakTorque="1E+07" breakForce="0" jointType="Hinge" position="-0.3956504,0.2783969,-0.033135" connectedPosition="2.923608E-05,-0.05674228,0.1844943" axis="-4.50406E-07,0.2588183,-0.9659261" secondaryAxis="2.262662E-08,0.9659261,0.2588182" />
+      </Connection>
+      <Connection partA="365" partB="310" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="368" partB="310" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="372" partB="310" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="373" partB="310" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="380" partB="259" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="381" partB="380" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="383" partB="295" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="385" partB="295" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="385" partB="386" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="387" partB="284" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="388" partB="295" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="388" partB="389" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="390" partB="295" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="391" partB="131" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="392" partB="391" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="393" partB="259" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="278" partB="279" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="16" connectedBody="17" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.05894426,0.1619476,0.0303899" connectedPosition="5.960464E-08,5.960464E-08,-1.192093E-07" axis="-0.3368244,0.9254151,0.1736563" secondaryAxis="-0.9396927,-0.3420208,-2.354383E-06" />
+      </Connection>
+      <Connection partA="278" partB="280" attachPointsA="1" attachPointsB="0">
+        <BodyJoint body="18" connectedBody="16" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.0378927,0.1041092,0.01953626" connectedPosition="0.05894431,-0.1619497,-0.03039074" axis="-0.336824,0.9254154,0.1736552" secondaryAxis="0.9396929,0.3420199,3.457069E-06" />
+      </Connection>
+      <Connection partA="397" partB="259" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="399" partB="291" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="400" partB="291" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="402" partB="358" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="403" partB="358" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="404" partB="358" attachPointsA="2" attachPointsB="5" />
+      <Connection partA="405" partB="244" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="25" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0,0,0" connectedPosition="-0.3905004,0.03914121,-0.5756902" axis="5.536091E-08,-0.08715603,-0.9961947" secondaryAxis="-7.627938E-08,0.9961947,-0.08715603" />
+      </Connection>
+      <Connection partA="407" partB="291" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="406" partB="304" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="26" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0,0,0" connectedPosition="0.4094994,0.03914109,-0.5756891" axis="-2.302072E-07,-0.08715414,-0.9961948" secondaryAxis="7.62796E-08,0.9961948,-0.08715414" />
+      </Connection>
+      <Connection partA="292" partB="380" attachPointsA="1" attachPointsB="4" />
+      <Connection partA="408" partB="259" attachPointsA="3" attachPointsB="0" />
+    </Connections>
+    <Collisions>
+      <Collision partA="125" partB="137" colliderNameA="Collider" colliderNameB="Collider" />
+      <Collision partA="136" partB="137" colliderNameA="RotatorCylinder" colliderNameB="Collider" />
+      <Collision partA="125" partB="173" colliderNameA="Collider" colliderNameB="Collider" />
+      <Collision partA="172" partB="173" colliderNameA="RotatorCylinder" colliderNameB="Collider" />
+      <Collision partA="284" partB="233" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="284" partB="233" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="284" partB="233" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="252" partB="253" colliderNameA="RotatorCylinder" colliderNameB="Collider" />
+      <Collision partA="257" partB="262" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="259" partB="262" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="259" partB="262" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="259" partB="262" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="380" partB="262" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="380" partB="262" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="380" partB="262" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="272" partB="273" colliderNameA="RotatorCylinder" colliderNameB="Collider" />
+      <Collision partA="257" partB="279" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="259" partB="279" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="259" partB="279" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="259" partB="279" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="408" partB="279" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="408" partB="279" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="408" partB="279" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="285" partB="300" colliderNameA="Collider" colliderNameB="RotatorCylinder" />
+      <Collision partA="285" partB="300" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="285" partB="300" colliderNameA="Collider" colliderNameB="HingeBase" />
+      <Collision partA="357" partB="358" colliderNameA="Axel" colliderNameB="Collider" />
+      <Collision partA="186" partB="194" colliderNameA="RotatorCylinder" colliderNameB="BottomPoint" />
+      <Collision partA="195" partB="196" colliderNameA="RotatorCylinder" colliderNameB="BottomPoint" />
+      <Collision partA="187" partB="194" colliderNameA="BottomPoint" colliderNameB="TopShaftMeshOrigin" />
+      <Collision partA="187" partB="300" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="187" partB="300" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="196" partB="197" colliderNameA="TopShaftMeshOrigin" colliderNameB="BottomPoint" />
+      <Collision partA="197" partB="233" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="197" partB="233" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="263" partB="260" colliderNameA="RotatorCylinder" colliderNameB="RotatorCylinder" />
+      <Collision partA="263" partB="260" colliderNameA="RotatorCylinder" colliderNameB="HingeBase" />
+      <Collision partA="263" partB="260" colliderNameA="HingeBase" colliderNameB="RotatorCylinder" />
+      <Collision partA="263" partB="260" colliderNameA="HingeBase" colliderNameB="HingeBase" />
+      <Collision partA="256" partB="306" colliderNameA="Collider" colliderNameB="MeshCollider" />
+      <Collision partA="256" partB="306" colliderNameA="Collider" colliderNameB="ClickyCollider" />
+      <Collision partA="260" partB="282" colliderNameA="RotatorCylinder" colliderNameB="BottomPoint" />
+      <Collision partA="262" partB="281" colliderNameA="HingeBase" colliderNameB="TopShaftMeshOrigin" />
+      <Collision partA="262" partB="281" colliderNameA="HingeBase" colliderNameB="TopShaftMeshOrigin" />
+      <Collision partA="274" partB="276" colliderNameA="Collider" colliderNameB="MeshCollider" />
+      <Collision partA="274" partB="276" colliderNameA="Collider" colliderNameB="ClickyCollider" />
+      <Collision partA="275" partB="277" colliderNameA="RotatorCylinder" colliderNameB="RotatorCylinder" />
+      <Collision partA="275" partB="277" colliderNameA="RotatorCylinder" colliderNameB="HingeBase" />
+      <Collision partA="275" partB="277" colliderNameA="HingeBase" colliderNameB="RotatorCylinder" />
+      <Collision partA="275" partB="277" colliderNameA="HingeBase" colliderNameB="HingeBase" />
+      <Collision partA="277" partB="280" colliderNameA="RotatorCylinder" colliderNameB="BottomPoint" />
+      <Collision partA="278" partB="279" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="278" partB="279" colliderNameA="TopShaftMeshOrigin" colliderNameB="HingeBase" />
+      <Collision partA="278" partB="280" colliderNameA="BottomPoint" colliderNameB="TopShaftMeshOrigin" />
+      <Collision partA="281" partB="282" colliderNameA="BottomPoint" colliderNameB="TopShaftMeshOrigin" />
+    </Collisions>
+    <Bodies>
+      <Body id="1" partIds="53,125,286,172,136,131,299,289,244,252,272,257,293,283,295,304,391,310,290,258,284,285,348,349,383,385,388,390,392,311,365,368,372,373,259,291,387,287,386,389,354,355,356,357,380,393,397,408,399,400,407,381,292" mass="20.69539" position="-0.00294536,0.1696334,0.1468039" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="2" partIds="137,183,186" mass="0.434501052" position="0.7165176,-0.6693339,1.124964" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="3" partIds="173,184,195" mass="0.434501052" position="-0.7034093,-0.669334,1.100798" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="4" partIds="182" mass="0.9564795" position="0.9449878,-0.72483,1.112881" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="5" partIds="187" mass="0.07365072" position="0.5949267,0.02453283,1.112855" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="6" partIds="194" mass="0.05033052" position="0.7081611,-0.3980606,1.11287" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="7" partIds="196" mass="0.05033052" position="-0.695053,-0.3980606,1.11287" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="8" partIds="197" mass="0.07365072" position="-0.5818195,0.02453273,1.112855" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="9" partIds="233" mass="0.364500046" position="-0.5167512,0.2673664,1.112844" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="10" partIds="253,256,263" mass="0.6777941" position="-0.5920871,-0.6212942,-1.303812" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="11" partIds="260" mass="0.5" position="-0.572203,-0.5630145,-1.468047" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="12" partIds="262" mass="0.5" position="-0.3364913,0.08459653,-1.346521" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="13" partIds="273,274,275" mass="0.6777941" position="0.6051949,-0.6212942,-1.303812" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="14" partIds="276" mass="0.632105" position="0.945752,-0.684074,-1.42673" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="15" partIds="277" mass="0.5" position="0.5853105,-0.5630145,-1.468047" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="16" partIds="278" mass="0.04697515" position="0.4085439,-0.07735103,-1.376911" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="17" partIds="279" mass="0.5" position="0.3495996,0.08459653,-1.346521" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="18" partIds="280" mass="0.03466643" position="0.5053809,-0.34341,-1.426838" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="19" partIds="281" mass="0.04697515" position="-0.3954357,-0.07735266,-1.376911" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="20" partIds="282" mass="0.03466643" position="-0.4922729,-0.34341,-1.426838" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="21" partIds="300" mass="0.364500046" position="0.5298594,0.2673664,1.112844" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="22" partIds="306" mass="0.632105" position="-0.9326442,-0.684074,-1.42673" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="23" partIds="307" mass="0.9564795" position="-0.9318799,-0.72483,1.112881" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="24" partIds="358,402,403,404" mass="0.0257152021" position="-0.398625,0.5047727,-0.07082541" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="25" partIds="405" mass="1.16126" position="-0.3934458,0.2087747,-0.4288862" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="26" partIds="406" mass="1.16126" position="0.4065541,0.2087745,-0.4288852" rotation="0,0,0" centerOfMass="0,0,0" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="82b2ee77-8655-4c11-ad38-80b31d9386c8">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0.7" d="0" />
+      <Material name="Detail Color" color="0080FF" m="0.3" s="0.3" d="0" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" d="0" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="8B0000" m="0" s="1" d="0.3" e="0.049999997" />
+      <Material name="Accent Color 2" color="E8FFFF" m="0" s="1" d="0.5" e="0.099999994" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="000000" m="0" s="0" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="d17819e8-5920-4a5d-9510-65812b57f66d">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0.7" d="0" />
+      <Material name="Detail Color" color="0080FF" m="0.3" s="0.3" d="0" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" d="0" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="8B0000" m="0" s="1" d="0.3" e="0.049999997" />
+      <Material name="Accent Color 2" color="E8FFFF" m="0" s="1" d="0.5" e="0.099999994" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="000000" m="0" s="0" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+  <Symmetry>
+    <Group mode="Mirror" rootPartId="283" attachPointId="0">
+      <Slice angle="0" rootPartId="348" parts="348" />
+      <Slice angle="0" rootPartId="349" parts="349" />
+    </Group>
+  </Symmetry>
+</Craft>

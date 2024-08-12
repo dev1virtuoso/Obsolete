@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="First Orbit Designer Tutorial" parent="" initialBoundsMin="-0.500023,-3.221644,-0.5000253" initialBoundsMax="0.5000236,5.551908,0.5000197" removeInvalidParts="true" price="95585" xmlVersion="15" activeCommandPod="0" localCenterOfMass="-4.337453E-11,-4.811907,-2.408222E-06">
+  <Assembly>
+    <Parts>
+      <Part id="0" partType="CommandDisc1" position="4.337453E-11,4.811907,2.408222E-06" rotation="0,0,0" name="Command Disc" rootPart="true" commandPodId="0" materials="1,2,2,2,2" texture="Fuselage10">
+        <Drag drag="0.03968592,0.03968592,0.004150772,0,0.03968592,0.03968592" area="0.04933101,0.04933101,0.004150772,0,0.04933101,0.04933101" />
+        <Config tutorialId="Tutorial-FirstOrbit" />
+        <Fuselage bottomScale="0.25,0.25" cornerRadiuses="1,1,1,1,1,1,1,1" deformations="0,0,0" depthCurve="0" offset="0,0.0400001,0" topScale="0.25,0.25" volume="0.0157080032" volumeInner="0.0120084807" inspectorEnabled="false" partPropertiesEnabled="false" version="3" />
+        <FuelTank capacity="5388.39537580905" fuel="5388.39537580905" subPriority="49" utilization="0.1375" />
+        <Gyroscope mass="0.00623082276" maxAcceleration="1" power="2.0250175" utilization="0.175" inspectorEnabled="false" partPropertiesEnabled="false" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" configureBattery="0.25" configureGyros="0.25" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="270,0,0">
+          <Controls />
+        </CommandPod>
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1">
+          <Program name="New Program">
+            <Variables />
+            <Expressions />
+          </Program>
+        </FlightProgram>
+      </Part>
+      <Part id="1" partType="NoseCone1" position="4.337652E-11,5.201905,2.359643E-06" rotation="1.024528E-05,180,0" commandPodId="0" materials="4,4,4,0,0" texture="Default">
+        <Drag drag="0.1740358,0.1740358,0.06857879,0,0.1740681,0.1740681" area="0.232561,0.232561,0.190006,0,0.232561,0.232561" />
+        <Config centerOfMass="-3.821527E-18,-0.1400007,3.922E-09" heatShieldScale="0" />
+        <Fuselage bottomScale="0.25,0.25" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" meshMassMultiplier="1.3" offset="1.364824E-17,0.3500018,-1.400707E-08" topScale="0,0" volume="0.0458151326" volumeInner="0.0421837345" version="3" />
+        <FuelTank capacity="25.198324203491211" fuelType="None" subPriority="52" />
+      </Part>
+      <Part id="2" partType="Fuselage1" position="4.338951E-11,3.771907,2.408222E-06" rotation="-1.024528E-05,180,0" commandPodId="0" materials="4,4,4,0,0" texture="Default">
+        <Drag drag="0.7672628,0.7672628,0,0,0.7672628,0.7672628" area="0.9537399,0.9537399,0,0,0.9537399,0.9537399" />
+        <Config heatShieldScale="0" />
+        <Fuselage bottomScale="0.25,0.25" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="1.498106E-14,0.999999,7.450339E-09" topScale="0.25,0.25" volume="0.3926987" volumeInner="0.366719037" version="3" />
+        <FuelTank capacity="215.98429870605469" fuel="215.98429870605469" subPriority="38" />
+      </Part>
+      <Part id="3" partType="RocketEngine1" position="4.34055E-11,2.771908,2.214507E-06" rotation="-1.931869E-05,180,1.622893E-12" name="Third Stage Engine" activationStage="2" stageOverride="true" commandPodId="0" materials="0,1,2,3,4" engineTypeTexture="RocketEngine_Type" subTypeTexture="RocketEngine_SubType" nozzleTexture="RocketEngine_Nozzle" nozzleExtensionTexture="RocketEngine_Extension2">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" supportsTransparency="false" />
+        <RocketEngine engineSubTypeId="PressureFed" nozzleSize="1.5999999" nozzleThroatSize="1" size="0.352040827" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.122982465" price="27196" />
+        <InputController inputId="Throttle" />
+      </Part>
+      <Part id="4" partType="Detacher1" position="4.338452E-11,2.331395,1.99844E-06" rotation="2.049057E-05,5.008957E-06,1.017778E-12" name="Interstage-2" activationStage="2" stageOverride="true" commandPodId="0" materials="4,1,4,2,0" texture="Default">
+        <Drag drag="0.383022,0.3825568,0.001410822,0,0.3806551,0.3806228" area="0.4792145,0.4792145,0.004150772,0,0.4792145,0.4792145" />
+        <Config autoActivateIfNoStageOrActivationGroup="false" heatShieldScale="0" />
+        <Fuselage bottomScale="0.25,0.25" deadWeightPercentage="-10" deformations="0,0,0" depthCurve="0" meshMassMultiplier="1.5" offset="0,0.4405147,1.907394E-08" topScale="0.25,0.25" volume="0.172989726" volumeInner="0.15999487" version="3" />
+        <Detacher force="0.05" version="2" />
+        <CoverEngine />
+        <CrossFeed />
+      </Part>
+      <Part id="5" partType="Fuselage1" position="4.339051E-11,0.640878,7.467478E-07" rotation="3.756604E-05,5.008957E-06,2.714254E-12" commandPodId="0" materials="4,4,4,0,0" texture="Default">
+        <Drag drag="0.9355125,0.9355125,0,0,0.93551,0.93551" area="1.240335,1.240335,0,0,1.240335,1.240335" />
+        <Config heatShieldScale="0" />
+        <Fuselage bottomScale="0.4,0.4" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-1.160414E-14,0.7500041,-7.450839E-08" topScale="0.4,0.4" volume="0.7539864" volumeInner="0.7187173" version="3" />
+        <FuelTank capacity="414.69253540039063" fuel="414.69253540039063" subPriority="7" />
+      </Part>
+      <Part id="7" partType="Detacher1" position="4.339551E-11,-0.6368448,-8.771326E-08" rotation="-4.439623E-05,180,-3.284261E-12" name="Interstage-1" activationStage="1" commandPodId="0" materials="4,1,4,2,0" texture="Default">
+        <Drag drag="0.6659921,0.6657158,0.00251596,0.001334879,0.6653603,0.6655307" area="0.8832657,0.8832657,0.006958646,0.004150772,0.8832657,0.8832657" />
+        <Config autoActivateIfNoStageOrActivationGroup="false" heatShieldScale="0" />
+        <Fuselage bottomScale="0.4,0.4" deadWeightPercentage="-10" deformations="0,0,0" depthCurve="0" meshMassMultiplier="1.5" offset="0,0.5277256,-3.667459E-08" topScale="0.4,0.4" volume="0.530527651" volumeInner="0.503559649" version="3" />
+        <Detacher force="0.05" version="2" />
+        <CoverEngine />
+        <CrossFeed />
+      </Part>
+      <Part id="8" partType="Fuselage1" position="4.340051E-11,-2.164569,-1.697031E-06" rotation="6.488679E-05,5.008957E-06,4.790602E-12" commandPodId="0" materials="4,4,4,0,0" texture="Default">
+        <Drag drag="1.233174,1.226154,0,0.4396398,1.228491,1.233171" area="1.63499,1.627943,0,0.4396398,1.630292,1.63499" />
+        <Config heatShieldScale="0" />
+        <Fuselage bottomScale="0.4,0.4" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="-8.893854E-21,1.000008,2.842174E-12" topScale="0.4,0.4" volume="1.00531769" volumeInner="0.9607121" version="3" />
+        <FuelTank capacity="402.12710571289063" fuel="402.12710571289063" fuelType="Solid" subPriority="-20" />
+      </Part>
+      <Part id="9" partType="RocketEngine1" position="4.339351E-11,-0.1091225,3.295172E-07" rotation="5.015507E-05,4.071108E-13,-7.868474E-13" name="Second Stage Engine" activationStage="1" stageOverride="true" commandPodId="0" materials="0,1,2,3,4" engineTypeTexture="RocketEngine_Type" subTypeTexture="RocketEngine_SubType" nozzleTexture="RocketEngine_Nozzle" nozzleExtensionTexture="RocketEngine_Extension2">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" supportsTransparency="false" />
+        <RocketEngine engineSubTypeId="PressureFed" nozzleSize="0.5" nozzleThroatSize="1" size="0.8" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.362853944" price="43723" />
+        <InputController inputId="Throttle" />
+      </Part>
+      <Part id="10" partType="RocketEngine1" position="-0.2699333,-3.064568,0.002306352" rotation="5.520479E-05,3.114411E-11,1.364416E-06" name="Goblin Solid Motor" activationStage="0" commandPodId="0" materials="0,1,2,3,4" symmetryId="5390eff2-2f2c-49b1-9323-2b1171f691b3" nozzleTexture="RocketEngine_Nozzle">
+        <Drag drag="0.007507899,0.007507899,0,0.005519325,0.01157967,0" area="0.009396388,0.009396388,0,0.01142999,0.01409458,0" />
+        <Config heatShieldScale="0" supportsTransparency="false" symmetryId="8a996066-3dcc-445b-868f-5bfa845dc10c" />
+        <RocketEngine engineSubTypeId="Model" engineTypeId="Solid" fuelType="Solid" nozzleSize="0.45" nozzleThroatSize="1" nozzleTypeId="Plug" fuelGrain="Star" size="1.5" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.07333352" price="1789" symmetryId="4f1cb46b-5689-4fb9-af27-f0bd94fa35b9" />
+        <InputController inputId="Throttle" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="cfe38290-cbde-4b5d-8fc9-8184e7fb2048" />
+      </Part>
+      <Part id="14" partType="Fin1" position="-0.400023,-2.764563,-2.23347E-06" rotation="270,89.99995,0" commandPodId="0" materials="1,1,1,1,1" symmetryId="e96c0342-69f3-4bfe-b97c-149d6e44575a">
+        <Drag drag="0.04200277,0.04200738,2.758808E-05,2.513448E-05,0,0" area="0.04228373,0.04228373,0.0005798879,0.001281857,0,0" />
+        <Config centerOfMass="0,0.03849408,-0.125" heatShieldScale="0" symmetryId="0f379bde-929e-4e6b-84a9-b79dfb8384e3" />
+        <Wing airfoil="Fin" isFancy="true" isStylish="true" rootLeadingOffset="0.300000042" rootTrailingOffset="0.4" thickness="0.02" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.005714285" leadingBulgeStyle="0.6" tipLeadingOffset="0.1" tipPosition="0,0.1,-0.2" tipTrailingOffset="0.1" wingStrengthOverride="2" symmetryId="2f719a6a-310b-4b48-a817-6c160a0f9094" version="2" />
+      </Part>
+      <Part id="20" partType="Fuselage1" position="4.338752E-11,1.640881,1.521605E-06" rotation="-3.073585E-05,180,-1.628444E-12" commandPodId="0" materials="4,4,4,0,0" texture="Default">
+        <Drag drag="0.2308932,0.2308932,0.08542538,0,0.2308932,0.2309024" area="0.3077317,0.3077317,0.2984045,0,0.3100808,0.3100808" />
+        <Config centerOfMass="-3.309275E-15,-0.06093845,2.633331E-08" heatShieldScale="0" />
+        <Fuselage bottomScale="0.4,0.4" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="2.71526E-14,0.2500039,-2.160648E-07" topScale="0.25,0.25" volume="0.168863252" volumeInner="0.156455129" version="3" />
+        <FuelTank capacity="92.874801635742188" fuel="92.874801635742188" subPriority="17" />
+      </Part>
+      <Part id="26" partType="Fin1" position="4.34055E-11,-2.764564,0.4000197" rotation="270,180,0" commandPodId="0" materials="1,1,1,1,1" symmetryId="e96c0342-69f3-4bfe-b97c-149d6e44575a">
+        <Drag drag="0,0,2.758807E-05,2.513448E-05,0.04200738,0.04200738" area="0,0,0.0005798879,0.001281857,0.04228373,0.04228373" />
+        <Config centerOfMass="6.661338E-16,0.0384941,-0.125" heatShieldScale="0" symmetryId="0f379bde-929e-4e6b-84a9-b79dfb8384e3" />
+        <Wing airfoil="Fin" isFancy="true" isStylish="true" rootLeadingOffset="0.300000042" rootTrailingOffset="0.4" thickness="0.02" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.005714285" leadingBulgeStyle="0.6" tipLeadingOffset="0.1" tipPosition="0,0.1,-0.2" tipTrailingOffset="0.1" wingStrengthOverride="2" symmetryId="2f719a6a-310b-4b48-a817-6c160a0f9094" version="2" />
+      </Part>
+      <Part id="27" partType="Fin1" position="0.4000236,-2.764563,-3.18714E-06" rotation="270,270,0" commandPodId="0" materials="1,1,1,1,1" symmetryId="e96c0342-69f3-4bfe-b97c-149d6e44575a">
+        <Drag drag="0.04200738,0.04200277,2.758806E-05,2.513448E-05,0,0" area="0.04228373,0.04228373,0.0005798879,0.001281857,0,0" />
+        <Config centerOfMass="0,0.03849408,-0.125" heatShieldScale="0" symmetryId="0f379bde-929e-4e6b-84a9-b79dfb8384e3" />
+        <Wing airfoil="Fin" isFancy="true" isStylish="true" rootLeadingOffset="0.300000042" rootTrailingOffset="0.4" thickness="0.02" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.005714285" leadingBulgeStyle="0.6" tipLeadingOffset="0.1" tipPosition="0,0.1,-0.2" tipTrailingOffset="0.1" wingStrengthOverride="2" symmetryId="2f719a6a-310b-4b48-a817-6c160a0f9094" version="2" />
+      </Part>
+      <Part id="28" partType="Fin1" position="4.340051E-11,-2.764563,-0.4000253" rotation="270,1.366034E-05,0" commandPodId="0" materials="1,1,1,1,1" symmetryId="e96c0342-69f3-4bfe-b97c-149d6e44575a">
+        <Drag drag="0,0,2.758807E-05,2.513448E-05,0.03847913,0.04200738" area="0,0,0.0005798879,0.001281857,0.03876009,0.04228373" />
+        <Config centerOfMass="-2.664535E-15,0.03849407,-0.125" heatShieldScale="0" symmetryId="0f379bde-929e-4e6b-84a9-b79dfb8384e3" />
+        <Wing airfoil="Fin" isFancy="true" isStylish="true" rootLeadingOffset="0.300000042" rootTrailingOffset="0.4" thickness="0.02" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.005714285" leadingBulgeStyle="0.6" tipLeadingOffset="0.1" tipPosition="0,0.1,-0.2" tipTrailingOffset="0.1" wingStrengthOverride="2" symmetryId="2f719a6a-310b-4b48-a817-6c160a0f9094" version="2" />
+      </Part>
+      <Part id="29" partType="RocketEngine1" position="0.002309061,-3.064569,0.2699307" rotation="-9.681992E-06,89.99999,6.625121E-05" name="Goblin Solid Motor" activationStage="0" commandPodId="0" materials="0,1,2,3,4" symmetryId="5390eff2-2f2c-49b1-9323-2b1171f691b3" nozzleTexture="RocketEngine_Nozzle">
+        <Drag drag="0.007056504,0,0,0.005519326,0.007517112,0.007517111" area="0.009396388,0,0,0.01142999,0.009396388,0.009396388" />
+        <Config heatShieldScale="0" supportsTransparency="false" symmetryId="8a996066-3dcc-445b-868f-5bfa845dc10c" />
+        <RocketEngine engineSubTypeId="Model" engineTypeId="Solid" fuelType="Solid" nozzleSize="0.45" nozzleThroatSize="1" nozzleTypeId="Plug" fuelGrain="Star" size="1.5" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.07333352" price="1789" symmetryId="4f1cb46b-5689-4fb9-af27-f0bd94fa35b9" />
+        <InputController inputId="Throttle" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="cfe38290-cbde-4b5d-8fc9-8184e7fb2048" />
+      </Part>
+      <Part id="30" partType="RocketEngine1" position="0.2699333,-3.064568,-0.002311816" rotation="-7.456879E-05,180,1.364418E-06" name="Goblin Solid Motor" activationStage="0" commandPodId="0" materials="0,1,2,3,4" symmetryId="5390eff2-2f2c-49b1-9323-2b1171f691b3" nozzleTexture="RocketEngine_Nozzle">
+        <Drag drag="0.007507899,0.007507899,0,0.005519325,0,0.00755396" area="0.009396388,0.009396388,0,0.01142999,0,0.009396388" />
+        <Config heatShieldScale="0" supportsTransparency="false" symmetryId="8a996066-3dcc-445b-868f-5bfa845dc10c" />
+        <RocketEngine engineSubTypeId="Model" engineTypeId="Solid" fuelType="Solid" nozzleSize="0.45" nozzleThroatSize="1" nozzleTypeId="Plug" fuelGrain="Star" size="1.5" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.07333352" price="1789" symmetryId="4f1cb46b-5689-4fb9-af27-f0bd94fa35b9" />
+        <InputController inputId="Throttle" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="cfe38290-cbde-4b5d-8fc9-8184e7fb2048" />
+      </Part>
+      <Part id="31" partType="RocketEngine1" position="-0.002309084,-3.064568,-0.2699361" rotation="-9.682005E-06,270,-6.352238E-05" name="Goblin Solid Motor" activationStage="0" commandPodId="0" materials="0,1,2,3,4" symmetryId="5390eff2-2f2c-49b1-9323-2b1171f691b3" nozzleTexture="RocketEngine_Nozzle">
+        <Drag drag="0,0.01385507,0,0.005519326,0.007507899,0.007507899" area="0,0.01644368,0,0.01142999,0.009396388,0.009396388" />
+        <Config heatShieldScale="0" supportsTransparency="false" symmetryId="8a996066-3dcc-445b-868f-5bfa845dc10c" />
+        <RocketEngine engineSubTypeId="Model" engineTypeId="Solid" fuelType="Solid" nozzleSize="0.45" nozzleThroatSize="1" nozzleTypeId="Plug" fuelGrain="Star" size="1.5" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.07333352" price="1789" symmetryId="4f1cb46b-5689-4fb9-af27-f0bd94fa35b9" />
+        <InputController inputId="Throttle" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="cfe38290-cbde-4b5d-8fc9-8184e7fb2048" />
+      </Part>
+      <Part id="32" partType="RocketEngine1" position="4.34045E-11,-3.064568,-3.604371E-06" rotation="5.3101E-05,1.017778E-12,-8.142205E-13" name="Goblin Solid Motor Center" activationStage="0" commandPodId="0" materials="0,1,2,3,4" nozzleTexture="RocketEngine_Nozzle">
+        <Drag drag="0,0,0,0.005548948,0,0" area="0,0,0,0.01135369,0,0" />
+        <Config heatShieldScale="0" supportsTransparency="false" />
+        <RocketEngine engineSubTypeId="Model" engineTypeId="Solid" fuelType="Solid" nozzleSize="0.45" nozzleThroatSize="1" nozzleTypeId="Plug" fuelGrain="Star" size="1.5" wattsPerFuelFlowOverride="-1" ignited="false" ignitionsOverride="-1" ignitionsUsed="0" heatTransferOverride="1" mass="0.07333352" price="1789" />
+        <InputController inputId="Throttle" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="1" partB="0" attachPointsA="1,2" attachPointsB="2,3" />
+      <Connection partA="3" partB="2" attachPointsA="0" attachPointsB="1" />
+      <Connection partA="2" partB="0" attachPointsA="2,4" attachPointsB="1,4" />
+      <Connection partA="20" partB="4" attachPointsA="2,4" attachPointsB="1,0" />
+      <Connection partA="14" partB="8" attachPointsA="1" attachPointsB="0" symmetryId="d9bcf7b0-0ce1-4a5b-93a9-2baac1bfd02f" />
+      <Connection partA="26" partB="8" attachPointsA="1" attachPointsB="0" symmetryId="d9bcf7b0-0ce1-4a5b-93a9-2baac1bfd02f" />
+      <Connection partA="27" partB="8" attachPointsA="1" attachPointsB="0" symmetryId="d9bcf7b0-0ce1-4a5b-93a9-2baac1bfd02f" />
+      <Connection partA="28" partB="8" attachPointsA="1" attachPointsB="0" symmetryId="d9bcf7b0-0ce1-4a5b-93a9-2baac1bfd02f" />
+      <Connection partA="32" partB="8" attachPointsA="0" attachPointsB="1" />
+      <Connection partA="10" partB="8" attachPointsA="0" attachPointsB="0" symmetryId="e599ca76-0050-44bb-a141-0ffca8988d3c" />
+      <Connection partA="29" partB="8" attachPointsA="0" attachPointsB="0" symmetryId="e599ca76-0050-44bb-a141-0ffca8988d3c" />
+      <Connection partA="30" partB="8" attachPointsA="0" attachPointsB="0" symmetryId="e599ca76-0050-44bb-a141-0ffca8988d3c" />
+      <Connection partA="31" partB="8" attachPointsA="0" attachPointsB="0" symmetryId="e599ca76-0050-44bb-a141-0ffca8988d3c" />
+      <Connection partA="5" partB="20" attachPointsA="2,4" attachPointsB="1,5" />
+      <Connection partA="9" partB="5" attachPointsA="0" attachPointsB="1" />
+      <Connection partA="8" partB="7" attachPointsA="2,4" attachPointsB="1,0" />
+      <Connection partA="5" partB="7" attachPointsA="5" attachPointsB="2">
+        <BodyJoint body="3" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Normal" position="2.066622E-10,1.925875,1.928803E-06" connectedPosition="1.44329E-14,-0.9899879,-5.770833E-07" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="4" partB="2" attachPointsA="2" attachPointsB="5">
+        <BodyJoint body="2" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Normal" position="2.442491E-15,1.891042,1.240096E-06" connectedPosition="3.219647E-15,-1.065559,-2.248046E-07" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+    </Connections>
+    <Collisions>
+      <Collision partA="2" partB="4" colliderNameA="Collider" colliderNameB="Collider" />
+      <Collision partA="3" partB="4" colliderNameA="ChamberCollider" colliderNameB="Collider" />
+      <Collision partA="3" partB="4" colliderNameA="NozzleCollider" colliderNameB="Collider" />
+      <Collision partA="5" partB="7" colliderNameA="Collider" colliderNameB="Collider" />
+      <Collision partA="9" partB="7" colliderNameA="ChamberCollider" colliderNameB="Collider" />
+      <Collision partA="9" partB="7" colliderNameA="NozzleCollider" colliderNameB="Collider" />
+    </Collisions>
+    <Bodies>
+      <Body id="1" partIds="0,1,2,3" mass="3.26907349" position="4.338896E-11,3.837469,2.399859E-06" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="2" partIds="4,20,5,9" mass="7.21927929" position="4.338974E-11,0.8808686,9.349583E-07" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="3" partIds="7,8,14,26,27,28,32,10,29,30,31" mass="9.336468" position="-1.632581E-10,-2.034994,-1.570928E-06" rotation="0,0,0" centerOfMass="0,0,0" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="a5e08ad5-805c-4127-bbf0-539b9cfd7046">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="a5e08ad5-805c-4127-bbf0-539b9cfd7046">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+  <Symmetry>
+    <Group mode="Radial4" rootPartId="8" attachPointId="0">
+      <Slice angle="0" rootPartId="10" parts="10" />
+      <Slice angle="90" rootPartId="29" parts="29" />
+      <Slice angle="180" rootPartId="30" parts="30" />
+      <Slice angle="270" rootPartId="31" parts="31" />
+    </Group>
+    <Group mode="Radial4" rootPartId="8" attachPointId="0">
+      <Slice angle="0" rootPartId="14" parts="14" />
+      <Slice angle="90" rootPartId="26" parts="26" />
+      <Slice angle="180" rootPartId="27" parts="27" />
+      <Slice angle="270" rootPartId="28" parts="28" />
+    </Group>
+  </Symmetry>
+</Craft>

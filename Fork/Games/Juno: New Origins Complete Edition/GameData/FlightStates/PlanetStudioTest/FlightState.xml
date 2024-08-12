@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FlightState xmlVersion="2" time="0.0" solarSystemId="__default__">
+  <Nodes>
+    <Planet name="Juno" rotation="0" trueAnomaly="0" />
+    <Planet name="Planet" rotation="0" trueAnomaly="0" />
+  </Nodes>
+  <MapView />
+  <RequiredMods />
+</FlightState>

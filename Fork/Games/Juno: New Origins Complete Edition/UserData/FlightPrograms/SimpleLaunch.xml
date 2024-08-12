@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Program name="SimpleLaunch">
+  <Variables />
+  <Instructions>
+    <Event event="FlightStart" id="0" style="flight-start" pos="-10,-20" />
+    <WaitSeconds id="1" style="wait-seconds" pos="-16.03311,-224.4635">
+      <Constant number="1" />
+    </WaitSeconds>
+    <Comment id="2" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Start with a countdown timer" />
+    </Comment>
+    <For var="i" id="3" style="for">
+      <Constant text="3" />
+      <Constant text="1" />
+      <Constant text="-1" />
+      <Instructions>
+        <DisplayMessage id="4" style="display">
+          <StringOp op="join" style="join">
+            <Constant text="T - " />
+            <Variable list="false" local="true" variableName="i" />
+            <Constant text="" />
+          </StringOp>
+          <Constant number="7" />
+        </DisplayMessage>
+        <WaitSeconds id="5" style="wait-seconds">
+          <Constant number="1" />
+        </WaitSeconds>
+      </Instructions>
+    </For>
+    <Comment id="6" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Set throttle to 100% and activate the first stage" />
+    </Comment>
+    <SetInput input="throttle" id="7" style="set-input">
+      <Constant text="1" />
+    </SetInput>
+    <ActivateStage id="8" style="activate-stage" />
+    <DisplayMessage id="9" style="display">
+      <Constant text="LAUNCH!" />
+      <Constant number="7" />
+    </DisplayMessage>
+    <Comment id="10" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Loop through all stages in the craft" />
+    </Comment>
+    <While id="11" style="while">
+      <Comparison op="l" style="op-lt">
+        <CraftProperty property="Misc.Stage" style="prop-misc" />
+        <CraftProperty property="Misc.NumStages" style="prop-misc" />
+      </Comparison>
+      <Instructions>
+        <Comment id="12" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Wait until the fuel runs out" />
+        </Comment>
+        <WaitUntil id="13" style="wait-until">
+          <Comparison op="=" style="op-eq">
+            <CraftProperty property="Fuel.FuelInStage" style="prop-fuel" />
+            <Constant number="0" />
+          </Comparison>
+        </WaitUntil>
+        <Comment id="14" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Activate the next stage" />
+        </Comment>
+        <ActivateStage id="15" style="activate-stage" />
+        <DisplayMessage id="16" style="display">
+          <Constant text="Activated Next Stage" />
+          <Constant number="7" />
+        </DisplayMessage>
+      </Instructions>
+    </While>
+  </Instructions>
+  <Expressions />
+</Program>

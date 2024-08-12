@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Hypatchion" author="Jundroo" version="1.3" versionTag="Hypatchion Juno 2.0" xmlVersion="2" seaLevel="0" hasTerrainPhysics="true" hasWater="false" radius="43860" surfaceGravity="0.6" angularVelocity="-0.0002181661564992912" uniformHeight="false" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="false" skyShaderEnabled="false" equirectMapBrightness="1" equirectMapLight="0.5" parentAncestryId="2ecd087a-ac01-425d-b92a-3927436ccec3">
+  <FileReferences>
+    <File id="Rocks" hash="969a911e-e9a0-71b8-502e-13002a47e76d" />
+    <File id="Cliff" hash="04f7ba49-84c5-9a92-06cd-f6df0f7ae38b" />
+    <File id="Snow" hash="2a045284-5810-92a2-007c-9acc95ac9881" />
+    <File id="Ground" hash="6e5712e5-92c5-def0-c7ee-57c9c13a82a9" />
+    <File id="Ice" hash="57bfc495-5c35-da2e-22e4-7a8906d5e5b5" />
+    <File id="Cracked" hash="d81ebbc0-3dae-c6dd-2ea6-4a589aae9320" />
+  </FileReferences>
+  <Description>An elongated rock covered in craters. It looks very similar to one of the moons found in the Solar System, if my memory doesn't fail.</Description>
+  <ModKeywords></ModKeywords>
+  <MusicKeywords>Gameplay,Gas Giant,Moon Non Earth</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="false" crushAltitude="0" fadeDistance="5000" atmosphereDensityThreshold="0.001" desc="" />
+  <Terrain uvSizeExponent="3">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="29" minSubdivisionLevel="3" maxSubdivisionLevel="6" quadSphereActivationDistance="0" quadSphereTransitionDistance="0">
+      <Quality qualityLevel="Low" automatic="false" mobileOnly="false" targetVertexDistance="30" terrainQuadEdgeVertexCount="13" waterQuadEdgeVertexCount="13" maxSubdivisionLevel="7" />
+      <Quality qualityLevel="Medium" automatic="false" mobileOnly="false" targetVertexDistance="20" terrainQuadEdgeVertexCount="19" waterQuadEdgeVertexCount="19" maxSubdivisionLevel="7" />
+      <Quality qualityLevel="High" automatic="false" mobileOnly="false" targetVertexDistance="10" terrainQuadEdgeVertexCount="25" waterQuadEdgeVertexCount="25" maxSubdivisionLevel="7" />
+    </QualitySettings>
+    <WaterConfigDefault useDefaultConfig="false" temperature="290" density="1000" waterColorGradient="0,1,1,1|1,1,1,1" waterColorGradientMaxDepth="3360" emissiveness="0" metallicness="0" smoothness="0" waveAmplitudeScale="100" transparencyDepthScale="100" transparencyStrength="15" reflectionStrength="50" foamStrength="50" textureStrength="100" underwaterColor="0.05882351,0.3411765,0.5882353" underwaterDarkColor="0,0,0" underwaterLightFadeDepth="150" underwaterLightFadeDistance="150" underwaterColorIntensity="0.5" reflectionDistortion="20" refractionDistortion="2" transparencyDepth="100" fresnelBias="0.2" foamDepth="0.35" foamColor="1,1,1" waveAmplitude="0.5" waveLength="50" waveSpeed="2" />
+    <Modifiers>
+      <Modifier type="VertexData.Craters" enabled="true" name="Medium craters" container="" pass="Biome" noiseType="PerlinFractal" maskDataIndex="-1" seed="355" lockSeed="false" frequency="10" strength="1" fractalType="FBM" octaves="5" fractalLacunarityType="Default" lacunarity="2.2" fractalAmplitudeType="Default" gain="0.8" interpolation="Quintic" dataIndex="-1" craterSeed="355" craterFrequency="7" craterDepth="250" craterNoiseStrength="1" craterNoisePowerValue="1" craterPasses="8" craterMaskDataIndex="-1" heightNoiseOutputDataIndex="0" maxHeightColorVariance="0,0,0" minHeightColorVariance="0.11,0.1,0.1" craterCurve="-0.5,-1,0,0,0,0,0,0|1,0,0,0,0.5,0.5,0,0" />
+      <Modifier type="VertexData.Biomes.SimpleBiomes" enabled="true" name="Biomes" container="" dataIndexInput="0">
+        <Biome index="1" range="-1,0.5" />
+        <Biome index="0" range="-0.95,0" />
+      </Modifier>
+      <Modifier type="VertexData.GetPosition" enabled="true" name="Get Position" container="" pass="Biome" dataIndexX="-1" dataIndexY="1" dataIndexZ="-1" rotation="0,0,0" />
+      <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Shape noise" container="" basicView="true" pass="Biome" noiseType="ValueFractal" maskDataIndex="-1" seed="-289965183" lockSeed="false" frequency="0.5" strength="0.75" fractalType="FBM" octaves="6" fractalLacunarityType="Default" lacunarity="1.5" fractalAmplitudeType="Default" gain="0.6" interpolation="Quintic" dataIndex="2" mapName="" />
+      <Modifier type="VertexData.Expression" enabled="true" name="Expression" container="" pass="Biome" expression="([2]-0.3*[1]*[1])*50000" dataIndexOutput="0" />
+      <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="Update height" container="" pass="Biome" dataIndex="0" />
+      <Modifier type="VertexData.Biomes.ApplyBiomeData" enabled="true" name="Apply biomes" container="Final" />
+      <Modifier type="Material.TerrainDetailSplatmap" enabled="true" name="Splatmap" fresnelBias="1">
+        <DistanceBlendedTextures>
+          <Texture path="Ice" colorStrength="0.7" />
+          <Texture path="Snow" />
+          <Texture path="Ground" colorStrength="0.1" />
+          <Texture path="Cliff" colorStrength="0.1" />
+          <TilingConfig distanceAdjustment="0" distanceScalar="2" scaledUvStartLevel="12">
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.8" />
+            <TileLevel tiling="8" strength="1" />
+            <TileLevel tiling="8" strength="0.8" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="1" strength="0.3" />
+            <TileLevel tiling="1" strength="0.4" />
+            <TileLevel tiling="1" strength="0.5" />
+            <TileLevel tiling="1" strength="0.6" />
+            <TileLevel tiling="1" strength="0.7" />
+            <TileLevel tiling="1" strength="0.8" />
+            <TileLevel tiling="1" strength="0.9" />
+            <TileLevel tiling="1" strength="1" />
+          </TilingConfig>
+        </DistanceBlendedTextures>
+        <GroundDetailTextures mipmapFadeRange="0,5" tilingScale="500">
+          <Texture path="Cliff" colorStrength="0.1" />
+          <Texture path="Snow" colorStrength="0.3" />
+          <Texture path="Cracked" colorStrength="0.3" />
+          <Texture path="Rocks" colorStrength="0.05" />
+        </GroundDetailTextures>
+      </Modifier>
+    </Modifiers>
+    <Biomes>
+      <Biome name="Ice">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers>
+          <Modifier type="VertexData.Craters" enabled="true" name="Small craters" container="" pass="Height" noiseType="Perlin" maskDataIndex="-1" seed="0" lockSeed="false" frequency="100" strength="1" interpolation="Quintic" dataIndex="-1" craterSeed="0" craterFrequency="20" craterDepth="150" craterNoiseStrength="1" craterNoisePowerValue="1" craterPasses="7" craterMaskDataIndex="-1" heightNoiseOutputDataIndex="-1" maxHeightColorVariance="0,0,0" minHeightColorVariance="0.1,0.07,0.05" craterCurve="-1,-1,0,0,0,0,0,0|1,-0.3,0.4311826,0.4311826,0,0,0,0|1.6,0,0.0192979,0.0192979,0.5,0.5,0,0" />
+          <Modifier type="VertexData.Biomes.GetCommonData" enabled="true" name="Get Common Pass Data" container="" pass="Height" dataIndexInput="2" dataIndexOutput="2" />
+          <Modifier type="VertexData.Biomes.SingleValueBasedSubBiomes" enabled="true" name="Subbiomes" container="" pass="Height" dataIndexInput="2">
+            <SubBiome range="-1,0.2">
+              <Data name="Ice core" slopeRange="0.1,0.3">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0.2" textureIndex="2" tireTrackStrength="0.3" color="0.5647059,0.4941176,0.4196078,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="1" textureIndex="0" tireTrackStrength="0.3" color="0.6705883,0.6313726,0.5882353,1" />
+              </Data>
+            </SubBiome>
+            <SubBiome range="-0.2,1">
+              <Data name="Ice dust" slopeRange="0,1">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0.4" textureIndex="1" tireTrackStrength="0.3" color="0.6862745,0.6313726,0.572549,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0.6" textureIndex="3" tireTrackStrength="0.3" color="0.7921569,0.7490196,0.7372549,1" />
+              </Data>
+            </SubBiome>
+          </Modifier>
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="40" strength="1" fractalType="FBM" octaves="6" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.6" interpolation="Quintic" dataIndex="0" />
+          <Modifier type="VertexData.GenerateHeight" enabled="true" name="Generate Height" container="" basicView="true" pass="Height" generateHeightType="LerpMinToMax" dataIndexInput="0" dataIndexOutput="0" minHeight="-200" maxHeight="200" inputMinValue="-1" inputMaxValue="1" />
+          <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="Update Height" container="" pass="Height" dataIndex="0" />
+        </Modifiers>
+      </Biome>
+      <Biome name="Craters">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers>
+          <Modifier type="VertexData.GetConstant" enabled="true" name="Get Constant" pass="Height" dataIndexOutput="0" value="0" />
+          <Modifier type="VertexData.Biomes.SingleValueBasedSubBiomes" enabled="true" name="Subbiomes" pass="Height" dataIndexInput="0">
+            <SubBiome range="-1,1">
+              <Data name="Craters" slopeRange="0,0.1">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0" textureIndex="1" tireTrackStrength="0" color="0.5921569,0.5607843,0.5333334,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0" textureIndex="1" tireTrackStrength="0" color="0.5921569,0.5607843,0.5333334,1" />
+              </Data>
+            </SubBiome>
+          </Modifier>
+        </Modifiers>
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="0,0,0,1" ambientLightNight="0.1019608,0.1686275,0.1921569,1" atmosScale="1" atmosScaleSpace="0" atmosScaleSurface="1" atmosSizeScale="1" debugScaler="0" duskColor="0,0,0,1" eSun="15" fresnelBias="0" g="-0.95" km="0.0001" kr="0.0005" maxColorValue="2" noonColor="0.62,0.64,0.65,1" samples="5" scaleDepth="0.4" scaleDepthMax="0.002" scaleDepthMin="1" waveLength="1,1,1,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5019608,0.5019608,0.5019608,1" ambientLightNight="0.2352941,0.2352941,0.2745098,1" atmosScale="1" atmosScaleSpace="1" atmosScaleSurface="1" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="0" fresnelBias="0" g="0" km="0" kr="0" maxColorValue="2" noonColor="1,1,1,1" samples="2" scaleDepth="0.002" scaleDepthMax="0.002" scaleDepthMin="0.002" waveLength="0.8235294,0.772549,0.7137255,0.5019608" waveLengthMag="0">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="true" scaleDepthAuto="false" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

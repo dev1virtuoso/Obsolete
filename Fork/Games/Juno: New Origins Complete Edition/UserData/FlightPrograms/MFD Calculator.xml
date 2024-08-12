@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Program name="MFD Calculator" requiresMfd="true">
+  <Variables>
+    <Variable name="ans" number="0" />
+    <Variable name="varInt" number="0" />
+    <Variable name="hasOp" number="0" />
+    <Variable name="varFloat" number="0" />
+  </Variables>
+  <Instructions>
+    <Event event="FlightStart" id="0" style="flight-start" pos="-239.4641,-48.67611" />
+    <Comment id="1" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Start all variables" />
+    </Comment>
+    <SetVariable id="2" style="set-variable">
+      <Variable list="false" local="false" variableName="hasOp" />
+      <Constant text="" />
+    </SetVariable>
+    <SetVariable id="3" style="set-variable" pos="-293.053,-261.0187">
+      <Variable list="false" local="false" variableName="varInt" />
+      <Constant text="0" />
+    </SetVariable>
+    <SetVariable id="4" style="set-variable">
+      <Variable list="false" local="false" variableName="varFloat" />
+      <Constant text="" />
+    </SetVariable>
+    <SetVariable id="5" style="set-variable">
+      <Variable list="false" local="false" variableName="ans" />
+      <Constant text="" />
+    </SetVariable>
+    <Comment id="6" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add a label on top to function as a display for the calculator" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Label" id="7" style="create-mfd-widget">
+      <Constant text="display" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetAlignment.Right" id="8" style="set-mfd-alignment">
+      <Constant text="display" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="9" style="set-mfd-widget">
+      <Constant text="display" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <Constant text="0.95" />
+          <Constant text="0.15" />
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="10" style="set-mfd-widget">
+      <Constant text="display" />
+      <Vector style="vec">
+        <Constant number="0" />
+        <BinaryOp op="*" style="op-mul">
+          <Constant text="0.4" />
+          <VectorOp op="y" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+        <Constant number="0" />
+      </Vector>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetAutoSize" id="11" style="set-mfd-label">
+      <Constant text="display" />
+      <Constant style="true" bool="true" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetText" id="12" style="set-mfd-label">
+      <Constant text="display" />
+      <Constant text="0" />
+    </SetCraftProperty>
+    <Comment id="13" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Make an array of buttons with numbers and operators" />
+    </Comment>
+    <Comment id="14" style="comment">
+      <Constant style="comment-text" canReplace="false" text="The size and position are based on the size of the screen using the widget &quot;_Screen&quot; as reference" />
+    </Comment>
+    <Comment id="15" style="comment">
+      <Constant style="comment-text" canReplace="false" text="A custom instruction is used to reduce the size of the code that would otherwise be redundant" />
+    </Comment>
+    <For var="row" id="16" style="for">
+      <Constant text="0" />
+      <Constant text="3" />
+      <Constant number="1" />
+      <Instructions>
+        <For var="column" id="17" style="for">
+          <Constant number="1" />
+          <Constant text="4" />
+          <Constant number="1" />
+          <Instructions>
+            <CallCustomInstruction call="Make Button" id="18" style="call-custom-instruction">
+              <VectorOp op="scale" style="vec-op-2">
+                <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                  <Constant text="_Screen" />
+                </CraftProperty>
+                <Vector style="vec">
+                  <BinaryOp op="*" style="op-mul">
+                    <Constant text="0.25" />
+                    <BinaryOp op="-" style="op-sub">
+                      <Variable list="false" local="true" variableName="column" />
+                      <Constant text="2.5" />
+                    </BinaryOp>
+                  </BinaryOp>
+                  <BinaryOp op="*" style="op-mul">
+                    <Constant text="0.2" />
+                    <BinaryOp op="-" style="op-sub">
+                      <Constant text="1" />
+                      <Variable list="false" local="true" variableName="row" />
+                    </BinaryOp>
+                  </BinaryOp>
+                  <Constant number="0" />
+                </Vector>
+              </VectorOp>
+              <VectorOp op="scale" style="vec-op-2">
+                <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                  <Constant text="_Screen" />
+                </CraftProperty>
+                <Vector style="vec">
+                  <Constant text="0.20" />
+                  <Constant text="0.15" />
+                  <Constant number="0" />
+                </Vector>
+              </VectorOp>
+              <StringOp op="letter" style="letter" pos="1727.197,-927.3857">
+                <BinaryOp op="+" style="op-add">
+                  <BinaryOp op="*" style="op-mul">
+                    <Variable list="false" local="true" variableName="row" />
+                    <Constant text="4" />
+                  </BinaryOp>
+                  <Variable list="false" local="true" variableName="column" />
+                </BinaryOp>
+                <Constant text="789/456x123-0.=+" />
+              </StringOp>
+            </CallCustomInstruction>
+          </Instructions>
+        </For>
+      </Instructions>
+    </For>
+  </Instructions>
+  <Instructions>
+    <CustomInstruction callFormat="Make Button (0) (1) (2) " format="Make Button |Position| |Size| |Text| " name="Make Button" id="19" style="custom-instruction" pos="-240.7186,528.6519" />
+    <Comment id="20" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Make a square with a label set to match the color of the background" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Rectangle" id="21" style="create-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="" />
+      </StringOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Create.Label" id="22" style="create-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="23" style="set-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="" />
+      </StringOp>
+      <Variable list="false" local="true" variableName="Size" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="24" style="set-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="" />
+      </StringOp>
+      <Variable list="false" local="true" variableName="Position" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="25" style="set-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+      <Variable list="false" local="true" variableName="Size" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="26" style="set-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+      <Variable list="false" local="true" variableName="Position" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetColor" id="27" style="set-mfd-widget">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+      <CraftProperty property="Mfd.Color" style="prop-mfd-widget">
+        <Constant text="_Screen" />
+      </CraftProperty>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetAutoSize" id="28" style="set-mfd-label">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+      <Constant style="true" bool="true" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetText" id="29" style="set-mfd-label">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="Label" />
+        <Constant text="" />
+      </StringOp>
+      <Variable list="false" local="true" variableName="Text" />
+    </SetCraftProperty>
+    <Comment id="30" style="comment">
+      <Constant style="comment-text" canReplace="false" text="When clicked broadcast &quot;button&quot; with the content of the label" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Event.SetPointerClick" id="31" style="set-mfd-event">
+      <StringOp op="join" style="join">
+        <Constant text="button" />
+        <Variable list="false" local="true" variableName="Text" />
+        <Constant text="" />
+      </StringOp>
+      <Constant text="button" />
+      <Variable list="false" local="true" variableName="Text" />
+    </SetCraftProperty>
+  </Instructions>
+  <Instructions>
+    <Comment id="32" style="comment" pos="-241.0516,595.9701">
+      <Constant style="comment-text" canReplace="false" text="INTERFACE DESIGN" />
+    </Comment>
+  </Instructions>
+  <Instructions>
+    <Event event="ReceiveMessage" id="33" style="receive-msg" pos="-1359.849,527.9946">
+      <Constant canReplace="false" text="button" />
+    </Event>
+    <Comment id="34" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Play a beep to confirm the button has worked" />
+    </Comment>
+    <SetCraftProperty property="Sound.Beep" id="35" style="play-beep">
+      <CraftProperty property="Sound.Frequency" style="note-frequency">
+        <Constant text="A" />
+        <Constant text="4" />
+      </CraftProperty>
+      <Constant number="1" />
+      <Constant text="0.1" />
+    </SetCraftProperty>
+    <If id="36" style="if">
+      <StringOp op="contains" style="contains">
+        <ListOp op="get" style="list-get">
+          <Variable list="false" local="true" variableName="data" />
+          <Constant number="1" />
+        </ListOp>
+        <Constant text="." />
+      </StringOp>
+      <Instructions>
+        <If id="37" style="if">
+          <Comparison op="=" style="op-eq" pos="-1300.317,333.8637">
+            <StringOp op="length" style="length">
+              <Variable list="false" local="false" variableName="varFloat" />
+            </StringOp>
+            <Constant number="0" />
+          </Comparison>
+          <Instructions>
+            <Comment id="38" style="comment">
+              <Constant style="comment-text" canReplace="false" text="If the button pressed was the decimal point and there was no previous point start the decimal count" />
+            </Comment>
+            <SetVariable id="39" style="set-variable">
+              <Variable list="false" local="false" variableName="varFloat" />
+              <Constant text="." />
+            </SetVariable>
+          </Instructions>
+        </If>
+      </Instructions>
+    </If>
+    <ElseIf id="40" style="else-if">
+      <StringOp op="contains" style="contains">
+        <Constant text="=+-x/" />
+        <ListOp op="get" style="list-get">
+          <Variable list="false" local="true" variableName="data" />
+          <Constant number="1" />
+        </ListOp>
+      </StringOp>
+      <Instructions>
+        <Comment id="41" style="comment">
+          <Constant style="comment-text" canReplace="false" text="If it's an operand calculate the value of the number being inputed" />
+        </Comment>
+        <SetVariable id="42" style="set-variable" pos="-1533.896,-18.38338">
+          <Variable list="false" local="false" variableName="varFloat" />
+          <StringOp op="join" style="join" pos="-1099.978,3.701714">
+            <Variable list="false" local="false" variableName="varInt" />
+            <Variable list="false" local="false" variableName="varFloat" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <Comment id="43" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Calculate the new result using the stored operand" />
+        </Comment>
+        <If id="44" style="if">
+          <StringOp op="contains" style="contains">
+            <Variable list="false" local="false" variableName="hasOp" />
+            <Constant text="+" />
+          </StringOp>
+          <Instructions>
+            <SetVariable id="45" style="set-variable">
+              <Variable list="false" local="false" variableName="ans" />
+              <BinaryOp op="+" style="op-add">
+                <Variable list="false" local="false" variableName="ans" />
+                <Variable list="false" local="false" variableName="varFloat" />
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </If>
+        <ElseIf id="46" style="else-if">
+          <StringOp op="contains" style="contains">
+            <Variable list="false" local="false" variableName="hasOp" />
+            <Constant text="-" />
+          </StringOp>
+          <Instructions>
+            <SetVariable id="47" style="set-variable">
+              <Variable list="false" local="false" variableName="ans" />
+              <BinaryOp op="-" style="op-sub">
+                <Variable list="false" local="false" variableName="ans" />
+                <Variable list="false" local="false" variableName="varFloat" />
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </ElseIf>
+        <ElseIf id="48" style="else-if">
+          <StringOp op="contains" style="contains">
+            <Variable list="false" local="false" variableName="hasOp" />
+            <Constant text="x" />
+          </StringOp>
+          <Instructions>
+            <SetVariable id="49" style="set-variable">
+              <Variable list="false" local="false" variableName="ans" />
+              <BinaryOp op="*" style="op-mul">
+                <Variable list="false" local="false" variableName="ans" />
+                <Variable list="false" local="false" variableName="varFloat" />
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </ElseIf>
+        <ElseIf id="50" style="else-if">
+          <StringOp op="contains" style="contains">
+            <Variable list="false" local="false" variableName="hasOp" />
+            <Constant text="/" />
+          </StringOp>
+          <Instructions>
+            <SetVariable id="51" style="set-variable">
+              <Variable list="false" local="false" variableName="ans" />
+              <BinaryOp op="/" style="op-div">
+                <Variable list="false" local="false" variableName="ans" />
+                <Variable list="false" local="false" variableName="varFloat" />
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </ElseIf>
+        <ElseIf id="52" style="else-if">
+          <Not style="op-not">
+            <StringOp op="contains" style="contains">
+              <Variable list="false" local="false" variableName="hasOp" />
+              <Constant text="=" />
+            </StringOp>
+          </Not>
+          <Instructions>
+            <Comment id="53" style="comment">
+              <Constant style="comment-text" canReplace="false" text="Ignore multiple = presses and make sure varFloat is a number" />
+            </Comment>
+            <SetVariable id="54" style="set-variable">
+              <Variable list="false" local="false" variableName="ans" />
+              <BinaryOp op="+" style="op-add" pos="-1132.865,-474.5721">
+                <Constant number="0" />
+                <Variable list="false" local="false" variableName="varFloat" />
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </ElseIf>
+        <Comment id="55" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Store the new operand so it can be displayed and calculated the next time" />
+        </Comment>
+        <SetVariable id="56" style="set-variable">
+          <Variable list="false" local="false" variableName="hasOp" />
+          <ListOp op="get" style="list-get">
+            <Variable list="false" local="true" variableName="data" />
+            <Constant number="1" />
+          </ListOp>
+        </SetVariable>
+        <Comment id="57" style="comment">
+          <Constant style="comment-text" canReplace="false" text="The user input number is reseted" />
+        </Comment>
+        <SetVariable id="58" style="set-variable">
+          <Variable list="false" local="false" variableName="varInt" />
+          <Constant text="0" />
+        </SetVariable>
+        <SetVariable id="59" style="set-variable">
+          <Variable list="false" local="false" variableName="varFloat" pos="-1224.781,-692.6283" />
+          <Constant text="" />
+        </SetVariable>
+      </Instructions>
+    </ElseIf>
+    <ElseIf id="60" style="else">
+      <Constant bool="true" />
+      <Instructions>
+        <Comment id="61" style="comment">
+          <Constant style="comment-text" canReplace="false" text="When a new number is added if there's a point it's added to the decimal part, if not to the whole" />
+        </Comment>
+        <If id="62" style="if">
+          <StringOp op="length" style="length" pos="-1298.873,-826.6343">
+            <Variable list="false" local="false" variableName="varFloat" />
+          </StringOp>
+          <Instructions>
+            <SetVariable id="63" style="set-variable">
+              <Variable list="false" local="false" variableName="varFloat" />
+              <StringOp op="join" style="join" pos="-1097.738,-873.401">
+                <Variable list="false" local="false" variableName="varFloat" />
+                <ListOp op="get" style="list-get" pos="-935.7885,-880.4012">
+                  <Variable list="false" local="true" variableName="data" />
+                  <Constant number="1" />
+                </ListOp>
+                <Constant text="" />
+              </StringOp>
+            </SetVariable>
+          </Instructions>
+        </If>
+        <ElseIf id="64" style="else">
+          <Constant bool="true" />
+          <Instructions>
+            <SetVariable id="65" style="set-variable">
+              <Variable list="false" local="false" variableName="varInt" />
+              <BinaryOp op="+" style="op-add">
+                <BinaryOp op="*" style="op-mul">
+                  <Variable list="false" local="false" variableName="varInt" />
+                  <Constant text="10" />
+                </BinaryOp>
+                <ListOp op="get" style="list-get">
+                  <Variable list="false" local="true" variableName="data" />
+                  <Constant number="1" />
+                </ListOp>
+              </BinaryOp>
+            </SetVariable>
+          </Instructions>
+        </ElseIf>
+      </Instructions>
+    </ElseIf>
+    <If id="66" style="if">
+      <StringOp op="contains" style="contains">
+        <ListOp op="get" style="list-get">
+          <Variable list="false" local="true" variableName="data" />
+          <Constant number="1" />
+        </ListOp>
+        <Constant text="=" />
+      </StringOp>
+      <Instructions>
+        <Comment id="67" style="comment">
+          <Constant style="comment-text" canReplace="false" text="If the last operation was = show only the result" />
+        </Comment>
+        <SetCraftProperty property="Mfd.Label.SetText" id="68" style="set-mfd-label">
+          <Constant text="display" />
+          <Variable list="false" local="false" variableName="ans" />
+        </SetCraftProperty>
+      </Instructions>
+    </If>
+    <ElseIf id="69" style="else">
+      <Constant bool="true" />
+      <Instructions>
+        <Comment id="70" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Show the previous result if not 0, the operand and the user input number" />
+        </Comment>
+        <SetCraftProperty property="Mfd.Label.SetText" id="71" style="set-mfd-label">
+          <Constant text="display" />
+          <StringOp op="join" style="join">
+            <Conditional style="conditional">
+              <Variable list="false" local="false" variableName="ans" />
+              <Variable list="false" local="false" variableName="ans" />
+              <Constant text="" />
+            </Conditional>
+            <Variable list="false" local="false" variableName="hasOp" />
+            <Variable list="false" local="false" variableName="varInt" />
+            <Variable list="false" local="false" variableName="varFloat" pos="-546.694,-1275.181" />
+            <Constant text="" />
+          </StringOp>
+        </SetCraftProperty>
+      </Instructions>
+    </ElseIf>
+  </Instructions>
+  <Instructions>
+    <Comment id="72" style="comment" pos="-1360.811,597.4311">
+      <Constant style="comment-text" canReplace="false" text="FUNCTIONALITY" />
+    </Comment>
+  </Instructions>
+  <Expressions />
+</Program>

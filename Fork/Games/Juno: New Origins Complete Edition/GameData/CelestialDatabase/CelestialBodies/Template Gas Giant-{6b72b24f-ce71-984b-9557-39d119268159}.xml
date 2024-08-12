@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Gas Giant" author="Jundroo" version="1.0" versionTag="" xmlVersion="2" seaLevel="0" hasTerrainPhysics="false" hasWater="false" radius="14000000" surfaceGravity="24.79" angularVelocity="-1.246663751424521E-05" uniformHeight="false" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="false" skyShaderEnabled="true" equirectMapBrightness="1" equirectMapLight="0" isTemplate="true">
+  <FileReferences />
+  <Description>A ringless gas giant with a very chaotic top layer of clouds and enormous storms.</Description>
+  <MusicKeywords>Gameplay,Gas Giant,Moon Non Earth</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="true" surfaceAirDensity="0.16" meanMassPerMolecule="3" meanNightSurfaceTemperature="1000" meanDaySurfaceTemperature="1000" meanGamma="1.6" crushAltitude="50000" fadeDistance="200000" desc="" />
+  <Terrain uvSizeExponent="8">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="29" minSubdivisionLevel="1" maxSubdivisionLevel="12" quadSphereActivationDistance="0" quadSphereTransitionDistance="0">
+      <Quality qualityLevel="Low" automatic="false" mobileOnly="false" targetVertexDistance="30" terrainQuadEdgeVertexCount="13" waterQuadEdgeVertexCount="13" minSubdivisionLevel="3" maxSubdivisionLevel="13" />
+      <Quality qualityLevel="Medium" automatic="false" mobileOnly="false" targetVertexDistance="20" terrainQuadEdgeVertexCount="19" waterQuadEdgeVertexCount="19" minSubdivisionLevel="3" maxSubdivisionLevel="13" />
+      <Quality qualityLevel="High" automatic="false" mobileOnly="false" targetVertexDistance="10" terrainQuadEdgeVertexCount="25" waterQuadEdgeVertexCount="25" minSubdivisionLevel="3" maxSubdivisionLevel="13" />
+    </QualitySettings>
+    <WaterConfigDefault useDefaultConfig="false" waterColorGradient="0,0.1,0.2480053,0.4901961|1,0.1,0.2480053,0.4901961" waterColorGradientMaxDepth="400" emissiveness="0" metallicness="0" smoothness="0" waveAmplitudeScale="100" transparencyDepthScale="100" transparencyStrength="15" reflectionStrength="50" foamStrength="50" textureStrength="100" underwaterColor="0.05882351,0.3411765,0.5882353" underwaterDarkColor="0,0,0" underwaterLightFadeDepth="150" underwaterLightFadeDistance="150" underwaterColorIntensity="0.5" reflectionDistortion="20" refractionDistortion="2" transparencyDepth="100" fresnelBias="0.2" foamDepth="0.35" foamColor="1,1,1" waveAmplitude="0.5" waveLength="50" waveSpeed="2" />
+    <Modifiers>
+      <Modifier type="VertexData.GetPosition" enabled="true" name="Get latitude" container="" pass="Height" dataIndexX="-1" dataIndexY="0" dataIndexZ="-1" rotation="0,0,0" />
+      <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Storm noise" container="" basicView="true" pass="Height" noiseType="Cellular" maskDataIndex="-1" seed="0" lockSeed="false" frequency="1" strength="1" cellularDistanceFunction="Euclidean" cellularReturnType="Distance" dataIndex="1" mapName="">
+        <DomainWarping domainWarpingType="Scaled" warpScale="1,2,1" />
+        <DomainWarping domainWarpingType="Fractal" seed="0" frequency="1" amplitude="0.1" octaves="6" gain="0.5" lacunarity="2" interpolation="Quintic" />
+      </Modifier>
+      <Modifier type="VertexData.RemapCurve" enabled="true" name="Cap storms" container="" pass="Height" dataIndexInput="1" dataIndexOutput="1" curve="-1,0,0,0,0,0,0,0|-0.9956179,0.2484954,-93.80307,-93.80307,0.5,0.5,0,0|-0.99,0.4462138,-125.3476,-125.3476,0.5,0.5,0,0|-0.985,0.7771087,-171.1126,-171.1126,0.5,0.5,0,0|-0.98,1,21.5145,21.5145,0,0,0,0" />
+      <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Cloud noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="5" strength="0.05" fractalType="FBM" octaves="4" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.25" interpolation="Quintic" dataIndex="2" mapName="Clouds" mapMinValue="-10" mapMaxValue="10" mapSampleMode="Bilinear" mapColorGradient="0,0,0,0|1,1,1,1" mapIgnore="true" mapNoiseCombine="false">
+        <DomainWarping domainWarpingType="AxialTwist" twistAxis="(0, 0.5, 0)" twistAngle="45" twistExponent="4" twistMethod="DistanceOnAxisInverse" />
+        <DomainWarping domainWarpingType="Fractal" seed="0" frequency="10" amplitude="0.25" octaves="4" gain="0.4" lacunarity="2" interpolation="Quintic" />
+        <DomainWarping domainWarpingType="Fractal" seed="0" frequency="10" amplitude="0.5" octaves="2" gain="0.7" lacunarity="2" interpolation="Quintic" />
+      </Modifier>
+      <Modifier type="VertexData.Expression" enabled="true" name="Expression" container="" pass="Height" expression="pow([0]+1,[1])-1+[2]" dataIndexOutput="0" />
+      <Modifier type="VertexData.ColorBands" enabled="true" name="Bands" container="" basicView="true" pass="Height" dataIndex="0" minInputValue="-1" maxInputValue="1">
+        <ColorBands>
+          <ColorBand color="0.2090488,0.1539486,0.7005101,1" weights="2,0,2" />
+          <ColorBand color="0.2563129,0.4831299,0.6472296,1" weights="2,0,1" />
+          <ColorBand color="0.1379958,0.5809597,0.6267537,1" weights="5,0,5" />
+          <ColorBand color="0.9598877,0.827059,0.7698401,1" weights="14,0,10" />
+          <ColorBand color="0.9181757,0.8751922,0.8354968,1" weights="15,0,14" />
+          <ColorBand color="0.7271799,0.5530679,0.3512134,1" weights="14,0,15" />
+          <ColorBand color="0.6822574,0.6761171,0.6693618,1" weights="13,0,11" />
+          <ColorBand color="0.7733111,0.6565817,0.5785009,1" weights="12,0,14" />
+          <ColorBand color="0.8772813,0.5566396,0.3977966,1" weights="10,0,10" />
+          <ColorBand color="0.9177789,0.615591,0.4688594,1" weights="15,0,15" />
+          <ColorBand color="0.6410003,0.4624842,0.3821636,1" weights="14,0,15" />
+          <ColorBand color="0.7404988,0.6899941,0.6330356,1" weights="14,0,14" />
+          <ColorBand color="0.8867572,0.8724409,0.8615065,1" weights="10,0,10" />
+          <ColorBand color="0.7098472,0.4583002,0.3263859,1" weights="15,0,14" />
+          <ColorBand color="0.714071,0.5826445,0.5135467,1" weights="15,0,11" />
+          <ColorBand color="0.7422456,0.6880195,0.6217257,1" weights="15,0,15" />
+          <ColorBand color="0.9819087,0.7076943,0.5455228,1" weights="15,0,10" />
+          <ColorBand color="0.1233235,0.5981711,0.6468505,1" weights="5,0,5" />
+          <ColorBand color="0.3791372,0.3605722,0.6775648,1" weights="3,0,2" />
+        </ColorBands>
+        <RandomColorBands>
+          <RandomColorBand color="0.2431373,0.3764706,0.6666667,1" bandCount="0,3" coreWeight="0,0" blendWeight="1,5" hsvVariance="0.1,0.2,0.05" />
+          <RandomColorBand color="0.8862745,0.8313726,0.7882353,1" bandCount="5,15" coreWeight="0,0" blendWeight="10,15" hsvVariance="0.025,0.5,0.25" />
+          <RandomColorBand color="0.2431373,0.3764706,0.6666667,1" bandCount="0,3" coreWeight="0,0" blendWeight="1,5" hsvVariance="0.1,0.2,0.05" />
+        </RandomColorBands>
+      </Modifier>
+      <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Elevation noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="30" strength="0.5" fractalType="FBM" octaves="10" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.5" interpolation="Quintic" dataIndex="1" mapName="" />
+      <Modifier type="VertexData.Expression" enabled="true" name="Expression" container="" pass="Height" expression="([2]+[1])*14000" dataIndexOutput="0" />
+      <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="Update height" container="" pass="Height" dataIndex="0" />
+      <Modifier type="Material.TerrainDetailSplatmap" enabled="true" name="Splatmap" fresnelBias="1">
+        <DistanceBlendedTextures>
+          <TilingConfig distanceAdjustment="0" distanceScalar="1" scaledUvStartLevel="8">
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+            <TileLevel tiling="1" strength="0" />
+          </TilingConfig>
+        </DistanceBlendedTextures>
+        <GroundDetailTextures mipmapFadeRange="4,8" tilingScale="1" />
+      </Modifier>
+    </Modifiers>
+    <Biomes>
+      <Biome name="Default">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers />
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="0.5,0.5,0.5,1" ambientLightNight="0.5,0.5,0.5,1" atmosScale="1" atmosScaleSpace="0.25" atmosScaleSurface="10" atmosSizeScale="1" debugScaler="0" duskColor="0,0,0,1" eSun="2" fresnelBias="0" g="-0.95" km="0.001" kr="0.01" maxColorValue="2" noonColor="1,1,1,1" samples="4" scaleDepth="0.1" scaleDepthMax="1" scaleDepthMin="1" waveLength="0.772549,0.827451,0.8666667,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5,0.5,0.5,1" ambientLightNight="0.5,0.5,0.5,1" atmosScale="0" atmosScaleSpace="0.25" atmosScaleSurface="4" atmosSizeScale="2" debugScaler="0" duskColor="1,1,1,1" eSun="25" fresnelBias="0" g="0" km="0.001" kr="0.005" maxColorValue="2" noonColor="1,1,1,1" samples="2" scaleDepth="0.1" scaleDepthMax="0.075" scaleDepthMin="0.1" waveLength="0.7882353,0.8392157,0.8745098,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

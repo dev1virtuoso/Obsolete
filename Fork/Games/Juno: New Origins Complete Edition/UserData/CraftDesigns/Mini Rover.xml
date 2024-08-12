@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="Mini Rover" parent="" initialBoundsMin="-1.888558,-0.9672772,-3.075652" initialBoundsMax="1.88862,0.9645672,3.10518" removeInvalidParts="true" price="12481315" xmlVersion="15" activeCommandPod="112" localCenterOfMass="0.0009794235,-0.7268862,0.02948969">
+  <Assembly>
+    <Parts>
+      <Part id="112" partType="CommandChip1" position="-0.5146786,0.5132937,-0.02948974" rotation="3.671395E-06,-9.172369E-06,44.99999" rootPart="true" commandPodId="112" materials="0,1,2,3,4">
+        <Drag drag="0.005893623,0.00610479,0.05388981,0,0.02243924,0" area="0.008319773,0.008319773,0.07694625,0,0.0332268,0" />
+        <Config heatShieldScale="0" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" craftConfigType="Plane" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="3.889774E-06,9.081914E-06,315" powerConsumption="60" stageCalculationVersion="1">
+          <Controls />
+        </CommandPod>
+        <FlightProgram powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1" />
+      </Part>
+      <Part id="174" partType="Fuselage1" position="3.099465E-05,-0.001354881,0.01476529" rotation="90,0,0" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0,0,1.562959,2.417404,0.2309898,0.2531067" area="0,0,2.049009,2.983452,0.3526731,0.3859003" />
+        <Config centerOfMass="-8.213541E-09,3.328866E-08,2.910325E-08" heatShieldScale="0" />
+        <Fuselage bottomScale="0.7278318,0.7278318" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,1.090415,-3.576279E-07" shellDensityOverride="-1" topScale="0.7278318,0.7278318" volume="3.588072" volumeInner="3.52189684" version="3" />
+        <FuelTank autoFuelType="false" capacity="4923337.5" fuel="4923337.5" fuelType="Battery" />
+      </Part>
+      <Part id="175" partType="SolarPanel1" position="3.093458E-05,0.7264894,0.02079614" rotation="-1.81561E-05,-1.506072E-12,5.008955E-06" commandPodId="112" materials="0,20,2,3,4" style="Hex">
+        <Drag drag="0.009882221,0.009882221,0.8596652,0,0.01235347,0.01235347" area="0.02033721,0.02033721,0.8609911,0,0.01632195,0.01632195" />
+        <Config heatShieldScale="0" />
+        <SolarPanel efficiency="0.1" length="2.5" version="2" />
+      </Part>
+      <Part id="176" partType="NoseCone1" position="3.099465E-05,-0.001354754,2.10518" rotation="90,5.008955E-06,0" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0.5878255,0,1.489312,1.489312,0.6404126,0.6404082" area="1.606724,0,1.983138,1.983138,0.9321089,0.9321089" />
+        <Config centerOfMass="1.016159E-08,-0.4666272,-2.468263E-08" heatShieldScale="0" />
+        <Fuselage bottomScale="0.7278318,0.7278318" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,1,0" shellDensityOverride="-1" topScale="0,0" volume="1.85593784" volumeInner="1.81456041" version="3" />
+        <FuelTank capacity="1020.76611328125" fuelType="None" subPriority="21" />
+      </Part>
+      <Part id="177" partType="NoseCone1" position="3.099465E-05,-0.001355104,-2.075652" rotation="90,180,0" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0,0.5871429,1.489321,1.489321,0.5999982,0.600005" area="0,1.603026,1.983138,1.983138,0.8749815,0.8749815" />
+        <Config centerOfMass="1.016159E-08,-0.4666272,-2.468263E-08" heatShieldScale="0" />
+        <Fuselage bottomScale="0.7278318,0.7278318" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,1,0" shellDensityOverride="-1" topScale="0,0" volume="1.85593784" volumeInner="1.81456041" version="3" />
+        <FuelTank capacity="1020.76611328125" fuelType="None" subPriority="-20" />
+      </Part>
+      <Part id="178" partType="Camera1" position="3.093458E-05,0.7234198,1.102337" rotation="-2.90283E-05,3.20164E-07,4.335569E-06" commandPodId="112" materials="0,1,19,3,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" includeInDrag="true" />
+        <CameraVantage cameraOffset="0,0.065,0" fieldOfView="0.5" fieldOfViewMax="1" fieldOfViewMin="0" nightVisionColor="#80FF8080" version="2" />
+        <InputController inputId="Zoom" />
+      </Part>
+      <Part id="180" partType="RoverWheel1" position="0.8214754,-0.001354843,0.9897236" rotation="3.415095E-06,89.99999,-6.106665E-13" name="Offroad Wheel" commandPodId="112" materials="4,1,2,3,4" symmetryId="e3571e95-d4f2-49f3-ab95-860c92da1fd8">
+        <Drag drag="1.740636,0,1.742038,1.741698,0,2.426021" area="2.427075,0,2.427333,2.427916,0,3.002105" />
+        <Config heatShieldScale="0" maxTemperature="700" symmetryId="491a20ce-11c0-4a44-b7f3-ce34aed78f1d" />
+        <ResizableWheel brakeTorque="10000" enableSuspension="true" gearRatio="2.5" size="2" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="5000" tractionSideways="1.5" turningAngle="30" width="1.3" symmetryId="2f8c15b0-ad2b-4532-8d6a-d5b4568d4f42" version="3" />
+        <InputController inputId="Turn" symmetryId="c21ad045-5445-4023-8f5d-dfa38700f56c" />
+        <InputController inputId="RPM" symmetryId="aaac3045-debe-4b69-94b5-6df6cfdd00ef" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="0d73f49e-abea-45a7-9229-1f04263ed6ac" />
+      </Part>
+      <Part id="182" partType="Camera1" position="3.093458E-05,0.7234193,-1.035854" rotation="-2.002718E-05,180,5.008958E-06" commandPodId="112" materials="0,1,19,3,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" includeInDrag="true" />
+        <CameraVantage cameraOffset="0,0.065,0" fieldOfView="0.5" fieldOfViewMax="1" fieldOfViewMin="0" isNight="true" nightVisionColor="#80FF8080" version="2" />
+        <InputController inputId="Zoom" />
+      </Part>
+      <Part id="183" partType="RoverWheel1" position="-0.8214133,-0.001354843,0.9897236" rotation="0,270,0" name="Offroad Wheel" commandPodId="112" materials="4,1,2,3,4" symmetryId="e3571e95-d4f2-49f3-ab95-860c92da1fd8" mirrored="true">
+        <Drag drag="1.740547,0,1.739406,1.739448,2.43029,0" area="2.426151,0,2.42675,2.427916,3.002105,0" />
+        <Config heatShieldScale="0" maxTemperature="700" symmetryId="491a20ce-11c0-4a44-b7f3-ce34aed78f1d" />
+        <ResizableWheel brakeTorque="10000" direction="Reversed" directionReverse="true" enableSuspension="true" gearRatio="2.5" size="2" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="5000" tractionSideways="1.5" turningAngle="30" width="1.3" symmetryId="2f8c15b0-ad2b-4532-8d6a-d5b4568d4f42" version="3" />
+        <InputController inputId="Turn" symmetryId="c21ad045-5445-4023-8f5d-dfa38700f56c" />
+        <InputController inputId="RPM" symmetryId="aaac3045-debe-4b69-94b5-6df6cfdd00ef" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="0d73f49e-abea-45a7-9229-1f04263ed6ac" />
+      </Part>
+      <Part id="184" partType="RoverWheel1" position="0.8214757,-0.001355097,-1.008895" rotation="0,90.00002,0" name="Offroad Wheel" commandPodId="112" materials="4,1,2,3,4" symmetryId="53c73e52-4819-49c3-b235-916a702ca28b">
+        <Drag drag="0,1.741551,1.741783,1.741609,0,2.426077" area="0,2.428923,2.42675,2.427916,0,3.00094" />
+        <Config heatShieldScale="0" maxTemperature="700" symmetryId="9d3ac1d9-8a81-42be-a3c8-13745e92473f" />
+        <ResizableWheel brakeTorque="10000" enableSuspension="true" gearRatio="2.5" size="2" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="5000" tractionSideways="1.5" turningAngle="30" width="1.3" symmetryId="51896ba6-ce9b-4b84-b615-6a861bd5e643" version="3" />
+        <InputController inputId="Turn" symmetryId="433ad5d5-7073-4c0a-bdf7-369fb69f4fc1" />
+        <InputController inputId="RPM" symmetryId="3d200a16-16bf-4fa8-8135-53043d2b3420" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="bcd6c964-fdbe-46a4-bb93-7a548127fc06" />
+      </Part>
+      <Part id="185" partType="RoverWheel1" position="-0.8214136,-0.001355097,-1.008895" rotation="3.415096E-06,270,-4.071109E-13" name="Offroad Wheel" commandPodId="112" materials="4,1,2,3,4" symmetryId="53c73e52-4819-49c3-b235-916a702ca28b" mirrored="true">
+        <Drag drag="0,1.74133,1.739151,1.740116,2.429672,0" area="0,2.427999,2.42675,2.427333,3.00094,0" />
+        <Config heatShieldScale="0" maxTemperature="700" symmetryId="9d3ac1d9-8a81-42be-a3c8-13745e92473f" />
+        <ResizableWheel brakeTorque="10000" direction="Reversed" directionReverse="true" enableSuspension="true" gearRatio="2.5" size="2" slipForwardAsymptote="10" slipForwardExtremum="8" slipSidewaysAsymptote="20" slipSidewaysExtremum="15" torque="5000" tractionSideways="1.5" turningAngle="30" width="1.3" symmetryId="51896ba6-ce9b-4b84-b615-6a861bd5e643" version="3" />
+        <InputController inputId="Turn" symmetryId="433ad5d5-7073-4c0a-bdf7-369fb69f4fc1" />
+        <InputController inputId="RPM" symmetryId="3d200a16-16bf-4fa8-8135-53043d2b3420" />
+        <InputController input="1" inputId="Torque" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="bcd6c964-fdbe-46a4-bb93-7a548127fc06" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="176" partB="174" attachPointsA="1,2" attachPointsB="2,4" />
+      <Connection partA="177" partB="174" attachPointsA="1,2" attachPointsB="1,5" />
+      <Connection partA="178" partB="174" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="175" partB="174" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="182" partB="174" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="180" partB="174" attachPointsA="0" attachPointsB="0" symmetryId="99423270-3c02-49a5-a931-f4c9ec0f9faa">
+        <BodyJoint body="1" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.7279235,-0.003450277,0.9748988" connectedPosition="-0.09359998,5.587935E-09,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="183" partB="174" attachPointsA="0" attachPointsB="0" symmetryId="99423270-3c02-49a5-a931-f4c9ec0f9faa">
+        <BodyJoint body="1" connectedBody="3" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.7277652,-0.003450282,0.9748988" connectedPosition="0.09360003,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="185" partB="174" attachPointsA="0" attachPointsB="0" symmetryId="d553e078-495e-4118-9c55-00841007e0a0">
+        <BodyJoint body="1" connectedBody="5" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.7277656,-0.003450531,-1.02372" connectedPosition="0.09359998,5.587935E-09,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="184" partB="174" attachPointsA="0" attachPointsB="0" symmetryId="d553e078-495e-4118-9c55-00841007e0a0">
+        <BodyJoint body="1" connectedBody="4" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.7279238,-0.003450537,-1.02372" connectedPosition="-0.09359998,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="112" partB="174" attachPointsA="0" attachPointsB="0" />
+    </Connections>
+    <Collisions />
+    <Bodies>
+      <Body id="1" partIds="112,174,176,177,178,175,182" mass="65.10897" position="-4.80671E-05,0.002095439,0.01482473" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="2" partIds="180" mass="25.17331" position="0.8214754,-0.001354843,0.9897236" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="3" partIds="183" mass="25.17331" position="-0.8214133,-0.001354843,0.9897236" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="4" partIds="184" mass="25.17331" position="0.8214757,-0.001355097,-1.008895" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="5" partIds="185" mass="25.17331" position="-0.8214136,-0.001355097,-1.008895" rotation="0,0,0" centerOfMass="0,0,0" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+  <Symmetry>
+    <Group mode="Mirror" rootPartId="174" attachPointId="0">
+      <Slice angle="0" rootPartId="180" parts="180" />
+      <Slice angle="0" rootPartId="183" parts="183" />
+    </Group>
+    <Group mode="Mirror" rootPartId="174" attachPointId="0">
+      <Slice angle="0" rootPartId="184" parts="184" />
+      <Slice angle="0" rootPartId="185" parts="185" />
+    </Group>
+  </Symmetry>
+</Craft>

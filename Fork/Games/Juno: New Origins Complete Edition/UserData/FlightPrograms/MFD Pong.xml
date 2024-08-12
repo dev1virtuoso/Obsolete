@@ -1,0 +1,1056 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Program name="MFD Pong" requiresMfd="true">
+  <Variables>
+    <Variable name="ballSpeed" number="0" />
+    <Variable name="playerTargetPosition" number="0" />
+    <Variable name="adversaryTargetPosition" number="0" />
+    <Variable name="playerPoints" number="0" />
+    <Variable name="adversaryPoints" number="0" />
+    <Variable name="paddleOffset" number="0" />
+    <Variable name="paddleMovement" number="0" />
+    <Variable name="playerMaxSpeed" number="0" />
+    <Variable name="adversaryMaxSpeed" number="0" />
+    <Variable name="paused" number="0" />
+  </Variables>
+  <Instructions>
+    <Event event="FlightStart" id="0" style="flight-start" pos="-15.71429,-16.42857" />
+    <Comment id="1" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Make the display that will show the points of the player and the adversary" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Label" id="2" style="create-mfd-widget">
+      <Constant text="points" />
+    </SetCraftProperty>
+    <Comment id="3" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Set the label so the font size adjusts to the size of the widget" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Label.SetAutoSize" id="4" style="set-mfd-label">
+      <Constant text="points" />
+      <Constant style="true" bool="true" />
+    </SetCraftProperty>
+    <Comment id="5" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Adjust the widget size and position so it looks nice" />
+    </Comment>
+    <Comment id="6" style="comment">
+      <Constant style="comment-text" canReplace="false" text="For the size and position adjustments the size of the part is used as a reference checking _Screen" />
+    </Comment>
+    <Comment id="7" style="comment">
+      <Constant style="comment-text" canReplace="false" text="This allows for the program to work with any MFD size and aspect ratio (how wide or narrow it is)" />
+    </Comment>
+    <SetCraftProperty property="Mfd.SetPosition" id="8" style="set-mfd-widget">
+      <Constant text="points" />
+      <Vector style="vec">
+        <Constant text="0" />
+        <BinaryOp op="*" style="op-mul">
+          <Constant text="0.4" />
+          <VectorOp op="y" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+        <Constant number="0" />
+      </Vector>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="9" style="set-mfd-widget">
+      <Constant text="points" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <Constant text="0.5" />
+          <Constant text="0.2" />
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetCraftProperty>
+    <Comment id="10" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Initialize the text of the label to 00 00" />
+    </Comment>
+    <Comment id="11" style="comment">
+      <Constant style="comment-text" canReplace="false" text="&lt;mspace=0.5em&gt; is a TextMesh tag that makes the text monospaced without separation" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Label.SetText" id="12" style="set-mfd-label">
+      <Constant text="points" />
+      <Constant text="&lt;mspace=0.5em&gt;00  00" />
+    </SetCraftProperty>
+    <Comment id="13" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add a line in the center of the screen" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Rectangle" id="14" style="create-mfd-widget">
+      <Constant text="divider" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="15" style="set-mfd-widget">
+      <Constant text="divider" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <Constant text="0.025" />
+          <Constant text="1" />
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetCraftProperty>
+    <Comment id="16" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add the player and adversary paddles and the ball" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Rectangle" id="17" style="create-mfd-widget">
+      <Constant text="player" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="18" style="set-mfd-widget">
+      <Constant text="player" />
+      <Vector style="vec">
+        <BinaryOp op="*" style="op-mul">
+          <Constant text="-0.48" />
+          <VectorOp op="x" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+        <Constant text="0" />
+        <Constant number="0" />
+      </Vector>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="19" style="set-mfd-widget">
+      <Constant text="player" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <Constant text="0.025" />
+          <Constant text="0.2" />
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Create.Rectangle" id="20" style="create-mfd-widget">
+      <Constant text="adversary" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="21" style="set-mfd-widget">
+      <Constant text="adversary" />
+      <Vector style="vec">
+        <BinaryOp op="*" style="op-mul">
+          <Constant text="0.48" />
+          <VectorOp op="x" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+        <Constant text="0" />
+        <Constant number="0" />
+      </Vector>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="22" style="set-mfd-widget">
+      <Constant text="adversary" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <Constant text="0.025" />
+          <Constant text="0.2" />
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Create.Ellipse" id="23" style="create-mfd-widget">
+      <Constant text="ball" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="24" style="set-mfd-widget">
+      <Constant text="ball" />
+      <BinaryOp op="*" style="op-mul">
+        <Vector style="vec">
+          <Constant text="0.02" />
+          <Constant text="0.02" />
+          <Constant number="0" />
+        </Vector>
+        <BinaryOp op="min" style="op-min">
+          <VectorOp op="x" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+          <VectorOp op="y" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+      </BinaryOp>
+    </SetCraftProperty>
+    <Comment id="25" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Initialize all the variables" />
+    </Comment>
+    <SetVariable id="26" style="set-variable">
+      <Variable list="false" local="false" variableName="paused" />
+      <Constant style="true" bool="true" />
+    </SetVariable>
+    <Comment id="27" style="comment">
+      <Constant style="comment-text" canReplace="false" text="The speed of the ball is set to a random value pointing to the adversary to give time to the player" />
+    </Comment>
+    <SetVariable id="28" style="set-variable">
+      <Variable list="false" local="false" variableName="ballSpeed" />
+      <VectorOp op="scale" style="vec-op-2">
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+        <Vector style="vec">
+          <BinaryOp op="rand" style="op-rand">
+            <Constant text="0.025" />
+            <Constant text="0.01" />
+          </BinaryOp>
+          <BinaryOp op="rand" style="op-rand">
+            <Constant text="-0.01" />
+            <Constant text="0.01" />
+          </BinaryOp>
+          <Constant number="0" />
+        </Vector>
+      </VectorOp>
+    </SetVariable>
+    <Comment id="29" style="comment">
+      <Constant style="comment-text" canReplace="false" text="The paddle variables only care about the y axis because they only move up and down" />
+    </Comment>
+    <SetVariable id="30" style="set-variable">
+      <Variable list="false" local="false" variableName="playerTargetPosition" />
+      <Constant number="0" />
+    </SetVariable>
+    <SetVariable id="31" style="set-variable">
+      <Variable list="false" local="false" variableName="playerMaxSpeed" />
+      <BinaryOp op="*" style="op-mul">
+        <Constant text="0.05" />
+        <VectorOp op="y" style="vec-op-1">
+          <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+            <Constant text="_Screen" />
+          </CraftProperty>
+        </VectorOp>
+      </BinaryOp>
+    </SetVariable>
+    <SetVariable id="32" style="set-variable">
+      <Variable list="false" local="false" variableName="adversaryMaxSpeed" />
+      <BinaryOp op="*" style="op-mul">
+        <Constant text="0.02" />
+        <VectorOp op="y" style="vec-op-1">
+          <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+            <Constant text="_Screen" />
+          </CraftProperty>
+        </VectorOp>
+      </BinaryOp>
+    </SetVariable>
+    <Comment id="33" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add a button to play/pause using a rotated Δ and = as icons" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Label" id="34" style="create-mfd-widget">
+      <Constant text="paused" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetText" id="35" style="set-mfd-label">
+      <Constant text="paused" />
+      <Constant text="Δ" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Label.SetAutoSize" id="36" style="set-mfd-label">
+      <Constant text="paused" />
+      <Constant style="true" bool="true" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetRotation" id="37" style="set-mfd-widget">
+      <Constant text="paused" />
+      <Constant text="-90" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetPosition" id="38" style="set-mfd-widget">
+      <Constant text="paused" />
+      <BinaryOp op="*" style="op-mul">
+        <Constant text="0.45" />
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+      </BinaryOp>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="39" style="set-mfd-widget">
+      <Constant text="paused" />
+      <BinaryOp op="*" style="op-mul">
+        <Vector style="vec">
+          <Constant text="0.1" />
+          <Constant text="0.1" />
+          <Constant number="0" />
+        </Vector>
+        <BinaryOp op="min" style="op-min">
+          <VectorOp op="x" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+          <VectorOp op="y" style="vec-op-1">
+            <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+              <Constant text="_Screen" />
+            </CraftProperty>
+          </VectorOp>
+        </BinaryOp>
+      </BinaryOp>
+    </SetCraftProperty>
+    <Comment id="40" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add a widget in the background that matches the actual background of the part" />
+    </Comment>
+    <Comment id="41" style="comment">
+      <Constant style="comment-text" canReplace="false" text="This is necessary to intercept the clicks through the entire display" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Rectangle" id="42" style="create-mfd-widget">
+      <Constant text="background" />
+    </SetCraftProperty>
+    <Comment id="43" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Send the widget to behind all parts since there's no specified part" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Order.SendToBack" id="44" style="set-mfd-order-back">
+      <Constant text="background" />
+      <Constant text="" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetSize" id="45" style="set-mfd-widget">
+      <Constant text="background" />
+      <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+        <Constant text="_Screen" />
+      </CraftProperty>
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.SetColor" id="46" style="set-mfd-widget">
+      <Constant text="background" />
+      <CraftProperty property="Mfd.Color" style="prop-mfd-widget">
+        <Constant text="_Screen" />
+      </CraftProperty>
+    </SetCraftProperty>
+    <Comment id="47" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Add the click events for the pause button and the paddle movement" />
+    </Comment>
+    <Comment id="48" style="comment">
+      <Constant style="comment-text" canReplace="false" text="It's recommended to add this at the end so the user can't trigger them before things are set" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Event.SetPointerDown" id="49" style="set-mfd-event">
+      <Constant text="background" />
+      <Constant text="playerPosition" />
+      <Constant text="" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Event.SetDrag" id="50" style="set-mfd-event">
+      <Constant text="background" />
+      <Constant text="playerPosition" />
+      <Constant text="" />
+    </SetCraftProperty>
+    <SetCraftProperty property="Mfd.Event.SetPointerDown" id="51" style="set-mfd-event">
+      <Constant text="paused" />
+      <Constant text="pause" />
+      <Constant text="" />
+    </SetCraftProperty>
+    <Comment id="52" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Repeat what's inside of the loop forever" />
+    </Comment>
+    <While id="53" style="while">
+      <Constant style="true" bool="true" />
+      <Instructions>
+        <Comment id="54" style="comment">
+          <Constant style="comment-text" canReplace="false" text="If the game is paused wait until it's unpaused" />
+        </Comment>
+        <Comment id="55" style="comment">
+          <Constant style="comment-text" canReplace="false" text="When launching the craft, the game will be paused by default" />
+        </Comment>
+        <If id="56" style="if">
+          <Variable list="false" local="false" variableName="paused" />
+          <Instructions>
+            <SetCraftProperty property="Mfd.Label.SetText" id="57" style="set-mfd-label">
+              <Constant text="paused" />
+              <Constant text="Δ" />
+            </SetCraftProperty>
+            <WaitUntil id="58" style="wait-until">
+              <Not style="op-not">
+                <Variable list="false" local="false" variableName="paused" />
+              </Not>
+            </WaitUntil>
+            <SetCraftProperty property="Mfd.Label.SetText" id="59" style="set-mfd-label">
+              <Constant text="paused" />
+              <Constant text="=" />
+            </SetCraftProperty>
+          </Instructions>
+        </If>
+        <Comment id="60" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Move the ball relative to its speed" />
+        </Comment>
+        <SetCraftProperty property="Mfd.SetPosition" id="61" style="set-mfd-widget">
+          <Constant text="ball" />
+          <BinaryOp op="+" style="op-add">
+            <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+              <Constant text="ball" />
+            </CraftProperty>
+            <Variable list="false" local="false" variableName="ballSpeed" />
+          </BinaryOp>
+        </SetCraftProperty>
+        <Comment id="62" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Check how much the player has to move to go to its target position and cap it to the max speed" />
+        </Comment>
+        <SetVariable id="63" style="set-variable">
+          <Variable list="false" local="false" variableName="paddleMovement" />
+          <BinaryOp op="min" style="op-min">
+            <BinaryOp op="max" style="op-max">
+              <BinaryOp op="-" style="op-sub">
+                <Constant number="0" />
+                <Variable list="false" local="false" variableName="playerMaxSpeed" />
+              </BinaryOp>
+              <BinaryOp op="-" style="op-sub">
+                <Variable list="false" local="false" variableName="playerTargetPosition" />
+                <VectorOp op="y" style="vec-op-1">
+                  <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                    <Constant text="player" />
+                  </CraftProperty>
+                </VectorOp>
+              </BinaryOp>
+            </BinaryOp>
+            <Variable list="false" local="false" variableName="playerMaxSpeed" />
+          </BinaryOp>
+        </SetVariable>
+        <Comment id="64" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Change the position of the player by the calculated movement" />
+        </Comment>
+        <SetCraftProperty property="Mfd.SetPosition" id="65" style="set-mfd-widget">
+          <Constant text="player" />
+          <BinaryOp op="+" style="op-add">
+            <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+              <Constant text="player" />
+            </CraftProperty>
+            <Vector style="vec">
+              <Constant number="0" />
+              <Variable list="false" local="false" variableName="paddleMovement" />
+              <Constant number="0" />
+            </Vector>
+          </BinaryOp>
+        </SetCraftProperty>
+        <Comment id="66" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Do the same for the adversary, this time aiming for the position of the ball" />
+        </Comment>
+        <SetVariable id="67" style="set-variable">
+          <Variable list="false" local="false" variableName="paddleMovement" />
+          <BinaryOp op="min" style="op-min">
+            <BinaryOp op="max" style="op-max">
+              <BinaryOp op="-" style="op-sub">
+                <Constant number="0" />
+                <Variable list="false" local="false" variableName="adversaryMaxSpeed" />
+              </BinaryOp>
+              <BinaryOp op="-" style="op-sub">
+                <VectorOp op="y" style="vec-op-1">
+                  <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                    <Constant text="ball" />
+                  </CraftProperty>
+                </VectorOp>
+                <VectorOp op="y" style="vec-op-1">
+                  <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                    <Constant text="adversary" />
+                  </CraftProperty>
+                </VectorOp>
+              </BinaryOp>
+            </BinaryOp>
+            <Variable list="false" local="false" variableName="adversaryMaxSpeed" />
+          </BinaryOp>
+        </SetVariable>
+        <SetCraftProperty property="Mfd.SetPosition" id="68" style="set-mfd-widget">
+          <Constant text="adversary" />
+          <BinaryOp op="+" style="op-add">
+            <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+              <Constant text="adversary" />
+            </CraftProperty>
+            <Vector style="vec">
+              <Constant number="0" />
+              <Variable list="false" local="false" variableName="paddleMovement" />
+              <Constant number="0" />
+            </Vector>
+          </BinaryOp>
+        </SetCraftProperty>
+        <Comment id="69" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Check if the ball is getting out of the screen in the vertical axis" />
+        </Comment>
+        <If id="70" style="if">
+          <Comparison op="g" style="op-gt">
+            <MathFunction function="abs" style="op-math">
+              <VectorOp op="y" style="vec-op-1">
+                <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                  <Constant text="ball" />
+                </CraftProperty>
+              </VectorOp>
+            </MathFunction>
+            <BinaryOp op="/" style="op-div">
+              <VectorOp op="y" style="vec-op-1">
+                <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                  <Constant text="_Screen" />
+                </CraftProperty>
+              </VectorOp>
+              <Constant text="2" />
+            </BinaryOp>
+          </Comparison>
+          <Instructions>
+            <Comment id="71" style="comment">
+              <Constant style="comment-text" canReplace="false" text="Play a random beep from the Lydian scale, making it sound ethereal and futuristic " />
+            </Comment>
+            <SetCraftProperty property="Sound.Beep" id="72" style="play-beep">
+              <CraftProperty property="Sound.Frequency" style="note-frequency">
+                <ListOp op="get" style="list-get">
+                  <ListOp op="create" style="list-create">
+                    <Constant text="C,D,E,F#,G,A,B" />
+                  </ListOp>
+                  <MathFunction function="round" style="op-math">
+                    <BinaryOp op="rand" style="op-rand">
+                      <Constant text="1" />
+                      <Constant text="7" />
+                    </BinaryOp>
+                  </MathFunction>
+                </ListOp>
+                <Constant text="5" />
+              </CraftProperty>
+              <Constant number="1" />
+              <Constant text="0.1" />
+            </SetCraftProperty>
+            <Comment id="73" style="comment">
+              <Constant style="comment-text" canReplace="false" text="Bounce the ball flipping it's vertical speed" />
+            </Comment>
+            <SetVariable id="74" style="set-variable">
+              <Variable list="false" local="false" variableName="ballSpeed" />
+              <VectorOp op="scale" style="vec-op-2">
+                <Variable list="false" local="false" variableName="ballSpeed" />
+                <Vector style="vec">
+                  <Constant text="1" />
+                  <Constant text="-1" />
+                  <Constant number="0" />
+                </Vector>
+              </VectorOp>
+            </SetVariable>
+          </Instructions>
+        </If>
+        <Comment id="75" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Here comes the tricky part, try to go step by step so it's easier to digest" />
+        </Comment>
+        <If id="76" style="if">
+          <Comparison op="l" style="op-lt">
+            <VectorOp op="x" style="vec-op-1">
+              <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                <Constant text="ball" />
+              </CraftProperty>
+            </VectorOp>
+            <BinaryOp op="+" style="op-add">
+              <VectorOp op="x" style="vec-op-1">
+                <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                  <Constant text="player" />
+                </CraftProperty>
+              </VectorOp>
+              <BinaryOp op="/" style="op-div">
+                <BinaryOp op="+" style="op-add">
+                  <VectorOp op="x" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="player" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <VectorOp op="x" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="ball" />
+                    </CraftProperty>
+                  </VectorOp>
+                </BinaryOp>
+                <Constant text="2" />
+              </BinaryOp>
+            </BinaryOp>
+          </Comparison>
+          <Instructions>
+            <Comment id="77" style="comment">
+              <Constant style="comment-text" canReplace="false" text="Check if the position of the ball is far enough to the left to touch the edge of the paddle" />
+            </Comment>
+            <Comment id="78" style="comment">
+              <Constant style="comment-text" canReplace="false" text="If so, check how far it is from it vertically and normalise it by the length of the paddle" />
+            </Comment>
+            <SetVariable id="79" style="set-variable">
+              <Variable list="false" local="false" variableName="paddleOffset" />
+              <BinaryOp op="/" style="op-div">
+                <BinaryOp op="-" style="op-sub">
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                      <Constant text="ball" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                      <Constant text="player" />
+                    </CraftProperty>
+                  </VectorOp>
+                </BinaryOp>
+                <BinaryOp op="/" style="op-div">
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="player" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <Constant text="2" />
+                </BinaryOp>
+              </BinaryOp>
+            </SetVariable>
+            <If id="80" style="if">
+              <Comparison op="l" style="op-lt">
+                <MathFunction function="abs" style="op-math">
+                  <Variable list="false" local="false" variableName="paddleOffset" />
+                </MathFunction>
+                <Constant text="1" />
+              </Comparison>
+              <Instructions>
+                <Comment id="81" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="If it's in front of the player it will bounce, so a random beep from the Lydian scale is played" />
+                </Comment>
+                <SetCraftProperty property="Sound.Beep" id="82" style="play-beep">
+                  <CraftProperty property="Sound.Frequency" style="note-frequency">
+                    <ListOp op="get" style="list-get">
+                      <ListOp op="create" style="list-create">
+                        <Constant text="C,D,E,F#,G,A,B" />
+                      </ListOp>
+                      <MathFunction function="round" style="op-math">
+                        <BinaryOp op="rand" style="op-rand">
+                          <Constant text="1" />
+                          <Constant text="7" />
+                        </BinaryOp>
+                      </MathFunction>
+                    </ListOp>
+                    <Constant text="5" />
+                  </CraftProperty>
+                  <Constant number="1" />
+                  <Constant text="0.1" />
+                </SetCraftProperty>
+                <Comment id="83" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="To calculate the bounce the speed of the ball is not only flipped, but also redirected" />
+                </Comment>
+                <Comment id="84" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="If it hits the paddle in the center the horizontal speed will get higher" />
+                </Comment>
+                <Comment id="85" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="If it hits near the edge, it will be redirected to that edge depending on the distance to the center" />
+                </Comment>
+                <SetVariable id="86" style="set-variable">
+                  <Variable list="false" local="false" variableName="ballSpeed" />
+                  <Vector style="vec">
+                    <MathFunction function="abs" style="op-math">
+                      <BinaryOp op="*" style="op-mul">
+                        <VectorOp op="x" style="vec-op-1">
+                          <Variable list="false" local="false" variableName="ballSpeed" />
+                        </VectorOp>
+                        <BinaryOp op="+" style="op-add">
+                          <Constant text="1" />
+                          <BinaryOp op="/" style="op-div">
+                            <BinaryOp op="-" style="op-sub">
+                              <Constant text="0.5" />
+                              <MathFunction function="abs" style="op-math">
+                                <Variable list="false" local="false" variableName="paddleOffset" />
+                              </MathFunction>
+                            </BinaryOp>
+                            <Constant text="10" />
+                          </BinaryOp>
+                        </BinaryOp>
+                      </BinaryOp>
+                    </MathFunction>
+                    <BinaryOp op="+" style="op-add">
+                      <VectorOp op="y" style="vec-op-1">
+                        <Variable list="false" local="false" variableName="ballSpeed" />
+                      </VectorOp>
+                      <BinaryOp op="/" style="op-div">
+                        <BinaryOp op="*" style="op-mul">
+                          <MathFunction function="abs" style="op-math">
+                            <VectorOp op="x" style="vec-op-1">
+                              <Variable list="false" local="false" variableName="ballSpeed" />
+                            </VectorOp>
+                          </MathFunction>
+                          <Variable list="false" local="false" variableName="paddleOffset" />
+                        </BinaryOp>
+                        <Constant text="2" />
+                      </BinaryOp>
+                    </BinaryOp>
+                    <Constant text="0" />
+                  </Vector>
+                </SetVariable>
+              </Instructions>
+            </If>
+            <ElseIf id="87" style="else-if">
+              <Comparison op="l" style="op-lt">
+                <VectorOp op="x" style="vec-op-1">
+                  <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                    <Constant text="ball" />
+                  </CraftProperty>
+                </VectorOp>
+                <BinaryOp op="/" style="op-div">
+                  <BinaryOp op="-" style="op-sub">
+                    <VectorOp op="x" style="vec-op-1">
+                      <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                        <Constant text="ball" />
+                      </CraftProperty>
+                    </VectorOp>
+                    <VectorOp op="x" style="vec-op-1">
+                      <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                        <Constant text="_Screen" />
+                      </CraftProperty>
+                    </VectorOp>
+                  </BinaryOp>
+                  <Constant text="2" />
+                </BinaryOp>
+              </Comparison>
+              <Instructions>
+                <Comment id="88" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="If it's out of the screen and the player isn't touching the ball count a point" />
+                </Comment>
+                <ChangeVariable id="89" style="change-variable">
+                  <Variable list="false" local="false" variableName="adversaryPoints" />
+                  <Constant text="1" />
+                </ChangeVariable>
+                <Comment id="90" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="Reset the position and speed of the ball" />
+                </Comment>
+                <SetCraftProperty property="Mfd.SetPosition" id="91" style="set-mfd-widget">
+                  <Constant text="ball" />
+                  <Vector style="vec">
+                    <Constant number="0" />
+                    <Constant number="0" />
+                    <Constant number="0" />
+                  </Vector>
+                </SetCraftProperty>
+                <SetVariable id="92" style="set-variable">
+                  <Variable list="false" local="false" variableName="ballSpeed" />
+                  <VectorOp op="scale" style="vec-op-2">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="_Screen" />
+                    </CraftProperty>
+                    <Vector style="vec">
+                      <BinaryOp op="rand" style="op-rand">
+                        <Constant text="0.025" />
+                        <Constant text="0.01" />
+                      </BinaryOp>
+                      <BinaryOp op="rand" style="op-rand">
+                        <Constant text="-0.01" />
+                        <Constant text="0.01" />
+                      </BinaryOp>
+                      <Constant number="0" />
+                    </Vector>
+                  </VectorOp>
+                </SetVariable>
+                <Comment id="93" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="Generate a short random melody in the Natural Minor scale, making it sound tragic" />
+                </Comment>
+                <Repeat id="94" style="repeat">
+                  <Constant text="4" />
+                  <Instructions>
+                    <SetCraftProperty property="Sound.Beep" id="95" style="play-beep">
+                      <CraftProperty property="Sound.Frequency" style="note-frequency">
+                        <ListOp op="get" style="list-get">
+                          <ListOp op="create" style="list-create">
+                            <Constant text="C,D,D#,F,G,G#,A#" />
+                          </ListOp>
+                          <MathFunction function="round" style="op-math">
+                            <BinaryOp op="rand" style="op-rand">
+                              <Constant text="1" />
+                              <Constant text="7" />
+                            </BinaryOp>
+                          </MathFunction>
+                        </ListOp>
+                        <Constant text="4" />
+                      </CraftProperty>
+                      <Constant number="1" />
+                      <Constant text="0.25" />
+                    </SetCraftProperty>
+                    <WaitSeconds id="96" style="wait-seconds">
+                      <Constant text="0.25" />
+                    </WaitSeconds>
+                  </Instructions>
+                </Repeat>
+              </Instructions>
+            </ElseIf>
+          </Instructions>
+        </If>
+        <ElseIf id="97" style="else-if">
+          <Comparison op="g" style="op-gt">
+            <VectorOp op="x" style="vec-op-1">
+              <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                <Constant text="ball" />
+              </CraftProperty>
+            </VectorOp>
+            <BinaryOp op="-" style="op-sub">
+              <VectorOp op="x" style="vec-op-1">
+                <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                  <Constant text="adversary" />
+                </CraftProperty>
+              </VectorOp>
+              <BinaryOp op="/" style="op-div">
+                <BinaryOp op="+" style="op-add">
+                  <VectorOp op="x" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="adversary" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <VectorOp op="x" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="ball" />
+                    </CraftProperty>
+                  </VectorOp>
+                </BinaryOp>
+                <Constant text="2" />
+              </BinaryOp>
+            </BinaryOp>
+          </Comparison>
+          <Instructions>
+            <Comment id="98" style="comment">
+              <Constant style="comment-text" canReplace="false" text="If it wasn't to the left, check if it's far enough to the right and repeat all the same checks" />
+            </Comment>
+            <SetVariable id="99" style="set-variable">
+              <Variable list="false" local="false" variableName="paddleOffset" />
+              <BinaryOp op="/" style="op-div">
+                <BinaryOp op="-" style="op-sub">
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                      <Constant text="ball" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                      <Constant text="adversary" />
+                    </CraftProperty>
+                  </VectorOp>
+                </BinaryOp>
+                <BinaryOp op="/" style="op-div">
+                  <VectorOp op="y" style="vec-op-1">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="adversary" />
+                    </CraftProperty>
+                  </VectorOp>
+                  <Constant text="2" />
+                </BinaryOp>
+              </BinaryOp>
+            </SetVariable>
+            <If id="100" style="if">
+              <Comparison op="l" style="op-lt">
+                <MathFunction function="abs" style="op-math">
+                  <Variable list="false" local="false" variableName="paddleOffset" />
+                </MathFunction>
+                <Constant text="1" />
+              </Comparison>
+              <Instructions>
+                <SetVariable id="101" style="set-variable">
+                  <Variable list="false" local="false" variableName="ballSpeed" />
+                  <Vector style="vec">
+                    <BinaryOp op="-" style="op-sub">
+                      <Constant number="0" />
+                      <MathFunction function="abs" style="op-math">
+                        <BinaryOp op="*" style="op-mul">
+                          <VectorOp op="x" style="vec-op-1">
+                            <Variable list="false" local="false" variableName="ballSpeed" />
+                          </VectorOp>
+                          <BinaryOp op="+" style="op-add">
+                            <Constant text="1" />
+                            <BinaryOp op="/" style="op-div">
+                              <BinaryOp op="-" style="op-sub">
+                                <Constant text="0.5" />
+                                <MathFunction function="abs" style="op-math">
+                                  <Variable list="false" local="false" variableName="paddleOffset" />
+                                </MathFunction>
+                              </BinaryOp>
+                              <Constant text="10" />
+                            </BinaryOp>
+                          </BinaryOp>
+                        </BinaryOp>
+                      </MathFunction>
+                    </BinaryOp>
+                    <BinaryOp op="+" style="op-add">
+                      <VectorOp op="y" style="vec-op-1">
+                        <Variable list="false" local="false" variableName="ballSpeed" />
+                      </VectorOp>
+                      <BinaryOp op="/" style="op-div">
+                        <BinaryOp op="*" style="op-mul">
+                          <MathFunction function="abs" style="op-math">
+                            <VectorOp op="x" style="vec-op-1">
+                              <Variable list="false" local="false" variableName="ballSpeed" />
+                            </VectorOp>
+                          </MathFunction>
+                          <Variable list="false" local="false" variableName="paddleOffset" />
+                        </BinaryOp>
+                        <Constant text="2" />
+                      </BinaryOp>
+                    </BinaryOp>
+                    <Constant text="0" />
+                  </Vector>
+                </SetVariable>
+                <SetCraftProperty property="Sound.Beep" id="102" style="play-beep">
+                  <CraftProperty property="Sound.Frequency" style="note-frequency">
+                    <ListOp op="get" style="list-get">
+                      <ListOp op="create" style="list-create">
+                        <Constant text="C,D,E,F#,G,A,B" />
+                      </ListOp>
+                      <MathFunction function="round" style="op-math">
+                        <BinaryOp op="rand" style="op-rand">
+                          <Constant text="1" />
+                          <Constant text="7" />
+                        </BinaryOp>
+                      </MathFunction>
+                    </ListOp>
+                    <Constant text="4" />
+                  </CraftProperty>
+                  <Constant number="1" />
+                  <Constant text="0.1" />
+                </SetCraftProperty>
+              </Instructions>
+            </If>
+            <ElseIf id="103" style="else-if">
+              <Comparison op="g" style="op-gt">
+                <VectorOp op="x" style="vec-op-1">
+                  <CraftProperty property="Mfd.Position" style="prop-mfd-widget">
+                    <Constant text="ball" />
+                  </CraftProperty>
+                </VectorOp>
+                <BinaryOp op="/" style="op-div">
+                  <BinaryOp op="-" style="op-sub">
+                    <VectorOp op="x" style="vec-op-1">
+                      <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                        <Constant text="_Screen" />
+                      </CraftProperty>
+                    </VectorOp>
+                    <VectorOp op="x" style="vec-op-1">
+                      <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                        <Constant text="ball" />
+                      </CraftProperty>
+                    </VectorOp>
+                  </BinaryOp>
+                  <Constant text="2" />
+                </BinaryOp>
+              </Comparison>
+              <Instructions>
+                <ChangeVariable id="104" style="change-variable">
+                  <Variable list="false" local="false" variableName="playerPoints" />
+                  <Constant text="1" />
+                </ChangeVariable>
+                <SetCraftProperty property="Mfd.SetPosition" id="105" style="set-mfd-widget">
+                  <Constant text="ball" />
+                  <Vector style="vec">
+                    <Constant number="0" />
+                    <Constant number="0" />
+                    <Constant number="0" />
+                  </Vector>
+                </SetCraftProperty>
+                <SetVariable id="106" style="set-variable">
+                  <Variable list="false" local="false" variableName="ballSpeed" />
+                  <VectorOp op="scale" style="vec-op-2">
+                    <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+                      <Constant text="_Screen" />
+                    </CraftProperty>
+                    <Vector style="vec">
+                      <BinaryOp op="rand" style="op-rand">
+                        <Constant text="-0.025" />
+                        <Constant text="-0.01" />
+                      </BinaryOp>
+                      <BinaryOp op="rand" style="op-rand">
+                        <Constant text="-0.01" />
+                        <Constant text="0.01" />
+                      </BinaryOp>
+                      <Constant number="0" />
+                    </Vector>
+                  </VectorOp>
+                </SetVariable>
+                <Comment id="107" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="This time the random melody is in the Major scale, making it sound happy" />
+                </Comment>
+                <Comment id="108" style="comment">
+                  <Constant style="comment-text" canReplace="false" text="Since all notes are one character without alterations we can use a string instead of a list" />
+                </Comment>
+                <Repeat id="109" style="repeat">
+                  <Constant text="4" />
+                  <Instructions>
+                    <SetCraftProperty property="Sound.Beep" id="110" style="play-beep">
+                      <CraftProperty property="Sound.Frequency" style="note-frequency">
+                        <StringOp op="letter" style="letter" pos="237.7842,-5079.386">
+                          <MathFunction function="round" style="op-math">
+                            <BinaryOp op="rand" style="op-rand">
+                              <Constant text="1" />
+                              <Constant text="7" />
+                            </BinaryOp>
+                          </MathFunction>
+                          <Constant text="CDEFGAB" />
+                        </StringOp>
+                        <Constant text="5" />
+                      </CraftProperty>
+                      <Constant number="1" />
+                      <Constant text="0.25" />
+                    </SetCraftProperty>
+                    <WaitSeconds id="111" style="wait-seconds">
+                      <Constant text="0.25" />
+                    </WaitSeconds>
+                  </Instructions>
+                </Repeat>
+              </Instructions>
+            </ElseIf>
+          </Instructions>
+        </ElseIf>
+        <Comment id="112" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Update the points display to show the current points of the player and the adversary" />
+        </Comment>
+        <Comment id="113" style="comment">
+          <Constant style="comment-text" canReplace="false" text="The format block uses the C# string formatting in addition to the Text Mesh tag mentioned before" />
+        </Comment>
+        <Comment id="114" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Between the curvy brackets it specifies the index of the slot you want to add and it's format" />
+        </Comment>
+        <Comment id="115" style="comment">
+          <Constant style="comment-text" canReplace="false" text="In this case it will always show at least two digits, set to 0 by default" />
+        </Comment>
+        <Comment id="116" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Just in case the player enjoys the game too much the points reset when they reach 100" />
+        </Comment>
+        <SetCraftProperty property="Mfd.Label.SetText" id="117" style="set-mfd-label">
+          <Constant text="points" />
+          <StringOp op="format" style="format">
+            <Constant text="&lt;mspace=0.5em&gt;{0:00}  {1:00}" />
+            <BinaryOp op="%" style="op-mod">
+              <Variable list="false" local="false" variableName="playerPoints" />
+              <Constant text="100" />
+            </BinaryOp>
+            <BinaryOp op="%" style="op-mod">
+              <Variable list="false" local="false" variableName="adversaryPoints" />
+              <Constant text="100" />
+            </BinaryOp>
+            <Constant text="" />
+          </StringOp>
+        </SetCraftProperty>
+        <Comment id="118" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Wait 0.05 seconds to generate the next frame, making the program work at 20fps (1/0.05)" />
+        </Comment>
+        <WaitSeconds id="119" style="wait-seconds">
+          <Constant text="0.05" />
+        </WaitSeconds>
+      </Instructions>
+    </While>
+  </Instructions>
+  <Instructions>
+    <Event event="ReceiveMessage" id="120" style="receive-msg" pos="-16.41083,302.4395">
+      <Constant canReplace="false" text="pause" />
+    </Event>
+    <Comment id="121" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Change the state of the pause negating it" />
+    </Comment>
+    <SetVariable id="122" style="set-variable">
+      <Variable list="false" local="false" variableName="paused" />
+      <Not style="op-not">
+        <Variable list="false" local="false" variableName="paused" />
+      </Not>
+    </SetVariable>
+  </Instructions>
+  <Instructions>
+    <Event event="ReceiveMessage" id="123" style="receive-msg" pos="-15.53531,175.9949">
+      <Constant canReplace="false" text="playerPosition" />
+    </Event>
+    <Comment id="124" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Update the player position to the coordinates of the last event" />
+    </Comment>
+    <Comment id="125" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Events send a list with 3 values: The broadcasted value, the name of the widget and the coordinates" />
+    </Comment>
+    <SetVariable id="126" style="set-variable">
+      <Variable list="false" local="false" variableName="playerTargetPosition" />
+      <VectorOp op="y" style="vec-op-1">
+        <ListOp op="get" style="list-get">
+          <Variable list="false" local="true" variableName="data" />
+          <Constant text="3" />
+        </ListOp>
+      </VectorOp>
+    </SetVariable>
+  </Instructions>
+  <Expressions />
+</Program>

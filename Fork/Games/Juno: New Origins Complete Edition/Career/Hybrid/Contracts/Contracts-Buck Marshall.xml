@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Contracts>
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 500" />
+      </Params>
+      <Prereqs techNodes="rockets" />
+      <Contract customer="buck" id="Vertical-Shot" money="5000" name="Vertical Shot" priority="10" probability="@Probability" difficulty="1" designerTutorial="Tutorial-VerticalShot" canReject="false" flairText="Progression">
+         <Description
+            short="Go higher than 25km and drop nearby."
+            long="When you start to send your fireworks high enough, hitting a house in the village can become a huge problem, but going too far will make finding the scraps annoying. Try to crash no further than 20km, but no closer than 500m from the launchpad." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI" >
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="Time to fly! Are you ready?" visibility="HiddenWhenPassed" tutorialId="Tutorial-VerticalShot" listedInMenu="false">
+                     <Location locationId="Droo.Village.Launchpad" description="Launch from the Village Launchpad" visibility="HiddenWhenPassed" distanceMode="GreatCircle" onFail="Stop" />
+                     <Controls activateStage="1" text="%ActivateInstruction% to activate your first stage. This will activate your engine. Since it is a solid engine once ignited you won't be able to stop it or adjust its power." />
+                     <StepText stepText="Wait for your engine to ramp up" />
+                     <Expression expression="Acceleration > 8" visibility="Hidden" />
+                     <Controls pause="true">
+                        <Button stepText="At the bottom of your screen you can find the main dashboard." />
+                        <Controls highlight="Flight.AltitudeType">
+                           <Button highlight="false" stepText="You can change between AGL and ASL altitudes. AGL is your distance to the ground (or to the water if above the oceans) and ASL is your distance to Sea Level, which can be useful when you go high enough to ignore the terrain, since it better lets you know how close to space you are." />
+                        </Controls>
+                        <Controls navSpherePitch="90" highlight="Flight.SpeedType">
+                           <Button highlight="false" stepText="You can also change between Surface and Orbit speeds. The difference between the two is that Surface accounts for the rotation of the planet, and orbit doesn't. Whenever you target another craft you will have a third mode showing you your relative speeds." />
+                           <Button highlight="false" stepText="As you change modes you can see the green arrow in the nav sphere move around. This arrow will adapt to your velocity mode to show you where the forward direction is pointing at. Again, when having something targeted, this will show you the direction of your relative speed." />
+                        </Controls>
+                        <Controls navSphereLockPrograde="false" navSpherePitch="70">
+                           <Button stepText="You can use the nav sphere to change your rocket's heading. This will automatically use the engine gimbals, wings, gyroscopes... to try to point the craft in a desired direction." />
+                        </Controls>
+                        <Controls navSpherePitch="90" navball="Nav">
+                           <Button highlight="false" stepText="A really useful tool for any pilot is the nav ball. This sphere full of strikes and numbers indicates where you are looking at. It has two halves in two colors, the line separating both colors is the horizon. If everything is going fine right now you shouldn't see it, since your craft is pointing up." />
+                        </Controls>
+                        <Controls showPanel="false" />
+                        <Controls forceUnpause="true" />
+                     </Controls>
+                     <Timer min="5" visibility="Hidden" />
+                     <Controls showPanel="true" />
+                     <Controls pause="true" navball="Map">
+                        <Button highlight="false" stepText="You also have a map to find where you are. You can zoom in and out and change how it is oriented. It can be really useful, especially at first when you haven't unlocked the more advanced map view." />
+                        <Controls forceUnpause="true" />
+                     </Controls>
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+
+                  <Expression expression="1e3 > AltitudeAGL" description="Be under 1km above the ground." displayExpression="AltitudeAGL" displayFormat="distance" visibility="HiddenWhenPassed" >
+                     <Expression expression="Acceleration > 10" description="Get your rocket's acceleration over 10m/s2" displayExpression="Acceleration" displayFormat="acceleration" visibility="HiddenWhenPassed" />
+                  </Expression>
+                  <Expression expression="AltitudeASL > 25e3" description="Reach 25km ASL (Above Sea Level)." displayExpression="max(displayValue, AltitudeASL)" displayFormat="distance" visibility="HiddenWhenPassed" />
+                  <Location locationId="Droo.Village" range="-500" description="Crash at least 500m away from the village." distanceMode="GreatCircle" showTargetButton="false">
+                     <Expression expression="Grounded | (100 > AltitudeAGL AND IsDestroyed)" description="Time to touch down! No need to survive this one." listedInMenu="false"/>
+                  </Location>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 500" />
+      </Params>
+      <Prereqs contracts="Vertical-Shot" techNodes="staging" />
+      <Contract customer="buck" id="First-payload" money="50000" name="Going High" priority="10" probability="@Probability" difficulty="1" designerTutorial="Tutorial-FirstPayload" canReject="false" flairText="Progression">
+         <Description
+            short="Leave the atmosphere with a payload."
+            long="Droo's atmosphere ends right under 80km, can you go to space to expose a probe a scientist has sent me?" />
+         <Requirements>
+            <TrackedLaunch>
+               <PartCount id="initial-part-count" num="1" payloadId="Payload-Sat-0" description="Launch with the payload." showValue="false" onFail="Stop">
+                  <Planet name="Droo" description="Be in Droo's SOI">
+                     <!-- OPTIONAL TUTORIAL -->
+                     <Tutorial description="Be careful with that payload!" visibility="HiddenWhenPassed" tutorialId="Tutorial-FirstPayload" listedInMenu="false">
+                        <Location locationId="Droo.Village.Launchpad" description="Launch from the Village Launchpad" visibility="HiddenWhenPassed" distanceMode="GreatCircle" onFail="Stop" />
+                        <Controls navSpherePitch="90">
+                           <Controls activateStage="1" text="%ActivateInstruction% to activate your first stage." />
+                           <StepText stepText="Wait for your first stage to run out of fuel." />
+                           <Timer min="2" visibility="Hidden" />
+                           <Expression expression="MaxActiveEngineThrust = 0" visibility="Hidden" />
+                           <Controls pause="true" activateStage="2" text="%ActivateInstruction% to activate your second stage." forceUnpause="true" />
+                           <Button stepText="Now it's on you, wait until the rocket goes higher than 80km and then stage again to expose the probe." />
+                        </Controls>
+                     </Tutorial>
+                     <!-- TUTORIAL END -->
+
+                     <Expression expression="AltitudeASL > 80e3" description="Reach 80km ASL" displayExpression="max(displayValue, AltitudeASL)" displayFormat="distance" >
+                        <Bypass bypassRequirementId="initial-part-count" listedInMenu="false" />
+                        <PartCount num="0" payloadId="Payload-Sat-0" description="Expose the probe." listedInMenu="false" showValue="false" />
+                     </Expression>
+                  </Planet>
+               </PartCount>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Vertical-Shot" />
+      <Contract customer="buck" id="Flight-Termination" money="10000" name="Flight Termination System" priority="10" probability="@Probability" difficulty="1" canReject="false" flairText="Progression">
+         <Description
+            short="Blow up your craft mid-flight."
+            long="Fireworks are one the best inventions of droomankind. Fly high, blow up." />
+         <Requirements>
+            <Expression expression="AltitudeAGL > 30e3" description="Reach 30km AGL (above ground level)" displayExpression="max(displayValue, AltitudeAGL)" displayFormat="distance">
+               <!-- MANDATORY TUTORIAL -->
+               <Tutorial description="Select a part to blow it up" visibility="HiddenWhenPassed" listedInMenu="false">
+                  <Controls pause="true">
+                     <Button stepText="You have reached the necessary altitude, now it's time to blow this thing up! You can select a fuel tank by clicking on it, this will show you a menu with more details about the part and a nice orange button, that is where the boom begins." />
+                  </Controls>
+               </Tutorial>
+               <!-- TUTORIAL END -->
+               <CraftEvent event="Destroyed" description="Select your command disc and blow up the craft before it goes too low!" />
+            </Expression>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 2 ? 0 : (100 / (NumCompletions + 1))" />
+         <Expression name="Money" value="50e3 * (NumCompletions + 1)" />
+         <Expression name="Distance" value="-(30e3 + (NumCompletions > 0 ? 70e3 : 0) + (NumCompletions > 1 ? 400e3 : 0))" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Flight-Termination" />
+      <Contract customer="buck" id="Suborbital-First" money="@Money" name="Going Sideways" subtitle="@Distance:distance" priority="10" probability="@Probability" difficulty="2" canReject="false" flairText="@Progression">
+         <Description
+            short="Drop a rocket far from the village."
+            long="A first step before hoping to get to space is getting some horizontal speed, since going to orbit requires going sideways more than up. Try to fall @Distance:distance away from the village." />
+         <Requirements>
+            <TrackedLaunch id="tracked-launch">
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Expression expression="Grounded" description="Start grounded at the village" visibility="HiddenWhenPassed" />
+                  <Location locationId="Droo.Village" range="1000" description="Start grounded at the village." distanceMode="GreatCircle" loadDistance="0" visibility="HiddenWhenPassed" listedInMenu="false" />
+                  <Location locationId="Droo.Village" range="@Distance" description="Crash at least @Distance:distance away from the village." distanceMode="GreatCircle" loadDistance="0" />
+                  <Bypass bypassRequirementId="tracked-launch" listedInMenu="false" />
+                  <Expression expression="Grounded | (100 > AltitudeAGL AND IsDestroyed)" description="Time to touch down! No need to survive this one." listedInMenu="false"/>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="5 / max(1, NumCompletions)" />
+         <Expression name="Scale" value="0.2 * NumCompletions" />
+         <Random name="Altitude" min="10e3" max="80e3" round="1e3" distributionScale="@Scale" distribution="0,0,0,0|1,1,1,1"/>
+         <Expression name="Explosion" value="round(sqrt(@Altitude * 1e3))" />
+         <Expression name="Money" value="ceil(@Altitude * 0.5 * @Probability)" />
+         <Expression name="ScaledProbability" value="@Probability * pow(1 / max(1, log10(PlayerMoney / max(1, @Money))), 3)" />
+      </Params>
+      <Prereqs contracts="Flight-Termination" />
+      <Contract customer="buck" id="Suborbital-Fireworks" money="@Money" name="Fireworks" subtitle="@Altitude:distance high" priority="1" probability="@ScaledProbability" expiration="30" deadline="30" difficulty="1">
+         <Description
+            short="Blow up to entertain the neighbors."
+            long="Everyone loves explosions, especially when they are far from your property. Create a fireworks spectacle by blowing something up with enough kick at high altitude, you can find the explosive power of a fuel tank in the Design Info panel in the designer." />
+         <Requirements>
+            <Expression expression="AltitudeAGL > @Altitude" description="Go higher than @Altitude:distance AGL." displayExpression="AltitudeAGL" displayFormat="distance">
+               <CraftEvent event="Explosion" power="@Explosion" description="Make sure the explosion has more than @Explosion boom power in a single fuel tank." />
+            </Expression>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Suborbital-First" />
+      <Contract customer="buck" id="Suborbital-Water" money="100000" moneyAdvance="0.5" cancelPenalty="0.6" name="Wet Rockets" priority="10" probability="@Probability" difficulty="3">
+         <Description
+            short="Drop a rocket in the water."
+            long="Polluting the oceans is bad, but getting complaints from the neighbors about things dropping in their lands is worse. Launch a rocket and drop it in any ocean." />
+         <Requirements>
+            <TrackedLaunch id="tracked-launch">
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+                  <Expression expression="AltitudeAGL > 30e3" description="Reach 30km AGL" displayExpression="max(displayValue, AltitudeAGL)" displayFormat="distance" />
+                  <Bypass bypassRequirementId="tracked-launch" listedInMenu="false" />
+                  <Expression expression="InWater | (IsDestroyed AND AltitudeAboveTerrain > AltitudeAGL AND 100 > AltitudeAGL)" description="Time to drop, fall in the water." listedInMenu="false" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 500" />
+      </Params>
+      <Prereqs contracts="Record-spacespeed" techNodes="liquidengine1" />
+      <Contract customer="buck" id="First-orbit" money="400000" name="Droo Orbit" priority="10" probability="@Probability" difficulty="2" designerTutorial="Tutorial-FirstOrbit" flairText="Progression">
+         <Description
+            short="Orbit Droo."
+            long="The scientist that gave me the probe you sent to space said he has some things for you to do, but he wants to first know for sure you can get to orbit, can you give it a go?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="Ready to reach the stars?" visibility="HiddenWhenPassed" tutorialId="Tutorial-FirstOrbit" listedInMenu="false">
+                     <Location locationId="Droo.Village.Launchpad" description="Launch from the Village Launchpad" visibility="HiddenWhenPassed" distanceMode="GreatCircle" onFail="Stop" />
+                     <Controls navSpherePitch="90">
+                        <Controls activateStage="1" text="%ActivateInstruction% to activate your first stage. This will activate your engines." />
+                        <StepText stepText="Wait until the booster's fuel is depleted. Your next step will happen at around 6km AGL, so relax, but not too much.">
+                           <Expression expression="Acceleration > 5" visibility="Hidden" />
+                           <Expression expression="MaxActiveEngineThrust = 0" visibility="Hidden" />
+                        </StepText>
+                     </Controls>
+                     <Controls pause="true" activateStage="2" text="%ActivateInstruction% to activate your second stage. Remember to throttle up this time, it's no longer a solid motor." throttle ="1" forceUnpause="true" />
+                     <Controls throttle ="1" showPanel="false" >
+                        <Timer min="2" visibility="Hidden" />
+                     </Controls>
+                     <Controls pause="true" showPanel="true" throttle ="1" navSpherePitch="70" navSphereHeadingEast="true" forceUnpause="true">
+                        <StepText stepText="Your rocket will now start tilting. This is important because to be in orbit you need to go sideways very fast." />
+                        <Expression expression="1.22 > atan(SurfaceVelocityVertical / SurfaceVelocityLateral)" visibility="Hidden" />
+                     </Controls>
+                     <Controls pause="true" navSphereLockPrograde="true" throttle="1" forceUnpause="true">
+                        <StepText stepText="You can build your rocket to follow a natural gravity turn. This forces the rocket to pitch down as it goes up, following an efficient path to orbit without the need of complex guidance systems." />
+                        <Expression expression="0.4 > FuelStage" visibility="Hidden" />
+                        <StepText stepText="Wait until the fuel in this stage is depleted." />
+                        <Expression expression="MaxActiveEngineThrust = 0" visibility="Hidden" />
+                     </Controls>
+                     <Controls pause="true" activateStage="3" text="%ActivateInstruction% to activate your third stage. Third time is the charm." forceUnpause="true" />
+                     <Controls pause="true" navSphereLockPrograde="true" throttle="1" forceUnpause="true">
+                        <StepText stepText="Almost there, burn your engine until your Apoapsis passes 150km. The Apoapsis is the highest point in your trajectory." />
+                        <Orbit op="Greater" property="apoapsis" value="150e3" visibility="HiddenWhenPassed" listedInMenu="false"/>
+                     </Controls>
+                     <Controls pause="true" throttle="0" forceUnpause="true">
+                        <StepText stepText="You can speed up the time in the game to reduce the waiting times, wait until you are out of the atmosphere to increase the game speed." />
+                        <Expression expression="AltitudeASL > 80e3" visibility="HiddenWhenPassed" listedInMenu="false" />
+                     </Controls>
+                     <Controls pause="true" throttle="0" navSpherePitch="10" navSphereHeading="100" unpause="true" warpTime="true">
+                        <StepText stepText="Your final maneuver can be performed more efficiently closer to your apoapsis, wait until you are just 10 seconds away from it." />
+                        <Expression expression="10 > ApoapsisTime" visibility="HiddenWhenPassed" listedInMenu="false" displayExpression="ApoapsisTime" displayFormat="time" />
+                     </Controls>
+                     <Controls pause="true" throttle="1" navSpherePitch="10" navSphereHeading="100" forceUnpause="true">
+                        <StepText stepText="And at last, you need to raise your periapsis, the lowest point in the orbit, until it is higher than the atmosphere. This way you won't touch it at any moment, keeping you in orbit." />
+                        <Expression expression="Velocity > 2500" visibility="Hidden" />
+                        <StepText stepText="You need to go faster than 3300 m/s in order to get to orbital speeds at this height, you are almost there!" />
+                        <Orbit op="Greater" property="periapsis" value="85e3" visibility="HiddenWhenPassed" listedInMenu="false" />
+                     </Controls>
+                     <Controls pause="true" throttle="0" forceUnpause="true" />
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+
+                  <Orbit op="Greater" property="periapsis" value="80e3" />
+
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="Getting fancy now" visibility="HiddenWhenPassed" tutorialId="Tutorial-FirstOrbit" listedInMenu="false">
+                     <Button highlight="false" stepText="Now that you have reached orbit you are going to be asked to get to precise orbits, let's see how that is done." />
+                     <Button highlight="false" stepText="In order to adjust an orbit the easiest way is to wait for the craft to be in its highest or lowest point and adjust one thing at a time. To adjust the apoapsis you want to be in the periapsis and vice versa." />
+                     <Button highlight="false" stepText="Since your apoapsis went a tad too high the orbit is very eliptical, let's try to make it more circular by waiting to be in the periapsis to lower it." />
+                     <Controls pause="true" throttle="0" navSphereLockRetrograde="true" unpause="true" warpTime="true">
+                        <StepText stepText="Let's wait for the craft to be close to its periapsis." />
+                        <Expression expression="15 > PeriapsisTime" visibility="HiddenWhenPassed" listedInMenu="false" displayExpression="PeriapsisTime" displayFormat="time" />
+                     </Controls>
+                     <Controls pause="true" throttle="0.3" navSphereLockRetrograde="true" unpause="true">
+                        <Orbit op="Less" property="apoapsis" value="95e3" visibility="HiddenWhenPassed" listedInMenu="false" />
+                     </Controls>
+                     <Controls pause="true" throttle="0" forceUnpause="true" />
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 500" />
+         <Const name="Distance" value="150" />
+      </Params>
+      <Prereqs techNodes="droolover" />
+      <Contract customer="buck" id="The-Jump" money="5000" name="The Jump" priority="10" probability="@Probability" difficulty="1" designerTutorial="Tutorial-TheJump" canReject="false" flairText="Progression">
+         <Description
+            short="Jump from the runway end."
+            long="One of the advantages of having a huge ramp on the edge of a cliff is you can fly without much effort. Go airborne for more than @Distance:distance after jumping from the end of the runway." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI" >
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="Time to fly! Are you ready?" visibility="HiddenWhenPassed" tutorialId="Tutorial-TheJump" listedInMenu="false">
+                     <Location locationId="Droo.Village.RunwayTop" description="Launch from the Village Runway" visibility="HiddenWhenPassed" distanceMode="GreatCircle" onFail="Stop" />
+                     <SurfaceDistance max="20" visibility="Hidden" listedInMenu="false" onFail="Skip">
+                        <Controls roll="-1" stepText="Controlling the heading of a vehicle is very important, for cars it is typical to use either Yaw or Roll. This one uses Roll, but let's try both." />
+                        <Controls roll="1" stepText="Controlling the heading of a vehicle is very important, for cars it is typical to use either Yaw or Roll. This one uses Roll, but let's try both." />
+                        <Controls yaw="-1" stepText="As expected Roll did nothing, now look at the front wheels while using Yaw." />
+                        <Controls yaw="1" stepText="As expected Roll did nothing, now look at the front wheels while using Yaw." />
+                        <Controls throttle="1">
+                           <Button stepText="Sometimes you may find the input of the wheels set to the Throttle, but that doesn't let you reverse the car, let's use Pitch instead." />
+                        </Controls>
+                        <Controls pitch="-1" showPanel="false" />
+                        <Timer min="3" visibility="Hidden" />
+                        <Controls pause="true" showPanel="true" brake="1" forceUnpause="true">
+                           <Expression expression="0.1 > SurfaceVelocityLateral" visibility="Hidden" />
+                        </Controls>
+                        <Controls sliderVisible="PITCH" stepText="If you want to have finer control or to leave an input fixed at a defined value then you can use the input sliders." />
+                        <Controls brake="0" pitch="1" />
+                     </SurfaceDistance>
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+
+                  <Location locationId="Droo.Village.RunwayEnd" description="Roll down to the end of the runway" visibility="HiddenWhenPassed" distanceMode="GreatCircle" />
+                  <Expression expression="!Grounded" description="Lift off!" visibility="HiddenWhenPassed" listedInMenu="false">
+                     <SurfaceDistance min="@Distance" description="Get at least @Distance:distance away before you touch the ground" />
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="The-Jump" techNodes="air" />
+      <Contract customer="buck" id="First-Flight" money="50000" name="Like a Bird" priority="10" probability="@Probability" difficulty="2" designerTutorial="Tutorial-FirstFlight" canReject="false" flairText="Progression">
+         <Description
+            short="Make your first flight."
+            long="You have already tried to jump as far as possible from the runway, now you have to take off from it. You can be wise and get some wings, or yolo it and find an alternative, you do you." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI" >
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="Time to fly! Are you ready?" visibility="HiddenWhenPassed" tutorialId="Tutorial-FirstFlight" listedInMenu="false">
+                     <Location locationId="Droo.Village.RunwayTop" description="Launch from the Village Runway" visibility="HiddenWhenPassed" distanceMode="GreatCircle" onFail="Stop" />
+                     <Button stepText="In the 'The Jump' tutorial we told you to use the pitch for the wheels but now pitch controls the wings, so let's figure out the new controls." />
+                     <Button stepText="Look at the wing while using the pitch and roll to see the control surfaces move." />
+                     <Controls stepText="The pitch inputs are inverted, pushing down will pitch up, pushing up will pitch down." pitch="-1" />
+                     <Controls stepText="The pitch inputs are inverted, pushing down will pitch up, pushing up will pitch down." pitch="1" />
+                     <Controls stepText="The roll inputs let you tilt the plane to a side. This, combined with pitch will let you turn around." roll="-1" />
+                     <Controls stepText="The roll inputs let you tilt the plane to a side. This, combined with pitch will let you turn around." roll="1" />
+                     <Controls stepText="Set your throttle to max to gather speed and try to keep it straight, since you won't have any source of propulsion after take-off." throttle="1" showPanel="false" />
+                     <Location locationId="Droo.Village.RunwayEnd" description="Roll down to the end of the runway" visibility="HiddenWhenPassed" distanceMode="GreatCircle" listedInMenu="false" />
+                     <Controls showPanel="true" pause="true" stepText="Let's kill the wheels so they don't waste battery and engage the autopilot. The autopilot will try to keep you pointing in the desired direction." throttle="0" navSpherePitch="20" forceUnpause="true" />
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+
+                  <Race time="20" style="cylinder" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd"  />
+                     <Race.Checkpoint latLonAgl="25.6112,-164.4222,378" range="50" style="ring" />
+                  </Race>
+
+                  <!-- OPTIONAL TUTORIAL -->
+                  <Tutorial description="It's acrobacy time!" visibility="HiddenWhenPassed" tutorialId="Tutorial-FirstFlight" listedInMenu="false">
+                     <Controls pause="true" stepText="Great job! Now it's time to have some fun before you loose your speed, let's do some loops!" navSphereLockHeading="false" pitch="1" forceUnpause="true">
+                        <Timer min="1" visibility="HiddenWhenPassed" />
+                     </Controls>
+                  </Tutorial>
+                  <!-- TUTORIAL END -->
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="The-Jump" />
+      <Contract customer="buck" id="Taxi-Driver" money="5000" name="Taxi Driver" priority="10" probability="@Probability" difficulty="1" flairText="Progression">
+         <Description
+            short="Visit some locations in the Juno Village."
+            long="I want to be sure that you know how to properly move around without blowing up (too much). There are 4 spots I want you to visit, you can go to them in any order. Once you are done come to the Town Hall." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race style="cylinder" planetRadius="1274200">
+                     <Race.Checkpoint name="Maintenance Hangar" latLonAgl="25.5775,-164.4545,19" range="3" />
+                     <Race.Checkpoint name="Upper Patio" latLonAgl="25.5807,-164.4541,3" range="3" />
+                     <Race.Checkpoint name="Dark Backdoor" latLonAgl="25.5904,-164.4472,3" range="3" />
+                     <Race.Checkpoint name="Juno Statue" latLonAgl="25.5931,-164.4432,0" range="3" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Taxi-Driver" />
+      <Contract customer="buck" id="First-hike" money="15000" crewResearch="10" name="Juno Peak" priority="10" probability="@Probability" difficulty="1" flairText="Progression">
+         <Description
+            short="Go up the peak near the village."
+            long="The peak right next to our village has some of the best views I've seen. Can you go up there to enjoy the views and take a couple photos? If your craft is sliding too much make sure to increase its torque by maxing out the Gear Ratio." />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI">
+               <PartCount op="greater" num="1" partId="Camera1" description="Remember to bring at least a camera with you." visibility="HiddenWhenPassed" showValue="false" onFail="Stop">
+                  <Location name="Juno Peak" latLonAgl="25.578,-164.492,0" range="20" description="Get to the top of the peak." />
+               </PartCount>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="First-hike" />
+      <Contract customer="buck" id="Second-hike" money="30000" crewResearch="15" name="Short Route" priority="10" probability="@Probability" difficulty="2" flairText="Progression">
+         <Description
+            short="Follow the route."
+            long="In order to bring some tourists to the village we are preparing some hiking routes, can you help us scout them to see if they are viable options?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race style="cylinder" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayTop" />
+                     <Race.Checkpoint latLonAgl="25.554,-164.475,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.550,-164.530,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.553,-164.553,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.571,-164.571,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.607,-164.588,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.632,-164.515,0" range="40" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="Second-hike" techNodes="land2" />
+      <Contract customer="buck" id="Climbing-hike" money="50000" crewResearch="20" name="Mountaineers" priority="10" probability="@Probability" difficulty="3" flairText="Progression">
+         <Description
+            short="Follow the route up the mountain."
+            long="I've been watching some videos lately and it seems like extreme sports are trendy. To see if we can attract some sporty tourists, can you go up the mountain next to the village? It sure is hard but we have a route planned to get to the top." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race style="cylinder" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayTop" />
+                     <Race.Checkpoint latLonAgl="25.596,-164.432,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.557,-164.413,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.546,-164.395,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.520,-164.390,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.520,-164.390,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.533,-164.338,0" range="40" />
+                     <Race.Checkpoint latLonAgl="25.485,-164.268,0" range="40" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="5 / sqrt(NumCompletions + 1)" />
+         <Expression name="Ceiling" value="round(1 + NumCompletions / 2)" />
+         <Random name="Count" min="1" max="@Ceiling" round="1" />
+         <Expression name="Scale" value="clamp(round(2 * NumCompletions / @Count), 0, 11)" />
+         <Expression name="Difficulty" value="@Count / sqrt(NumCompletions + 1)" />
+         <Expression name="Money" value="sqrt(@Difficulty) * @Count * 15e3" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+         <Expression name="CrewBonus" value="floor(10 / (NumCompletions + 1))" />
+      </Params>
+      <Prereqs contracts="Climbing-hike" />
+      <Contract customer="buck" id="Packages-mountain" money="@Money" crewResearch="@CrewBonus" name="Mountain Camp Supplies" subtitle="@Count payload@Count:s" priority="5" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Bring some supplies to the camp."
+            long="We need to bring some supplies to the camp on the mountain top, we don't care if you drive or fly them as long as they get there. Careful not to bump the tents, these days they make them rock solid.&lt;br&gt;&lt;br&gt;You can place these packages on your craft but they won't stick to it, so you will have to figure out how to prevent them from falling, while being able to leave them in the target location. You can identify these non-sticky parts by their white attachpoints." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Any num="@Count" description="Bring @Count payload@Count:s to the Mountain Camp and leave them near the hangars" visibility="Hidden">
+                     <Template.Repeat count="@Count">
+                        <Template.Params>
+                           <Random name="Index" min="0" max="@Scale" round="1" />
+                           <List name="Version" index="@Index" values="A1;A2;A3;A4;B1;A5;B2;A6;B3;A7;A8;A9" />
+                           <List name="Name" index="@Index" values="Small Light Box;Small Box;Small Heavy Box;Light Box;Light Barrel;Box;Barrel;Heavy Box;Heavy Barrel;Large Light Box;Large Box;Large Heavy Box" />
+                        </Template.Params>
+                        <Payload payloadId="Payload-Package-@Version" payloadName="@Name" visibility="HiddenWhenPassed" destroyCraftOnComplete="Immediately">
+                           <Location name="Mountain Camp" latLonAgl="25.524,-164.322,0" range="30" description="Go to the Mountain Camp to leave the payload." listedInMenu="false" >
+                              <CraftExpression expression="Grounded" description="Make sure the @Name is grounded." listedInMenu="false" />
+                           </Location>
+                        </Payload>
+                     </Template.Repeat>
+                  </Any>
+               </Planet >
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 50" />
+         <Expression name="MachTarget" value="pow(2,NumCompletions-3)" />
+         <Expression name="Difficulty" value="(NumCompletions + 1) * 0.6" />
+         <Expression name="Money" value="floor(@MachTarget * @MachTarget * 250) * 1e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="First-Flight" />
+      <Contract customer="buck" id="Record-airspeed" money="@Money" crewResearch="@CrewBonus" name="Shockingly Fast" subtitle="@MachTarget:mach" priority="9" probability="@Probability" expiration="30" deadline="60" difficulty="@Difficulty">
+         <Description
+            short="Achieve an air-speed record without going too high."
+            long="The Wright Brothers were the first to fly at a whopping... 3m/s. You can do better, can't you?" />
+         <Description
+            completions="1"
+            long="To get airborne you need to catch some airspeed. The mach number represents the speed of sound at a certain altitude and around the Village a Mach Number of 0.25 is just under 100 m/s." />
+         <Description
+            completions="2"
+            long="Going supersonic is cool, but you have to aim for realistic goals. Can you first get to Mach 0.5?" />
+         <Description
+            completions="3"
+            long="They call Mach 1 the sound barrier, but is it a barrier for you?" />
+         <Description
+            completions="4"
+            long="Going supersonic is fun, but where the real challenge starts is when you reach hypersonic speeds." />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI" >
+               <Expression expression="15e3 > AltitudeASL" description="Stay under 15km" displayExpression="AltitudeASL" displayFormat="distance" onFail="Stop">
+                  <Expression expression="SurfaceVelocityLateral > max(1, 5 * SurfaceVelocityVertical) AND !Grounded" description="Fly horizontally">
+                     <Expression expression="MachNumber > @MachTarget" description="Get to Mach @MachTarget" displayExpression="MachNumber" displayFormat="n3" >
+                        <SurfaceDistance min="1000" description="Hold your speed for 1km" />
+                     </Expression>
+                  </Expression>
+               </Expression>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 3 ? 0 : 50" />
+         <Expression name="SpeedTarget" value="111.111 / pow(2,3 - NumCompletions)" />
+         <Expression name="Difficulty" value="(NumCompletions + 1) * 0.8" />
+         <Expression name="Money" value="round(@SpeedTarget * @SpeedTarget * 0.0075) * 1e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="The-Jump" />
+      <Contract customer="buck" id="Record-landspeed" money="@Money" crewResearch="@CrewBonus" name="Fast Roller" subtitle="@SpeedTarget:velocity" priority="9" probability="@Probability" expiration="30" deadline="60" difficulty="@Difficulty">
+         <Description
+            short="Achieve a land-speed record."
+            long="Mountain villages aren't known by how fast you can drive past them, reaching 50km/h would be insane!" />
+         <Description
+            completions="1"
+            long="100km/h or 60mph has been always the reference speed for acceleration tests, can you even beat it?" />
+         <Description
+            completions="2"
+            long="By the time you are offroading at 200km/h you know you are into something... be aware of the bumps!" />
+         <Description
+            completions="3"
+            long="Rapid and Raging (TM). This is already in the land of super-cars, do you have the drip?" />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI" >
+               <Expression expression="TimeGrounded > 10" description="Grounded for more than 10 seconds" displayExpression="max(0, TimeGrounded)" displayFormat="time">
+                  <Expression expression="SurfaceVelocity > @SpeedTarget" description="Go faster than @SpeedTarget:velocity" displayExpression="SurfaceVelocity" displayFormat="velocity">
+                     <Timer min="5" description="Hold your speed for at least 5 seconds" />
+                  </Expression>
+               </Expression>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 3 ? 0 : 50" />
+         <Expression name="SpeedTarget" value="20 * NumCompletions + 10" />
+         <Expression name="Difficulty" value="(NumCompletions + 1) * 0.8" />
+         <Expression name="Money" value="ceil(@SpeedTarget * @SpeedTarget * 0.05) * 1e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="Location-Port" />
+      <Contract customer="buck" id="Record-waterspeed" money="@Money" crewResearch="@CrewBonus" name="Torpedo" subtitle="@SpeedTarget:velocity" priority="9" probability="@Probability" expiration="30" deadline="60" difficulty="@Difficulty">
+         <Description
+            short="Achieve a water-speed record."
+            long="It's time to dip your toes in the water. Find the closest pond, lake or ocean and try to see if you float." />
+         <Description
+            completions="1"
+            long="Reaching 65 knots is something only reserved for the best interceptors, will they catch you?" />
+         <Description
+            completions="2"
+            long="You are an experienced sailor it seems, but drag hits hard underwater, go faster than 50 m/s." />
+         <Description
+            completions="3"
+            long="If you haven't sunk yet, going at 70m/s shouldn't be that hard." />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI" >
+               <Expression expression="TimeGrounded > 10 AND InWater" description="Touch the water for more than 10 seconds for the speed to count" displayExpression="max(0, TimeGrounded)" displayFormat="time">
+                  <Expression expression="SurfaceVelocity > @SpeedTarget" description="Go faster than @SpeedTarget m/s" displayExpression="SurfaceVelocity" displayFormat="velocity">
+                     <Timer min="5" description="Hold your speed for at least 5 seconds" />
+                  </Expression>
+               </Expression>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 2 ? 0 : 50" />
+         <Expression name="Difficulty" value="NumCompletions + 1" />
+         <Expression name="DistanceTarget" value="pow(5, @Difficulty) * 1e3" />
+         <Expression name="CrewBonus" value="@Difficulty * 5" />
+      </Params>
+      <Prereqs contracts="Taxi-Driver" />
+      <Contract customer="buck" id="Record-distancedriven" money="@DistanceTarget" crewResearch="@CrewBonus" name="Endurance Trip" subtitle="@DistanceTarget:distance" priority="9" probability="@Probability" expiration="30" deadline="60" difficulty="@Difficulty">
+         <Description
+            short="Drive around for @DistanceTarget:distance."
+            long="It's time to gather some dust on those wheels. Make a car and drive it for @DistanceTarget:distance." />
+         <Description
+            completions="1"
+            long="Endurance is important if you want to show everyone you are both a great engineer and a skilled pilot. Go for a @DistanceTarget:distance drive." />
+         <Description
+            completions="2"
+            long="Are you ready to go for a trip? I want to see if you are capable of driving around for @DistanceTarget:distance without falling asleep." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI" >
+                  <Expression expression="TimeGrounded > -1" visibility="Hidden" listedInMenu="false">
+                     <Expression expression="TimeGrounded > 3" description="Stay grounded" displayExpression="max(0, 5 - TimeGrounded)" displayFormat="time" visibility="HiddenWhenPassed" />
+                     <SurfaceDistance min="@DistanceTarget" description="Drive around @DistanceTarget:distance" />
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 3 ? 0 : 50" />
+         <Expression name="SpeedTarget" value="1000 * (1 + NumCompletions)" />
+         <Expression name="Difficulty" value="(NumCompletions + 1) * 0.8" />
+         <Expression name="Money" value="round(@SpeedTarget * @SpeedTarget * 0.1)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="First-payload" />
+      <Contract customer="buck" id="Record-spacespeed" money="@Money" name="Lightspeed" subtitle="@SpeedTarget:velocity" priority="9" probability="@Probability" expiration="30" deadline="60" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Achieve a space-speed record."
+            long="Once you leave the atmosphere and you free yourself from its drag, there's nothing stopping you from going as fast as you want." />
+         <Description
+            completions="1"
+            long="Going at 2000 m/s doesn't sound impressive, until you realize that is 7200 km/h. That's some speed." />
+         <Description
+            completions="2"
+            long="If you want to get to a LEO orbit you need to go really fast. The higher you go, the slower the speed, but the harder to get there. For a low orbit, you will need to go faster than 3000 m/s." />
+         <Description
+            completions="3"
+            long="In order to get to the moons or even reach other planets, you will need some insane speeds." />
+         <Requirements>
+            <Planet name="Droo" description="Be in Droo's SOI" >
+               <Expression expression="AltitudeASL > 80e3" description="Reach 80km ASL" displayExpression="max(displayValue, AltitudeASL)" displayFormat="distance" >
+                  <Expression expression="Velocity > @SpeedTarget" description="Go faster than @SpeedTarget:velocity" displayExpression="Velocity" displayFormat="velocity" />
+               </Expression>
+            </Planet>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(360, 60, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 5e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="Taxi-Driver" />
+      <Contract customer="buck" id="Race-Land-1" money="@Money" crewResearch="@CrewBonus" name="Village Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="This is a time trial, so get your boots tight! Go through all the checkpoints in any order before the time runs out. The timer will start once you get through any of the checkpoints." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Any description="Go to any of the checkpoints for the timer to start." visibility="HiddenWhenPassed">
+                     <Location name="Juno Statue" latLonAgl="25.5931,-164.4432,0" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Juno Statue" distanceMode="GreatCircle" listedInMenu="false" />
+                     <Location name="Dark Backdoor" latLonAgl="25.5904,-164.4472,3" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Dark Backdoor" distanceMode="GreatCircle" listedInMenu="false" />
+                     <Location name="Upper Patio" latLonAgl="25.5807,-164.4541,3" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Upper Patio" distanceMode="GreatCircle" listedInMenu="false" />
+                     <Location name="Maintenance Hangar" latLonAgl="25.5775,-164.4545,19" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Maintenance Hangar" distanceMode="GreatCircle" listedInMenu="false" />
+                  </Any>
+                  <Timer max="@Time" description="Go through all checkpoints in under @Time:time" onFail="Stop">
+                     <Any num="4" listedInMenu="false">
+                        <Location name="Juno Statue" latLonAgl="25.5931,-164.4432,0" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Juno Statue" distanceMode="GreatCircle" />
+                        <Location name="Dark Backdoor" latLonAgl="25.5904,-164.4472,3" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Dark Backdoor" distanceMode="GreatCircle" />
+                        <Location name="Upper Patio" latLonAgl="25.5807,-164.4541,3" range="3" autoSelectTarget="false" visibility="HiddenWhenPassed" description="Upper Patio" distanceMode="GreatCircle" />
+                        <Location name="Maintenance Hangar" latLonAgl="25.5775,-164.4545,19" autoSelectTarget="false" range="3" visibility="HiddenWhenPassed" description="Maintenance Hangar" distanceMode="GreatCircle" />
+                     </Any>
+                  </Timer>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(300, 90, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 75e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Location-Ali" />
+      <Contract customer="buck" id="Race-Land-2" money="@Money" crewResearch="@CrewBonus" name="Ali Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="This is a time trial, so get your boots tight! Go through all the checkpoints in any order before the time runs out." />
+         <Description
+            completions="0"
+            long="I saw you gained access to the Ali Base recently, let's have some fun. This is a time trial, so get your boots tight!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="cylinder" planetRadius="1274200" distanceMode="GreatCircle">
+                     <Race.Checkpoint latLonAgl="-5.26311,-145.85056,0" range="10" />
+                     <Race.Checkpoint latLonAgl="-5.23824,-145.95869,0" range="10" />
+                     <Race.Checkpoint latLonAgl="-5.27853,-145.94466,0" range="10" />
+                     <Race.Checkpoint latLonAgl="-5.26918,-145.94599,0" range="10" />
+                     <Race.Checkpoint latLonAgl="-5.26520,-145.94500,0" range="3" />
+                     <Race.Checkpoint latLonAgl="-5.25836,-145.93843,0" range="13" />
+                     <Race.Checkpoint latLonAgl="-5.27256,-145.92122,0" range="13" />
+                     <Race.Checkpoint latLonAgl="-5.27543,-145.91351,10" range="5" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 1" />
+      </Params>
+      <Prereqs contracts="Race-Land-2" />
+      <Contract customer="buck" id="Race-Land-3" money="1000000" name="Equilibrium" priority="50" probability="@Probability" difficulty="3">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="After watching you race in Ali, I noticed they have a really interesting wall all around the base. How fast can you ride it?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Expression expression="TimeGrounded > -1" description="Stay grounded" visibility="HiddenWhenPassed">
+                     <Race time="240" style="cylinder" planetRadius="1274200" distanceMode="GreatCircle">
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.236,-145.95581,3" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.21925,-145.94546,3" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.24856,-145.81796,3" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.26062,-145.82075,2" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.27893,-145.83777,2.5" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.28466,-145.90847,3" />
+                        <Race.Checkpoint range="1.5" latLonAgl="-5.27689,-145.9433,3" />
+                     </Race>
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(300, 90, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 100e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Location-DSC Large runway" />
+      <Contract customer="buck" id="Race-Land-4" money="@Money" crewResearch="@CrewBonus" name="DSC Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="This is a time trial, so get your boots tight! Go through all the checkpoints in any order before the time runs out." />
+         <Description
+            completions="0"
+            long="It seems like it was yesterday when you were launching from the village... Now we have even better taxiways! This is a time trial, so get your boots tight!" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="cylinder" planetRadius="1274200" distanceMode="GreatCircle">
+                     <Race.Checkpoint latLonAgl="0.06,-130.209,0" range="60" />
+                     <Race.Checkpoint latLonAgl="0.06,-130.33,0" range="60" />
+                     <Race.Checkpoint latLonAgl="0.071,-130.333,0" range="50" />
+                     <Race.Checkpoint latLonAgl="0.07,-130.34,0" range="45" />
+                     <Race.Checkpoint latLonAgl="0.05,-130.31,0" range="30" />
+                     <Race.Checkpoint latLonAgl="0.074,-130.2947,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.074,-130.2974,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.0768,-130.296,0" range="45" />
+                     <Race.Checkpoint latLonAgl="0.0752,-130.25735,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.0781,-130.25735,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.0796,-130.2546,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.099,-130.22,0" range="40" />
+                     <Race.Checkpoint latLonAgl="0.0946,-130.2111,0" range="99" />
+                     <Race.Checkpoint latLonAgl="0.0857,-130.2111,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.066,-130.2031,0" range="20" />
+                     <Race.Checkpoint latLonAgl="0.06,-130.209,0" range="60" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 10" />
+         <Expression name="Time" value="lerp(3000, 900, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 1000e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 10" />
+      </Params>
+      <Prereqs contracts="Race-Land-4" />
+      <Contract customer="buck" id="Race-Land-5" money="@Money" crewResearch="@CrewBonus" name="DSC Endurance" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="This is a time trial, so get your boots tight! Go through all the checkpoints in any order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" laps="10" style="cylinder" planetRadius="1274200" distanceMode="GreatCircle">
+                     <Race.Checkpoint latLonAgl="0.06,-130.209,0" range="60" />
+                     <Race.Checkpoint latLonAgl="0.06,-130.33,0" range="60" />
+                     <Race.Checkpoint latLonAgl="0.071,-130.333,0" range="50" />
+                     <Race.Checkpoint latLonAgl="0.07,-130.34,0" range="45" />
+                     <Race.Checkpoint latLonAgl="0.05,-130.31,0" range="30" />
+                     <Race.Checkpoint latLonAgl="0.074,-130.2947,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.074,-130.2974,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.0768,-130.296,0" range="45" />
+                     <Race.Checkpoint latLonAgl="0.0752,-130.25735,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.0781,-130.25735,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.0796,-130.2546,0" range="10" />
+                     <Race.Checkpoint latLonAgl="0.099,-130.22,0" range="40" />
+                     <Race.Checkpoint latLonAgl="0.0946,-130.2111,0" range="99" />
+                     <Race.Checkpoint latLonAgl="0.0857,-130.2111,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.066,-130.2031,0" range="20" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 5" />
+         <Expression name="Time" value="lerp(180, 60, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 100e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="Race-Land-4" />
+      <Contract customer="buck" id="Race-Land-6" money="@Money" crewResearch="@CrewBonus" name="DSC Sailor's Route" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty">
+         <Description
+            short="Go through all the checkpoints in any order."
+            long="This is a time trial, so get your boots tight! Go through all the checkpoints in any order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="cylinder" planetRadius="1274200" distanceMode="GreatCircle">
+                     <Race.Checkpoint latLonAgl="0.066,-130.2031,0" range="20" />
+                     <Race.Checkpoint latLonAgl="0.091,-130.21,0" range="15" />
+                     <Race.Checkpoint latLonAgl="0.1167,-130.246,2" range="25" />
+                     <Race.Checkpoint latLonAgl="0.1603,-130.2632,29" range="25" />
+                     <Race.Checkpoint latLonAgl="0.1764,-130.248,31" range="25" />
+                     <Race.Checkpoint latLonAgl="0.1879,-130.2079,5" range="15" />
+                     <Race.Checkpoint latLonAgl="0.1941,-130.2091,5" range="15" />
+                     <Race.Checkpoint latLonAgl="0.1941,-130.2079,5" range="15" />
+                     <Race.Checkpoint latLonAgl="0.1879,-130.2091,5" range="15" />
+                     <Race.Checkpoint latLonAgl="0.1776,-130.21,5" range="10" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(300, 60, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 20e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Tutorial" value="NumCompletions > 0" valueTrue="" valueFalse="Tutorial-FirstRace" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="First-Flight" techNodes="jets" />
+      <Contract customer="buck" id="Race-Air-0" money="@Money" crewResearch="@CrewBonus" name="Learning To Fly" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" designerTutorial="@Tutorial" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="This is a time trial for planes, so get your gloves tight! Go through all the checkpoints in order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="ring" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd" style="cylinder" />
+                     <Race.Checkpoint latLonAgl="25.61,-164.33,150" range="100" />
+                     <Race.Checkpoint latLonAgl="25.68,-164.29,120" range="100" />
+                     <Race.Checkpoint latLonAgl="25.76,-164.28,70" range="50" />
+                     <Race.Checkpoint latLonAgl="25.7,-164.346,150" range="100" />
+                     <Race.Checkpoint latLonAgl="25.656,-164.365,200" range="100" />
+                     <Race.Checkpoint latLonAgl="25.625,-164.4,450" range="50" />
+                     <Race.Checkpoint latLonAgl="25.615,-164.417,500" range="20" />
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd" style="cylinder" />
+                     <Race.Checkpoint locationId="Droo.Village.RunwayTop" style="cylinder" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(900, 150 ,0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6" />
+         <Expression name="Money" value="@TitleNumber * 20e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Race-Air-0" />
+      <Contract customer="buck" id="Race-Air-1" money="@Money" crewResearch="@CrewBonus" name="Valley Air Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="This is a time trial for planes, so get your gloves tight! Go through all the checkpoints in order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="ring" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd" style="cylinder" />
+                     <Race.Checkpoint latLonAgl="25.697,-164.348,50" range="50" />
+                     <Race.Checkpoint latLonAgl="25.778,-164.357,100" range="50" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.884,-164.463,100" range="500" style="sphere" />
+                     <Race.Checkpoint latLonAgl="26.020,-164.458,0" range="250" style="sphere"/>
+                     <Race.Checkpoint latLonAgl="26.003,-164.550,0" range="250" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.870,-164.602,60" range="50" />
+                     <Race.Checkpoint latLonAgl="25.729,-164.664,60" range="50" />
+                     <Race.Checkpoint latLonAgl="25.635,-164.588,60" range="50" />
+                     <Race.Checkpoint latLonAgl="25.626,-164.433,100" range="500" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.753,-164.000,120" range="100" />
+                     <Race.Checkpoint latLonAgl="25.764,-163.742,100" range="70" />
+                     <Race.Checkpoint latLonAgl="25.600,-163.988,200" range="50" />
+                     <Race.Checkpoint latLonAgl="25.692,-164.381,70" range="70" />
+                     <Race.Checkpoint latLonAgl="25.777,-164.367,70" range="70" />
+                     <Race.Checkpoint latLonAgl="25.700,-164.345,70" range="70" />
+                     <Race.Checkpoint latLonAgl="25.594,-164.445,7" range="20" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(600, 180, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6 + 1" />
+         <Expression name="Money" value="@TitleNumber * 100e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Location-Ali" />
+      <Contract customer="buck" id="Race-Air-3" money="@Money" crewResearch="@CrewBonus" name="Ali Air Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="This is a time trial for planes, so get your gloves tight! Go through all the checkpoints in order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="ring" planetRadius="1274200">
+                     <Race.Checkpoint latLonAgl="-5.27254,-145.91636,34" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.395,-145.93,80" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.445,-146.1,100" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.46,-146.144,100" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.63,-146.12,70" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.663,-146.08,50" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.663,-145.94,70" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.551,-145.715,50" range="50" />
+                     <Race.Checkpoint latLonAgl="-5.22853,-145.92607,2" range="50" style="cylinder" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(600, 300, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6 + 1" />
+         <Expression name="Money" value="@TitleNumber * 100e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+      </Params>
+      <Prereqs contracts="Location-DSC Large runway" />
+      <Contract customer="buck" id="Race-Air-4" money="@Money" crewResearch="@CrewBonus" name="DSC Air Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="I saw some interesting hangars and overhangs around the DSC. Can you thread the needle? This is a time trial for planes, so get your gloves tight! Go through all the checkpoints in order before the time runs out." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="ring" planetRadius="1274200">
+                     <Race.Checkpoint latLonAgl="0.06,-130.209,2" range="20" style="cylinder" />
+                     <Race.Checkpoint latLonAgl="0.077,-130.256,15" range="20" />
+                     <Race.Checkpoint latLonAgl="0.0947,-130.21,15" range="20" />
+                     <Race.Checkpoint latLonAgl="0.0947,-130.2,2" range="20" />
+                     <Race.Checkpoint latLonAgl="0.0878,-130.1855,20" range="20" />
+                     <Race.Checkpoint latLonAgl="0.1768,-130.221,100" range="20" />
+                     <Race.Checkpoint latLonAgl="0.1803,-130.221,265" range="20" />
+                     <Race.Checkpoint latLonAgl="0.0879,-130.21,10" range="20" />
+                     <Race.Checkpoint latLonAgl="0.0769,-130.296,7" range="20" />
+                     <Race.Checkpoint latLonAgl="-0.0015,-130.256,50" range="20" />
+                     <Race.Checkpoint latLonAgl="0.06,-130.2,2" range="20" style="cylinder" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <UniqueString name="UniqueDroodId1" />
+         <Random name="LatError" min="-0.001" max="0.001" />
+         <Random name="LongError" min="-0.001" max="0.001" />
+         <Expression name="RescueLat" value="25.212 + @LatError"/>
+         <Expression name="RescueLong" value="-165.568 + @LongError"/>
+         <Expression name="DroodRescueLat" value="@RescueLat + 0.0002"/>
+         <Expression name="DroodRescueLong" value="@RescueLong + 0.0002"/>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 10" />
+      </Params>
+      <Prereqs contracts="Race-Air-2" techNodes="crew1" />
+      <Contract customer="buck" id="Droo-Surface-Rescue-1" money="200000" name="Droo Surface Rescue" subtitle="1 drood on Mountains" priority="100" probability="@Probability" expiration="1" deadline="1" difficulty="2" flairText="Rescue">
+         <Description
+			   short="SimpleCub Rescue"
+			   long="While attempting an air race near the Juno Village, a Drood crashed their SimpleCub! Can you safely bring them back to the Juno Village? Time is critical!" />
+         <Requirements>
+            <SpawnCraft craftName="Stranded Drood" craftXml="Droo-Rescue-Ground-1.xml" craftTrackingId="DrooGroundRescue-1-Craft" destroyOnContractClosed="true" visibility="Hidden">
+               <SpawnCraft.LaunchLocation name="None" version="2" planetName="Droo" latitude="@RescueLat" longitude="@RescueLong" agl="2" heading="0" type="SurfaceLockedGround" />
+            </SpawnCraft>
+            <SpawnCraft craftName="Stranded Drood" craftXml="Drood.xml" craftTrackingId="DrooGroundRescue-1" destroyOnContractClosed="false" visibility="Hidden">
+               <SpawnCraft.LaunchLocation name="None" version="2" planetName="Droo" latitude="@DroodRescueLat" longitude="@DroodRescueLong" agl="2" heading="0" type="SurfaceLockedGround" />
+               <SpawnCraft.Payload payloadId="DROOD1" mapTo="@UniqueDroodId1" />
+            </SpawnCraft>
+            <Timer min="1" listedInMenu="false" visibility="Hidden" />
+            <TrackSpawnedCraft craftTrackingId="DrooGroundRescue-1" listedInMenu="false" visibility="Hidden" onFail="Stop">
+               <SpawnedCraftDistance range="100" description="Get near the crashed SimpleCub" autoSelectTarget="true" showTargetButton="true" />
+            </TrackSpawnedCraft>
+            <Payload mode="Recover" craftTrackingId="DrooGroundRescue-1" payloadId="@UniqueDroodId1" payloadName="Stranded Drood" description="Rescue the Drood from the damaged craft" allowWarp="true" visibility="HiddenWhenPassed">
+               <Location locationId="Droo.Village" description="Bring the Drood back to the Village">
+                  <CraftExpression expression="Grounded" description="Return the Drood safely to the surface" visibility="HiddenWhenPassed" listedInMenu="false"/>
+                  <Expression expression="2 > SurfaceVelocity" description="Return the Drood safely to the surface" visibility="HiddenWhenPassed" listedInMenu="false"/>
+               </Location>
+            </Payload>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <UniqueString name="UniqueDroodId1" />
+         <UniqueString name="UniqueDroodId2" />
+         <Expression name="Count" value="2" />
+         <Random name="LatError" min="-0.1" max="0.1" />
+         <Random name="LongError" min="-0.1" max="0.1" />
+         <Expression name="RescueLat" value="17.86 + @LatError"/>
+         <Expression name="RescueLong" value="-163.83 + @LongError"/>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 10" />
+      </Params>
+      <Prereqs contracts="Droo-Surface-Rescue-1" />
+      <Contract customer="buck" id="Droo-Surface-Rescue-2" money="400000" name="Droo Surface Rescue" subtitle="2 droods on hills" priority="100" probability="@Probability" expiration="1" deadline="3" difficulty="2" flairText="Rescue">
+         <Description
+			   short="SimpleOffroad Rescue"
+			   long="A pair of temerary Droods pushed a SimpleOffroad to its limits and a little beyond that. Can you bring them back safely to the Juno Village?"/>
+         <Requirements>
+            <SpawnCraft craftName="Damaged SimpleOffroad" craftXml="Droo-Rescue-Ground-2.xml" craftTrackingId="DrooGroundRescue-2" destroyOnContractClosed="true" visibility="Hidden">
+               <SpawnCraft.LaunchLocation name="None" version="2" planetName="Droo" latitude="@RescueLat" longitude="@RescueLong" agl="2" heading="0" type="SurfaceLockedGround" />
+               <SpawnCraft.Payload payloadId="DROOD1" mapTo="@UniqueDroodId1" />
+               <SpawnCraft.Payload payloadId="DROOD2" mapTo="@UniqueDroodId2" />
+            </SpawnCraft>
+            <Timer min="1" listedInMenu="false" visibility="Hidden" />
+            <TrackSpawnedCraft craftTrackingId="DrooGroundRescue-2" listedInMenu="false" visibility="Hidden" onFail="Stop">
+               <SpawnedCraftDistance range="100" description="Get near the damaged SimpleOffroad" autoSelectTarget="true" showTargetButton="true" />
+            </TrackSpawnedCraft>
+            <Any num="2" visibility="Hidden" description="Bring the 2 Droods back to the Juno Village">
+               <Template.Repeat count="2">
+                  <Template.Params>
+                     <Expression name="PayloadIndex" value="RepeatIndex" />
+                     <List name="PayloadID" index="@PayloadIndex" values="@UniqueDroodId1;@UniqueDroodId2" />
+                  </Template.Params>
+                  <Payload mode="Recover" craftTrackingId="DrooGroundRescue-2" payloadId="@PayloadID" payloadName="Stranded Drood" description="Rescue the Drood from the damaged craft" allowWarp="true" visibility="HiddenWhenPassed" listedInMenu="false">
+                     <Location locationId="Droo.Village" description="Bring the Drood back to the Village" listedInMenu="false">
+                        <CraftExpression expression="Grounded" description="Return the Drood safely to the surface" visibility="HiddenWhenPassed" listedInMenu="false"/>
+                        <Expression expression="2 > SurfaceVelocity" description="Return the Drood safely to the surface" visibility="HiddenWhenPassed" listedInMenu="false"/>
+                     </Location>
+                  </Payload>
+               </Template.Repeat>
+            </Any>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+</Contracts>

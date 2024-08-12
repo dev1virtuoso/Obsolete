@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="Satellite" parent="d7b1b009-401d-4954-9183-78654046257d" initialBoundsMin="-30.72221,-5.246705,-28.77925" initialBoundsMax="30.72033,5.936463,28.77927" price="2252655" xmlVersion="4" comRotation="270,0,0">
+  <Assembly>
+    <Parts>
+      <Part id="4" partType="Strut1" position="0.01177934,-3.272703,18.20678" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="0,0,13.78725,15.91013,6.158439,6.286723" area="0,0,17.52744,19.66068,8.645817,8.797497" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,2.599739,-5.288149E-05" topScale="1.973554,1.973554" symmetryId="7e16cd15-7b66-42d4-bb81-e9dba0aed6a8" />
+      </Part>
+      <Part id="5" partType="Strut1" position="0.01177445,-3.272928,21.35583" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="7.818139,0,0.478658,0.478658,0.4492923,0.449094" area="8.821362,0,1.383744,1.383744,1.213446,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" symmetryId="8f9a24ec-5246-4514-98f1-9f320099bb01" />
+      </Part>
+      <Part id="6" partType="DockingPort1" position="0.01171436,-3.273029,22.76806" rotation="90,-5.442504E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="3,3,3,3,4">
+        <Drag drag="0.5589242,0,0,0,0.08981881,0.08981881" area="0.6342161,0,0,0,0.1011205,0.1011205" />
+        <Config />
+        <DockingPort symmetryId="93cc188b-9719-456b-b8bc-73676d483a1f" />
+      </Part>
+      <Part id="11" partType="Strut1" position="0.01176604,-3.273075,21.75708" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2950631,0.294837,0.2912667,0.2912667" area="0,0,0.3459361,0.3459361,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" symmetryId="13b3c6d1-7897-4e5c-8c64-8158cbbf97ac" />
+      </Part>
+      <Part id="12" partType="Strut1" position="0.01172463,-3.273029,22.27746" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="6,6,6,6,4" texture="Fuselage10">
+        <Drag drag="0.5792732,0,0.7431973,0.7395797,0.7423435,0.7405591" area="1.210776,0,1.095464,1.095464,1.112325,1.112325" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.398243E-12,0.4190814,-1.430509E-06" topScale="0.3680304,0.3680304" symmetryId="2b0f193e-8afb-4fde-855b-46ea895701fd" />
+      </Part>
+      <Part id="13" partType="Strut1" position="0.01178335,-3.272775,20.93127" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="1.326088,0,0.7350576,0.735736,0.6846454,0.6866282" area="1.326088,0,0.922496,0.922496,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" symmetryId="6a806c9e-000e-44a4-98fa-3007fa1c276d" />
+      </Part>
+      <Part id="14" partType="Strut1" position="-2.08368,-3.272705,18.20662" rotation="-5.892114E-06,0.0001464273,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.201683,0,0.1978393,0.1978393,0,0" area="0.4612481,0,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" symmetryId="fb1a88b0-f6d2-4772-8946-8a2e314e19ea" />
+      </Part>
+      <Part id="15" partType="Strut1" position="-1.86319,-3.272704,18.20675" rotation="6.597042E-06,0.0001500372,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.05765601,0,0.2670265,0.3097598,0,0" area="0.115312,0,0.28828,0.3459361,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" symmetryId="d377b80c-99af-4a1c-b42a-57587a1559fd" />
+      </Part>
+      <Part id="16" partType="Strut1" position="-2.321717,-3.272703,18.20649" rotation="-3.728948E-06,0.0001316519,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.2582085,0,0.2550431,0.2559475,0,0" area="0.3459361,0,0.3459361,0.3459361,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.6680304,0.6680304" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" symmetryId="bddcfe81-2282-41aa-b6cf-69f93c020078" />
+      </Part>
+      <Part id="17" partType="Strut1" position="-8.040009,-3.272503,18.20637" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="29.81975,12.80598,19.70458,29.80077,0.003172409,0" area="37.82211,16.60495,25.71449,37.82211,0.808964,0" />
+        <Config />
+        <Fuselage bottomScale="1.923554,1.923554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.410722E-06,4.999738,-5.316713E-05" topScale="1.973554,1.973554" symmetryId="3b318dff-39f8-4a0f-b899-6dd1ecf38c89" />
+      </Part>
+      <Part id="18" partType="Strut1" position="-2.74051,-3.272631,18.20636" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.6409993,0,0.6391904,0.6396426,0,0" area="2.017961,0,2.017961,2.017961,0,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.6680304,0.6680304" symmetryId="9085ffdb-0c86-43d1-8fd0-1f1b6c4c8b23" />
+      </Part>
+      <Part id="19" partType="Strut1" position="-13.16461,-3.272502,18.20639" rotation="270,90,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0.611832,0.6111537,0.6095711,0.6097972,8.994583,0" area="0.922496,0.922496,0.922496,0.922496,9.707577,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.923554,1.923554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.738552E-06,0.1248554,-5.342037E-05" topScale="1.773569,1.773569" symmetryId="91a95553-1536-4cfd-bced-5311dde11de6" />
+      </Part>
+      <Part id="21" partType="Strut1" position="2.089652,-3.272704,18.60661" rotation="8.021136E-06,-0.0001461733,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.3680941,0,0.3604066,0.3601805,0,0" area="0.4612481,0,0.5189041,0.5189041,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="22" partType="Strut1" position="2.310111,-3.272706,18.60661" rotation="-5.892114E-06,0.0001464273,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.2625044,0,0.2552692,0.2554953,0,0" area="0.4612481,0,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.775829,0.775829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="23" partType="Strut1" position="2.548148,-3.272705,18.60674" rotation="-3.728948E-06,0.0001316519,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.2864712,0,0.2961936,0.2966458,0,0" area="0.3459361,0,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.775829,0.775829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.775829,0.775829" />
+      </Part>
+      <Part id="24" partType="Strut1" position="1.88674,-3.272704,18.60673" rotation="8.021136E-06,-0.0001461733,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.05765601,0,0.2692875,0.2695136,0,0" area="0.115312,0,0.28828,0.28828,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="25" partType="Strut1" position="2.966941,-3.272631,18.60687" rotation="270,90.00002,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.7266919,0,0.7076993,0.7086037,0,0" area="2.075617,0,2.075617,2.075617,0,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.775829,0.775829" />
+      </Part>
+      <Part id="26" partType="Strut1" position="8.266593,-3.272611,18.60686" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="30.09553,0,30.37588,30.39486,0,0.2528013" area="37.82211,0,40.18598,40.18598,0,0.2528013" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.410722E-06,4.999738,-5.316713E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="27" partType="Strut1" position="13.56628,-3.272721,18.60685" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0.4612481,0,0.4635091,0.4632829,0,10.52013" area="1.672025,0,1.672025,1.672025,0,11.22438" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.252785E-05,0.2997737,-5.269051E-05" topScale="0.3735788,0.3735788" />
+      </Part>
+      <Part id="28" partType="DockingPort1" position="13.93758,-3.27277,18.60686" rotation="89.96043,90.00002,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4">
+        <Drag drag="0,0,0,0,0,0.4770509" area="0,0,0,0,0,0.5056026" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="29" partType="Strut1" position="0.01175157,-1.597679,18.60675" rotation="0.001129881,7.528583E-06,-1.499694E-07" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.680826E-12,0.3014498,-7.365815E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="30" partType="Strut1" position="0.0117531,-1.194773,18.60659" rotation="0.001119348,5.14621E-06,-1.486599E-07" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.294837,0.07845739,0.05765601,0,0,0" area="0.3459361,0.115312,0.05765601,0,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="31" partType="Strut1" position="0.01176397,-0.6742334,18.60656" rotation="0.001105756,6.500783E-06,-1.46995E-07" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="6,6,6,6,4" texture="Fuselage10">
+        <Drag drag="0.6265287,0.06172585,1.231125,0,0,0" area="0.922496,0.115312,2.133273,0,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.398243E-12,0.4190814,-1.430509E-06" topScale="0.3680304,0.3680304" />
+      </Part>
+      <Part id="33" partType="Strut1" position="-13.51434,-3.272608,18.20638" rotation="270,90,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0.5727164,0.571812,0.5711337,0.5134776,0,0" area="0.6918721,0.6918721,0.6918721,0.6342161,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.773569,0.773569" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.786851E-06,0.2248503,-5.343248E-05" topScale="0.7735691,0.7735691" />
+      </Part>
+      <Part id="34" partType="Strut1" position="-13.66403,-3.272714,18.20638" rotation="270,90,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0,0,0,0.0556211,1.213446,0" area="0,0,0,0.05765601,1.213446,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.7235694,0.7235694" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.794429E-06,0.1248518,-5.342064E-05" topScale="0.7235694,0.7235694" />
+      </Part>
+      <Part id="35" partType="Strut1" position="-14.13873,-3.272823,18.20051" rotation="270,90,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0.3459361,0.3459361,0.6918721,0.6918721,0.4044821,0" area="0.3459361,0.3459361,0.6918721,0.6918721,0.4044821,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.5117805,0.2735693" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0,0,0,0" normalSmoothingAngle="20" offset="0.005890727,0.3498516,-5.340576E-05" topScale="0.5235695,0.2735693" />
+      </Part>
+      <Part id="36" partType="Strut1" position="0.01177533,-3.27273,15.4823" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.733475,0.733701,0.6870247,0.6858351" area="0,0,0.922496,0.922496,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="37" partType="Strut1" position="0.01175369,-3.272884,15.05774" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.6633833,0.6656443,0.4546458,0.4548441" area="0,0,1.787337,1.787337,1.213446,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="38" partType="Strut1" position="0.01176207,-3.273031,14.65661" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0,0,0.2904736,0.2912667" area="0,0,0,0,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="39" partType="Strut1" position="0.01175311,-3.27273,13.62793" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.7355098,0.7350576,0.6866282,0.6848438" area="0,0,0.922496,0.922496,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="40" partType="Strut1" position="0.01177473,-3.272884,14.05249" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.7393537,0.7400319,0.6761196,0.6761195" area="0,0,2.075617,2.075617,1.820169,1.820169" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="41" partType="Strut1" position="0.01176632,-3.273031,14.45373" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.294837,0.2950631,0.2908702,0.291465" area="0,0,0.3459361,0.3459361,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="42" partType="Strut1" position="0.01176882,-3.272703,8.503414" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="5,5">
+        <Drag drag="0,0,30.10025,30.10526,30.12932,30.20754" area="0,0,37.82211,37.82211,37.97062,37.97062" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.096097E-12,4.999739,-5.316712E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="43" partType="Strut1" position="0.011754,-3.272837,3.378902" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.7343794,0.7343793,1.372661,1.367308" area="0,0,0.922496,0.922496,1.719048,1.719048" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="44" partType="Strut1" position="0.01176287,-3.272991,2.954342" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.7689729,0.7694252,0.4364044,0.4366027" area="0,0,2.075617,2.075617,1.213446,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="45" partType="Strut1" position="0.01177126,-3.273137,2.553097" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2950631,0.2952892,0.2910685,0.2906719" area="0,0,0.3459361,0.3459361,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="46" partType="Strut1" position="0.0117623,-3.272837,1.52441" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.7350576,0.7350577,0.6945592,0.6947574" area="0,0,0.922496,0.922496,0.9100845,0.9100845" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="47" partType="Strut1" position="0.0117534,-3.272991,1.94897" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.5055641,0.5048858,0.7092318,0.7094299" area="0,0,1.383744,1.383744,2.02241,2.02241" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="48" partType="Strut1" position="0.01177551,-3.273137,2.350216" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.294837,0.2952892,0.2900771,0.2908702" area="0,0,0.3459361,0.3459361,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="49" partType="Strut1" position="0.01174749,-3.272811,-3.600224" rotation="270,2.093375E-05,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0,0,25.29516,30.841,14.52726,30.31362" area="0,0,31.36472,38.7446,19.26342,38.77958" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.410722E-06,4.999738,-5.316713E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="50" partType="Strut1" position="0.00587544,-0.9493732,-5.614653E-05" rotation="0.0006223732,180,8.582165E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="0,0,0,0,4" texture="Fuselage3">
+        <Drag drag="0,0.6918721,0,0,0.1011205,0.1011205" area="0,0.6918721,0,0,0.1011205,0.1011205" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.5117805,0.2735693" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0,0,0,0" normalSmoothingAngle="20" offset="0.005890727,0.3498516,-5.340576E-05" topScale="0.5235695,0.2735693" />
+      </Part>
+      <Part id="51" partType="Strut1" position="-2.383334E-05,-0.2997503,-5.630865E-05" rotation="0.0006329069,180,8.581024E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0.4612481,0.6918721,0.4612481,0,0,0" area="0.4612481,0.6918721,0.4612481,0,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.5235695,0.2735693" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="-4.415202E-06,0.2997489,-5.658574E-05" topScale="0.5235695,0.2735693" />
+      </Part>
+      <Part id="52" partType="Strut1" position="5.423335,0.3239163,5.237339E-05" rotation="45.00064,180.0009,90.00124" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="7,7,7,7,4" texture="Fuselage9" textureTiling="2,2" textureOffset="0,0.8000001">
+        <Drag drag="16.73353,16.77313,16.7693,14.31632,0,0" area="23.58125,23.6389,23.6389,20.17958,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="-3.294206E-06,4.899478,-5.618753E-05" topScale="0.9235688,0.9235688" symmetryId="11f10cca-fa99-46d1-8806-4bf14985bef9" />
+      </Part>
+      <Part id="53" partType="Strut1" position="15.2236,0.3238342,0.0001355618" rotation="45.00065,180.0009,90.00117" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="7,7,7,7,4" texture="Fuselage9" textureTiling="2,2" textureOffset="0,0.5000001">
+        <Drag drag="16.77287,16.77336,16.76953,16.77291,0,0" area="23.6389,23.6389,23.6389,23.6389,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="-3.294206E-06,4.899478,-5.618753E-05" topScale="0.9235688,0.9235688" symmetryId="2dc09c05-0f4b-449f-b299-697409bce396" />
+      </Part>
+      <Part id="55" partType="Strut1" position="22.42312,0.3236819,4.219217E-05" rotation="90,90.00068,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="6.320228,6.327237,6.601049,6.597883,0,0.9100845" area="7.78355,7.78355,8.07183,8.07183,0,0.9100845" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.273554,1.273554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-8.767324E-10,1.699729,-5.609043E-05" topScale="1.273554,1.273554" symmetryId="1990099d-334a-43ae-81a1-1626891619ef" />
+      </Part>
+      <Part id="56" partType="Strut1" position="20.42337,0.3237359,0.0001223862" rotation="90,269.9995,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.6292419,0.6276592,0.6310507,0.6308246,0,0" area="1.037808,1.037808,1.037808,1.037808,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.273554,1.273554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="3.054311E-08,0.2997624,-7.431612E-05" topScale="0.8258293,0.8258293" symmetryId="0c31b89d-845e-4406-bef5-5a18a49abe9e" />
+      </Part>
+      <Part id="105" partType="Strut1" position="0.01176685,-3.272938,-8.899664" rotation="270,2.093375E-05,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.498781,0.4978766,0,0.6876197" area="0,0,1.383744,1.383744,0,1.870729" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="106" partType="Strut1" position="0.01174472,-3.273084,-9.300909" rotation="270,2.093375E-05,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2955153,0.2955153,0,0.2904736" area="0,0,0.3459361,0.3459361,0,0.4044821" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="109" partType="Strut1" position="0.01174896,-3.273232,-9.50379" rotation="270,2.093375E-05,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2950631,0.2950631,0,0.291465" area="0,0,0.3459361,0.3459361,0,0.4044821" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="110" partType="Strut1" position="0.01174498,-3.273332,-16.60425" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2950631,0.2950631,0.2906719,0.2912667" area="0,0,0.3459361,0.3459361,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="111" partType="Strut1" position="0.01173659,-3.273187,-16.20313" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,7.76704,0.7291789,0.7294052,0.4568268,0.4566285" area="0,8.763705,2.075617,2.075617,1.213446,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="112" partType="Strut1" position="0.01175824,-3.273032,-15.77857" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.7352837,0.735736,0.6864299,0.6858351" area="0,0,0.922496,0.922496,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="113" partType="Strut1" position="0.01176225,-3.273007,-13.05396" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="0,0,15.21192,15.17529,4.940234,6.267688" area="0,0,18.85351,18.7382,7.28069,8.696377" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,2.599739,-5.288149E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="114" partType="Strut1" position="-1.863207,-3.273007,-13.05412" rotation="6.597042E-06,0.0001500372,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.05765601,0.2688353,0.3090815,0,0" area="0,0.115312,0.28828,0.3459361,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="115" partType="Strut1" position="-2.083697,-3.273008,-13.05425" rotation="-5.892114E-06,0.0001464273,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.2012308,0.2007786,0.2005525,0,0" area="0,0.4612481,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" />
+      </Part>
+      <Part id="116" partType="Strut1" position="-2.321734,-3.273007,-13.05438" rotation="-3.728948E-06,0.0001316519,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.2582085,0.2432858,0.2426075,0,0" area="0,0.3459361,0.28828,0.28828,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.6680304,0.6680304" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" />
+      </Part>
+      <Part id="117" partType="Strut1" position="-2.740527,-3.272933,-13.05451" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.6403208,0.6382859,0.6398687,0,0" area="0,2.017961,1.960305,1.960305,0,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.6680304,0.6680304" />
+      </Part>
+      <Part id="119" partType="Strut1" position="-8.364641,-3.273018,-13.05438" rotation="270,89.99997,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage3">
+        <Drag drag="0,0.6116059,0.6032403,0.6032401,8.942636,0" area="0,0.922496,0.922496,0.922496,9.606457,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.923554,1.923554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.738552E-06,0.1248554,-5.342037E-05" topScale="1.773569,1.773569" />
+      </Part>
+      <Part id="120" partType="Strut1" position="-8.714373,-3.273125,-13.05439" rotation="270,89.99997,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="6,6,6,6,4" texture="Fuselage3">
+        <Drag drag="0,0.465318,0.585152,0.5308875,0.05056025,0" area="0,0.5765601,0.807184,0.7495281,0.05056025,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.773569,0.773569" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.786851E-06,0.2248503,-5.343248E-05" topScale="0.7735691,0.7735691" />
+      </Part>
+      <Part id="121" partType="Strut1" position="-8.864061,-3.273234,-13.05439" rotation="270,89.99997,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="0,0,0,0,4" texture="Fuselage3">
+        <Drag drag="0,0.106494,0,0.05471669,1.011205,0" area="0,0.115312,0,0.05765601,1.011205,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.7235694,0.7235694" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-4.794429E-06,0.1248518,-5.342064E-05" topScale="0.7235694,0.7235694" />
+      </Part>
+      <Part id="123" partType="Strut1" position="1.886723,-3.273006,-12.65402" rotation="8.021136E-06,-0.0001461733,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.05765601,0.2204495,0.268157,0,0" area="0,0.115312,0.230624,0.28828,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="124" partType="Strut1" position="2.089635,-3.273006,-12.65426" rotation="8.021136E-06,-0.0001461733,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.367868,0.3637981,0.3637981,0,0" area="0,0.4612481,0.4612481,0.4612481,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="125" partType="Strut1" position="2.310094,-3.273006,-12.65425" rotation="-5.892114E-06,0.0001464273,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.2618261,0.2541386,0.2545908,0,0" area="0,0.4612481,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.775829,0.775829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="126" partType="Strut1" position="2.548131,-3.273007,-12.65413" rotation="-3.728948E-06,0.0001316519,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.2862452,0.2878279,0.2891845,0,0" area="0,0.3459361,0.4035921,0.4035921,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.775829,0.775829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.775829,0.775829" />
+      </Part>
+      <Part id="127" partType="Strut1" position="2.966923,-3.272933,-12.654" rotation="270,90.00002,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0.7273701,0.7223958,0.7244309,0,0" area="0,2.075617,2.075617,2.075617,0,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.775829,0.775829" />
+      </Part>
+      <Part id="128" partType="Strut1" position="8.266606,-3.272914,-12.65401" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0,30.09895,30.15024,30.13491,0,0.3033615" area="0,37.82211,40.18598,40.18598,0,0.3033615" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.410722E-06,4.999738,-5.316713E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="129" partType="Strut1" position="13.56626,-3.273019,-12.65402" rotation="270,270,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0,0.4605697,0.4601175,0.4628308,0,10.47274" area="0,1.672025,1.729681,1.729681,0,11.17382" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.252785E-05,0.2997737,-5.269051E-05" topScale="0.3735788,0.3735788" />
+      </Part>
+      <Part id="130" partType="DockingPort1" position="13.9375,-3.273072,-12.65401" rotation="89.96043,90.00002,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="0,1,2,3,4">
+        <Drag drag="0,0,0,0,0,0.4770509" area="0,0,0,0,0,0.5056026" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="134" partType="Strut1" position="0.01176625,-3.273078,-10.3296" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,1.466498,0.733927,0.2097755,0.6864299" area="0,0,1.844993,0.922496,0.3539218,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="135" partType="Strut1" position="0.01175735,-3.273232,-9.905035" rotation="270,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.4377335,0.7773389,0.007336194,0.4467147" area="0,0,1.15312,2.075617,0.05056025,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="136" partType="Strut1" position="-5.640032,-3.272913,-13.05445" rotation="270,89.99997,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="0,15.26752,15.23859,15.2517,0.007137919,0" area="0,19.37241,19.8913,19.8913,0.9100845,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,2.599739,-5.288149E-05" topScale="1.923554,1.923554" />
+      </Part>
+      <Part id="137" partType="Strut1" position="-6.64677,-3.272902,-10.449" rotation="1.707547E-06,89.45377,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.3136035,0.3111164,0.2904736,0" area="0,0,0.4035921,0.4035921,0.4044821,0" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="138" partType="Strut1" position="-6.650441,-3.272904,-10.04775" rotation="1.707547E-06,89.45377,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.4594393,0.4596654,0.7046713,0.08862916" area="0,0,1.268432,1.268432,2.02241,0.3539218" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="139" partType="Strut1" position="-6.654356,-3.272904,-9.62307" rotation="1.707547E-06,89.45377,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.7915832,0.8108019,0.6864299,0.2978098" area="0,0,1.15312,1.15312,0.8595243,0.4550423" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="140" partType="Strut1" position="-6.680292,-3.272903,-6.897972" rotation="-1.024528E-05,89.45377,90.00002" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="0,0,5.967283,16.0752,15.78848,0.7072488" area="0,0,8.244799,20.17958,19.81958,1.213446" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,2.599739,-5.288149E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="141" partType="Strut1" position="-6.680295,-1.397667,-6.897986" rotation="0.0001877025,359.4538,2.870665E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0,0,0.07415505,0" area="0,0,0,0,0.1011205,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="142" partType="Strut1" position="-6.680278,-1.177163,-6.898188" rotation="0.000189374,359.4538,3.191761E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.1971609,0.197387,0,0,0,0" area="0.4035921,0.4035921,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" />
+      </Part>
+      <Part id="150" partType="Strut1" position="-6.645303,-3.272903,-10.57302" rotation="-1.195283E-05,269.4539,89.99997" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0,0,0.2748099,0" area="0,0,0,0,0.3033615,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="151" partType="Strut1" position="-6.643223,-3.272901,-10.7759" rotation="-1.195283E-05,269.4539,89.99997" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.3653808,0.3599544,0.058293,0" area="0,0,0.4612481,0.4612481,0.1011205,0" />
+        <Config />
+        <Fuselage bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="152" partType="Strut1" position="-6.641113,-3.272903,-10.99648" rotation="0,269.4536,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.2649916,0.2674787,0.2508185,0" area="0,0,0.4612481,0.4612481,0.4044821,0" />
+        <Config />
+        <Fuselage bottomScale="0.775829,0.775829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.975829,0.975829" />
+      </Part>
+      <Part id="161" partType="Strut1" position="-6.70635,-3.272903,-4.172874" rotation="-1.024528E-05,89.45377,90.00002" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0,0,0.738223,0.7309878,0.6866282,0" area="0,0,0.922496,0.922496,0.8595243,0" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="162" partType="Strut1" position="-6.710539,-3.272905,-3.748192" rotation="-1.024528E-05,89.45377,90.00002" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.700238,0.6991073,0.661249,0" area="0,0,1.960305,1.960305,1.820169,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="163" partType="Strut1" position="-6.714515,-3.272906,-3.346947" rotation="-1.024528E-05,89.45377,90.00002" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0,0,0.04182887,0.03821124,0.2904736,0" area="0,0,0.05765601,0.05765601,0.4044821,0" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="166" partType="Strut1" position="0.01175634,-3.273461,-18.60559" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0,0,4.258631,4.027328,3.357993,3.355019" area="0,0,4.958416,4.612481,5.056029,5.056029" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.805636E-06,1.899766,-5.370337E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="167" partType="SolarPanelArray" position="-0.8140529,-3.273447,-18.43374" rotation="5.252472E-05,180,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" previouslyActivated="true" commandPodId="200" materials="0,1,2,3,4" symmetryId="2a283199-b65d-4458-b353-0201a7abe504">
+        <Drag drag="0,0.6263025,0.5912567,0.7642247,1.59354,0" area="0,0.6918721,0.6918721,0.86484,1.820169,0" />
+        <Config symmetryId="aae5f75e-5d3b-4843-9ee0-80146c90bd74" />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="0.471111" open="true" rows="10" scale="1.2" symmetryId="db32c9e2-6d60-4bf0-ab19-6e131f09b194" />
+      </Part>
+      <Part id="168" partType="SolarPanelArray" position="0.8375584,-3.273448,-18.4337" rotation="5.374599E-05,180,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" previouslyActivated="true" commandPodId="200" materials="0,1,2,3,4" symmetryId="2a283199-b65d-4458-b353-0201a7abe504" mirrored="true">
+        <Drag drag="0,0.6267548,0.591709,0.7646769,0,1.59354" area="0,0.6918721,0.6918721,0.86484,0,1.820169" />
+        <Config symmetryId="aae5f75e-5d3b-4843-9ee0-80146c90bd74" />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="0.471111" open="true" rows="10" scale="1.2" symmetryId="db32c9e2-6d60-4bf0-ab19-6e131f09b194" />
+      </Part>
+      <Part id="170" partType="Strut1" position="0.01174343,-3.27357,-20.90503" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0,0.5155127,0.8413255,0.8404211,0.7788262,0.7790245" area="0,1.15312,1.15312,1.15312,1.112325,1.112325" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.971836E-06,0.3997911,-5.35845E-05" topScale="0.4258393,0.4258393" />
+      </Part>
+      <Part id="171" partType="Strut1" position="0.01172964,-3.273676,-21.70472" rotation="270,3.711671E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage11" textureTiling="3,3">
+        <Drag drag="0,0.05765601,0.5109905,0.5109906,0.4718957,0.4714991" area="0,0.05765601,0.6918721,0.6918721,0.6067231,0.6067231" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4258243,0.4258243" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-4.971836E-06,0.3997911,-5.35845E-05" topScale="0.4258393,0.4258393" />
+      </Part>
+      <Part id="172" partType="Strut1" position="-5.423375,0.3239161,-5.274912E-05" rotation="45.00065,179.9991,269.9988" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="7,7,7,7,4" mirrored="true" texture="Fuselage9" textureTiling="2,2" textureOffset="0,0.35">
+        <Drag drag="10.71361,10.3869,16.77179,14.31383,0,0" area="15.1059,14.64465,23.6389,20.17958,0,0" />
+        <Config />
+        <Fuselage bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="3.294206E-06,4.899478,-5.618753E-05" topScale="0.9235688,0.9235688" symmetryId="11f10cca-fa99-46d1-8806-4bf14985bef9" />
+      </Part>
+      <Part id="173" partType="Strut1" position="-15.22361,0.3238361,0.0001081733" rotation="45.00069,179.9991,269.9988" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="7,7,7,7,4" mirrored="true" texture="Fuselage9" textureTiling="2,2" textureOffset="0,0.05">
+        <Drag drag="16.40414,16.77695,16.77156,16.7693,0,0" area="23.12,23.6389,23.6389,23.6389,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="3.294206E-06,4.899478,-5.618753E-05" topScale="0.9235688,0.9235688" symmetryId="2dc09c05-0f4b-449f-b299-697409bce396" />
+      </Part>
+      <Part id="174" partType="Strut1" position="-20.42341,0.3237364,0.0001213111" rotation="90,90.00052,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.6290158,0.6299202,0.6321812,0.6317291,0,0" area="1.037808,1.037808,1.037808,1.037808,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.273554,1.273554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-3.054311E-08,0.2997624,-7.431612E-05" topScale="0.8258293,0.8258293" symmetryId="0c31b89d-845e-4406-bef5-5a18a49abe9e" />
+      </Part>
+      <Part id="175" partType="Strut1" position="-22.42316,0.3236832,7.941469E-05" rotation="90,269.9993,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" mirrored="true" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="6.327237,6.320228,6.601274,6.59811,0.9100845,0" area="7.78355,7.78355,8.07183,8.07183,0.9100845,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.273554,1.273554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="8.767324E-10,1.699729,-5.609043E-05" topScale="1.273554,1.273554" symmetryId="1990099d-334a-43ae-81a1-1626891619ef" />
+      </Part>
+      <Part id="191" partType="DockingPort1" position="0.01170898,-3.273729,-22.17603" rotation="90,180,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="3,3,3,3,4">
+        <Drag drag="0,0.5589242,0.02735834,0.02713224,0.1516808,0.1483101" area="0,0.6342161,0.115312,0.115312,0.202241,0.202241" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="193" partType="Strut1" position="-6.680275,-0.7583382,-6.898354" rotation="-0.0001815472,179.4538,180" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.1698026,0.7524675,0,0,0.03529304,0.03410339" area="0.4612481,2.075617,0,0,0.1011205,0.1011205" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="194" partType="Strut1" position="-6.680288,2.141285,-6.898298" rotation="-0.0001659413,179.4538,-3.509191E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="4,4,4,4,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="8.223103,15.43282,0,0,9.181745,9.203753" area="10.14746,19.37241,0,0,11.52774,11.52774" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,2.599739,-5.288149E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="195" partType="Strut1" position="-6.680285,4.865886,-6.898152" rotation="-0.000147106,179.4538,-4.011243E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0.7348316,0.735736,0.4035921,0,0.6868265,0.6880161" area="0.922496,0.922496,0.4035921,0,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="196" partType="Strut1" position="-6.680282,5.290557,-6.898072" rotation="-0.000147106,179.4538,-4.011243E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.7526935,0.7515631,8.329127,0,0.4514734,0.4514734" area="2.075617,2.075617,9.397924,0,1.264006,1.264006" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="197" partType="Strut1" position="-6.680311,5.6919,-6.897874" rotation="-0.000147106,179.4538,-4.011243E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.3093075,0.3097598,1.844993,0,0.2880943,0.2884909" area="0.4035921,0.4035921,1.844993,0,0.3539218,0.3539218" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="198" partType="DockingPort1" position="-9.060442,-3.273288,-13.05439" rotation="90,269.9999,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="3,3,3,3,4">
+        <Drag drag="0,0.157367,0.1480968,0.1480968,0.5924473,0" area="0,0.230624,0.172968,0.172968,0.6067231,0" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="199" partType="DockingPort1" position="-6.680297,5.864856,-6.897842" rotation="0.0001275781,359.4538,4.207672E-05" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="3,3,3,3,4">
+        <Drag drag="0,0,0.2801404,0,0.1322498,0.1320515" area="0,0,0.28828,0,0.1516808,0.1516808" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="200" partType="CommandChip1" position="-3.791362E-11,-4.768372E-07,-8.957473E-11" rotation="0,0,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" rootPart="true" commandPodId="200" materials="0,1,2,3,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <CommandPod activationGroupNames=",,,,,,,,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,false,true,false" />
+        <FuelSource />
+        <FuelSource />
+      </Part>
+      <Part id="201" partType="Strut1" position="-8.640675,-1.207918,18.20638" rotation="359.7166,90,-1.720908E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.1822382,0.1813338,0,0,0,0" area="0.4035921,0.4035921,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.975829,0.975829" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="-1.489348E-08,0.1190222,-7.349795E-05" topScale="0.6680304,0.6680304" />
+      </Part>
+      <Part id="202" partType="Strut1" position="-8.6429,-0.7890913,18.20646" rotation="0.2834253,270,180" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.7285005,0.1765857,0,0,0,0" area="1.902649,0.4612481,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="203" partType="Strut1" position="-8.649838,0.6105365,18.20635" rotation="0.2834414,270,-2.868181E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Fuselage8" textureTiling="10,10">
+        <Drag drag="6.712289,0.3619893,0,0,0.5464473,0.5573525" area="8.475424,0.4612481,0,0,0.8595243,0.8595243" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.751375E-12,1.099739,-5.288149E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="204" partType="Strut1" position="-8.655753,1.835148,18.20634" rotation="0.2834587,270,-7.897504E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,3">
+        <Drag drag="0.7373187,0.3676419,0.28828,0,0.02518099,0.02716375" area="0.922496,0.4612481,0.28828,0,0.05056025,0.05056025" />
+        <Config />
+        <Fuselage bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" offset="-2.913204E-13,0.1247758,-7.986958E-05" topScale="1.973554,1.973554" />
+      </Part>
+      <Part id="205" partType="Strut1" position="-8.657702,2.259822,18.20642" rotation="0.2834587,270,-7.897504E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.4856671,0.2466773,8.679585,0,0.4590079,0.4502837" area="1.383744,0.6918721,9.801518,0,1.213446,1.213446" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="1.973554,1.973554" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.511762E-12,0.2997628,-7.343282E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="206" partType="Strut1" position="-8.659533,2.661167,18.20637" rotation="0.2834587,270,-7.897504E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" texture="Fuselage9" textureTiling="3,1">
+        <Drag drag="0.2948371,0.1505839,1.729681,0,0.2944391,0.2944391" area="0.3459361,0.172968,1.729681,0,0.4044821,0.4044821" />
+        <Config />
+        <Fuselage bottomScale="0.8258293,0.8258293" cornerRadiuses="1,1,1,1,1,1,1,1" normalSmoothingAngle="20" offset="2.662741E-12,0.1014494,-7.344013E-05" topScale="0.8258293,0.8258293" />
+      </Part>
+      <Part id="207" partType="DockingPort1" position="-8.660312,2.834125,18.20641" rotation="359.7165,90,7.910843E-06" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="3,3,3,3,4">
+        <Drag drag="0.02758444,0.01401832,0.2783316,0,0,0" area="0.115312,0.05765601,0.28828,0,0,0" />
+        <Config />
+        <DockingPort />
+      </Part>
+      <Part id="228" partType="Strut1" position="25.22244,0.323795,-2.12231E-05" rotation="90,90.00069,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="1.787337,1.787337,4.612481,4.612481,0,0" area="1.787337,1.787337,4.612481,4.612481,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="2.682154E-05,1.099505,-5.627751E-05" topScale="0.9235688,0.9235688" />
+      </Part>
+      <Part id="230" partType="Strut1" position="25.02227,0.3237955,-1.423488" rotation="270,0.003828427,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0,0.172968,1.022207,1.024468,0,0" area="0,0.172968,1.383744,1.383744,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="231" partType="Strut1" position="25.02229,0.3236552,-2.123072" rotation="270,0.003828427,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="236" partType="Strut1" position="25.02234,0.3237957,1.423559" rotation="1.195283E-05,270.0009,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0.172968,0,1.024242,1.021529,0,0" area="0.172968,0,1.383744,1.383744,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="237" partType="Strut1" position="25.02244,0.3237678,2.123143" rotation="1.195283E-05,270.0009,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0.7495281,0,0,0,0,0" area="0.7495281,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="242" partType="Strut1" position="29.62082,0.3237566,-5.117327E-05" rotation="270,269.9993,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="1.614369,1.326088,4.151234,4.151234,0,3.235855" area="1.614369,1.326088,4.151234,4.151234,0,3.235855" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="2.682154E-05,1.099505,-5.627751E-05" topScale="0.9235688,0.9235688" />
+      </Part>
+      <Part id="243" partType="Strut1" position="27.42147,0.3238462,2.48471E-05" rotation="90,269.9994,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="2.536865,2.536865,2.083982,2.084209,0,0" area="2.536865,2.536865,2.594521,2.594521,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.5999919,0.8" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="1.78812E-06,1.099507,-1.865538E-06" topScale="0.5999947,0.7999982" />
+      </Part>
+      <Part id="244" partType="Strut1" position="29.42071,0.3237565,1.423407" rotation="44.99827,89.99789,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0.05765601,0,0.9803784,0.9797,0,1.148808" area="0.05765601,0,1.15312,1.15312,0,1.415687" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="245" partType="Strut1" position="29.42057,0.3238549,2.122992" rotation="44.99827,89.99789,90.00003" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0.4612481,0,0,0,0,0" area="0.4612481,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="250" partType="Strut1" position="29.42077,0.3237577,-1.423639" rotation="90,179.999,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0,0.05765601,0.9799261,0.9794739,0,1.14742" area="0,0.05765601,1.15312,1.15312,0,1.415687" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="251" partType="Strut1" position="29.42072,0.3238901,-2.123224" rotation="90,179.999,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="543" partType="Strut1" position="-25.22278,0.3237966,2.079562E-05" rotation="90,269.9993,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="1.787337,1.787337,4.612481,4.612481,0,0" area="1.787337,1.787337,4.612481,4.612481,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="2.682154E-05,1.099505,-5.627751E-05" topScale="0.9235688,0.9235688" />
+      </Part>
+      <Part id="544" partType="Strut1" position="-25.02262,0.323797,1.423853" rotation="3.415095E-06,270.0024,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0.172968,0,1.023112,1.026729,0,0" area="0.172968,0,1.383744,1.383744,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="545" partType="Strut1" position="-25.02245,0.3237804,2.12356" rotation="3.415095E-06,270.0024,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0.7495281,0,0,0,0,0" area="0.7495281,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="611" partType="Strut1" position="-25.02259,0.3237969,-1.423681" rotation="270,-0.0005375222,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0,0.172968,1.025373,1.02379,0,0" area="0,0.172968,1.383744,1.383744,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="612" partType="Strut1" position="-25.02254,0.3236699,-2.123388" rotation="270,-0.0005375222,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="678" partType="Strut1" position="-27.42261,0.3238485,9.679864E-05" rotation="90,89.99799,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="2.536865,2.536865,2.08647,2.086922,0,0" area="2.536865,2.536865,2.594521,2.594521,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.5999919,0.8" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="1.78812E-06,1.099507,-1.865538E-06" topScale="0.5999947,0.7999982" />
+      </Part>
+      <Part id="679" partType="Strut1" position="-29.62272,0.3237593,5.069899E-05" rotation="270,89.99787,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="2,2,2,2,4" mirrored="true" texture="Fuselage8" textureTiling="5,5">
+        <Drag drag="1.383744,1.614369,4.151234,4.151234,3.235855,0" area="1.383744,1.614369,4.151234,4.151234,3.235855,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.9235688,0.9235688" cornerRadiuses="0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552,0.06896552" offset="2.682154E-05,1.099505,-5.627751E-05" topScale="0.9235688,0.9235688" />
+      </Part>
+      <Part id="680" partType="Strut1" position="-29.42249,0.3237567,-1.423773" rotation="45.00174,89.99644,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0,0.05765601,0.9794738,0.9797,1.013188,0" area="0,0.05765601,1.15312,1.15312,1.264006,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="681" partType="Strut1" position="-29.42254,0.3238548,-2.12348" rotation="45.00174,89.99644,270" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" mirrored="true" texture="Default">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="747" partType="Strut1" position="-29.42261,0.3237587,1.423883" rotation="0,89.99755,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0.115312,0,0.979926,0.9792478,1.011403,0" area="0.115312,0,1.15312,1.15312,1.264006,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.6735542,0.6735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="1.821734E-06,0.4997374,-6.508815E-05" topScale="0.6735542,0.6735542" />
+      </Part>
+      <Part id="748" partType="Strut1" position="-29.42278,0.3237875,2.12359" rotation="0,89.99755,90" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" commandPodId="200" materials="5,5,5,5,4" texture="Default">
+        <Drag drag="0.6918721,0,0,0,0,0" area="0.6918721,0,0,0,0,0" />
+        <Config />
+        <Fuselage autoResize="false" bottomScale="0.4735542,0.4735542" cornerRadiuses="1,1,1,1,1,1,1,1" offset="2.185276E-06,0.1997386,-6.645906E-05" topScale="0.4735542,0.4735542" />
+      </Part>
+      <Part id="749" partType="SolarPanelArray" position="29.42067,0.3239509,-2.322932" rotation="270,-0.00100944,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="0.1309131,3.530358,6.830538,4.780252,0,86.61581" area="0.172968,3.689986,7.149336,7.149336,0,89.4407" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="750" partType="SolarPanelArray" position="25.02217,0.3235844,-2.322779" rotation="270,0.003804645,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="0,2.79123,0.9005642,0.980152,0.05056025,0.03985338" area="0,2.940458,0.980152,0.980152,0.05056025,0.05056025" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="751" partType="SolarPanelArray" position="25.0225,0.3237627,2.322851" rotation="90,-1.607464E-06,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="1.994672,0,0.980152,0.9005642,0,0" area="2.190929,0,0.980152,0.980152,0,0" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="752" partType="SolarPanelArray" position="29.42045,0.3238975,2.322699" rotation="90,0.0002244847,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="2.535283,0,4.780252,6.830538,0,86.67013" area="2.767489,0,7.149336,7.149336,0,89.49126" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="753" partType="SolarPanelArray" position="-29.42281,0.32379,2.323297" rotation="90,-0.002450452,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="2.517647,0.1309131,4.707447,4.622885,90.00181,0" area="2.709833,0.172968,7.034025,7.034025,90.24966,0" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="754" partType="SolarPanelArray" position="-25.02236,0.3237763,2.323267" rotation="90,0.002357589,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="1.994672,0,0.980152,0.9005641,0,0" area="2.190929,0,0.980152,0.980152,0,0" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="755" partType="SolarPanelArray" position="-25.02251,0.3235977,-2.323217" rotation="270,-0.0005718192,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="0,2.79123,0.9005641,0.980152,0,0.07276712" area="0,2.940458,0.980152,0.980152,0,0.1011205" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+      <Part id="756" partType="SolarPanelArray" position="-29.42256,0.3238971,-2.323187" rotation="270,-0.001864138,0" themeId="69bdb017-7e29-4e4c-81b7-939a598f03da" activated="true" activationGroup="9" commandPodId="200" materials="0,1,2,3,4" mirrored="true">
+        <Drag drag="0.1309131,3.058031,4.622885,4.748144,89.39946,0" area="0.172968,3.228738,7.034025,7.034025,89.64294,0" />
+        <Config />
+        <SolarPanelArray deploySpeed="1.2" mainOpenPercentage="1" open="true" rows="30" scale="1.2" sideOpenPercentage="1" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="11" partB="5" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="12" partB="11" attachPointsA="1" attachPointsB="2" symmetryId="ab26d195-a8fa-46f1-832b-88745c3b94ce" />
+      <Connection partA="5" partB="13" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="15" partB="4" attachPointsA="1" attachPointsB="0" symmetryId="8cff0411-26ed-4bec-ad15-78455774937c" />
+      <Connection partA="14" partB="15" attachPointsA="1" attachPointsB="2" symmetryId="a54bad72-baa8-4a8a-b1f8-3b0f67a38799" />
+      <Connection partA="16" partB="14" attachPointsA="1" attachPointsB="2" symmetryId="9849d2b3-f7ee-46a4-89c7-832d646c0d6c" />
+      <Connection partA="18" partB="17" attachPointsA="1" attachPointsB="2" symmetryId="922eac38-d1d6-4480-ad51-1b823d7f443d" />
+      <Connection partA="18" partB="16" attachPointsA="2" attachPointsB="2" symmetryId="0dbe1f28-5922-4696-8183-0c58a3b59a97" />
+      <Connection partA="19" partB="17" attachPointsA="1" attachPointsB="1" symmetryId="910b2352-a4ff-4188-88d5-cb93547dc7a0" />
+      <Connection partA="22" partB="21" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="23" partB="22" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="24" partB="21" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="24" partB="4" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="25" partB="23" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="26" partB="25" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="27" partB="26" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="28" partB="27" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="6" partB="12" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="29" partB="4" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="30" partB="29" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="31" partB="30" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="33" partB="19" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="34" partB="33" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="35" partB="34" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="13" partB="4" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="37" partB="36" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="38" partB="37" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="36" partB="4" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="40" partB="39" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="41" partB="40" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="41" partB="38" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="42" partB="39" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="44" partB="43" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="45" partB="44" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="43" partB="42" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="47" partB="46" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="48" partB="47" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="48" partB="45" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="49" partB="46" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="51" partB="50" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="53" partB="52" attachPointsA="1" attachPointsB="2" symmetryId="0e804f5b-387a-4cd6-afb0-c86227cc18b6" />
+      <Connection partA="55" partB="56" attachPointsA="1" attachPointsB="1" symmetryId="3ad8a31f-5701-43e9-9f21-2ee84eabc49c" />
+      <Connection partA="56" partB="53" attachPointsA="2" attachPointsB="2" symmetryId="e2cd53a4-c2b0-492c-b987-e5349e21c568" />
+      <Connection partA="105" partB="49" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="106" partB="105" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="109" partB="106" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="110" partB="111" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="111" partB="112" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="112" partB="113" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="114" partB="113" attachPointsA="1" attachPointsB="0" symmetryId="8cff0411-26ed-4bec-ad15-78455774937c" />
+      <Connection partA="123" partB="113" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="134" partB="113" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="115" partB="114" attachPointsA="1" attachPointsB="2" symmetryId="a54bad72-baa8-4a8a-b1f8-3b0f67a38799" />
+      <Connection partA="116" partB="115" attachPointsA="1" attachPointsB="2" symmetryId="9849d2b3-f7ee-46a4-89c7-832d646c0d6c" />
+      <Connection partA="117" partB="116" attachPointsA="2" attachPointsB="2" symmetryId="0dbe1f28-5922-4696-8183-0c58a3b59a97" />
+      <Connection partA="120" partB="119" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="121" partB="120" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="123" partB="124" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="125" partB="124" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="126" partB="125" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="127" partB="126" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="128" partB="127" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="129" partB="128" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="130" partB="129" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="135" partB="134" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="135" partB="109" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="136" partB="117" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="119" partB="136" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="137" partB="138" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="138" partB="139" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="139" partB="140" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="141" partB="140" attachPointsA="1" attachPointsB="0" symmetryId="8cff0411-26ed-4bec-ad15-78455774937c" />
+      <Connection partA="150" partB="140" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="150" partB="151" attachPointsA="2" attachPointsB="1" />
+      <Connection partA="152" partB="151" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="162" partB="161" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="163" partB="162" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="152" partB="136" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="167" partB="166" attachPointsA="0" attachPointsB="0" symmetryId="c30012fb-fb62-45d9-a1b6-91a316e94f8a">
+        <BodyJoint body="1" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.3119291,-1.28256,-20.23883" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="168" partB="166" attachPointsA="0" attachPointsB="0" symmetryId="c30012fb-fb62-45d9-a1b6-91a316e94f8a">
+        <BodyJoint body="1" connectedBody="3" breakTorque="1E+07" breakForce="0" jointType="Normal" position="1.963542,-1.28256,-20.23883" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="166" partB="110" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="170" partB="166" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="171" partB="170" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="50" partB="49" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="52" partB="51" attachPointsA="1" attachPointsB="0" symmetryId="e874eed8-a119-4220-baa5-5c0219d372fc" />
+      <Connection partA="172" partB="173" attachPointsA="2" attachPointsB="1" symmetryId="0e804f5b-387a-4cd6-afb0-c86227cc18b6" />
+      <Connection partA="172" partB="51" attachPointsA="1" attachPointsB="0" symmetryId="e874eed8-a119-4220-baa5-5c0219d372fc" />
+      <Connection partA="173" partB="174" attachPointsA="2" attachPointsB="2" symmetryId="e2cd53a4-c2b0-492c-b987-e5349e21c568" />
+      <Connection partA="174" partB="175" attachPointsA="1" attachPointsB="1" symmetryId="3ad8a31f-5701-43e9-9f21-2ee84eabc49c" />
+      <Connection partA="191" partB="171" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="193" partB="142" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="194" partB="193" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="161" partB="140" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="196" partB="195" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="197" partB="196" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="195" partB="194" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="198" partB="121" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="199" partB="197" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="51" partB="200" attachPointsA="2" attachPointsB="0" />
+      <Connection partA="142" partB="141" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="202" partB="201" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="203" partB="202" attachPointsA="1" attachPointsB="1" />
+      <Connection partA="204" partB="203" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="205" partB="204" attachPointsA="1" attachPointsB="2" symmetryId="11184ee3-e556-4776-9253-cf73625d6f49" />
+      <Connection partA="206" partB="205" attachPointsA="1" attachPointsB="2" symmetryId="9e8cb3c4-064c-4bba-8ac3-e78338a85e08" />
+      <Connection partA="207" partB="206" attachPointsA="0" attachPointsB="2" />
+      <Connection partA="201" partB="17" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="228" partB="230" attachPointsA="0" attachPointsB="1" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="236" partB="228" attachPointsA="1" attachPointsB="0" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="230" partB="231" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="236" partB="237" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="242" partB="243" attachPointsA="2" attachPointsB="1" symmetryId="06447994-58b4-49ea-b6d1-52ce091ab09a" />
+      <Connection partA="242" partB="244" attachPointsA="0" attachPointsB="1" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="250" partB="242" attachPointsA="1" attachPointsB="0" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="244" partB="245" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="250" partB="251" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="243" partB="228" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="228" partB="55" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="543" partB="544" attachPointsA="0" attachPointsB="1" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="611" partB="543" attachPointsA="1" attachPointsB="0" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="678" partB="543" attachPointsA="2" attachPointsB="2" />
+      <Connection partA="544" partB="545" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="611" partB="612" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="679" partB="678" attachPointsA="2" attachPointsB="1" symmetryId="06447994-58b4-49ea-b6d1-52ce091ab09a" />
+      <Connection partA="679" partB="680" attachPointsA="0" attachPointsB="1" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="747" partB="679" attachPointsA="1" attachPointsB="0" symmetryId="6934b332-d634-424a-80a6-be601dab89bd" />
+      <Connection partA="680" partB="681" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="747" partB="748" attachPointsA="2" attachPointsB="1" symmetryId="f209c3d9-47e7-4d5e-8131-80b005c6a734" />
+      <Connection partA="543" partB="175" attachPointsA="1" attachPointsB="2" />
+      <Connection partA="749" partB="251" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="4" breakTorque="1E+07" breakForce="0" jointType="Normal" position="30.54667,2.314839,-4.128051" connectedPosition="-1.907349E-06,2.980232E-08,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="750" partB="231" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="5" breakTorque="1E+07" breakForce="0" jointType="Normal" position="26.1482,2.314473,-4.127929" connectedPosition="1.907349E-06,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="751" partB="237" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="6" breakTorque="1E+07" breakForce="0" jointType="Normal" position="26.14849,2.31465,0.51768" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="752" partB="245" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="7" breakTorque="1E+07" breakForce="0" jointType="Normal" position="30.54648,2.314787,0.5175921" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="753" partB="748" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="8" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-28.2968,2.314673,0.5181791" connectedPosition="-1.907349E-06,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="754" partB="545" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="9" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-23.89637,2.31466,0.518164" connectedPosition="-1.907349E-06,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="755" partB="612" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="10" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-23.89652,2.314485,-4.12831" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+      <Connection partA="756" partB="681" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="1" connectedBody="11" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-28.29655,2.314781,-4.128331" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+    </Connections>
+    <Collisions>
+      <Collision partA="166" partB="167" />
+      <Collision partA="166" partB="168" />
+      <Collision partA="230" partB="750" />
+      <Collision partA="231" partB="750" />
+      <Collision partA="236" partB="751" />
+      <Collision partA="237" partB="751" />
+      <Collision partA="244" partB="752" />
+      <Collision partA="245" partB="752" />
+      <Collision partA="250" partB="749" />
+      <Collision partA="251" partB="749" />
+      <Collision partA="544" partB="754" />
+      <Collision partA="545" partB="754" />
+      <Collision partA="611" partB="755" />
+      <Collision partA="612" partB="755" />
+      <Collision partA="680" partB="756" />
+      <Collision partA="681" partB="756" />
+      <Collision partA="747" partB="753" />
+      <Collision partA="748" partB="753" />
+    </Collisions>
+    <Bodies>
+      <Body id="1" partIds="4,15,14,16,18,17,19,33,34,35,201,202,203,204,205,206,207,24,21,22,23,25,26,27,28,29,30,31,13,5,11,12,6,36,37,38,41,40,39,42,43,44,45,48,47,46,49,105,106,109,135,134,113,112,111,110,166,170,171,191,114,115,116,117,136,119,120,121,198,152,151,150,140,139,138,137,141,142,193,194,195,196,197,199,161,162,163,123,124,125,126,127,128,129,130,50,51,52,53,56,55,228,230,231,236,237,243,242,244,245,250,251,172,173,174,175,543,544,545,611,612,678,679,680,681,747,748,200" mass="524.918945" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-1.12599,-1.990888,1.805145" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="2" partIds="167" mass="2.69560027" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-0.8140529,-3.273447,-18.43374" rotation="-3.921772E-05,-5.672616E-06,6.616331E-06" centerOfMass="-0.05542978,1.690083,3.516173E-05" />
+      <Body id="3" partIds="168" mass="2.69560027" inertiaTensorMin="0.05" inertiaTensorScale="1" position="0.8375584,-3.273448,-18.4337" rotation="-3.923774E-05,-5.698254E-06,6.616331E-06" centerOfMass="-0.05543061,1.690086,-3.515972E-05" />
+      <Body id="4" partIds="749" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="29.42067,0.3239519,-2.322932" rotation="-3.218994E-05,1.144578E-06,-9.957635E-06" centerOfMass="0.003549725,10.66883,0.0004008774" />
+      <Body id="5" partIds="750" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="25.02217,0.3235863,-2.322779" rotation="-2.858057E-05,-2.444416E-05,-4.608621E-06" centerOfMass="0.002784983,10.66883,0.0003970449" />
+      <Body id="6" partIds="751" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="25.0225,0.3237627,2.322851" rotation="-3.896176E-05,-5.945489E-06,-9.763348E-07" centerOfMass="-0.0005647639,10.66883,-0.002216706" />
+      <Body id="7" partIds="752" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="29.42045,0.3239003,2.322699" rotation="-2.871231E-05,2.425537E-06,-2.142778E-07" centerOfMass="-0.00103793,10.66873,-1.686291E-05" />
+      <Body id="8" partIds="753" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-29.42281,0.3237867,2.323297" rotation="-3.222245E-05,-1.582995E-05,1.569147E-06" centerOfMass="-0.001767357,10.66873,0.0004867249" />
+      <Body id="9" partIds="754" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-25.02236,0.3237744,2.323267" rotation="-1.838365E-05,-2.051831E-05,-9.74669E-06" centerOfMass="-2.296751E-05,10.66883,-0.001296144" />
+      <Body id="10" partIds="755" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-25.02251,0.3235973,-2.323217" rotation="-3.557084E-05,-2.540189E-05,6.602997E-06" centerOfMass="0.003976959,10.66863,0.001785169" />
+      <Body id="11" partIds="756" mass="6.62680054" inertiaTensorMin="0.05" inertiaTensorScale="1" position="-29.42256,0.3238947,-2.323187" rotation="-2.538226E-05,-2.555075E-05,2.646371E-06" centerOfMass="0.003989004,10.66883,0.0002613751" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="80148e83-c7b6-45c0-8d1b-4e12fab3f6cb">
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FF7F00" m="1" s="0.79" />
+      <Material color="7F7F7F" m="0.88" s="0.49" />
+      <Material color="454545" m="0.4" s="0.83" />
+      <Material color="171717" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="1" s="0.68" d="0" />
+      <Material color="000000" m="0.3" s="0.6" />
+      <Material color="FFFFFF" m="0.3" s="0.6" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="69bdb017-7e29-4e4c-81b7-939a598f03da">
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FF7F00" m="1" s="0.79" />
+      <Material color="7F7F7F" m="0.88" s="0.49" />
+      <Material color="454545" m="0.4" s="0.83" />
+      <Material color="171717" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="1" s="0.68" d="0" />
+      <Material color="000000" m="0.3" s="0.6" />
+      <Material color="FFFFFF" m="0.3" s="0.6" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.1" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+      <Material color="FFFFFF" m="0.65" s="0.08" />
+    </Theme>
+  </Themes>
+</Craft>

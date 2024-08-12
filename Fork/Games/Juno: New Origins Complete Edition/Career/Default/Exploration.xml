@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Exploration>
+   <Planet name="Vulco">
+      <Landmark id="vulco-zenith" name="Initial Zenith" latLonAgl="0,270,0" research="200" range="1000" grounded="false" description="The hottest place in the System, Vulco's tidal locking to Juno causes this face of the planet to be as hot as you can get without touching its parent star. The floor is lava is not a joke anymore." />
+      <Landmark id="vulco-river" name="Rivers of Eden" latLonAgl="60.6,143.75,0" research="100" range="1000" grounded="true" description="The large stresses in Vulco result in lava flows running front to back, resulting in some of the most impressive terrain features in the entire System." />
+      <Landmark id="vulco-dark" name="Tiresias Rift" latLonAgl="-2.44,86.15,0" research="100" range="4500" grounded="true" description="Being tidally locked to a star doesn't only result in a face being crazy hot but also in the other being crazy cold. This rift hasn't seen Juno's light in eons." />
+      <Landmark id="vulco-ravine" name="Hell's Gate" latLonAgl="17.2,82.7,0" research="100" range="10000" grounded="true" description="You won't find Cerberus in this ravine, but Hell's Gate can show you what looking at the heart of a planet through its crust looks like." />
+   </Planet>
+   <Planet name="Sergeaa">
+      <Landmark id="sergeaa-volcano" name="Hathor Mons" latLonAgl="-86.6,137.8,0" research="200" range="2500" grounded="false" description="The largest active volcano in the system, very steep and hard to climb, but even harder to escape once you descend into its crater." />
+      <Landmark id="sergeaa-mountain" name="Horus Mons" latLonAgl="-86,-40,0" research="100" range="10000" grounded="true" description="The mountains near Hathor Mons are the result of one of the eruptions of the volcano. They offer an easier to climb terrain and a great viewing spot to plan your descent into the crater." />
+      <Landmark id="sergeaa-spikes" name="The Jade Crown" latLonAgl="-8.1,-108.9,0" research="100" range="2000" grounded="true" description="Sergeaa has a large portion of its surface covered in large obsidian spikes, three of which have formed a large crown with some of the most surreal panoramas surrounding it." />
+      <Landmark id="sergeaa-dormant" name="Nidra Devi Mons" latLonAgl="8.94,-3.61,0" research="100" range="2000" grounded="true" description="This volcano has been dormant for millennia but its crater is almost intact. It may not have lava inside, but descending to its bottom and coming back intact can still be a challenge." />
+      <Landmark id="sergeaa-lakes" name="Morrigan Island" latLonAgl="18.07,-159.52,0" research="100" range="4000" grounded="true" description="An island in the shape of a crescent moon in the edge of one of the largest lava lakes in Sergeaa, hell's version of Hawaii, surrounded by magma and obsidian spikes." />
+   </Planet>
+   <Planet name="Droo">
+      <Landmark id="droo-droneship" name="Drone Ship" latLonAgl="0,-124.75,0" research="100" range="50" grounded="true" description="A conveniently placed barge to try to land your rocket boosters when launching from the DSC." />
+      <Landmark id="droo-spole" name="South Pole" latLonAgl="-90,0,0" research="50" range="50000" grounded="true" description="Every explorer's dream, the South Pole. You won't find Santa Claus here, but its very flat terrain can be great for landspeed records." />
+      <Landmark id="droo-gs-rainforest" name="Hippolyta Ground Station" latLonAgl="-8.13,-83.1,0" research="50" range="100" grounded="true" description="Where the rainforest meets the desert, only stopped by one of the most spectacular mountain systems on Droo." />
+      <Landmark id="droo-gs-grassland" name="Bliss Ground Station" latLonAgl="23.83,144.16,0" research="50" range="100" grounded="true" description="Fresh grass, swirly mountains and a bright Juno, the perfect spot for any hiker wanting to get lost." />
+      <Landmark id="droo-gs-archipelago" name="Brigo Ground Station" latLonAgl="33.878,48.363,0" research="50" range="100" grounded="true" description="The smell of the ocean, the water's roar, a cold breeze hitting your face in the smallest island of the largest archipelago on Droo." />
+      <Landmark id="droo-gs-polar" name="Amundsen Ground Station" latLonAgl="-72,-74.9,0" research="50" range="100" grounded="true" description="Your last chance to touch solid terrain before you reach the icebergs on your way to the South Pole, even if it is entirely covered in snow." />
+   </Planet>
+   <Planet name="Brigo" indent="1">
+      <Landmark id="brigo-crater" name="Mimas Crater" latLonAgl="45,-1,0" research="100" range="5000" grounded="true" description="Believed to be the result of what caused T.T. to orbit Droo. Even if it resembles the Death Star, this crater doesn't shoot lasers. Or does it?" />
+      <Landmark id="brigo-ejecta" name="Mimas Ring" latLonAgl="3.3,-5.6,0" research="50" range="5000" grounded="true" description="When the Mimas Crater was formed, a lot of ejecta fell back to Brigo, forming a series of rings around it that resulted on large cliffs." />
+      <Landmark id="brigo-mountains" name="Cocoa Mountains" latLonAgl="12.38,-131.83,0" research="50" range="500" grounded="true" description="A system of mountains covered in ice and mud, definitely not chocolate icecream." />
+   </Planet>
+   <Planet name="Luna" indent="1">
+      <Landmark id="luna-cliff" name="Finis Lunae" latLonAgl="5.45,-97.84,0" research="100" range="500" grounded="true" description="A cliff looking at mares that reaches as far as the eye can see, with nothing but volcanic rock and craters ahead." />
+      <Landmark id="luna-rock" name="Jund Roocks" latLonAgl="-2.88,-1.16,0" research="50" range="200" grounded="true" description="Luna can go from very rough terrain to flatlands really fast, resulting in impressive cliffs. Sometimes these cliffs can break apart, resulting in Simple Rocks Too." />
+      <Landmark id="luna-crater" name="Ingens Hiatus" latLonAgl="-21,117.37,0" research="50" range="2000" grounded="true" description="Sometimes when you see a crater from afar its scale may not be apparent. It's when you get inside that you realize how small you are. These are the real 'deep' space industries." />
+      <Landmark id="luna-mountain" name="Galilei Mountain" latLonAgl="-24.95,176.1,0" research="50" range="1000" grounded="true" description="A mountain generated after a great impact that left one of the largest craters in this moon's surface." />
+   </Planet>
+   <Planet name="T.T." planetIcon="TT" indent="1">
+      <Landmark id="tt-tholins" name="Tonatiuh Tholins" latLonAgl="20,-82,0" research="100" range="250" grounded="true" description="This strange outer space boulder is covered in oxides, making its very rough surface have a tint that resembles that of blood." />
+      <Landmark id="tt-core" name="Ragna Rock" latLonAgl="14,-102,0" research="100" range="1000" grounded="true" description="T.T. shows clear signs of having been through an intense event, because its surface is partially melted, and parts of its metallic core are entirely exposed." />
+   </Planet>
+   <Planet name="Cylero">
+      <Landmark id="cylero-valles" name="Valles Lusiades" latLonAgl="-40.15,-116.35,0" research="200" range="2500" grounded="true" description="A mountain right on the edge of the largest ravine in Cylero, one of the most unique viewpoints to visit while exploring this rare Landmark." />
+      <Landmark id="cylero-volcano" name="Veegxangus Mons" latLonAgl="37.65,108.7,0" research="100" range="10000" grounded="true" description="The largest mountain in the Juno System was once a fiery volcano, but is now completely dormant. Being inside its crater you can only imagine the insane power this behemoth once had." />
+      <Landmark id="cylero-poles" name="Enuma Elish Mountain" latLonAgl="80.9,76.9,0" research="100" range="3000" grounded="true" description="A small peak on the edge of one of the arms of the Northern Polar Swirl, looking straight into one of the valleys formed by it." />
+      <Landmark id="cylero-crater" name="Polycoria" latLonAgl="-10.78,-121.31,0" research="100" range="1000" grounded="true" description="Although rare, sometimes impacts can happen in the exact same place. In this case a small asteroid cleared the central uplifts of a large crater's central plane." />
+   </Planet>
+   <Planet name="Niobe" indent="1" />
+   <Planet name="Herma" indent="1" />
+   <Planet name="Handrew's Comet" planetIcon="HandrewsComet" />
+   <Planet name="Tydos" />
+   <Planet name="Nebra" indent="1">
+      <Landmark id="nebra-origin" name="Nebra's Origin" latLonAgl="0,0,0" research="200" range="500" grounded="false" description="The volcano that defines the origin of Nebra, the point at which main meridian intersects its equator. Small but powerful, you may never leave its crater if you aren't careful." />
+      <Landmark id="nebra-ring" name="Ring of Fire" latLonAgl="12.52,-96.15,0" research="100" range="250" grounded="true" description="As the result of the very high volcanic activity in Nebra, a ring of volcanic islands was formed and represents one of the bests spots to have a land base in this moon." />
+      <Landmark id="nebra-volcano" name="D. Allen Volcano" latLonAgl="0.22,-90,0" research="100" range="250" grounded="true" description="A volcano with a collapsed crater that now resembles a teapot. I could swear that I saw it up in the sky, it was green as an emerald in the blue, now I'm wondering if it was really you." />
+      <Landmark id="nebra-depth" name="Litke Basin" latLonAgl="-37.3,121.2,0" research="100" range="5000" grounded="true" description="If the temperature of the water in Nebra wasn't enough of a problem for you, the Litke Basin adds total darkness and abyssal pressures to the mixture." />
+   </Planet>
+   <Planet name="Miros" indent="1" />
+   <Planet name="Orcus" indent="1" />
+   <Planet name="Urados" />
+   <Planet name="Jastrus" indent="1" />
+   <Planet name="Boreas" indent="1" />
+   <Planet name="Taurus" indent="1">
+      <Landmark id="taurus-mountains" name="Terrace of the Tornat" latLonAgl="-45.05,99.45,0" research="200" range="300" grounded="true" description="A terrace in the side of the largest mountain in Taurus looking into one of the most extreme valleys in the Juno system." />
+      <Landmark id="taurus-mesa" name="Niltsi Mesa" latLonAgl="50.63,-25.92,0" research="100" range="250" grounded="true" description="A very thin and tall mesa at the end of the longest depression, surrounded by cliffs from all directions except the entrance of the neck." />
+      <Landmark id="taurus-estuaries" name="Ezaro Estuary" latLonAgl="23.15,-114,0" research="100" range="5000" grounded="true" description="The largest methane ocean in Taurus is surrounded by estuaries that dig into the coast, almost scratching the large mesa mountains." />
+      <Landmark id="taurus-lake" name="Pythoness Lake" latLonAgl="-9.8,44,0" research="100" range="10000" grounded="true" description="Taurus has a large portion of its surface covered in methane. This archipelago is one of the most accessible spots to one of the largest lakes." />
+   </Planet>
+   <Planet name="Hypatchion" indent="1" />
+</Exploration>

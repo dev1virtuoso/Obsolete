@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContractLocations>
+   <ContractLocation id="Droo.Village" name="Village" latLonAgl="25.59,-164.45,0" planet="Droo" range="500" loadDistance="50000" />
+   <ContractLocation id="Droo.Village.Launchpad" name="Village Launchpad" latLonAgl="25.598303,-164.435859,7.35" planet="Droo" range="15" loadDistance="10000" />
+   <ContractLocation id="Droo.Village.RunwayEnd" name="Village Runway's Edge" latLonAgl="25.6,-164.437,25" planet="Droo" range="15" loadDistance="10000" />
+   <ContractLocation id="Droo.Village.RunwayTop" name="Village Runway's Top" latLonAgl="25.581305,-164.46173,0.36210137791931629" planet="Droo" range="15" loadDistance="10000" />
+   <ContractLocation id="Droo.Ali" name="Ali Base" latLonAgl="-5.25,-145.9,0" planet="Droo" range="15e3" loadDistance="50000" />
+   <ContractLocation id="Droo.Ali.Outpost" name="Ali Outpost" latLonAgl="-5.143,-145.617,0" planet="Droo" range="10" loadDistance="50000" />
+   <ContractLocation id="Droo.Ali.Pad" name="Ali Launchpad" latLonAgl="-5.5514,-145.7143,0" planet="Droo" range="50" loadDistance="50000" />
+   <ContractLocation id="Droo.DSC.Port" name="DSC Port" latLonAgl="0.25,-130.22,0" planet="Droo" range="250" loadDistance="50000" />
+   <ContractLocation id="Droo.DroneShip" name="Droneship" latLonAgl="0,-124.75,0" planet="Droo" range="25" loadDistance="100000" />
+   <ContractLocation id="Droo.GS.Rainforest" name="Hippolyta Ground Station" latLonAgl="-8.13,-83.1,0" planet="Droo" range="100" loadDistance="100000" />
+   <ContractLocation id="Droo.GS.Grassland" name="Bliss Ground Station" latLonAgl="23.83,144.16,0" planet="Droo" range="100" loadDistance="100000" />
+   <ContractLocation id="Droo.GS.Archipelago" name="Brigo Ground Station" latLonAgl="33.878,48.363,0" planet="Droo" range="100" loadDistance="100000" />
+   <ContractLocation id="Droo.GS.Polar" name="Amundsen Ground Station" latLonAgl="-72,-74.9,0" planet="Droo" range="100" loadDistance="100000" />
+   <ContractLocation id="Luna.Base" name="Luna Base" latLonAgl="-67.54,-87.95,0" planet="Luna" range="15e3" loadDistance="100000" />
+</ContractLocations>

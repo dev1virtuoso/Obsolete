@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Contracts>
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="1000" />
+         <Expression name="Clamp" value="NumCompletions + 1" />
+         <Random name="Count" min="1" max="@Clamp" round="1" />
+      </Params>
+      <Contract customer="shotwell" id="TouristTest" money="0" name="Space Tourism" subtitle="@Count suborbital tourist@Count:s" priority="100" probability="@Probability" expiration="30" deadline="30" difficulty="2" flairText="TEST">
+         <Description
+            short="Suborbital Space Tourism."
+            long="We have @Count tourist@Count:s that want to feel special and tell their friends they have been out in space, but they don't want to be in a tight container for too long.&lt;br&gt;&lt;br&gt;Get them out of the atmosphere for a few minutes and return them safely, ensuring things go smoothly.&lt;br&gt;&lt;br&gt;Don't bring random tourists with you, they haven't paid! Grab them from the Payloads section, they will be waiting for you there." />
+         <Requirements>
+            <TrackedLaunch listedInMenu="false" visibility="HiddenWhenPassed">
+               <PartCount num="@Count" payloadId="Tourist" description="Launch with @Count tourist@Count:s" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Be in Droo's SOI">
+                     <Expression expression="AltitudeASL > 80000" description="Leave the atmosphere" displayFormat="distance" visibility="HiddenWhenPassed">
+                        <Timer min="60" description="Stay outside of the atmosphere for at least a minute" />
+                     </Expression>
+                     <Expression expression="TimeGrounded > 1" description="Bring the Tourists back safely to the surface." showValue="false" />
+                  </Planet>
+               </PartCount>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+</Contracts>

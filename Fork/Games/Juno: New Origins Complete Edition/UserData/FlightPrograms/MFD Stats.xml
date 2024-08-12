@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Program name="MFD Stats" requiresMfd="true">
+  <Variables>
+    <Variable name="text" number="0" />
+  </Variables>
+  <Instructions>
+    <Event event="FlightStart" id="0" style="flight-start" pos="-10,-20" />
+    <Comment id="1" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Adds a label widget" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Create.Label" id="2" style="create-mfd-widget">
+      <Constant text="stats" />
+    </SetCraftProperty>
+    <Comment id="3" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Sets it's size to 0.9 times the size of the screen to leave a border" />
+    </Comment>
+    <Comment id="4" style="comment">
+      <Constant style="comment-text" canReplace="false" text="_Screen is the main widget of a screen, useful for things like getting it's size and color" />
+    </Comment>
+    <SetCraftProperty property="Mfd.SetSize" id="5" style="set-mfd-widget">
+      <Constant text="stats" />
+      <BinaryOp op="*" style="op-mul">
+        <Constant text="0.9" />
+        <CraftProperty property="Mfd.Size" style="prop-mfd-widget">
+          <Constant text="_Screen" />
+        </CraftProperty>
+      </BinaryOp>
+    </SetCraftProperty>
+    <Comment id="6" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Sets the color of the text" />
+    </Comment>
+    <SetCraftProperty property="Mfd.SetColor" id="7" style="set-mfd-widget">
+      <Constant text="stats" />
+      <Constant text="#50FF00" />
+    </SetCraftProperty>
+    <Comment id="8" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Makes the contents of the label adapt to the size and shape of the widget" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Label.SetAutoSize" id="9" style="set-mfd-label">
+      <Constant text="stats" />
+      <Constant style="true" bool="true" />
+    </SetCraftProperty>
+    <Comment id="10" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Sets the type of alignment used by the text" />
+    </Comment>
+    <SetCraftProperty property="Mfd.Label.SetAlignment.TopLeft" id="11" style="set-mfd-alignment">
+      <Constant text="stats" />
+    </SetCraftProperty>
+    <Comment id="12" style="comment">
+      <Constant style="comment-text" canReplace="false" text="Starts a loop that repeats forever" />
+    </Comment>
+    <While id="13" style="while">
+      <Constant style="true" bool="true" />
+      <Instructions>
+        <Comment id="14" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Generates the text with the updated values" />
+        </Comment>
+        <Comment id="15" style="comment">
+          <Constant style="comment-text" canReplace="false" text="&lt;br&gt; adds a line break" />
+        </Comment>
+        <SetVariable id="16" style="set-variable">
+          <Variable list="false" local="false" variableName="text" />
+          <StringOp op="join" style="join">
+            <Constant text="Throttle: " />
+            <MathFunction function="round" style="op-math">
+              <BinaryOp op="*" style="op-mul">
+                <CraftProperty property="Input.Throttle" style="prop-input" />
+                <Constant text="100" />
+              </BinaryOp>
+            </MathFunction>
+            <Constant text="%&lt;br&gt;" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <Comment id="17" style="comment">
+          <Constant style="comment-text" canReplace="false" text="The join block allows you to combine variables, values... with normal strings" />
+        </Comment>
+        <Comment id="18" style="comment">
+          <Constant style="comment-text" canReplace="false" text="In this case join is used to break the operation in multiple steps so it's easier to handle" />
+        </Comment>
+        <SetVariable id="19" style="set-variable">
+          <Variable list="false" local="false" variableName="text" />
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="text" />
+            <Constant text="Fuel: " />
+            <MathFunction function="round" style="op-math">
+              <BinaryOp op="*" style="op-mul">
+                <CraftProperty property="Fuel.FuelInStage" style="prop-fuel" />
+                <Constant text="100" />
+              </BinaryOp>
+            </MathFunction>
+            <Constant text="%&lt;br&gt;" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <SetVariable id="20" style="set-variable">
+          <Variable list="false" local="false" variableName="text" />
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="text" />
+            <Constant text="Speed: " />
+            <StringOp op="friendly" subOp="velocity" style="friendly">
+              <VectorOp op="length" style="vec-op-1">
+                <CraftProperty property="Vel.SurfaceVelocity" style="prop-velocity" />
+              </VectorOp>
+            </StringOp>
+            <Constant text="&lt;br&gt;&lt;br&gt;&lt;br&gt;" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <SetVariable id="21" style="set-variable">
+          <Variable list="false" local="false" variableName="text" />
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="text" />
+            <Constant text="AGL: " />
+            <StringOp op="friendly" subOp="distance" style="friendly">
+              <CraftProperty property="Altitude.AGL" style="prop-altitude" />
+            </StringOp>
+            <Constant text="&lt;br&gt;" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <SetVariable id="22" style="set-variable">
+          <Variable list="false" local="false" variableName="text" />
+          <StringOp op="join" style="join">
+            <Variable list="false" local="false" variableName="text" />
+            <Constant text="ASL: " />
+            <StringOp op="friendly" subOp="distance" style="friendly">
+              <CraftProperty property="Altitude.ASL" style="prop-altitude" />
+            </StringOp>
+            <Constant text="&lt;br&gt;" />
+            <Constant text="" />
+          </StringOp>
+        </SetVariable>
+        <Comment id="23" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Updates the text of the label" />
+        </Comment>
+        <SetCraftProperty property="Mfd.Label.SetText" id="24" style="set-mfd-label">
+          <Constant text="stats" />
+          <Variable list="false" local="false" variableName="text" />
+        </SetCraftProperty>
+        <Comment id="25" style="comment">
+          <Constant style="comment-text" canReplace="false" text="Wait 0 makes the program wait for the next frame, saving resources" />
+        </Comment>
+        <WaitSeconds id="26" style="wait-seconds">
+          <Constant text="0" />
+        </WaitSeconds>
+      </Instructions>
+    </While>
+  </Instructions>
+  <Expressions />
+</Program>

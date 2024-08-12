@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="New" parent="" initialBoundsMin="-2.087445,-1.282876,-4.50927" initialBoundsMax="2.08741,1.013853,4.490729" removeInvalidParts="true" price="2418336" xmlVersion="15" activeCommandPod="112" localCenterOfMass="-5.325325E-08,-0.786988,1.098801">
+  <Assembly>
+    <Parts>
+      <Part id="5" partType="Fuselage1" position="1.281127E-05,0.1000107,-0.04585918" rotation="270,180,0" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0,0,4.337823,3.897183,4.159389,4.344885" area="0,0,5.679396,4.303833,5.160678,5.42388" />
+        <Config centerOfMass="-1.329674E-08,1.524739E-09,2.935123E-08" heatShieldScale="0" initialCraftNodeId="354" />
+        <Fuselage autoResize="false" bottomScale="0.6870195,0.6870195" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,2.5,0" shellDensityOverride="-1" topScale="0.6870195,0.6870195" volume="7.329694" volumeInner="7.207421" version="3" />
+        <FuelTank autoFuelType="false" capacity="10057365" fuel="996765.03828751622" fuelType="Battery" />
+      </Part>
+      <Part id="96" partType="NoseCone1" position="-1.943111E-05,0.09991741,3.454119" rotation="270,180,0" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0.4999948,0,1.4337,1.314314,1.330519,1.290165" area="1.430695,0,1.925164,1.694608,1.769539,1.723427" />
+        <Config centerOfMass="-1.021851E-07,-0.4666272,-1.619192E-08" heatShieldScale="0" initialCraftNodeId="354" />
+        <Fuselage bottomScale="0.6870195,0.6870195" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,1,0" shellDensityOverride="-1" topScale="0,0" volume="1.65363467" volumeInner="1.61516714" version="3" />
+        <FuelTank capacity="909.49908447265625" fuelType="None" subPriority="34" />
+      </Part>
+      <Part id="112" partType="CommandChip1" position="-6.645918E-06,0.7869552,-1.098802" rotation="-1.366038E-05,4.268867E-06,1.109906E-05" preferredNodeName="New" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" previouslyActivated="true" rootPart="true" commandPodId="112" materials="0,1,2,3,4">
+        <Drag drag="0,0.006472966,0.06143749,0,0,0" area="0,0.006872753,0.06340403,0,0,0" />
+        <Config heatShieldScale="0" initialCraftNodeId="354" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" craftConfigType="Plane" currentStage="1" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="1.571473E-05,-5.008955E-06,-1.001791E-05" powerConsumption="60" stageCalculationVersion="1">
+          <Controls />
+        </CommandPod>
+        <FlightProgram timeSinceLaunch="44702.773252626881" powerConsumptionPerInstruction="0.01" broadcastPowerConsumptionPerByte="0.1" />
+      </Part>
+      <Part id="123" partType="NoseCone1" position="1.469254E-05,0.09998846,-3.545906" rotation="270,3.622255E-06,0" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="112" materials="0,4,4,0,0">
+        <Drag drag="0,0.5008396,1.400585,1.268533,1.317057,1.327017" area="0,1.438713,1.880974,1.650418,1.759932,1.775302" />
+        <Config centerOfMass="-1.021851E-07,-0.4666272,-1.619192E-08" heatShieldScale="0" initialCraftNodeId="354" />
+        <Fuselage bottomScale="0.6870195,0.6870195" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,1,0" shellDensityOverride="-1" topScale="0,0" volume="1.65363467" volumeInner="1.61516714" version="3" />
+        <FuelTank capacity="909.49908447265625" fuelType="None" subPriority="-35" />
+      </Part>
+      <Part id="131" partType="LandingGear1" position="0.5948817,-0.2435501,-2.428943" rotation="4.575362E-07,180,300" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="ccdabb8f-a981-4fe8-8297-16973d5926bc" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="5.614995E-06,0.2747977,0.3259677,0.5241762,0.001262053,0.6075187" area="0.002290918,0.3104184,0.3458402,0.6263557,0.001921335,0.6743896" />
+        <Config centerOfMass="3.276127E-05,-0.5247345,-0.2799905" heatShieldScale="0" initialCraftNodeId="354" symmetryId="3fcaea80-4227-40c4-94e6-cea938cfdad3" />
+        <LandingGear brakeTorque="10000" extended="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" symmetryId="8a0643ee-8c13-4b0d-b667-e1660686cf9e" version="4" />
+        <InputController inputId="Turn" symmetryId="3ad0c4ab-aa3d-4dac-90ce-84c76ffb342c" />
+        <InputController inputId="Motor" symmetryId="81ae21ea-ef6a-4dc4-ae90-ec6c0b105c2f" />
+      </Part>
+      <Part id="132" partType="LandingGear1" position="0.5949174,-0.2434804,2.410093" rotation="4.575362E-07,180,300" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="d670b1ad-ff6f-4bea-aa67-1f0d1ef768ad" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.2799019,0.00456499,0.3102486,0.4789777,0.004219402,0.6370263" area="0.3081275,0.01260005,0.3323909,0.5936927,0.009606674,0.7185808" />
+        <Config centerOfMass="-0.0001680638,-0.524729,-0.2799543" heatShieldScale="0" initialCraftNodeId="354" symmetryId="8f111210-2591-461a-8626-e51c68e66118" />
+        <LandingGear brakeTorque="10000" extended="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" sideOffset="0.004999995" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" symmetryId="af6c5927-5a07-433c-a708-315304e00a2d" version="4" />
+        <InputController inputId="Turn" symmetryId="8d6f6b2c-4a68-4ac9-907e-4a0bc55bd978" />
+        <InputController inputId="Motor" symmetryId="4f378f92-c0f4-4e46-b1a1-ac8ca3571476" />
+      </Part>
+      <Part id="136" partType="LandingGear1" position="-0.5948927,-0.2434583,-2.428922" rotation="-2.561321E-06,180,60" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="ccdabb8f-a981-4fe8-8297-16973d5926bc" mirrored="true" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0,0.2721924,0.2842634,0.546309,0.6502588,0.001271472" area="0,0.3115638,0.3054923,0.6263557,0.7205021,0.001921335" />
+        <Config centerOfMass="0.0001583993,-0.524639,-0.2802431" heatShieldScale="0" initialCraftNodeId="354" symmetryId="3fcaea80-4227-40c4-94e6-cea938cfdad3" />
+        <LandingGear brakeTorque="10000" extended="true" flipped="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" symmetryId="8a0643ee-8c13-4b0d-b667-e1660686cf9e" version="4" />
+        <InputController inputId="Turn" symmetryId="3ad0c4ab-aa3d-4dac-90ce-84c76ffb342c" />
+        <InputController inputId="Motor" symmetryId="81ae21ea-ef6a-4dc4-ae90-ec6c0b105c2f" />
+      </Part>
+      <Part id="137" partType="LandingGear1" position="-0.5949052,-0.2435002,2.410105" rotation="-2.561321E-06,180,60" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" previouslyActivated="true" commandPodId="112" materials="0,1,2,4,4" symmetryId="d670b1ad-ff6f-4bea-aa67-1f0d1ef768ad" mirrored="true" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.28089,0.002285303,0.2759281,0.5164815,0.6317326,0.00323048" area="0.3127093,0.006872753,0.2939644,0.5898499,0.6974459,0.007685339" />
+        <Config centerOfMass="6.356409E-05,-0.524753,-0.280227" heatShieldScale="0" initialCraftNodeId="354" symmetryId="8f111210-2591-461a-8626-e51c68e66118" />
+        <LandingGear brakeTorque="10000" extended="true" flipped="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" sideOffset="0.004999995" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" symmetryId="af6c5927-5a07-433c-a708-315304e00a2d" version="4" />
+        <InputController inputId="Turn" symmetryId="8d6f6b2c-4a68-4ac9-907e-4a0bc55bd978" />
+        <InputController inputId="Motor" symmetryId="4f378f92-c0f4-4e46-b1a1-ac8ca3571476" />
+      </Part>
+      <Part id="138" partType="LandingGear1" position="-0.5949559,-0.243482,1.286343" rotation="-8.537737E-07,180,60" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="f0bbc782-cde5-4c69-9b6b-969f59e05ad1" mirrored="true" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.002088778,0,0.2719536,0.5413551,0.6415471,0" area="0.00916367,0,0.292043,0.6148276,0.7108954,0" />
+        <Config centerOfMass="0.0001071181,-0.5247256,-0.2801833" heatShieldScale="0" initialCraftNodeId="354" symmetryId="eaae8639-2108-4c5e-96e3-fdb6fba533ad" />
+        <LandingGear brakeTorque="10000" extended="true" flipped="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="befc0415-ec93-435e-a427-63667d31ac9d" version="4" />
+        <InputController inputId="Turn" symmetryId="f78d782a-d5f7-4363-91d1-ef9c85e392bf" />
+        <InputController inputId="Motor" symmetryId="3a1d6c0a-412a-42e3-be02-763e73749e56" />
+      </Part>
+      <Part id="139" partType="Camera1" position="-1.430511E-05,-0.5840003,2.370811" rotation="-2.668043E-05,5.976415E-06,180" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="112" materials="0,1,19,3,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" includeInDrag="true" initialCraftNodeId="354" />
+        <CameraVantage cameraOffset="0,0.065,0" fieldOfView="0.5" fieldOfViewMax="1" fieldOfViewMin="0" nightVisionColor="#80FF8080" version="2" />
+        <InputController inputId="Zoom" />
+      </Part>
+      <Part id="140" partType="Camera1" position="-2.673268E-05,0.7838726,2.436373" rotation="-1.366038E-05,5.12264E-06,1.28066E-05" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="112" materials="0,1,19,3,4">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config heatShieldScale="0" includeInDrag="true" initialCraftNodeId="354" />
+        <CameraVantage cameraOffset="0,0.065,0" fieldOfView="0.5" fieldOfViewMax="1" fieldOfViewMin="0" nightVisionColor="#80FF8080" version="2" />
+        <InputController inputId="Zoom" />
+      </Part>
+      <Part id="141" partType="LandingGear1" position="-0.5949774,-0.2435404,-1.290782" rotation="-8.537737E-07,180,60" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="15013241-b6cf-4865-bb97-c71428dfa1c4" mirrored="true" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0,0,0.2798367,0.5419766,0.6572471,0.0001695295" area="0,0,0.2997283,0.6205916,0.7377943,0.001921335" />
+        <Config centerOfMass="7.955091E-05,-0.5246786,-0.2802116" heatShieldScale="0" initialCraftNodeId="354" symmetryId="b2fe3c9b-1712-457a-8084-b0705363dcc7" />
+        <LandingGear brakeTorque="10000" extended="true" flipped="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="23decfdd-9f1c-4995-826b-cd86459590c8" version="4" />
+        <InputController inputId="Turn" symmetryId="423c51a3-b6af-4c63-b1aa-d6d01763cdf0" />
+        <InputController inputId="Motor" symmetryId="9a802a7e-3073-4b39-b241-05d6432bdf96" />
+      </Part>
+      <Part id="142" partType="LandingGear1" position="-0.5949821,-0.2435717,-0.05576932" rotation="-2.561321E-06,180,60" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" previouslyActivated="true" commandPodId="112" materials="0,1,2,4,4" symmetryId="2f804b2f-8b83-4d4b-a262-51d4ee4528f0" mirrored="true" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0,0,0.2791398,0.5537589,0.6611277,0" area="0,0,0.3016497,0.6244344,0.7377943,0" />
+        <Config centerOfMass="4.283019E-05,-0.5246304,-0.2797432" heatShieldScale="0" initialCraftNodeId="354" symmetryId="ba879cd1-0cd5-4851-86ae-2050b0721160" />
+        <LandingGear brakeTorque="10000" extended="true" flipped="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="fb9473c6-95ed-4bf0-9de2-94335c8918fb" version="4" />
+        <InputController inputId="Turn" symmetryId="1cdebe61-b651-442b-94f2-8d3219bb7b88" />
+        <InputController inputId="Motor" symmetryId="387507e7-cc17-4c53-ab91-2b8413795fc7" />
+      </Part>
+      <Part id="143" partType="LandingGear1" position="0.5949571,-0.2435693,-1.29079" rotation="4.575362E-07,180,300" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="15013241-b6cf-4865-bb97-c71428dfa1c4" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0,0,0.3251295,0.5193068,0.0004520788,0.6220512" area="0,0,0.3496828,0.6263557,0.001921335,0.6916818" />
+        <Config centerOfMass="0.0001411566,-0.5247902,-0.2799847" heatShieldScale="0" initialCraftNodeId="354" symmetryId="b2fe3c9b-1712-457a-8084-b0705363dcc7" />
+        <LandingGear brakeTorque="10000" extended="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="23decfdd-9f1c-4995-826b-cd86459590c8" version="4" />
+        <InputController inputId="Turn" symmetryId="423c51a3-b6af-4c63-b1aa-d6d01763cdf0" />
+        <InputController inputId="Motor" symmetryId="9a802a7e-3073-4b39-b241-05d6432bdf96" />
+      </Part>
+      <Part id="144" partType="LandingGear1" position="0.5949867,-0.2434828,-0.05576919" rotation="4.575362E-07,180,300" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="2f804b2f-8b83-4d4b-a262-51d4ee4528f0" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0,0,0.3203356,0.4953275,0,0.6264777" area="0,0,0.3439188,0.6186703,0,0.6955245" />
+        <Config centerOfMass="8.844903E-05,-0.5247214,-0.2802075" heatShieldScale="0" initialCraftNodeId="354" symmetryId="ba879cd1-0cd5-4851-86ae-2050b0721160" />
+        <LandingGear brakeTorque="10000" extended="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="fb9473c6-95ed-4bf0-9de2-94335c8918fb" version="4" />
+        <InputController inputId="Turn" symmetryId="1cdebe61-b651-442b-94f2-8d3219bb7b88" />
+        <InputController inputId="Motor" symmetryId="387507e7-cc17-4c53-ab91-2b8413795fc7" />
+      </Part>
+      <Part id="145" partType="LandingGear1" position="0.5949786,-0.2435108,1.286336" rotation="4.575362E-07,180,300" name="Airplane Landing Gear" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" activationGroup="8" commandPodId="112" materials="0,1,2,4,4" symmetryId="f0bbc782-cde5-4c69-9b6b-969f59e05ad1" WheelStyle="Wheel-Double" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.001667653,0.006569543,0.3180752,0.4883111,0,0.6142155" area="0.006872753,0.01718188,0.3362335,0.6013781,0,0.6724682" />
+        <Config centerOfMass="0.0001679361,-0.5247428,-0.2799562" heatShieldScale="0" initialCraftNodeId="354" symmetryId="eaae8639-2108-4c5e-96e3-fdb6fba533ad" />
+        <LandingGear brakeTorque="10000" extended="true" forwardOffset="-0.5" gearRatio="3" lengthScale="1.5" maxTurningAngle="45" retractionSpeed="0.5" size="0.700000048" startExtended="false" suspensionTravel="0.5" torque="3900" tractionSideways="0.5" symmetryId="befc0415-ec93-435e-a427-63667d31ac9d" version="4" />
+        <InputController inputId="Turn" symmetryId="f78d782a-d5f7-4363-91d1-ef9c85e392bf" />
+        <InputController inputId="Motor" symmetryId="3a1d6c0a-412a-42e3-be02-763e73749e56" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="123" partB="5" attachPointsA="1,2" attachPointsB="1,5" />
+      <Connection partA="112" partB="5" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="131" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="4fddf22c-2db0-4f62-93d8-baf3fb0a5132" />
+      <Connection partA="136" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="4fddf22c-2db0-4f62-93d8-baf3fb0a5132" />
+      <Connection partA="132" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="81ba86cc-0c09-48c1-a627-1cea0ae423a6" />
+      <Connection partA="137" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="81ba86cc-0c09-48c1-a627-1cea0ae423a6" />
+      <Connection partA="96" partB="5" attachPointsA="1,2" attachPointsB="2,4" />
+      <Connection partA="142" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="beb693ab-74e3-4579-abfa-73769b46395d" />
+      <Connection partA="138" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="0eafda27-6488-4596-82a3-33fc21eb17f0" />
+      <Connection partA="141" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="eb8681bc-e64c-41bf-ad5b-b3cc796117f0" />
+      <Connection partA="140" partB="5" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="139" partB="5" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="143" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="eb8681bc-e64c-41bf-ad5b-b3cc796117f0" />
+      <Connection partA="144" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="beb693ab-74e3-4579-abfa-73769b46395d" />
+      <Connection partA="145" partB="5" attachPointsA="0" attachPointsB="0" symmetryId="0eafda27-6488-4596-82a3-33fc21eb17f0" />
+    </Connections>
+    <Collisions />
+    <Bodies>
+      <Body id="1" partIds="5,123,112,131,136,132,137,96,142,138,141,140,139,143,144,145" mass="160.353729" position="0,0,0" rotation="-2.134434E-07,-1.707547E-06,8.537737E-07" centerOfMass="-9.028611E-05,-9.349637E-05,-1.01727E-05" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+</Craft>

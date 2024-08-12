@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="New Airplane" parent="e8df4d79-3462-4e4a-8075-747bbde2c515" initialBoundsMin="-4.451891,-2.087352,-6.917586" initialBoundsMax="4.452691,2.864211,10.76235" price="6366986" xmlVersion="15" activeCommandPod="0" localCenterOfMass="-0.0004004652,-6.607467,1.127937">
+  <Assembly>
+    <Parts>
+      <Part id="52" partType="Cockpit1" position="0.0004004731,0.2506747,6.69836" rotation="82.45582,180,180" name="Cockpit" rootPart="true" commandPodId="52" materials="1,2,15,3,4">
+        <Drag drag="0.01452718,0,0.1153123,0,0.02080231,0.2949618" area="0.04008073,0,0.1385883,0,0.02389454,0.3440816" />
+        <Config />
+        <CommandPod activationGroupNames="Engine,Canopy,Landing Lights,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="true,false,false,false,false,false,false,true,false,false" pidPitch="10,0,0" pidRoll="0.6,0,0" pilotSeatRotation="277.5442,180,180" powerConsumption="60" replicateActivationGroups="Changes" replicateControls="true" stageCalculationVersion="2">
+          <Controls />
+        </CommandPod>
+        <FuelTank subPriority="66" />
+        <CrewCompartment crewExitPosition="1,-2.384186E-07,1.25" crewExitRotation="6.830189E-06,90,270" />
+        <Cockpit />
+      </Part>
+      <Part id="53" partType="CockpitCanopy1" position="0.0004004774,0.6785821,6.29696" rotation="82.45582,180,180" activationGroup="2" commandPodId="52" materials="0,23,23,24,24">
+        <Drag drag="0.2413082,0.02481052,1.751686,0,1.271433,1.094764" area="0.6558647,0.1530352,2.432452,0,1.596152,1.409776" />
+        <Config symmetryId="869603d6-adc1-4f48-9751-df9f7c42a616" />
+        <SubPartRotator symmetryId="a90e399c-a44d-41b1-862f-3f662993adc7" />
+      </Part>
+      <Part id="161" partType="JetEngine1" position="0.0004004735,0.1327491,-4.123239" rotation="90,1.209E-07,0" name="JT-85" activated="true" activationGroup="1" activationStage="0" commandPodId="52" materials="0,3,2,0,3" shroudTexture="Fuselage11" shroudTextureTiling="2,2" inletConeStyle="None">
+        <Drag drag="0,0.2617984,0.9374536,2.642889,2.109709,1.959652" area="0,1.156273,1.30942,3.306984,2.967685,2.700069" />
+        <Config centerOfMass="1.368182E-08,0.1785561,2.996183E-08" symmetryId="5edc2672-2e9f-4055-ac5d-ad99f9003cbd" supportsTransparency="false" />
+        <Fuselage bottomScale="0.5020116,0.5020116" deformations="0,0,0" depthCurve="0" meshMassMultiplier="0.5" offset="0,1.725259,0" topScale="0.635,0.635" volume="3.479425" volumeInner="3.40775371" symmetryId="53368ba5-d7c9-4605-9bfd-2a5618016b24" version="3" />
+        <JetEngine afterburnerThrottleStart="0.900000036" bypassRatio="0.6" compressionRatio="4.5" hasAfterburner="true" mass="14.4572468" price="5548200" shroudCurvature="1" shroudLength="1.01" size="1.27" symmetryId="b8f7ba1b-3016-49db-878b-3ab34f08dd59" />
+        <Inlet symmetryId="65dcacee-ec0e-44d1-8225-2784dd810561" />
+        <InputController inputId="Thrust Reverse" symmetryId="dec9a44e-c8f7-4a84-8941-7bc4529aa802" />
+      </Part>
+      <Part id="267" partType="Eva" position="0.0004004735,0.2844337,6.763355" rotation="2.544183,-4.228528E-07,9.321176E-06" name="Astronaut" commandPodId="267" materials="15,16,17,18,19">
+        <Drag drag="0,0,0,0,0,0" area="0,0,0,0,0,0" />
+        <Config />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" pidPitch="10,0,0" pidRoll="0.6,0,0" stageCalculationVersion="2" useDefaultPilotSeatRotation="false">
+          <Controls />
+        </CommandPod>
+        <Eva crewName="Regina Mcintyre" />
+        <CameraVantage nightVisionColor="#80FF8080" />
+        <FuelTank subPriority="67" />
+      </Part>
+      <Part id="273" partType="Fuselage1" position="0.0004004839,-0.00247851,2.329903" rotation="89.11243,-9.150369E-11,-8.901557E-11" commandPodId="52" materials="1,0,1,0,4" style="Solid-2" texture="Fuselage11" textureTiling="2,2">
+        <Drag drag="0.0003905667,0.0008001858,2.28353,3.650825,2.249459,2.249272" area="0.02914962,0.04372443,2.848213,4.300988,3.001137,3.001137" />
+        <Config centerOfMass="-9.230823E-09,0.0072034,0.0001077879" />
+        <Fuselage bottomScale="0.73,0.8887358" cornerRadiuses="0.46,0.46,0.46,0.46,1,1,1,1" deformations="0,0,0" depthCurve="0" fuelPercentage="0.5" offset="4.702877E-10,1.729432,0.0258708" topScale="0.665,0.819235" volume="7.02801561" volumeInner="6.91772652" version="3" />
+        <FuelTank autoFuelType="false" capacity="3806.662109375" fuel="1903.3310546875" fuelType="Jet" subPriority="-23" />
+      </Part>
+      <Part id="274" partType="NoseCone1" position="0.0004004731,-0.1062133,7.410943" rotation="89.11243,0.000323198,0.0003231592" commandPodId="52" materials="0,0,1,1,1" style="NoseCone-1" texture="Fuselage11" textureTiling="2,2" textureOffset="0,0.05">
+        <Drag drag="0.2364071,0,2.182105,4.831118,6.649804,6.577385" area="1.718643,0,3.106272,5.739425,7.469373,7.369017" />
+        <Config centerOfMass="-6.731351E-08,-1.582168,-0.06911702" />
+        <Fuselage bottomScale="0.665,0.819235" cornerRadiuses="0.46,0.46,1,1,0.46,0.46,0.46,0.46" deformations="0,0,0" depthCurve="0" offset="-1.096631E-08,3.34938,0.1565967" topScale="0,0" volume="7.692592" volumeInner="7.559585" version="3" />
+        <FuelTank autoFuelType="false" capacity="2412.05517578125" fuelType="Jet" subPriority="-74" />
+      </Part>
+      <Part id="282" partType="LandingGear1" position="0.0004004711,-0.7970989,4.604756" rotation="-0.000433717,1.056613E-10,-5.059641E-06" activated="true" activationGroup="8" commandPodId="52" materials="1,0,2,4,4">
+        <Drag drag="0.1869005,0.158382,0,0.3859203,0.5782482,0.5712203" area="0.2259091,0.1967595,0,0.5304595,0.5209017,0.5113438" />
+        <Config centerOfMass="-4.650108E-12,-0.5717526,-0.2800007" />
+        <LandingGear damperScale="2.5" extended="true" lengthScale="0.5" maxTurningAngle="30" size="0.9" version="4" />
+        <InputController inputId="Turn" />
+        <InputController inputId="Motor" inspectorEnabled="false" partPropertiesEnabled="false" />
+      </Part>
+      <Part id="317" partType="Fuselage1" position="0.0004004767,-0.01314513,-0.3052427" rotation="89.11243,-0.0002868695,-0.0002868007" commandPodId="52" materials="1,0,1,0,4" style="Solid-2" texture="Fuselage11" textureTiling="2,2">
+        <Drag drag="1.905204E-05,0.000533457,1.222726,1.281162,0.3261839,0.3124844" area="0.004858269,0.03400789,1.510132,1.510132,0.6021433,0.5256806" />
+        <Config centerOfMass="8.753602E-09,0.006981863,3.305871E-05" />
+        <Fuselage bottomScale="0.715,0.8764375" deformations="0,0,0" depthCurve="0" offset="7.575769E-09,0.9055628,0.004283428" topScale="0.73,0.8887358" volume="3.58700323" volumeInner="3.52154851" version="3" />
+        <FuelTank autoFuelType="false" capacity="1995.5654296875" fuel="1995.5654296875" fuelType="Jet" subPriority="3" />
+      </Part>
+      <Part id="318" partType="Fuselage1" position="0.0004004727,0.06432567,-2.637377" rotation="89.11243,-0.0002868695,-0.0002868007" commandPodId="52" materials="1,0,1,0,0" style="Solid-2" texture="Fuselage11" textureTiling="2,2">
+        <Drag drag="0,0.04346716,1.897583,1.364969,0.4833256,0.7241454" area="0,0.3716567,2.370327,1.64394,0.8410894,1.228179" />
+        <Config centerOfMass="9.655975E-09,0.2032797,0.01559053" />
+        <Fuselage bottomScale="0.53,0.6151968" deformations="0,0,0" depthCurve="0" offset="6.645197E-09,1.425091,0.1092972" topScale="0.715,0.8764375" volume="4.14546251" volumeInner="4.069197" version="3" />
+        <FuelTank autoFuelType="false" capacity="2305.983154296875" fuel="2305.983154296875" fuelType="Jet" subPriority="26" />
+      </Part>
+      <Part id="413" partType="Fin1" position="0.0004004722,-0.734633,-1.559697" rotation="6.193954,6.567008E-07,180" commandPodId="52" materials="1,1,0,0,0">
+        <Drag drag="0,0,0,0.009520335,0.5925855,0.5686909" area="0,0.0485827,0,0.4205443,0.5925855,0.5686909" />
+        <Config centerOfMass="-4.556824E-09,0.1374651,-0.8138863" />
+        <Wing rootLeadingOffset="0.212447464" rootTrailingOffset="3.13129258" thickness="0.1" tipLeadingOffset="0" tipPosition="-1.50675E-08,0.4532072,-0.1251934" tipTrailingOffset="0.08631316" version="2" />
+      </Part>
+      <Part id="449" partType="Strut1" position="0.0004002975,0.8014501,1.041383" rotation="86.56612,0.0001670381,0.0001671832" commandPodId="52" materials="0,2,2,2,4" texture="Fuselage11">
+        <Drag drag="0,0.002791124,2.161864,0,0.9441437,0.9845116" area="0,0.08259053,2.723963,0,1.2234,1.275968" />
+        <Config centerOfMass="7.010466E-09,1.342068,0.05940583" />
+        <Fuselage bottomScale="0.095,0.1368944" cornerRadiuses="0,0,1,1,1,1,1,1" deformations="0,0,0" depthCurve="0" offset="-2.174261E-12,4.023239,0.119483" topScale="0.275,0.2258099" volume="0.966135" volumeInner="0.914110661" version="3" />
+      </Part>
+      <Part id="479" partType="Fuselage1" position="0.8528154,0.04481209,-0.2556149" rotation="0.007733482,269.5021,270.888" commandPodId="52" materials="1,0,1,0,0" symmetryId="ad52684f-6410-4215-93ed-be7531146342" style="Solid-2" texture="Fuselage11" textureTiling="1.5,1.5" textureOffset="0,0.05">
+        <Drag drag="0.5004053,0.01249813,2.168705,1.583787,0,2.242639" area="0.5016151,0.2283382,2.494578,1.739517,0,2.709626" />
+        <Config centerOfMass="-0.0001561622,0.07655034,0.0250139" symmetryId="69cf1fec-b4fd-4478-82e9-7b79e0001af0" />
+        <Fuselage bottomScale="0.5419298,0.3330756" cornerRadiuses="0,0,1,1,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0.25" offset="-0.00371892,1.823061,-0.1165394" topScale="0.5441375,0.4283303" volume="2.77102876" volumeInner="2.702841" symmetryId="cc52499c-d0c7-44ef-939e-4124159d302a" version="3" />
+        <FuelTank autoFuelType="false" capacity="1489.72021484375" fuel="372.4300537109375" fuelType="Jet" subPriority="2" symmetryId="8b6265c9-131f-4a1d-a97d-4a2fcef06f4b" />
+      </Part>
+      <Part id="480" partType="Inlet1" position="0.9754621,0.07898357,2.393771" rotation="0.007747142,269.5021,270.888" commandPodId="52" materials="0,4,0,0,0" symmetryId="2015759f-1a7b-4519-a64f-e8eec4134231" texture="Fuselage11" textureTiling="1.5,1.5" textureOffset="0,0.25">
+        <Drag drag="0.1250717,0.003643702,1.041746,1.013167,0,1.496567" area="0.1639663,0.003643702,1.232958,1.204285,0,1.739517" />
+        <Config centerOfMass="-0.0006735218,-0.05235845,0.05093952" symmetryId="bf6b44be-2d00-4d40-aa16-62cc6d6cea87" />
+        <Fuselage bottomScale="0.5441375,0.4283303" cornerRadiuses="0,0,1,1,0,0,1,1" deformations="0,0,0" depthCurve="0" offset="0.01061781,0.8253804,-0.02913102" topScale="0.5365698,0.3259233" volume="1.19556165" volumeInner="1.16115713" symmetryId="ad1b8166-2b28-46d4-ae48-5f9cf12ea4cc" version="3" />
+        <Inlet symmetryId="1bb9b17f-9ecf-4ef7-b963-eda9dc9e8129" />
+      </Part>
+      <Part id="481" partType="Fuselage1" position="0.702805,0.0499636,-3.093816" rotation="0.007747142,269.5021,270.888" commandPodId="52" materials="1,0,1,0,0" symmetryId="37b99cea-600c-4225-affc-45cc04c4d943" style="Solid-2" texture="Fuselage11" textureTiling="1.5,1.5">
+        <Drag drag="0,0.06992096,0.685914,0.7554233,0,1.420726" area="0,0.4506034,0.7741845,0.8888786,0,1.567478" />
+        <Config centerOfMass="0.01741065,0.3335891,-0.01913997" symmetryId="a61013df-4abf-44fd-8f66-24b7bca6163a" />
+        <Fuselage bottomScale="0.2623091,0.1327893" cornerRadiuses="0.42,0.42,0.42,0.42,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0" offset="0.05288775,1.013331,-0.05814081" topScale="0.5419298,0.3330756" volume="0.7557106" volumeInner="0.728072643" symmetryId="3aa1d865-5230-49a2-81bd-d65509458eec" version="3" />
+        <FuelTank autoFuelType="false" capacity="398.41390991210938" fuelType="Jet" subPriority="30" symmetryId="1d943b3b-9fea-4f8c-9624-b54aa37ef137" />
+      </Part>
+      <Part id="482" partType="Wing1" position="0.9751391,0.005621959,-0.1625004" rotation="-2.668054E-08,3.180555E-15,263.0078" commandPodId="52" materials="0,1,0,0,0" symmetryId="55324509-fccf-44c9-8f48-da2e5a621464" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing6" controlSurfaceTextureTiling="0.2,1" controlSurfaceTextureOffset="0.045,0.03">
+        <Drag drag="0.07964225,0.00744934,8.070908,7.3887,0,0.1977156" area="0.3825878,0.4226684,8.243549,7.4407,0,1.242516" />
+        <Config centerOfMass="-1.490116E-08,1.354759,-0.4685" symmetryId="637b4ea4-d566-47aa-a674-a0f17cc68672" />
+        <Wing airfoil="Semi-Symmetric" controlSurfacePriceMultiplier="1.17" hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="705.9679" rootLeadingOffset="1.7104969" rootTrailingOffset="2.380563" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0.4" thicknessTipAuto="0.0588568375" leadingBulgeStyle="1" tipLeadingOffset="0.900000036" tipPosition="0,3.5,-0.9" tipTrailingOffset="0.303934157" symmetryId="5c5585ce-86ba-425c-bfba-1f58363b207d" version="3" />
+        <ControlSurface end="7" maxDeflectionDegree="20" start="4" symmetryId="db0a416c-0b4f-4df9-a836-111d08b16010" />
+        <FuelTank capacity="705.9678955078125" fuel="705.9678955078125" subPriority="1" symmetryId="023fc4bb-70c7-49b8-b63a-0d5d95709095" />
+      </Part>
+      <Part id="483" partType="LandingGear1" position="0.6674074,-0.6927648,-0.6420298" rotation="0.8050308,180.1397,331.2061" activated="true" activationGroup="8" commandPodId="52" materials="0,0,2,4,4" symmetryId="3b06ab43-2157-452a-ac09-f524801634f1" mirrored="true" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.5783362,0.6393682,0,1.768405,0,1.372415" area="0.6412899,0.6935162,0,1.911556,0,1.586594" />
+        <Config centerOfMass="0,-0.5717526,-0.2800009" symmetryId="1a81f4bb-ac90-43c5-8e56-50236f0eb93f" />
+        <LandingGear bayLength="1.05" damperScale="2" extended="true" flipped="true" forwardOffset="-0.68" lengthScale="0.5" sideOffset="0.5" size="1.3" slantAngle="-24" springForceScale="0.5" suspensionTravel="0.3" verticalAngleOffset="20" symmetryId="b5170e4b-1f26-4b98-9bde-2f2e9912ca97" version="4" />
+        <InputController inputId="Turn" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="5624b001-0017-45e3-91c1-19cc1669a9e9" />
+        <InputController inputId="Motor" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="f9d65ed0-7d31-480c-be79-2c4551828329" />
+      </Part>
+      <Part id="484" partType="Fuselage1" position="0.571054,0.1298132,-4.974161" rotation="0.007747142,269.5021,270.888" commandPodId="52" materials="1,0,1,0,0" symmetryId="80cc140f-83de-43fc-8858-4e20c7790b8f" style="Solid-2" texture="Fuselage11" textureOffset="0,0.05">
+        <Drag drag="0,0.02174789,0.04904472,0.1522317,0,0.416833" area="0,0.1299585,0.05734689,0.1720407,0,0.4492179" />
+        <Config centerOfMass="0.03413487,0.5259607,-0.05472605" symmetryId="5ed33028-a9c6-4e52-81a4-6ed521633ae7" />
+        <Fuselage bottomScale="0.02816906,0.00766811" cornerRadiuses="0.42,0.42,0.42,0.42,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0" offset="0.05609533,0.8643343,-0.08993369" topScale="0.2623091,0.1327893" volume="0.08286561" volumeInner="0.0753444061" symmetryId="8ff433d3-5172-43c1-87e2-d0a92d582365" version="3" />
+        <FuelTank autoFuelType="false" capacity="43.589038848876953" fuelType="Jet" subPriority="49" symmetryId="d1693e8f-cd5c-400c-bfb8-afe7cb779423" />
+      </Part>
+      <Part id="485" partType="Wing1" position="0.0004003815,0.6642072,-4.148243" rotation="0,0,0" commandPodId="52" materials="0,0,0,0,0" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing6" controlSurfaceTextureTiling="0.2,1" controlSurfaceTextureOffset="0.045,0.03">
+        <Drag drag="0.03235988,0.00497258,0.03517652,0,5.106375,5.073184" area="0.1603226,0.2672043,0.2198297,0,5.146846,5.113394" />
+        <Config centerOfMass="0,0.8011082,-0.7009835" />
+        <Wing hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="410.401123" rootLeadingOffset="1.7" rootTrailingOffset="2.3" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.09019671" leadingBulgeStyle="1" tipLeadingOffset="1.5" tipPosition="0,1.9,-1.7" tipTrailingOffset="0.303934157" version="3" />
+        <FuelTank capacity="410.401123046875" fuel="410.401123046875" subPriority="41" />
+      </Part>
+      <Part id="486" partType="Wing1" position="0.0004003815,2.564211,-5.848275" rotation="-1.024528E-05,5.008957E-06,-4.478356E-13" commandPodId="52" materials="0,0,0,0,0" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing6" controlSurfaceTextureTiling="0.2,1" controlSurfaceTextureOffset="0.045,0.03">
+        <Drag drag="0.006906363,0.001057388,0.06561161,0,0.1561485,0.1607962" area="0.02186221,0.02186221,0.1911563,0,0.1672617,0.1720407" />
+        <Config centerOfMass="-1.00755E-11,0.09440812,0.875" />
+        <Wing hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="0" rootLeadingOffset="1.5" rootTrailingOffset="0.3" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.0111111132" leadingBulgeStyle="1" tipLeadingOffset="0.100000016" tipPosition="0,0.3,1.1" tipTrailingOffset="-0" version="3" />
+        <FuelTank capacity="0" fuel="0" subPriority="58" />
+      </Part>
+      <Part id="487" partType="Wing1" position="0.0004003815,2.563865,-4.444081" rotation="4.108786E-06,2.035555E-13,270" commandPodId="52" materials="0,1,0,0,0" symmetryId="ac55b873-358e-43b1-99dd-427af13c62a1" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing2">
+        <Drag drag="0.09995178,0.01142645,2.404216,1.571377,0,0.06231321" area="0.2757062,0.2769208,2.451568,1.596152,0,0.2198297" />
+        <Config centerOfMass="-5.197943E-08,0.8294415,-0.9375" symmetryId="a09fe164-7732-49dd-a07e-4ae6c8b24d3c" />
+        <Wing controlSurfacePriceMultiplier="1.21" hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="118.259995" rootLeadingOffset="0.1" rootTrailingOffset="1.7" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.08333333" leadingBulgeStyle="1" tipLeadingOffset="0.74999994" tipPosition="0,2,-1.45" tipTrailingOffset="-0" symmetryId="68e2a5c7-083b-4bb3-b47a-96b9889ad1e7" version="3" />
+        <ControlSurface end="4" start="0" symmetryId="0b69895e-a24d-4713-ae0e-1679676055b4" />
+        <FuelTank capacity="118.25999450683594" fuel="118.25999450683594" subPriority="44" symmetryId="ab797963-9a66-49ba-8e8b-d7a4142276af" />
+      </Part>
+      <Part id="488" partType="Wing1" position="0.0004003815,2.563865,-4.444081" rotation="4.108786E-06,-2.035555E-13,90" commandPodId="52" materials="0,1,0,0,0" symmetryId="ac55b873-358e-43b1-99dd-427af13c62a1" mirrored="true" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing2">
+        <Drag drag="0.1007996,0.01142645,2.405471,1.567685,0.06338143,0" area="0.2757062,0.2769208,2.451568,1.596152,0.2293875,0" />
+        <Config centerOfMass="5.197943E-08,0.8294415,-0.9375" symmetryId="a09fe164-7732-49dd-a07e-4ae6c8b24d3c" />
+        <Wing controlSurfacePriceMultiplier="1.21" hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="118.259995" rootLeadingOffset="0.1" rootTrailingOffset="1.7" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0" thicknessTipAuto="0.08333333" leadingBulgeStyle="1" tipLeadingOffset="0.74999994" tipPosition="0,2,-1.45" tipTrailingOffset="-0" symmetryId="68e2a5c7-083b-4bb3-b47a-96b9889ad1e7" version="3" />
+        <ControlSurface end="4" start="0" symmetryId="0b69895e-a24d-4713-ae0e-1679676055b4" />
+        <FuelTank capacity="118.25999450683594" fuel="118.25999450683594" subPriority="44" symmetryId="ab797963-9a66-49ba-8e8b-d7a4142276af" />
+      </Part>
+      <Part id="489" partType="Fuselage1" position="-0.8520144,0.04481223,-0.2556149" rotation="0.007745435,90.49789,89.11199" commandPodId="52" materials="1,0,1,0,0" symmetryId="ad52684f-6410-4215-93ed-be7531146342" mirrored="true" style="Solid-2" texture="Fuselage11" textureTiling="1.5,1.5" textureOffset="0,0.05">
+        <Drag drag="0.5004053,0.01249813,2.1687,1.583785,2.147305,0" area="0.5016151,0.2283382,2.494578,1.739517,2.585376,0" />
+        <Config centerOfMass="0.0001561457,0.07655039,0.0250139" symmetryId="69cf1fec-b4fd-4478-82e9-7b79e0001af0" />
+        <Fuselage bottomScale="0.5419298,0.3330756" cornerRadiuses="0,0,1,1,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0.25" offset="0.00371892,1.823061,-0.1165394" topScale="0.5441375,0.4283303" volume="2.77102852" volumeInner="2.70284152" symmetryId="cc52499c-d0c7-44ef-939e-4124159d302a" version="3" />
+        <FuelTank autoFuelType="false" capacity="1524.065673828125" fuel="381.01641845703125" fuelType="Jet" subPriority="2" symmetryId="8b6265c9-131f-4a1d-a97d-4a2fcef06f4b" />
+      </Part>
+      <Part id="490" partType="Wing1" position="-0.9743381,0.005622111,-0.1625004" rotation="-2.130466E-06,8.425383E-07,96.99211" commandPodId="52" materials="0,1,0,0,0" symmetryId="55324509-fccf-44c9-8f48-da2e5a621464" mirrored="true" wingTexture="Wing5" wingTextureTiling="2,2" controlSurfaceTexture="Wing6" controlSurfaceTextureTiling="0.2,1" controlSurfaceTextureOffset="0.045,0.03">
+        <Drag drag="0.08553409,0.00744934,8.072384,7.375574,0.2044809,0" area="0.3825878,0.4226684,8.243549,7.4407,1.280747,0" />
+        <Config centerOfMass="-1.490116E-08,1.354759,-0.4685" symmetryId="637b4ea4-d566-47aa-a674-a0f17cc68672" />
+        <Wing airfoil="Semi-Symmetric" controlSurfacePriceMultiplier="1.17" hingeDistanceFromTrailingEdge="0.4" isFancy="true" isStylish="true" maxFuelCapacity="705.9679" rootLeadingOffset="1.7104969" rootTrailingOffset="2.380563" thickness="0.2" thicknessDeltaStyle="0.1" thicknessOffsetStyle="0.4" thicknessTipAuto="0.0588568375" leadingBulgeStyle="1" tipLeadingOffset="0.900000036" tipPosition="0,3.5,-0.9" tipTrailingOffset="0.303934157" symmetryId="5c5585ce-86ba-425c-bfba-1f58363b207d" version="3" />
+        <ControlSurface end="7" maxDeflectionDegree="20" start="4" symmetryId="db0a416c-0b4f-4df9-a836-111d08b16010" />
+        <FuelTank capacity="705.9678955078125" fuel="705.9678955078125" subPriority="1" symmetryId="023fc4bb-70c7-49b8-b63a-0d5d95709095" />
+      </Part>
+      <Part id="491" partType="Inlet1" position="-0.9746611,0.07898372,2.393771" rotation="0.007745435,90.49789,89.11199" commandPodId="52" materials="0,4,0,0,0" symmetryId="2015759f-1a7b-4519-a64f-e8eec4134231" mirrored="true" texture="Fuselage11" textureTiling="1.5,1.5" textureOffset="0,0.25">
+        <Drag drag="0.1250717,0.003643702,1.041746,1.013167,1.496567,0" area="0.1639663,0.003643702,1.232958,1.204285,1.739517,0" />
+        <Config centerOfMass="0.0006735534,-0.05235846,0.05093953" symmetryId="bf6b44be-2d00-4d40-aa16-62cc6d6cea87" />
+        <Fuselage bottomScale="0.5441375,0.4283303" cornerRadiuses="0,0,1,1,0,0,1,1" deformations="0,0,0" depthCurve="0" offset="-0.01061781,0.8253804,-0.02913102" topScale="0.5365698,0.3259233" volume="1.19556177" volumeInner="1.16115725" symmetryId="ad1b8166-2b28-46d4-ae48-5f9cf12ea4cc" version="3" />
+        <Inlet symmetryId="1bb9b17f-9ecf-4ef7-b963-eda9dc9e8129" />
+      </Part>
+      <Part id="492" partType="Fuselage1" position="-0.702004,0.04996371,-3.093816" rotation="0.007745435,90.49789,89.11199" commandPodId="52" materials="1,0,1,0,0" symmetryId="37b99cea-600c-4225-affc-45cc04c4d943" mirrored="true" style="Solid-2" texture="Fuselage11" textureTiling="1.5,1.5">
+        <Drag drag="0,0.06992096,0.6859142,0.7554231,1.420726,0" area="0,0.4506034,0.7741845,0.8888786,1.567478,0" />
+        <Config centerOfMass="-0.01741068,0.3335891,-0.01913997" symmetryId="a61013df-4abf-44fd-8f66-24b7bca6163a" />
+        <Fuselage bottomScale="0.2623091,0.1327893" cornerRadiuses="0.42,0.42,0.42,0.42,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0" offset="-0.05288775,1.013331,-0.05814081" topScale="0.5419298,0.3330756" volume="0.755710542" volumeInner="0.728072643" symmetryId="3aa1d865-5230-49a2-81bd-d65509458eec" version="3" />
+        <FuelTank autoFuelType="false" capacity="415.64080810546875" fuelType="Jet" subPriority="30" symmetryId="1d943b3b-9fea-4f8c-9624-b54aa37ef137" />
+      </Part>
+      <Part id="493" partType="LandingGear1" position="-0.6666065,-0.6927645,-0.6420298" rotation="0.8052015,179.8606,28.79425" activated="true" activationGroup="8" commandPodId="52" materials="0,0,2,4,4" symmetryId="3b06ab43-2157-452a-ac09-f524801634f1" BayStyle="Bay-Curved" DoorStyle="Door-Side">
+        <Drag drag="0.5783124,0.639249,0,1.772928,1.461104,0" area="0.6412899,0.6935162,0,1.911556,1.672613,0" />
+        <Config centerOfMass="4.584973E-08,-0.5717526,-0.2800009" symmetryId="1a81f4bb-ac90-43c5-8e56-50236f0eb93f" />
+        <LandingGear bayLength="1.05" damperScale="2" extended="true" forwardOffset="-0.68" lengthScale="0.5" sideOffset="0.5" size="1.3" slantAngle="-24" springForceScale="0.5" suspensionTravel="0.3" verticalAngleOffset="20" symmetryId="b5170e4b-1f26-4b98-9bde-2f2e9912ca97" version="4" />
+        <InputController inputId="Turn" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="5624b001-0017-45e3-91c1-19cc1669a9e9" />
+        <InputController inputId="Motor" inspectorEnabled="false" partPropertiesEnabled="false" symmetryId="f9d65ed0-7d31-480c-be79-2c4551828329" />
+      </Part>
+      <Part id="494" partType="Fuselage1" position="-0.5702531,0.1298133,-4.974161" rotation="0.007745435,90.49789,89.11199" commandPodId="52" materials="1,0,1,0,0" symmetryId="80cc140f-83de-43fc-8858-4e20c7790b8f" mirrored="true" style="Solid-2" texture="Fuselage11" textureOffset="0,0.05">
+        <Drag drag="0,0.02174789,0.04904472,0.1522317,0.4669646,0" area="0,0.1299585,0.05734689,0.1720407,0.5065649,0" />
+        <Config centerOfMass="-0.03413488,0.5259607,-0.05472605" symmetryId="5ed33028-a9c6-4e52-81a4-6ed521633ae7" />
+        <Fuselage bottomScale="0.02816906,0.00766811" cornerRadiuses="0.42,0.42,0.42,0.42,0.42,0.42,0.42,0.42" deformations="0,0,0" depthCurve="0" fuelPercentage="0" offset="-0.05609533,0.8643343,-0.08993369" topScale="0.2623091,0.1327893" volume="0.08286561" volumeInner="0.0753444061" symmetryId="8ff433d3-5172-43c1-87e2-d0a92d582365" version="3" />
+        <FuelTank autoFuelType="false" capacity="45.576087951660156" fuelType="Jet" subPriority="49" symmetryId="d1693e8f-cd5c-400c-bfb8-afe7cb779423" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="318" partB="317" attachPointsA="4" attachPointsB="5" />
+      <Connection partA="317" partB="273" attachPointsA="2,4" attachPointsB="1,5" />
+      <Connection partA="161" partB="317" attachPointsA="3" attachPointsB="0" />
+      <Connection partA="413" partB="318" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="282" partB="274" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="274" partB="273" attachPointsA="1,2" attachPointsB="2,4" />
+      <Connection partA="52" partB="274" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="267" partB="52" attachPointsA="0" attachPointsB="2">
+        <BodyJoint body="2" connectedBody="1" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0,0,0" connectedPosition="0.0003916653,0.3865082,6.821495" axis="-8.004988E-08,0.04438978,-0.9990143" secondaryAxis="-1.630128E-07,0.9990143,0.04438978" />
+      </Connection>
+      <Connection partA="449" partB="274" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="53" partB="52" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="482" partB="479" attachPointsA="1" attachPointsB="0" symmetryId="8d464928-b852-4305-bfeb-f10697f5f5c5" />
+      <Connection partA="479" partB="317" attachPointsA="3" attachPointsB="0" symmetryId="007d7b8a-3e3b-453e-9622-597243b6fd2e" />
+      <Connection partA="480" partB="479" attachPointsA="0" attachPointsB="2" symmetryId="8c293c38-054d-4afe-9d83-3b972f13a8a6" />
+      <Connection partA="481" partB="479" attachPointsA="2,2" attachPointsB="1,1" symmetryId="5d0959b8-a112-4baa-9682-ce119d6323f3" />
+      <Connection partA="484" partB="481" attachPointsA="2" attachPointsB="1" symmetryId="fcbf9b83-9418-4bd2-8e3d-d043326ff116" />
+      <Connection partA="483" partB="479" attachPointsA="0" attachPointsB="0" symmetryId="581e5344-3c20-4b5f-acd4-dbdc908dd679" />
+      <Connection partA="485" partB="318" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="486" partB="485" attachPointsA="1" attachPointsB="0" />
+      <Connection partA="487" partB="485" attachPointsA="1" attachPointsB="2" symmetryId="b67f460e-28af-4fde-9948-3254ccbeb1f9" />
+      <Connection partA="488" partB="485" attachPointsA="1" attachPointsB="2" symmetryId="b67f460e-28af-4fde-9948-3254ccbeb1f9" />
+      <Connection partA="490" partB="489" attachPointsA="1" attachPointsB="0" symmetryId="8d464928-b852-4305-bfeb-f10697f5f5c5" />
+      <Connection partA="489" partB="317" attachPointsA="3" attachPointsB="0" symmetryId="007d7b8a-3e3b-453e-9622-597243b6fd2e" />
+      <Connection partA="491" partB="489" attachPointsA="0" attachPointsB="2" symmetryId="8c293c38-054d-4afe-9d83-3b972f13a8a6" />
+      <Connection partA="492" partB="489" attachPointsA="2,2" attachPointsB="1,1" symmetryId="5d0959b8-a112-4baa-9682-ce119d6323f3" />
+      <Connection partA="493" partB="489" attachPointsA="0" attachPointsB="0" symmetryId="581e5344-3c20-4b5f-acd4-dbdc908dd679" />
+      <Connection partA="494" partB="492" attachPointsA="2" attachPointsB="1" symmetryId="fcbf9b83-9418-4bd2-8e3d-d043326ff116" />
+    </Connections>
+    <Collisions />
+    <Bodies>
+      <Body id="1" partIds="52,274,53,282,273,449,317,318,161,479,489,413,485,482,480,481,483,490,491,492,493,486,487,488,484,494" mass="145.008881" position="8.808232E-06,-0.1020744,-0.05814035" rotation="0,0,0" centerOfMass="0,0,0" />
+      <Body id="2" partIds="267" mass="1.16126" position="0.0004004735,0.2844337,6.763355" rotation="0,0,0" centerOfMass="0,0,0" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings />
+  <Themes />
+  <Symmetry>
+    <Group mode="Mirror" rootPartId="317" attachPointId="0">
+      <Slice angle="0" rootPartId="479" parts="479,482,480,481,483,484" />
+      <Slice angle="0" rootPartId="489" parts="489,490,491,492,493,494" />
+    </Group>
+    <Group mode="Mirror" rootPartId="485" attachPointId="2">
+      <Slice angle="0" rootPartId="487" parts="487" />
+      <Slice angle="0" rootPartId="488" parts="488" />
+    </Group>
+  </Symmetry>
+</Craft>

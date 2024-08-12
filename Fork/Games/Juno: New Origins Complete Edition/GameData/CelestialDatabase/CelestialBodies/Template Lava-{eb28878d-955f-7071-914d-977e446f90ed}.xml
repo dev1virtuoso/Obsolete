@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Lava" author="Jundroo" version="1.0" versionTag="" xmlVersion="2" seaLevel="0" hasTerrainPhysics="true" hasWater="true" radius="634672" surfaceGravity="7" angularVelocity="-6.5830695980362782E-06" uniformHeight="false" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="false" skyShaderEnabled="false" equirectMapBrightness="0.5" equirectMapLight="0.2" isTemplate="true">
+  <FileReferences>
+    <File id="Mountain" path="GameData/CelestialDatabase/SupportFiles/Mountain-{0708ffc5-06c2-f2df-b093-6d0cfd35396e}.png" />
+    <File id="MountainSlope" path="GameData/CelestialDatabase/SupportFiles/MountainSlope-{785768da-ab75-9b51-3297-feac36529435}.png" />
+    <File id="DesertCracks" path="GameData/CelestialDatabase/SupportFiles/DesertCracks-{2596ac10-4b5f-0574-451b-f6e2a0e98a80}.png" />
+    <File id="MoonCraterWall" path="GameData/CelestialDatabase/SupportFiles/MoonCraterWall-{5c0020ba-9bbc-5af3-e955-0c645cded582}.png" />
+  </FileReferences>
+  <Description>A rocky celestial body covered in cracks containing rivers of lava with a very irregular crust.</Description>
+  <MusicKeywords>Gameplay,Moon Non Earth,Lake of Fire</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="false" crushAltitude="0" fadeDistance="5000" desc="" />
+  <Terrain uvSizeExponent="8">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="29" minSubdivisionLevel="1" maxSubdivisionLevel="12" quadSphereActivationDistance="0" quadSphereTransitionDistance="0">
+      <Quality qualityLevel="Low" automatic="false" mobileOnly="false" targetVertexDistance="30" terrainQuadEdgeVertexCount="13" waterQuadEdgeVertexCount="13" minSubdivisionLevel="3" />
+      <Quality qualityLevel="Medium" automatic="false" mobileOnly="false" targetVertexDistance="20" terrainQuadEdgeVertexCount="19" waterQuadEdgeVertexCount="19" minSubdivisionLevel="3" />
+      <Quality qualityLevel="High" automatic="false" mobileOnly="false" targetVertexDistance="10" terrainQuadEdgeVertexCount="25" waterQuadEdgeVertexCount="25" minSubdivisionLevel="3" />
+    </QualitySettings>
+    <WaterConfigDefault useDefaultConfig="false" waterColorGradient="0.00999466,0.3058824,0.09411765,0.02352941|1,2.828427,1.042636,0" waterColorGradientMaxDepth="4000" emissiveness="1" metallicness="0.5" smoothness="0" waveAmplitudeScale="100" transparencyDepthScale="0" transparencyStrength="0" reflectionStrength="0" foamStrength="0" textureStrength="0" underwaterColor="1.354084,0.4566714,0" underwaterDarkColor="2.384432,0,0" underwaterLightFadeDepth="100" underwaterLightFadeDistance="100" underwaterColorIntensity="1" reflectionDistortion="0" refractionDistortion="0" transparencyDepth="0" fresnelBias="0" foamDepth="0" foamColor="1,1,1" waveAmplitude="0" waveLength="0" waveSpeed="0" />
+    <Modifiers>
+      <Modifier type="VertexData.GetConstant" enabled="true" name="Get constant" container="Biomes" pass="Biome" dataIndexOutput="0" value="1" />
+      <Modifier type="VertexData.Biomes.AddBiome" enabled="true" name="Add biome" container="Biomes" dataIndexInput="0" biomeIndex="0" />
+      <Modifier type="VertexData.Biomes.ApplyBiomeData" enabled="true" name="Apply biomes" container="" />
+      <Modifier type="Material.TerrainDetailSplatmap" enabled="true" name="Splatmap" fresnelBias="0.2">
+        <DistanceBlendedTextures>
+          <Texture path="Mountain" colorStrength="0.2" />
+          <Texture path="MountainSlope" />
+          <Texture path="DesertCracks" colorStrength="0" />
+          <Texture path="MoonCraterWall" colorStrength="0.1" />
+          <TilingConfig distanceAdjustment="0" distanceScalar="1" scaledUvStartLevel="12">
+            <TileLevel tiling="256" strength="0.1" />
+            <TileLevel tiling="256" strength="0.1" />
+            <TileLevel tiling="256" strength="0.1" />
+            <TileLevel tiling="128" strength="0.1" />
+            <TileLevel tiling="64" strength="0.2" />
+            <TileLevel tiling="32" strength="0.2" />
+            <TileLevel tiling="16" strength="0.4" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.8" />
+            <TileLevel tiling="8" strength="1" />
+            <TileLevel tiling="4" strength="0.8" />
+            <TileLevel tiling="4" strength="0.6" />
+            <TileLevel tiling="256" strength="0.4" />
+            <TileLevel tiling="256" strength="0.4" />
+            <TileLevel tiling="256" strength="0.2" />
+            <TileLevel tiling="256" strength="0.2" />
+            <TileLevel tiling="256" strength="0.1" />
+            <TileLevel tiling="256" strength="0.05" />
+            <TileLevel tiling="256" strength="0.01" />
+            <TileLevel tiling="256" strength="0" />
+          </TilingConfig>
+        </DistanceBlendedTextures>
+        <GroundDetailTextures mipmapFadeRange="4,8" tilingScale="2000" />
+      </Modifier>
+      <Modifier type="Material.WaterMaterialModifier" enabled="true" name="Water">
+        <TilingConfig distanceAdjustment="0" distanceScalar="1" scaledUvStartLevel="14">
+          <TileLevel tiling="256" strength="1" waveSpeed="0.05" specularity="1" />
+          <TileLevel tiling="256" strength="1" waveSpeed="0.05" specularity="1" />
+          <TileLevel tiling="256" strength="1" waveSpeed="0.05" specularity="1" />
+          <TileLevel tiling="256" strength="1" waveSpeed="0.05" specularity="1" />
+          <TileLevel tiling="256" strength="1" waveSpeed="0.05" specularity="1" />
+          <TileLevel tiling="256" strength="0.9" waveSpeed="0.05" specularity="0.95" />
+          <TileLevel tiling="128" strength="0.8" waveSpeed="0.05" specularity="0.9" />
+          <TileLevel tiling="64" strength="0.7" waveSpeed="0.05" specularity="0.85" />
+          <TileLevel tiling="32" strength="0.6" waveSpeed="0.025" specularity="0.8" />
+          <TileLevel tiling="16" strength="0.5" waveSpeed="0.025" specularity="0.8" />
+          <TileLevel tiling="8" strength="0.4" waveSpeed="0.025" specularity="0.8" />
+          <TileLevel tiling="2" strength="0.3" waveSpeed="0.0125" specularity="0.8" />
+          <TileLevel tiling="2" strength="0.2" waveSpeed="0.0125" specularity="0.8" />
+          <TileLevel tiling="2" strength="0.1" waveSpeed="0.0125" specularity="0.8" />
+          <TileLevel tiling="256" strength="0.05" waveSpeed="0.05" specularity="0.8" />
+          <TileLevel tiling="128" strength="0.025" waveSpeed="0.025" specularity="0.8" />
+          <TileLevel tiling="0" strength="0" specularity="0.9" />
+          <TileLevel tiling="0" strength="0" specularity="1" />
+          <TileLevel tiling="0" strength="0" specularity="1" />
+          <TileLevel tiling="0" strength="0" specularity="1" />
+        </TilingConfig>
+      </Modifier>
+    </Modifiers>
+    <Biomes>
+      <Biome name="Crust">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers>
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Rivers noise" container="" basicView="true" pass="Height" noiseType="ValueFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="0.05" strength="1" fractalType="BillowPowerV1" octaves="6" fractalLacunarityType="Default" lacunarity="3" fractalAmplitudeType="Default" gain="0.75" interpolation="Quintic" powerExponent="4" dataIndex="0" mapName="Rivers" mapMinValue="-0.2" mapMaxValue="-0.1" mapSampleMode="Bilinear" mapColorGradient="0,0,0,0|1,1,1,1" mapIgnore="true" mapNoiseCombine="false">
+            <DomainWarping domainWarpingType="Fractal" seed="0" frequency="2" amplitude="0.2" octaves="6" gain="0.5" lacunarity="2.5" interpolation="Quintic" />
+          </Modifier>
+          <Modifier type="VertexData.RemapCurve" enabled="true" name="Remap rivers" container="" pass="Height" dataIndexInput="0" dataIndexOutput="0" curve="-0.2,-1,0,0,0,0,0,0|-0.15,0.1,-0.2228306,-0.2228306,0,0,0,0|-0.1,1,0.2008032,0.2008032,0.5,0.5,0,0" />
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Mountains noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="0" lockSeed="false" frequency="30" strength="0.5" fractalType="Billow" octaves="8" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="-0.4" interpolation="Quintic" dataIndex="1" mapName="Mountains" mapMinValue="-1" mapMaxValue="0.75" mapSampleMode="Bilinear" mapColorGradient="0,0,0,0|1,1,1,1" mapIgnore="true" mapNoiseCombine="false">
+            <DomainWarping domainWarpingType="Fractal" seed="0" frequency="1" amplitude="0.05" octaves="8" gain="0.4" lacunarity="2" interpolation="Quintic" />
+          </Modifier>
+          <Modifier type="VertexData.Expression" enabled="true" name="Expression" container="" pass="Height" expression="(1.5+[1]*max(0,[0]))*[0]" dataIndexOutput="1" />
+          <Modifier type="VertexData.Biomes.SingleValueBasedSubBiomes" enabled="true" name="Subbiomes" container="" pass="Height" dataIndexInput="1">
+            <SubBiome range="-1,1">
+              <Data name="Hot rock" slopeRange="0,1">
+                <PrimaryData emissiveness="1" metallicness="0.5" smoothness="0" textureIndex="2" tireTrackStrength="0.3" color="0.3058824,0.09411765,0.02352941,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0" textureIndex="0" tireTrackStrength="1" color="0,0,0,0" />
+              </Data>
+            </SubBiome>
+            <SubBiome range="0.2,2">
+              <Data name="New crust" slopeRange="0,1">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0" textureIndex="3" tireTrackStrength="1" color="0.05098039,0.05098039,0.05098039,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0" textureIndex="1" tireTrackStrength="1" color="0,0,0,0" />
+              </Data>
+            </SubBiome>
+            <SubBiome range="1,4">
+              <Data name="Old crust" slopeRange="0,1">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0" textureIndex="0" tireTrackStrength="1" color="0.1254902,0.1254902,0.1254902,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0" textureIndex="1" tireTrackStrength="1" color="0,0,0,0" />
+              </Data>
+            </SubBiome>
+          </Modifier>
+          <Modifier type="VertexData.BasicArithmetic" enabled="true" name="Multiply" container="" pass="Height" dataIndexInputA="1" dataIndexInputB="0" constantValueInputC="2000" dataIndexOutput="1" arithmeticType="Multiply_A_TIMES_C" />
+          <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="Update height" container="" pass="Height" dataIndex="1" />
+        </Modifiers>
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="1,0.6666667,0,1" ambientLightNight="0.3333333,0.1058824,0,1" atmosScale="1" atmosScaleSpace="20" atmosScaleSurface="20" atmosSizeScale="1" debugScaler="0" duskColor="0,0,0,1" eSun="20" fresnelBias="0.2" g="-0.95" km="0" kr="0.0001" maxColorValue="2.1" noonColor="1,1,1,1" samples="1" scaleDepth="0.2" scaleDepthMax="0.2" scaleDepthMin="0.1" waveLength="0.7137255,0.7568628,0.8235294,0.5019608" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5019608,0.5019608,0.5019608,1" ambientLightNight="0.2352941,0.2352941,0.2745098,1" atmosScale="0" atmosScaleSpace="0" atmosScaleSurface="0" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="20" fresnelBias="0" g="0" km="0.0001" kr="0.001" maxColorValue="2" noonColor="1,1,1,1" samples="2" scaleDepth="0.2" scaleDepthMax="0.2" scaleDepthMin="0.1" waveLength="0.8235294,0.772549,0.7137255,0.5019608" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="true" scaleDepthAuto="false" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

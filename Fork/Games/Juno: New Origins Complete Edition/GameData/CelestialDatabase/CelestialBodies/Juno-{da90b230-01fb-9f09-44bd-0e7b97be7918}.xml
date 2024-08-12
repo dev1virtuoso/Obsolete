@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Juno" author="Jundroo" version="1.1" versionTag="" xmlVersion="2" seaLevel="0" hasTerrainPhysics="false" hasWater="false" radius="139101716" surfaceGravity="274" angularVelocity="0" uniformHeight="true" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="false" skyShaderEnabled="true" equirectMapBrightness="1" equirectMapLight="0.5" legacyQuadSphereActivationDistance="1" legacyQuadSphereTransitionDistance="1" parentAncestryId="4f0a012d-177d-488a-9c75-453af8d941db">
+  <FileReferences />
+  <Description>The massive star at the center of the planetary system.</Description>
+  <ModKeywords></ModKeywords>
+  <MusicKeywords>Gameplay,Moon Non Earth</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="true" surfaceAirDensity="1" meanMassPerMolecule="1" meanNightSurfaceTemperature="6000" meanDaySurfaceTemperature="6000" meanGamma="1" crushAltitude="25000000" fadeDistance="5000" atmosphereDensityThreshold="0.001" desc="" />
+  <Terrain uvSizeExponent="8">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="15" minSubdivisionLevel="3" maxSubdivisionLevel="13" quadSphereActivationDistance="0" quadSphereTransitionDistance="0" />
+    <WaterConfigDefault useDefaultConfig="false" temperature="290" density="1000" waterColorGradient="0,1,0.972549,0|1,1,1,1" waterColorGradientMaxDepth="0" emissiveness="0" metallicness="0" smoothness="0.95" waveAmplitudeScale="100" transparencyDepthScale="100" transparencyStrength="13" reflectionStrength="50" foamStrength="53" textureStrength="100" underwaterColor="0.05882351,0.3411765,0.5882353" underwaterDarkColor="0,0,0" underwaterLightFadeDepth="150" underwaterLightFadeDistance="150" underwaterColorIntensity="0.5" reflectionDistortion="20" refractionDistortion="2" transparencyDepth="140" fresnelBias="0.2" foamDepth="0.35" foamColor="1,1,1" waveAmplitude="0.5" waveLength="50" waveSpeed="2" />
+    <Modifiers>
+      <Modifier type="VertexData.VertexDataNoise" enabled="true" name="VertexDataNoise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="6" lockSeed="false" frequency="300" strength="1" fractalType="RigidMulti" octaves="12" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.5" interpolation="Quintic" dataIndex="0">
+        <DomainWarping domainWarpingType="Fractal" seed="0" frequency="5" amplitude="0.25" octaves="8" gain="0.5" lacunarity="2" interpolation="Quintic" />
+      </Modifier>
+      <Modifier type="VertexData.GenerateHeight" enabled="true" name="GenerateHeight" container="" basicView="true" pass="Height" generateHeightType="LerpMinToMax" dataIndexInput="0" dataIndexOutput="0" minHeight="0" maxHeight="200" inputMinValue="-1" inputMaxValue="1" />
+      <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="UpdateFinalHeight" container="" pass="Height" dataIndex="0" />
+      <Modifier type="VertexData.AltitudeColorGradient" enabled="true" name="AltitudeColorGradient" container="" minAltitude="0" maxAltitude="200" textureIndex="-1" color="0,1,0.682353,0|0.1499962,0.9372549,0.9490196,0|0.3000076,0.7411765,0.6470588,0.1372549|0.4500038,1,0.7803922,0.06666667|0.6,0.9254902,0.8666667,0.04705882|0.7499962,0.9843137,0.7960784,0|0.9000076,1,0.4784314,0|1,1,0.9764706,0.1019608||0,1|1,1" />
+    </Modifiers>
+    <Biomes>
+      <Biome name="Default">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers />
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="0.5019608,0.5019608,0.5019608,1" ambientLightNight="0.2352941,0.2352941,0.2745098,1" atmosScale="1" atmosScaleSpace="0" atmosScaleSurface="0" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="20" fresnelBias="0" g="-0.95" km="0" kr="0" maxColorValue="2" noonColor="1,1,1,1" samples="4" scaleDepth="0.25" scaleDepthMax="0.8" scaleDepthMin="0.002" waveLength="0.8235294,0.772549,0.7137255,0.5019608" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="5000" MinValue="0" />
+      <options atmosScaleAuto="false" legacySkyShader="false" scaleDepthAuto="false" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5019608,0.5019608,0.5019608,1" ambientLightNight="0.2352941,0.2352941,0.2745098,1" atmosScale="1" atmosScaleSpace="0" atmosScaleSurface="0" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="20" fresnelBias="0" g="-0.95" km="0" kr="0" maxColorValue="2" noonColor="1,1,1,1" samples="2" scaleDepth="0.25" scaleDepthMax="0.8" scaleDepthMin="0.002" waveLength="0.8235294,0.772549,0.7137255,0.5019608" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="5000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="false" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

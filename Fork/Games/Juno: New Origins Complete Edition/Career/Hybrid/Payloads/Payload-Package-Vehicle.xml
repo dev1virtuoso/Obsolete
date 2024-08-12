@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DesignerParts>
+  <DesignerPart name="Vehicle Container" category="Payloads" description="A container carrying a small autonomous submarine." order="10" showInDesigner="true">
+    <Assembly xmlVersion="13">
+      <Parts>
+        <Part id="21" partType="Package" position="0,0,0" rotation="0,0,0" name="Vehicle Container" materials="1,1,2,3,4" partStyleEnabled="false" style="ShippingContainer" texture="Fuselage4" textureTiling="2,1">
+          <Drag drag="8.823223,8.873748,26.78267,26.78267,0,0" area="8.888911,8.888911,26.78267,26.78267,0,0" />
+          <AttachPoints>
+            <AttachPoint id="0" jointType="Rigid" />
+          </AttachPoints>
+          <Config />
+          <Payload payloadId="Payload-Package-Vehicle" />
+          <Package mass="500" />
+        </Part>
+      </Parts>
+      <Connections />
+      <Collisions />
+      <Bodies />
+    </Assembly>
+  </DesignerPart>
+</DesignerParts>
