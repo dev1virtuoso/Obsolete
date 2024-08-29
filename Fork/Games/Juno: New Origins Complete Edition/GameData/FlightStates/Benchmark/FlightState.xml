@@ -1,8 +1,0 @@
-<FlightState xmlVersion="2" time="1.232" solarSystemId="__StockJuno__" nextNodeId="2" playerNodeId="1" preventSave="true">
-  <Nodes>
-    <Planet name="Sun" trueAnomaly="0.0" rotation="0" />
-    <Planet name="Droo" trueAnomaly="3.5" rotation="0" />
-    <Planet name="Luna" trueAnomaly="1.5" rotation="0" />
-    <Craft id="1" name="Apollo 99" parent="Droo" position="0,0,600000" velocity="0,0,000" heading="270,180,0" />
-  </Nodes>
-</FlightState>

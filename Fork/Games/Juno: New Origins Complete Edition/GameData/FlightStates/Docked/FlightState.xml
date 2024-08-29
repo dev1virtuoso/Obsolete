@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlightState xmlVersion="2" time="2627.1016541456338" playerNodeId="34" nextNodeId="36" solarSystemId="__StockJuno__">
-  <Nodes>
-    <Craft id="34" name="Craft-34" parent="Droo" position="1193455.80704324,1272.63504447182,1178209.80495082" velocity="796.932966231168,0.920962854900122,-873.932788238487" heading="0.400430142879486,-0.65347808599472,0.626752197742462,-0.140726014971733" grounded="false" hasCommandPod="true">
-      <Orbit argumentOfPeriapsis="3.1810272001311715" eccentricity="0.057902750809447776" inclination="3.14048318075297" prograde="false" rightAscensionOfAscendingNode="1.5321661990443498" semiMajorAxis="1609047.7160447817" time="2627.1016541456338" trueAnomaly="3.8553547557073129" />
-    </Craft>
-  </Nodes>
-</FlightState>

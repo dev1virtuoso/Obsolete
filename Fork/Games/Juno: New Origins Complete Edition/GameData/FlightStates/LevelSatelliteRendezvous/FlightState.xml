@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlightState xmlVersion="2" time="18052.16666938737" nextNodeId="10" solarSystemId="__StockJuno__">
-  <Nodes>
-    <Craft id="9" name="Satellite" parent="Droo" position="-558208.04402252,6805.48010289432,-1285847.86453093" velocity="3089.7145105544,-4.98676807762979,-1342.03552263344" heading="1,-3.98103111365344E-05,1.04594646472833E-05,9.37687145778909E-05" inContactWithPlanet="false" hasCommandPod="true" craftMass="58332" craftPartCount="138">
-      <Orbit argumentOfPeriapsis="0" eccentricity="0.00020517401356018417" inclination="0.005075794797379859" prograde="true" rightAscensionOfAscendingNode="2.4358719913289333" semiMajorAxis="1401707.8152286622" time="18052.16666938737" trueAnomaly="1.8669462218079667" />
-    </Craft>
-  </Nodes>
-</FlightState>

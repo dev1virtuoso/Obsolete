@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<GameState xmlVersion="6" companyName="" mode="Sandbox" type="Default" lastModifiedTime="2024-07-13T17:48:00.186691+08:00" createdTime="2024-07-13T17:47:34.5523817+08:00" menuTutorialComplete="false" editorCraftId="__editor_ddb6db84-105a-4b56-b209-83854052db9f__">
-  <CrewMembers nextId="3">
-    <CrewMember id="1" nodeId="-1" name="Yuri G." location="" state="Available" />
-    <CrewMember id="2" nodeId="-1" name="Sally R." location="" state="Available" />
-  </CrewMembers>
-</GameState>

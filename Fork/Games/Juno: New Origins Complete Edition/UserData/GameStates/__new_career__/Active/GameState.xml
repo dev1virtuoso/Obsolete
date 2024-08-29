@@ -1,8 +1,0 @@
-<GameState xmlVersion="6" companyName="Simple Aerospace, Inc" mode="Career" type="Default" availableFunds="0" editorCraftId="">
-   <Contracts>
-   </Contracts>
-   <CrewMembers nextId="3">
-      <CrewMember id="1" name="Yuri G." location="" state="Available" />
-      <CrewMember id="2" name="Sally R." location="" state="Available" />
-   </CrewMembers>
-</GameState>
