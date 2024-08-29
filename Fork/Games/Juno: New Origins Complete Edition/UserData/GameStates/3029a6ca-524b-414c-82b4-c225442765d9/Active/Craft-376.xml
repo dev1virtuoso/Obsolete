@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="New" parent="" initialBoundsMin="-5.597217,-21.39866,-5.597218" initialBoundsMax="5.597217,13.17744,5.597217" removeInvalidParts="true" price="167105254" xmlVersion="15" activeCommandPod="8" localCenterOfMass="-0.001170839,-0.2022962,5.815572E-05">
+  <Assembly>
+    <Parts>
+      <Part id="8" partType="CommandPod3" position="0.00116799,5.820394E-05,0.2023035" rotation="90,-4.829673E-06,0" preferredNodeName="New" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" activated="true" previouslyActivated="true" rootPart="true" commandPodId="8" materials="0,1,19,3,4">
+        <Drag drag="1.57886,1.585583,1.836452,0,1.576952,1.582593" area="2.278244,2.278244,3.645385,0,2.256122,2.255882" />
+        <Config centerOfMass="0,-0.15,0" heatShieldScale="0" initialCraftNodeId="376" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" currentStage="4" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="270,0,0" powerConsumption="60" stageCalculationVersion="2">
+          <Controls />
+        </CommandPod>
+        <Gyroscope power="168.75" />
+        <FuelTank capacity="8419.95" fuel="8398.7259738240646" subPriority="106" />
+        <CrewCompartment capacity="2" />
+        <ScalablePod engineEnabled="true" mass="11.444972" />
+      </Part>
+      <Part id="9" partType="Parachute1" position="0.001163602,4.792213E-05,0.8307998" rotation="90,4.829673E-06,0" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" previouslyActivated="true" activationStage="3" commandPodId="8" materials="15,16,16,18,15" parachuteStyle="ParachuteStripedVertical">
+        <Drag drag="0.1981796,0.2024228,0.5307937,0,0.200785,0.1970591" area="0.3204191,0.3206802,0.7832543,0,0.3195229,0.3193531" />
+        <Config heatShieldScale="0" initialCraftNodeId="376" />
+        <Parachute autocutASL="-0" deploymentASL="5881.106" inflationASL="1893.29309" referenceDensity="1.2" />
+      </Part>
+      <Part id="10" partType="HeatShield1" position="0.00116957,5.859137E-05,-0.5262021" rotation="90,180,0" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="8" materials="4,4,4,4,4">
+        <Drag drag="0.12333,0.1237625,0.1085579,4.296673,0.1355994,0.1363859" area="0.3687185,0.370576,0.1085579,4.536071,0.385822,0.3877391" />
+        <Config centerOfMass="-1.432425E-07,-0.03188741,-4.846157E-08" heatShield="3026.85376" heatShieldBaseScale="17.68" heatShieldMass="7.56713438" heatShieldScale="0.5" initialCraftNodeId="376" />
+        <Fuselage bottomScale="1.208515,1.208515" deadWeightPercentage="0" deformations="0,0,0" depthCurve="0" offset="0,0.1,0" shellDensityOverride="-1" topScale="0.1,0.1" volume="0.611364841" volumeInner="0.564406157" version="3" />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="10" partB="8" attachPointsA="0" attachPointsB="0" />
+      <Connection partA="9" partB="8" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="2" connectedBody="3" connectedBodyNeutralPosition="-6.047785E-08,1.01387,1.841227E-08" connectedBodyNeutralRotation="0,0,0" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-6.047785E-08,1.013865,1.841181E-08" connectedPosition="0,0,0" axis="0,0,1" secondaryAxis="0,1,0" />
+      </Connection>
+    </Connections>
+    <Collisions />
+    <Bodies>
+      <Body id="2" partIds="8,10" mass="20.3004875" position="0.001169924,5.880743E-05,-0.1830708" rotation="90,-4.829672E-06,0" centerOfMass="-1.534819E-06,3.218649E-06,6.750226E-06" />
+      <Body id="3" partIds="9" mass="4.46768761" position="0.001163602,4.792213E-05,0.8307998" rotation="90,0,0" centerOfMass="3.665686E-06,1.072883E-06,3.57628E-07" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom">
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </DesignerSettings>
+  <Themes>
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+</Craft>

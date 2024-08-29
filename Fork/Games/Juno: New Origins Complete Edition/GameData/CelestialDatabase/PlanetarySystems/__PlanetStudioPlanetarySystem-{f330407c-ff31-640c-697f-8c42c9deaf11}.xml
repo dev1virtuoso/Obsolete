@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlanetarySystem name="Planet Studio" author="Jundroo" version="1.0.1" versionTag="" xmlVersion="1">
+  <FileReferences>
+    <File id="Juno" hash="c08b9386-a834-0525-718b-0318c12d8750" />
+    <File id="Planet" hash="00000000-0000-0000-0000-000000000001" />
+  </FileReferences>
+  <Description>The new planetary system for the game.</Description>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <CelestialBodies>
+    <CelestialBody id="Juno">
+      <Data />
+    </CelestialBody>
+    <CelestialBody id="Planet" parent="Juno">
+      <Data initialRotation="0">
+        <Orbit semiMajorAxis="500000000000" eccentricity="0.001" argumentOfPeriapsis="0" inclination="0" prograde="true" rightAscensionOfAscendingNode="0" time="-1" trueAnomaly="0" />
+      </Data>
+    </CelestialBody>
+  </CelestialBodies>
+  <LaunchLocations></LaunchLocations>
+</PlanetarySystem>

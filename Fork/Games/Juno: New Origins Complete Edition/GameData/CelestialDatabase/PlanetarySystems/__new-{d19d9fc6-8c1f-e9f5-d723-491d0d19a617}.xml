@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlanetarySystem name="New System" author="Jundroo" version="1.0.0" versionTag="" xmlVersion="1">
+  <FileReferences>
+    <File id="Juno" hash="c08b9386-a834-0525-718b-0318c12d8750" />
+  </FileReferences>
+  <Description>Enter Description.</Description>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <CelestialBodies>
+    <CelestialBody id="Juno">
+      <Data />
+    </CelestialBody>
+  </CelestialBodies>
+  <LaunchLocations></LaunchLocations>
+</PlanetarySystem>

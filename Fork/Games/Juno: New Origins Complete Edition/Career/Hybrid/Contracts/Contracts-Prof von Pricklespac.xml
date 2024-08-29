@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Contracts>
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 4 ? 0 : 20" />
+         <Expression name="Time" value="lerp(600, 180, 0.2 * NumCompletions)" />
+         <Expression name="TitleNumber" value="NumCompletions + 1" />
+         <Expression name="Difficulty" value="@TitleNumber * 0.6 + 1" />
+         <Expression name="Money" value="@TitleNumber * 50e3" />
+         <Expression name="CrewBonus" value="NumCompletions * 5" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Race-Air-1" />
+      <Contract customer="pricklespac" id="Race-Air-2" money="@Money" crewResearch="@CrewBonus" name="Cutting Corners Air Race" subtitle="Round @TitleNumber" priority="50" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="Buck told me you are a great pilot, I have prepared a plane race to see you zoom by from my window and see if it is true. Get ready for a real challenge." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race time="@Time" style="ring" planetRadius="1274200">
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd" style="cylinder" />
+                     <Race.Checkpoint latLonAgl="25.635,-164.590,060" range="50" />
+                     <Race.Checkpoint latLonAgl="25.602,-164.690,080" range="50" />
+                     <Race.Checkpoint latLonAgl="25.500,-164.580,050" range="250" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.210,-164.880,080" range="50" />
+                     <Race.Checkpoint latLonAgl="25.319,-165.285,070" range="50" />
+                     <Race.Checkpoint latLonAgl="25.240,-165.385,000" range="100" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.235,-165.604,020" range="100" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.250,-165.710,080" range="50" />
+                     <Race.Checkpoint latLonAgl="25.210,-165.800,000" range="250" style="sphere" />
+                     <Race.Checkpoint latLonAgl="25.030,-165.890,100" range="50" />
+                     <Race.Checkpoint latLonAgl="24.820,-165.763,060" range="50" />
+                     <Race.Checkpoint latLonAgl="24.977,-165.193,080" range="50" />
+                     <Race.Checkpoint latLonAgl="25.400,-164.600,050" range="250" style="sphere" />
+                     <Race.Checkpoint locationId="Droo.Village.RunwayEnd" style="cylinder" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="5 / sqrt(NumCompletions + 1)" />
+         <Expression name="Ceiling" value="round(1 + NumCompletions / 2)" />
+         <Random name="Count" min="1" max="@Ceiling" round="1" />
+         <Expression name="Scale" value="clamp(2 * NumCompletions, 0, 11)" />
+         <Expression name="Difficulty" value="@Count / sqrt(NumCompletions + 1)" />
+         <Expression name="Money" value="sqrt(@Difficulty) * @Count * 50e3" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Packages-mountain" />
+      <Contract customer="pricklespac" id="Packages-research" money="@Money" name="Research Station Supplies" subtitle="@Count payload@Count:s" priority="5" probability="@Probability" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Bring some supplies to the camp."
+            long="I need you to bring some supplies to my research station near the Juno Village, you can drive or fly as long as you don't break anything." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Any num="@Count" description="Bring @Count payload@Count:s to the Research Station and leave them near the building" visibility="Hidden">
+                     <Template.Repeat count="@Count">
+                        <Template.Params>
+                           <Random name="Index" min="0" max="@Scale" round="1" />
+                           <List name="Version" index="@Index" values="A1;A2;A3;A4;B1;A5;B2;A6;B3;A7;A8;A9" />
+                           <List name="Name" index="@Index" values="Small Light Box;Small Box;Small Heavy Box;Light Box;Light Barrel;Box;Barrel;Heavy Box;Heavy Barrel;Large Light Box;Large Box;Large Heavy Box" />
+                        </Template.Params>
+                        <Payload payloadId="Payload-Package-@Version" payloadName="@Name" visibility="HiddenWhenPassed" destroyCraftOnComplete="Immediately">
+                           <Location name="Research Station" latLonAgl="25.193,-164.78,0" range="20" description="Go to the Research Station to leave the payload" listedInMenu="false" >
+                              <CraftExpression expression="Grounded" description="Make sure the @Name is grounded" listedInMenu="false" />
+                           </Location>
+                        </Payload>
+                     </Template.Repeat>
+                  </Any>
+               </Planet >
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 20" />
+      </Params>
+      <Prereqs contracts="Packages-research" />
+      <Contract customer="pricklespac" id="First-Sample" money="200000" crewResearch="20" name="Testing Your Skills" priority="10" probability="@Probability" difficulty="3" flairText="Progression">
+         <Description
+            short="Go through all the checkpoints in order."
+            long="Your delivery to the Research Station was impressive, I have been looking for help for a while and you seem like a perfect fit for my needs. To test if I'm right I need you to go through a series of landmarks. Speed isn't important, just make sure to visit them all in order. This is a long distance to drive over steep terrain, you may want to consider flying from point to point, or a hybrid approach." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Race style="cylinder" planetRadius="1274200">
+                     <Race.Checkpoint latLonAgl="25.54,-164.52,0" range="50" />
+                     <Race.Checkpoint latLonAgl="25.31,-165.00,0" range="50" />
+                     <Race.Checkpoint latLonAgl="24.71,-164.80,0" range="50" />
+                  </Race>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="15 / sqrt(max(1, NumCompletions))" />
+         <Expression name="Index" value="RepeatIndex" />
+         <Random name="Samples" min="1" max="4" round="1" />
+         <RandomList name="Origin" values="40,140,0;24,164.5,0;15.5,-149,0;11,-134.5,0;-12,-147,0;-25,-127,0;-1,-145,0;33,156,0;56,-156,0;80,150,0;46,-133,0;90,0,0;-90,0,0;16,-132,0;41,178,0" />
+         <Expression name="Money" value="ceil(@Probability * sqrt(@Samples) * 500e3)" />
+         <Expression name="CrewBonus" value="floor(10 / (NumCompletions + 1))" />
+      </Params>
+      <Prereqs contracts="First-Sample" />
+      <Contract customer="pricklespac" id="Explorer" money="@Money" crewResearch="@CrewBonus" name="Sample Collection" subtitle="@Origin:coords" priority="1" probability="@Probability" expiration="20" deadline="60" maxInstances="3" difficulty="2">
+         <Description
+            short="Go to the indicated locations and inspect them."
+            long="I need to grab some samples from one of Droo's biomes. Go there and grab @Samples samples." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Any num="@Samples">
+                     <Template.Repeat count="@Samples">
+                        <Template.Params>
+                           <Random name="LatOffset" min="-1" max="1" round="0.05" />
+                           <Random name="LonOffset" min="-1" max="1" round="0.05" />
+                           <LatLonAgl name="Location" value="@Origin" latOffset="@LatOffset" lonOffset="@LonOffset" aglOffset="0" />
+                        </Template.Params>
+                        <Location name="Sample-@Index" latLonAgl="@Location" range="100" description="Go to the designated location to inspect it" />
+                     </Template.Repeat>
+                  </Any>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="5 / sqrt(max(1, NumCompletions))" />
+         <RandomList name="Origin" values="-24,-2,0;-1,-34,0;49,67,0;2,129,0;33,71,0;-62,-114,0;40,-175,0" />
+         <Random name="LatOffset" min="-4" max="4" round="0.05" distribution="0,0,0,0|1,1,2,2" />
+         <Random name="LonOffset" min="-4" max="4" round="0.05" distribution="0,0,0,0|1,1,2,2" />
+         <LatLonAgl name="TargetLocation" value="@Origin" latOffset="@LatOffset" lonOffset="@LonOffset" />
+         <Expression name="Money" value="ceil(@Probability * 5e6)" />
+      </Params>
+      <Prereqs contracts="Location-Port,First-Sample" />
+      <Contract customer="pricklespac" id="Delivery-ocean" money="@Money" name="Ocean Delivery" subtitle="@Origin:coords" priority="2" probability="@Probability" expiration="10" deadline="60" difficulty="3">
+         <Description
+            short="Drop a payload in the ocean."
+            long="I need to bring a submarine to the designated location to run some experiments, can you get it there?" />
+         <Requirements>
+            <Payload payloadId="Payload-Package-Vehicle" payloadName="Vehicle Container" destroyCraftOnComplete="Immediately" allowWarp="true">
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Location name="Delivery Location" latLonAgl="@TargetLocation" range="500" description="Go to the location to leave the container" distanceMode="GreatCircle">
+                     <CraftExpression expression="Grounded" description="Leave the payload in the water" alwaysEvaluateChildren="true">
+                        <CraftExpression expression="PartCount = 1" description="Dettach everything from the container" />
+                     </CraftExpression>
+                  </Location>
+               </Planet>
+            </Payload>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="20 / max(1, NumCompletions)" />
+         <RandomList name="GroundStation" values="23.831,144.164,0;-72,-74.9,0;-8.1408,-83.106,0;33.878,48.363,0" />
+         <Expression name="Money" value="ceil(@Probability * 1e6)" />
+      </Params>
+      <Prereqs contracts="Location-DSC Large runway" />
+      <Contract customer="pricklespac" id="Delivery-gs" money="@Money" name="Ground Support" subtitle="@GroundStation:coords" priority="5" probability="@Probability" expiration="30" deadline="60" difficulty="3">
+         <Description
+            short="Bring a container to one of the Ground Stations."
+            long="I need some tools and resources to keep the Ground Station running but it is really far from the Research Station. Can you bring me a container?" />
+         <Requirements>
+            <Payload payloadId="Payload-Package-Supplies" payloadName="Supplies Container" destroyCraftOnComplete="Immediately">
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Location name="Ground Station" latLonAgl="@GroundStation" range="50" description="Go to the Ground Station to leave the payload" >
+                     <CraftExpression expression="Grounded" description="Leave the payload in the ground" alwaysEvaluateChildren="true">
+                        <CraftExpression expression="PartCount = 1" description="Dettach everything from the container" />
+                     </CraftExpression>
+                  </Location>
+               </Planet >
+            </Payload>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Completions name="Sats" contractID="Droo-sat" />
+         <Expression name="Probability" value="15 / max(1, NumCompletions + @Sats)" />
+         <Expression name="Scale" value="(NumCompletions + @Sats + 1) * 0.05" />
+         <Random name="Periapsis" min="80e3" max="8.80373e6" round="1e3" distributionScale="@Scale" distribution="0,0,0,0,0,3|0.5,0.1,0.1,0|1,1,0.5,0.5" />
+         <Random name="Apoapsis" min="@Periapsis" max="32e6" round="1e3" distributionScale="@Scale" distribution="0,0,0,0,0,2|1,1,2,2,1,1" />
+         <Random name="Inclination" min="0" max="180" round="1" distributionScale="@Scale" distribution="0.5,0,0,0|0.8,0.25,0,0|1.4,0.444,0,0|1.6,0.666,0,0|2,1,0,0" />
+         <Expression name="PeriapsisError" value="pow(@Periapsis, 0.7)" />
+         <Expression name="ApoapsisError" value="pow(@Apoapsis, 0.7)" />
+         <Completions name="Heliosynch" contractID="Heliosynch-orbit" />
+         <Random name="InclinationScale" distributionScale="@Scale" distribution="0,0,0,0|1,1,1,1" />
+         <Expression name="BypassInclination" value="(@Heliosynch * @InclinationScale) > 0.5 ? 0 : 1" />
+         <Expression name="Difficulty" value="(5 - 4 * @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / max(1, NumCompletions)" />
+         <Expression name="Money" value="ceil(500e3 * (2 - @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / pow(max(1, NumCompletions), 0.25))" />
+         <Expression name="CrewBonus" value="floor((@Difficulty - 1) * 3)" />
+      </Params>
+      <Prereqs contracts="First-orbit" />
+      <Contract customer="pricklespac" id="Droo-orbit" money="@Money" crewResearch="@CrewBonus" name="Droo Orbit" subtitle="@Apoapsis:distance - @Periapsis:distance" priority="1" probability="@Probability" expiration="30" deadline="180" difficulty="@Difficulty">
+         <Description
+            short="Get to a specific orbit."
+            long="Can you go to orbit? I need you to be close to a very specific orbit, can you make it there?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Orbit tolerance="5" property="inclination" value="@Inclination" alwaysEvaluateChildren="true" startBypassed="@BypassInclination">
+                     <Orbit tolerance="@ApoapsisError" property="apoapsis" value="@Apoapsis" alwaysEvaluateChildren="true">
+                        <Orbit tolerance="@PeriapsisError" property="periapsis" value="@Periapsis">
+                           <Timer min="5" description="Hold it for 5 seconds" listedInMenu="false" />
+                        </Orbit>
+                     </Orbit>
+                  </Orbit>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 100" />
+      </Params>
+      <Prereqs contracts="First-orbit,First-payload" />
+      <Contract customer="pricklespac" id="First-sat" money="1000000" name="Satellite Mission" priority="2" probability="@Probability" difficulty="2" flairText="Progression">
+         <Description
+            short="Carry a payload to the desired orbit."
+            long="I need you to help bring some satellites into orbit. Let's start with something easy, can you put this CubeSat into any orbit? I have already added a deployer in it to ease the integration, but you have to figure out where to put it in the rocket, it can fit next to an engine, inside of a fairing if you have already unlocked them, or you can even eject the nosecone with an interstage that has the payload inside." />
+         <Requirements>
+            <TrackedLaunch>
+               <PartCount num="1" payloadId="Payload-Sat-1" description="Launch with the CubeSat" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Be in Droo's SOI">
+                     <Orbit op="Greater" property="periapsis" value="80e3">
+                        <PartCount num="0" payloadId="Payload-Sat-1" description="Detach the CubeSat" listedInMenu="false" showValue="false" />
+                     </Orbit>
+                  </Planet>
+               </PartCount>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="100 / sqrt(max(1, NumCompletions * 0.5))" />
+         <Expression name="MaxInstances" value="floor(min(5, 0.25 * NumCompletions + 1))" />
+         <Expression name="Scale" value="(NumCompletions + 1) * 0.05" />
+         <Random name="Periapsis" min="80e3" max="8.80373e6" round="1e3" distributionScale="@Scale" distribution="0,0,0,0,0,3|0.5,0.1,0.1,0|1,1,0.5,0.5" />
+         <Random name="Apoapsis" min="@Periapsis" max="32e6" round="1e3" distributionScale="@Scale" distribution="0,0,0,0,0,2|1,1,2,2,1,1" />
+         <Random name="Inclination" min="0" max="180" round="1" distributionScale="@Scale" distribution="0.5,0,0,0|0.8,0.25,0,0|1.4,0.444,0,0|1.6,0.666,0,0|2,1,0,0" />
+         <Completions name="Heliosynch" contractID="Heliosynch-orbit" />
+         <Random name="InclinationScale" distributionScale="@Scale" distribution="0,0,0,0|1,1,1,1" />
+         <Expression name="BypassInclination" value="(@Heliosynch * @InclinationScale) > 0.5 ? 0 : 1" />
+         <Random name="SatVersion" min="1" max="6" round="1" distributionScale="@Scale" distribution="0,0,0,0|1,1,2,2" />
+         <List name="SatName" index="@SatVersion" values="Suborbital;Cubesat;Smallsat;Comms Sat;Telescope;Radar Sat;GNSS Sat" />
+         <List name="MaxSatCount" index="@SatVersion" values="0;20;10;20;2;1;1" />
+         <List name="MoneyPerSat" index="@SatVersion" values="0;300000;1500000;4000000;10000000;30000000;100000000" />
+         <Expression name="CountScale" value="@Scale / @SatVersion" />
+         <Random name="SatCount" min="1" max="@MaxSatCount" round="1" distributionScale="@CountScale" distribution="0,0,1,1|1,1,1,1" />
+         <Expression name="PeriapsisError" value="pow(@Periapsis, 0.7) * 36 / (@SatVersion * @SatVersion)" />
+         <Expression name="ApoapsisError" value="pow(@Apoapsis, 0.7) * 36 / (@SatVersion * @SatVersion)" />
+         <Expression name="Difficulty" value="(@SatCount * @SatVersion) * (5 - 4 * @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / max(1, NumCompletions)" />
+         <Expression name="Money" value="ceil((@SatCount * @MoneyPerSat) * (2 - @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / pow(max(1, NumCompletions), 0.1))" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="First-sat" />
+      <Contract customer="pricklespac" id="Droo-sat" money="@Money" name="@SatName Mission" subtitle="@SatCount sat@SatCount:s to @Apoapsis:distance - @Periapsis:distance" priority="2" probability="@Probability" expiration="30" deadline="180" maxInstances="@MaxInstances" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Carry a payload to the desired orbit."
+            long="I have @SatCount @SatName@SatCount:s ready to be put into orbit, mind helping? I have already added the deployment gear to ease the integration.&lt;br&gt;&lt;br&gt;You can do more than one satellite contract at a time, I won't complain as long as they get to their destination. If you want to do so, make sure you assign the @SatName@SatCount:s to the right contract in the designer." />
+         <Requirements>
+            <TrackedLaunch>
+               <PartCount num="@SatCount" payloadId="Payload-Sat-@SatVersion" description="Launch with @SatCount @SatName@SatCount:s" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Be in Droo's SOI">
+                     <Orbit tolerance="5" property="inclination" value="@Inclination" alwaysEvaluateChildren="true" startBypassed="@BypassInclination">
+                        <Orbit tolerance="@ApoapsisError" property="apoapsis" value="@Apoapsis" alwaysEvaluateChildren="true">
+                           <Orbit tolerance="@PeriapsisError" property="periapsis" value="@Periapsis">
+                              <PartCount num="0" payloadId="Payload-Sat-@SatVersion" description="Detach the @SatName@SatCount:s" listedInMenu="false" showValue="false" />
+                           </Orbit>
+                        </Orbit>
+                     </Orbit>
+                  </Planet>
+               </PartCount>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 20" />
+      </Params>
+      <Prereqs contracts="Location-AliPad" />
+      <Contract customer="pricklespac" id="Heliosynch-orbit" money="2000000" name="Heliosynchronous Orbit" priority="10" probability="@Probability" expiration="30" deadline="180" difficulty="3" flairText="Progression">
+         <Description
+            short="Get to a Juno-Synchronous Orbit."
+            long="Heliosynchronous orbits use orbital precession to maintain the orbit position relative to the sun throughout an entire year. This game's physics aren't that fancy, but it's a cool orbit no matter what. Can you get something in such an odd orbit?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <Orbit tolerance="2" property="inclination" value="100" alwaysEvaluateChildren="true">
+                     <Orbit tolerance="50e3" property="apoapsis" value="1e6" alwaysEvaluateChildren="true">
+                        <Orbit tolerance="50e3" property="periapsis" value="1e6">
+                           <Timer min="5" description="Hold it for 5 seconds" listedInMenu="false" />
+                        </Orbit>
+                     </Orbit>
+                  </Orbit>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Completions name="Sats" contractID="Droo-sat" />
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : @Sats > 10 ? 1 : 0" />
+      </Params>
+      <Prereqs contracts="Heliosynch-orbit,Droo-sat" />
+      <Contract customer="pricklespac" id="Observation" money="50000000" name="The Eye in the Sky" priority="2" probability="@Probability" expiration="1" deadline="5" difficulty="3">
+         <Description
+            short="Bring a telescope to orbit."
+            long="My satellites have detected weird activity on Droo's surface, can you bring a telescope to Droostationary orbit so I can observe what is going on?" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Be in Droo's SOI">
+                  <PartCount num="1" payloadId="Payload-Sat-4" description="Launch with the telescope" showValue="false" onFail="Warn" alwaysEvaluate="true">
+                     <Orbit tolerance="0.1" property="inclination" value="0" alwaysEvaluateChildren="true">
+                        <Orbit tolerance="10000" property="apoapsis" value="8803730" alwaysEvaluateChildren="true">
+                           <Orbit tolerance="10000" property="periapsis" value="8803730" alwaysEvaluateChildren="true">
+                              <Expression expression="0.1 > abs(y(PciToCoordsASL(Position)) - 39)" description="Ensure your longitude is 39ºE" displayExpression="y(PciToCoordsASL(Position))" displayFormat="angle">
+                                 <PartCount num="0" payloadId="Payload-Sat-4" description="Detach the payload" listedInMenu="false" showValue="false" />
+                              </Expression>
+                           </Orbit>
+                        </Orbit>
+                     </Orbit>
+                  </PartCount>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 10" />
+      </Params>
+      <Prereqs contracts="Droo-sat" techNodes="crafts2" />
+      <Contract customer="pricklespac" id="First-flyby" money="30000000" name="Luna Fly-by" priority="5" probability="@Probability" expiration="30" deadline="60" difficulty="3" flairText="Progression">
+         <Description
+            short="Fly-by Luna"
+            long="I need you to fly by Luna to study its orbital conditions. My studies have shown that these bodies' physics are governed by something called 'Spheres of Influence', which are a region of space where their gravity is stronger than that of any other body nearby, so your orbits are only affected by it." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="Luna" description="Be in Luna's SOI" listedInMenu="true" />
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="10 / sqrt(max(1, NumCompletions))" />
+         <Expression name="MaxInstances" value="min(3, 1 + floor(0.2 * NumCompletions))" />
+         <Completions name="Orbits" contractID="Lunar-orbit" />
+         <Completions name="Landings" contractID="Lunar-landing" />
+         <Expression name="Scale" value="min(20, NumCompletions + @Orbits + @Landings)" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <List name="Deadline" index="@MoonIndex" values="60;60;90" />
+         <Expression name="Difficulty" value="3 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(5e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor((@Difficulty - 1) * 3)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="First-flyby" />
+      <Contract customer="pricklespac" id="Lunar-flyby" money="@Money" crewResearch="@CrewBonus" name="@Moon Fly-by" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" maxInstances="@MaxInstances" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Fly-by @Moon"
+            long="I need you to fly by @Moon to study its orbital conditions. You just need to get close enough to be in its Sphere of Influence." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Moon" description="Be in @Moon's SOI" listedInMenu="true" />
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="NumCompletions > 0 ? 0 : 10" />
+      </Params>
+      <Prereqs contracts="Lunar-flyby" />
+      <Contract customer="pricklespac" id="First-lunar-orbit" money="30000000" name="Brigo Orbit" priority="5" probability="@Probability" expiration="30" deadline="60" difficulty="3" flairText="Progression">
+         <Description
+            short="Orbit Brigo"
+            long="I need you to orbit Brigo to start studying it in depth. Get into its sphere of influence and slow down enough to get captured by it." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="Brigo" description="Be in Brigo's SOI" listedInMenu="true" >
+                  <Orbit op="less" property="apoapsis" value="500000" />
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="5 / sqrt(max(1, NumCompletions))" />
+         <Completions name="Landings" contractID="Lunar-landing" />
+         <Expression name="Scale" value="min(20, NumCompletions + @Landings)" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <List name="Deadline" index="@MoonIndex" values="60;60;90" />
+         <List name="MinAlt" index="@MoonIndex" values="15000;15000;15000" />
+         <List name="MaxAlt" index="@MoonIndex" values="2000000;6000000;700000" />
+         <Random name="Apoapsis" min="@MinAlt" max="@MaxAlt" round="1e3" distributionScale="@Scale" distribution="0,1|13,0" />
+         <Expression name="Difficulty" value="3 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(10e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor((@Difficulty - 1) * 4)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="First-lunar-orbit" />
+      <Contract customer="pricklespac" id="Lunar-orbit" money="@Money" crewResearch="@CrewBonus" name="@Moon Orbit" subtitle="Under @Apoapsis:distance" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Orbit @Moon"
+            long="I need you to get in orbit of @Moon, with an apoapsis lower than @Apoapsis:distance" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Moon" description="Be in @Moon's SOI" listedInMenu="true">
+                  <Orbit op="less" property="apoapsis" value="@Apoapsis" >
+                     <Orbit op="less" property="eccentricity" tolerance="0" value="0.1" />
+                  </Orbit>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="100 / sqrt(max(1, NumCompletions * 0.5))" />
+         <Expression name="MaxInstances" value="floor(min(3, 0.25 * NumCompletions + 1))" />
+         <Expression name="Scale" value="(NumCompletions + 1) * 0.2" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <Random name="Periapsis" min="15e3" max="200e3" round="1e3" distributionScale="@Scale" distribution="0,1|1,0" />
+         <Random name="Apoapsis" min="@Periapsis" max="500e3" round="1e3" distributionScale="@Scale" distribution="0,1|1,0" />
+         <Random name="Inclination" min="0" max="180" round="1" distributionScale="@Scale" distribution="0,0|1,1" />
+         <Completions name="Heliosynch" contractID="Heliosynch-orbit" />
+         <Random name="InclinationScale" distributionScale="@Scale" distribution="0,0,0,0|1,1,1,1" />
+         <Expression name="BypassInclination" value="(@Heliosynch * @InclinationScale) > 0.5 ? 0 : 1" />
+         <Random name="ProbeVersion" min="1" max="3" round="1" distributionScale="@Scale" distribution="0,0,0,0|1,1,2,2" />
+         <List name="ProbeName" index="@ProbeVersion" values="Nope;Explorer;Observer;Surveyor" />
+         <List name="MoneyPerProbe" index="@ProbeVersion" values="0;300000;1500000;4000000;10000000;30000000;100000000" />
+         <Expression name="PeriapsisError" value="pow(@Periapsis, 0.7) * 36 / (@ProbeVersion * @ProbeVersion)" />
+         <Expression name="ApoapsisError" value="pow(@Apoapsis, 0.7) * 36 / (@ProbeVersion * @ProbeVersion)" />
+         <Expression name="Difficulty" value="@ProbeVersion * @Reward * (5 - 4 * @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / max(1, NumCompletions)" />
+         <Expression name="Money" value="ceil(@MoneyPerProbe * @Reward * (2 - @BypassInclination) * max(1, 0.5 * log10(@Apoapsis * @Periapsis) - 4) / pow(max(1, NumCompletions), 0.1))" />
+         <Expression name="Progression" value="NumCompletions > 1" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Lunar-orbit" />
+      <Contract customer="pricklespac" id="Lunar-probe" money="@Money" name="@ProbeName Mission" subtitle="A @Moon in @Apoapsis:distance - @Periapsis:distance" priority="2" probability="@Probability" expiration="30" deadline="180" maxInstances="@MaxInstances" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Carry a payload to the desired orbit."
+            long="I have a @ProbeName Probe ready to be put into @Moon orbit, mind helping? I have already added the deployment gear to ease the integration." />
+         <Requirements>
+            <TrackedLaunch>
+               <PartCount num="1" payloadId="Payload-Probe-@ProbeVersion" description="Launch with a @ProbeName Probe" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Start in Droo's SOI" />
+                  <Planet name="@Moon" description="Be in @Moon's SOI" listedInMenu="true">
+                     <Orbit tolerance="5" property="inclination" value="@Inclination" alwaysEvaluateChildren="true" startBypassed="@BypassInclination">
+                        <Orbit tolerance="@ApoapsisError" property="apoapsis" value="@Apoapsis" alwaysEvaluateChildren="true">
+                           <Orbit tolerance="@PeriapsisError" property="periapsis" value="@Periapsis">
+                              <PartCount num="0" payloadId="Payload-Probe-@ProbeVersion" description="Detach the @ProbeName Probe" listedInMenu="false" showValue="false" />
+                           </Orbit>
+                        </Orbit>
+                     </Orbit>
+                  </Planet>
+               </PartCount>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Completions name="Probes" contractID="Lunar-probe" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Gravity" index="@MoonIndex" values="1.6;1.62;0.4" />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <Expression name="Probability" value="2 > @Probes ? 0 : (20 / sqrt(NumCompletions + 1))" />
+         <Expression name="Money" value="@Probability * @Reward * 10000000" />
+         <Expression name="Progression" value="NumCompletions > 1" valueFalse="Progression" valueTrue="" />
+         <Const name="CrashSpeed" value="100" />
+      </Params>
+      <Prereqs contracts="Lunar-probe" />
+      <Contract customer="pricklespac" id="Lunar-impactor" money="@Money" name="@Moon Impactor" priority="3" probability="@Probability" expiration="30" deadline="180" difficulty="3" flairText="@Progression">
+         <Description
+            short="Crash an Impactor on @Moon"
+            long="I need you to get to the surface of @Moon to carry some experiments. The sensors aren't that sensitive so there's no need to soft land it, I have added an airbag just in case though." />
+         <Requirements>
+            <TrackedLaunch>
+               <Payload payloadId="Payload-Lander-1" payloadName="Lunar Impactor" allowWarp="true" description="Launch with the Impactor" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Start in Droo's SOI" />
+                  <Planet name="@Moon" description="Go to @Moon" listedInMenu="true">
+                     <CraftExpression expression="1 > Periapsis" description="Bring the impactor to the surface under @CrashSpeed m/s" visibility="HiddenWhenPassed">
+                        <CraftExpression expression="@CrashSpeed * @CrashSpeed / (2 * @Gravity) > AltitudeAGL" description="Distance to reach release range:" displayExpression="max(0,AltitudeAGL - @CrashSpeed * @CrashSpeed / (2 * @Gravity))" displayFormat="distance" alwaysEvaluateChildren="true" listedInMenu="false" visibility="HiddenWhenPassed">
+                           <CraftExpression expression="(@CrashSpeed * @CrashSpeed - 2 * @Gravity * AltitudeAGL) > (SurfaceVelocity * SurfaceVelocity)" description="Crash under @CrashSpeed m/s! Max release speed:" displayExpression="sqrt(@CrashSpeed * @CrashSpeed - 2 * @Gravity * AltitudeAGL)" displayFormat="velocity" listedInMenu="false" visibility="HiddenWhenPassed">
+                              <CraftExpression expression="PayloadActivated" description="Detach the Impactor!" showValue="false" />
+                           </CraftExpression>
+                        </CraftExpression>
+                     </CraftExpression>
+                     <CraftExpression expression="Grounded" description="Touchdown!" visibility="HiddenWhenPassed">
+                        <CraftExpression expression="1 > SurfaceVelocity" description="Get to a stop" displayExpression="SurfaceVelocity" displayFormat="velocity" />
+                     </CraftExpression>
+                  </Planet>
+               </Payload>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Completions name="Impactors" contractID="Lunar-impactor" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <Expression name="Probability" value="2 > @Impactors ? 0 : (20 / sqrt(NumCompletions + 1))" />
+         <Expression name="Money" value="@Probability * @Reward * 15000000" />
+         <Expression name="Progression" value="NumCompletions > 1" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Lunar-impactor" techNodes="lander" />
+      <Contract customer="pricklespac" id="Lunar-lander" money="@Money" name="@Moon Lander" priority="4" probability="@Probability" expiration="30" deadline="180" difficulty="3" flairText="@Progression">
+         <Description
+            short="Bring a lander to @Moon"
+            long="I need you to bring a set of more sensitive sensors to the surface of @Moon, so no bouncing this time.&lt;br&gt;&lt;br&gt;I have prepared a lander with an engine and legs, but I need you to bring it to @Moon orbit and drive it down to the surface, not that I didn't trust you to build it." />
+         <Requirements>
+            <TrackedLaunch>
+               <Payload payloadId="Payload-Lander-2" payloadName="Lunar Lander" allowWarp="true" description="Launch with the Lander" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Start in Droo's SOI" />
+                  <Planet name="@Moon" description="Go to @Moon" listedInMenu="true">
+                     <Orbit op="less" property="apoapsis" value="200000" alwaysEvaluateChildren="true">
+                        <Orbit op="greater" property="periapsis" value="20000">
+                           <CraftExpression expression="PayloadActivated" description="Detach the Impactor" showValue="false" visibility="HiddenWhenPassed" />
+                        </Orbit>
+                     </Orbit>
+                     <CraftExpression expression="1 > Periapsis" description="Bring your periapsis down to 'intercept' @Moon" displayExpression="max(0, Periapsis)" displayFormat="distance" visibility="HiddenWhenPassed" />
+                     <CraftExpression expression="0.1 > abs(1 - 10 * SurfaceVelocity / AltitudeAGL)" description="Coast to approach the surface" listedInMenu="false" visibility="HiddenWhenPassed" />
+                     <CraftExpression expression="100 > AltitudeAGL" alwaysEvaluateChildren="true" visibility="Hidden" listedInMenu="false">
+                        <CraftExpression expression="0.1 > abs(1 - 10 * SurfaceVelocity / AltitudeAGL)" description="Keep your velocity near 1/10 your AGL" displayExpression="SurfaceVelocity" displayFormat="velocity" />
+                     </CraftExpression>
+                     <CraftExpression expression="Grounded AND 1 > SurfaceVelocity" description="Touch down!" displayExpression="SurfaceVelocity" displayFormat="velocity" />
+                  </Planet>
+               </Payload>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Completions name="Landers" contractID="Lunar-lander" />
+         <Expression name="Index" value="RepeatIndex" />
+         <Random name="MoonIndex" min="0" max="1" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna" />
+         <List name="Reward" index="@MoonIndex" values="1;1.2" />
+         <Random name="Lat" min="-90" max="90" round="1" distribution="0,0|0.5,0.5|1,1" />
+         <Random name="Lon" min="-180" max="180" round="1" />
+         <LatLonAgl name="TargetLocation" value="@Lat,@Lon,0" />
+         <Expression name="Probability" value="2 > @Landers ? 0 : (20 / sqrt(NumCompletions + 1))" />
+         <Expression name="Money" value="@Probability * @Reward * 30000000" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Lunar-lander" />
+      <Contract customer="pricklespac" id="Lunar-rover" money="@Money" name="@Moon Rover" priority="5" probability="@Probability" expiration="30" deadline="180" difficulty="3" flairText="@Progression">
+         <Description
+            short="Drive a rover on @Moon"
+            long="I appreciate your landing skills but I need a bit more precision. I have made a rover, can you bring it to @Moon?&lt;br&gt;&lt;br&gt;This time you will have to make the lander, bring the Rover there and drive it for me. Remember that you can select @Moon in the craft info panel in the designer to better adjust the thrust of your engines, and that having legs will help soften the touchdown." />
+         <Requirements>
+            <TrackedLaunch>
+               <Payload payloadId="Payload-Lander-3" payloadName="Lunar Rover" allowWarp="true" description="Launch with the Rover" showValue="false" onFail="Warn">
+                  <Planet name="Droo" description="Start in Droo's SOI" />
+                  <Planet name="@Moon" description="Go to @Moon" listedInMenu="true">
+                     <Location name="Target Location" latLonAgl="@TargetLocation" range="500" description="Land in the designated location" />
+                     <CraftExpression expression="Grounded" description="Touch down!" showValue="false" listedInMenu="false" visibility="HiddenWhenPassed" />
+                     <CraftExpression expression="PayloadActivated" description="Release the rover" showValue="false" visibility="HiddenWhenPassed" />
+                     <Any num="3" description="Drive the rover to the 3 sample locations">
+                        <Template.Repeat count="3">
+                           <Template.Params>
+                              <Random name="LatOffset" min="-0.2" max="0.2" round="0.01" />
+                              <Random name="LonOffset" min="-0.2" max="0.2" round="0.01" />
+                              <LatLonAgl name="Location" value="@TargetLocation" latOffset="@LatOffset" lonOffset="@LonOffset" aglOffset="0" />
+                           </Template.Params>
+                           <Location name="Sample-@Index" latLonAgl="@Location" range="10" description="Drive to the target sample" listedInMenu="false" />
+                        </Template.Repeat>
+                     </Any>
+                  </Planet>
+               </Payload>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="10 / sqrt(max(1, NumCompletions))" />
+         <Expression name="Scale" value="min(14, NumCompletions)" />
+         <Random name="MoonIndex" min="0" max="2" round="1" />
+         <List name="Moon" index="@MoonIndex" values="Brigo;Luna;T.T." />
+         <List name="Reward" index="@MoonIndex" values="1;1.2;1.5" />
+         <List name="Deadline" index="@MoonIndex" values="60;60;90" />
+         <Expression name="Difficulty" value="3 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(15e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor((@Difficulty - 1) * 5)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Lunar-lander" />
+      <Contract customer="pricklespac" id="Lunar-landing" money="@Money" crewResearch="@CrewBonus" name="@Moon Landing" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Land on @Moon"
+            long="Can you get to @Moon and safely land? Your craft has to stay landed for at least 30 seconds." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Moon" description="Be in @Moon's SOI" listedInMenu="true">
+                  <Expression expression="TimeGrounded > 0.1" description="Touchdown safely" >
+                     <Expression expression="TimeGrounded > 10" description="Hold for 30 seconds" displayExpression="max(0, TimeGrounded)" displayFormat="time" />
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="10 / sqrt(max(1, NumCompletions))" />
+         <Expression name="MaxInstances" value="1 + floor(0.2 * NumCompletions)" />
+         <Completions name="Orbits" contractID="Celestial-orbit" />
+         <Completions name="Landings" contractID="Celestial-landing" />
+         <Expression name="Scale" value="min(20, NumCompletions + @Orbits + @Landings)" />
+         <Random name="PlanetIndex" min="0" max="13" round="1" stretch="false" distributionScale="@Scale" distribution="0,0|4,2|5,3|11,7|12,8|17,14" />
+         <List name="Planet" index="@PlanetIndex" values="Cylero;Niobe;Herma;Sergeaa;Tydos;Nebra;Miros;Orcus;Vulco;Urados;Jastrus;Boreas;Taurus;Hypatchion" />
+         <List name="Reward" index="@PlanetIndex" values="4;5;5;6;10;12;12;12;15;15;18;18;18;18" />
+         <List name="Deadline" index="@PlanetIndex" values="600;600;600;900;1500;1500;1500;1500;1200;3500;3500;3500;3500;3500" />
+         <Expression name="Difficulty" value="3 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(5e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor(@Difficulty - 1)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Lunar-probe" />
+      <Contract customer="pricklespac" id="Celestial-flyby" money="@Money" crewResearch="@CrewBonus" name="@Planet Fly-by" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" maxInstances="@MaxInstances" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Fly-by @Planet"
+            long="I need you to fly by @Planet to study its orbital conditions. You just need to get close enough to be in its Sphere of Influence." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Planet" description="Be in @Planet's SOI" listedInMenu="true" />
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="10 / sqrt(max(1, NumCompletions))" />
+         <Expression name="MaxInstances" value="1 + floor(0.2 * NumCompletions)" />
+         <Completions name="FlyBys" contractID="Celestial-flyby" />
+         <Completions name="Landings" contractID="Celestial-landing" />
+         <Expression name="Scale" value="min(17, 0.25 * @FlyBys + NumCompletions + @Landings)" />
+         <Random name="PlanetIndex" min="0" max="13" round="1" stretch="false" distributionScale="@Scale" distribution="0,0|4,2|5,3|11,7|12,8|17,14" />
+         <List name="Planet" index="@PlanetIndex" values="Cylero;Niobe;Herma;Sergeaa;Tydos;Nebra;Miros;Orcus;Vulco;Urados;Jastrus;Boreas;Taurus;Hypatchion" />
+         <List name="Reward" index="@PlanetIndex" values="4;5;5;6;10;12;12;12;15;15;18;18;18;18" />
+         <List name="Deadline" index="@PlanetIndex" values="600;600;600;900;1500;1500;1500;1500;1200;3500;3500;3500;3500;3500" />
+         <List name="MinAlt" index="@PlanetIndex" values="50000;15000;15000;350000;3500000;65000;15000;15000;15000;1000000;15000;15000;101000;15000" />
+         <List name="MaxAlt" index="@PlanetIndex" values="200000000;60000;500000;400000000;20000000000;9000000;3000000;10000000;300000000;20000000000;200000;9000000;20000000;3000000" />
+         <Random name="Apoapsis" min="@MinAlt" max="@MaxAlt" round="1e3" distributionScale="@Scale" distribution="0,1|13,0" />
+         <Expression name="Difficulty" value="4 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(5e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor(@Difficulty - 1)" />
+         <Expression name="Progression" value="NumCompletions > 0" valueFalse="Progression" valueTrue="" />
+      </Params>
+      <Prereqs contracts="Celestial-flyby" />
+      <Contract customer="pricklespac" id="Celestial-orbit" money="@Money" crewResearch="@CrewBonus" name="@Planet Orbit" subtitle="Under @Apoapsis:distance" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" maxInstances="@MaxInstances" difficulty="@Difficulty" flairText="@Progression">
+         <Description
+            short="Orbit @Planet"
+            long="I need you to get in orbit of @Planet, with an apoapsis lower than @Apoapsis:distance" />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Planet" description="Be in @Planet's SOI" listedInMenu="true">
+                  <Orbit op="less" property="apoapsis" value="@Apoapsis" >
+                     <Orbit op="less" property="eccentricity" tolerance="0" value="0.1" />
+                  </Orbit>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+
+   <ContractTemplate>
+      <Params>
+         <Expression name="Probability" value="10 / sqrt(max(1, NumCompletions))" />
+         <Expression name="MaxInstances" value="1 + floor(0.2 * NumCompletions)" />
+         <Expression name="Scale" value="min(14, NumCompletions)" />
+         <Random name="PlanetIndex" min="0" max="11" round="1" stretch="false" distributionScale="@Scale" distribution="0,0|4,2|5,3|7,6|8,7|10,12" />
+         <List name="Planet" index="@PlanetIndex" values="Cylero;Niobe;Herma;Sergeaa;Nebra;Miros;Orcus;Vulco;Jastrus;Boreas;Taurus;Hypatchion" />
+         <List name="Reward" index="@PlanetIndex" values="4;5;5;10;15;12;12;15;15;15;20;15" />
+         <List name="Deadline" index="@PlanetIndex" values="600;600;600;900;1500;1500;1500;1200;3500;3500;3500;3500" />
+         <Expression name="Difficulty" value="6 * @Reward / max(1, pow(@Scale, 1.5))" />
+         <Expression name="Money" value="ceil(5e6 * max(1, @Scale) * @Difficulty * @Difficulty)" />
+         <Expression name="CrewBonus" value="floor(@Difficulty - 1)" />
+      </Params>
+      <Prereqs contracts="Celestial-orbit,Lunar-rover" />
+      <Contract customer="pricklespac" id="Celestial-landing" money="@Money" crewResearch="@CrewBonus" name="@Planet Landing" priority="3" probability="@Probability" expiration="30" deadline="@Deadline" maxInstances="@MaxInstances" difficulty="@Difficulty">
+         <Description
+            short="Land on @Planet"
+            long="Can you get to @Planet and safely land? Your craft has to stay landed for at least 30 seconds." />
+         <Requirements>
+            <TrackedLaunch>
+               <Planet name="Droo" description="Start in Droo's SOI" />
+               <Expression expression="Grounded" description="Start grounded" visibility="HiddenWhenPassed" />
+               <Planet name="@Planet" description="Be in @Planet's SOI" listedInMenu="true">
+                  <Expression expression="TimeGrounded > 0.1" description="Touchdown safely" >
+                     <Expression expression="TimeGrounded > 10" description="Hold for 30 seconds" displayExpression="max(0, TimeGrounded)" displayFormat="time" />
+                  </Expression>
+               </Planet>
+            </TrackedLaunch>
+         </Requirements>
+      </Contract>
+   </ContractTemplate>
+</Contracts>

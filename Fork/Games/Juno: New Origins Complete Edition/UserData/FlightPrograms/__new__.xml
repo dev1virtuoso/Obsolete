@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Program name="New Program">
+   <Variables />
+   <Instructions>
+      <Event event="FlightStart" id="0" style="flight-start" pos="-10,-20" />
+   </Instructions>
+   <Expressions />
+</Program>

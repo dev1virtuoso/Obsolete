@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DesignerParts>
+  <DesignerPart name="Barrel" category="Payloads" description="A barrel full of a mysterious liquid." order="11" showInDesigner="true">
+    <Assembly xmlVersion="13">
+      <Parts>
+        <Part id="11" partType="Package" position="0,0,0" rotation="0,0,0" name="Barrel" materials="1,1,1,1,1" partStyleEnabled="false" style="Barrel">
+          <Drag drag="0.4975778,0.4980341,0.2631433,0.3264122,0,0" area="0.6418131,0.6458244,0.2767818,0.3489858,0,0" />
+          <Config />
+          <Payload payloadId="Payload-Package-B2" />
+          <Package mass="2" />
+        </Part>
+      </Parts>
+      <Connections />
+      <Collisions />
+      <Bodies />
+    </Assembly>
+  </DesignerPart>
+</DesignerParts>

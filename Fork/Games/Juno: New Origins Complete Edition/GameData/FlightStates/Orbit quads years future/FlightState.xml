@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FlightState xmlVersion="2" time="951706649.02267373" playerNodeId="1" nextNodeId="2" solarSystemId="__default__">
+  <Nodes>
+    <Planet name="Sun" rotation="0,0,0" />
+    <Planet name="Droo" rotation="0,310.724,0" trueAnomaly="1.7108866319749059" />
+    <Planet name="Luna" rotation="0,271.2586,0" trueAnomaly="4.80689621498743" />
+    <Craft id="1" name="Basic" parent="Droo" position="3731.30498205857,432102.477431329,-395691.115820336" velocity="18.6297680101645,-1504.03754109478,-1558.11015485595" heading="33.78468,151.4137,340.7987" grounded="false">
+      <Orbit argumentOfPeriapsis="2.5506382422474334" eccentricity="0.12463593863930097" inclination="1.5695681957850445" prograde="true" rightAscensionOfAscendingNode="1.5815669746669474" semiMajorAxis="667242.51849461335" trueAnomaly="6.0448058634754114" />
+    </Craft>
+    <Planet name="Test" rotation="0,310.724,0" trueAnomaly="2.993976998403876" />
+    <Planet name="TestMoon" rotation="0,271.2586,0" trueAnomaly="4.80689621498743" />
+  </Nodes>
+  <Nodes />
+</FlightState>

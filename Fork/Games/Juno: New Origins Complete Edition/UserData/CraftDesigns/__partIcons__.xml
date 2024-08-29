@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Craft name="New" parent="" initialBoundsMin="-1.003338,-5.041197,-1.003338" initialBoundsMax="1.003338,3.858182,1.003339" price="1304891" suppressCraftConfigWarnings="false" xmlVersion="12" localCenterOfMass="0,-3.068596,-6.631017E-07">
+   <Assembly>
+      <Parts>
+         <Part id="3" partType="CommandPod4" position="0,3.068597,7.152557E-07" rotation="0,0,0" rootPart="true" commandPodId="3" materials="0,1,2,3,4">
+            <Drag drag="1.763578,1.707368,1.554936,0.01779461,1.747506,1.799471" area="2.391443,2.321319,3.157123,0.05137919,2.363635,2.433758" />
+            <Config centerOfMass="0,-0.125,0" />
+            <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="270,0,0">
+               <Controls />
+            </CommandPod>
+            <Gyroscope power="97.65625" />
+            <FuelTank capacity="4872.65625" fuel="4872.65625" subPriority="21" />
+            <CrewCompartment capacity="1" />
+            <ScalablePod />
+         </Part>
+         <Part id="4" partType="Fuselage1" position="0,-0.221396,-5.960464E-08" rotation="0,0,0" commandPodId="3" materials="0,0,2,3,4">
+            <Drag drag="7.72774,7.781683,0,2.304963,7.781636,7.727711" area="10.02723,10.09736,0,2.304963,10.09736,10.02723" />
+            <Config />
+            <Fuselage bottomScale="1,1" offset="0,2.5,0" topScale="1,1" />
+            <FuelTank capacity="8639.384765625" fuel="8639.384765625" subPriority="-11" />
+         </Part>
+         <Part id="5" partType="RocketEngine1" position="0,-2.721388,-4.768372E-07" rotation="0,0,0" name="Mage Engine" activationStage="0" commandPodId="3" materials="0,1,2,3,4" engineTypeTexture="RocketEngine_Type" subTypeTexture="RocketEngine_SubType" nozzleTexture="RocketEngine_Nozzle">
+            <Drag drag="1.079843,1.102966,0,0.3919591,1.266676,1.271015" area="1.511276,1.511276,0,0.8016075,1.7156,1.714391" />
+            <Config />
+            <RocketEngine engineSubTypeId="GasGenerator1" mass="4.61046171" nozzleTypeId="Bravo" price="662818" size="0.8" />
+         </Part>
+      </Parts>
+      <Connections>
+         <Connection partA="4" partB="3" attachPointsA="2,4" attachPointsB="0,2" />
+         <Connection partA="5" partB="4" attachPointsA="0" attachPointsB="1" />
+      </Connections>
+      <Collisions />
+      <Bodies>
+         <Body id="1" partIds="3,4,5" mass="110.725578" position="0,-0.01236677,7.450581E-09" rotation="0,0,0" centerOfMass="0,0,0" />
+      </Bodies>
+   </Assembly>
+   <DesignerSettings />
+   <Themes />
+   <Symmetry />
+</Craft>

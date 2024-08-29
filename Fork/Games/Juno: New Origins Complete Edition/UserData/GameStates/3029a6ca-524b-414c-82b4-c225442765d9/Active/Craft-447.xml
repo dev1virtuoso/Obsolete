@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="" parent="" initialBoundsMin="0,0,0" initialBoundsMax="0,0,0" removeInvalidParts="true" price="0" xmlVersion="15" activeCommandPod="1" localCenterOfMass="-0.0005404712,-0.1570807,-0.04949871">
+  <Assembly>
+    <Parts>
+      <Part id="1" partType="Eva-Tourist" position="0.0005504694,0.1479426,0.07234576" rotation="8.565894,3.485711E-06,1.224735E-05" name="Tourist" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" rootPart="true" commandPodId="1" materials="15,16,17,0,19">
+        <Drag drag="0.3711679,0.09405512,0.1911796,0.08006708,0.2785669,0.2767762" area="0.5386572,0.1327815,0.3099968,0.13538,0.3826801,0.3841586" />
+        <Config initialCraftNodeId="446" />
+        <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,true,false,true" pidPitch="10,0,0" pidRoll="0.6,0,0" pilotSeatRotation="351.4341,-1.569149E-07,-9.990849E-06" stageCalculationVersion="2">
+          <Controls />
+        </CommandPod>
+        <Eva />
+        <CameraVantage autoCenterCamera="false" cameraOffset="-0.0006848606,0.739729,-0.1144251" nightVisionColor="#80FF8080" />
+      </Part>
+      <Part id="2" partType="EvaChair1" position="0.0005453527,-0.3787248,-0.1101516" rotation="8.565891,1.958666E-05,1.002851E-05" themeId="25a9195c-c404-4c77-9ea1-eef798ccc505" commandPodId="1" materials="0,1,2,3,4">
+        <Drag drag="0.120047,0.506709,0.07460131,0.2747405,0.2347887,0.2350728" area="0.1545585,0.5602564,0.116552,0.2976072,0.2657064,0.2658466" />
+        <Config heatShieldScale="0" initialCraftNodeId="446" />
+        <EvaChair version="2">
+          <armTargets x="-1" y="-1" z="-1" w="-1" />
+          <legTargets x="-1" y="-1" z="-1" w="-1" />
+        </EvaChair>
+        <CrewCompartment />
+      </Part>
+    </Parts>
+    <Connections>
+      <Connection partA="1" partB="2" attachPointsA="0" attachPointsB="1">
+        <BodyJoint body="1" connectedBody="2" connectedBodyNeutralPosition="4.149999E-08,-0.3295096,-5.826832" connectedBodyNeutralRotation="0,0,0" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0,0,0" connectedPosition="-3.880263E-05,0.5267051,0.1824825" axis="-1.16134E-07,0.1489479,-0.9888451" secondaryAxis="-1.724281E-07,0.9888451,0.1489479" />
+      </Connection>
+    </Connections>
+    <Collisions />
+    <Bodies>
+      <Body id="1" partIds="1" mass="0.9" position="0.0005504694,0.1479426,0.07234576" rotation="-6.488679E-05,3.415094E-06,-1.933777E-12" centerOfMass="0,0,0" />
+      <Body id="2" partIds="2" mass="0.299999982" position="0.0005592853,-0.3787185,-0.1101519" rotation="-7.171698E-05,2.390566E-05,-1.496133E-11" centerOfMass="-2.019109E-05,9.14928E-06,2.595783E-05" />
+    </Bodies>
+  </Assembly>
+  <DesignerSettings themeName="Custom" />
+  <Themes>
+    <Theme name="Custom" id="25a9195c-c404-4c77-9ea1-eef798ccc505">
+      <Material name="Base Color" color="FFFFFF" m="0.3" s="0" />
+      <Material name="Detail Color" color="178BFF" m="0" s="0.3" />
+      <Material name="Light Metal" color="CBCDCE" m="0.85" s="0.8" />
+      <Material name="Heavy Metal" color="76736F" m="0.85" s="0.5" />
+      <Material name="Ablative" color="000000" m="0.85" s="0" d="0.5" />
+      <Material name="Accent Color 1" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 2" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 3" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 4" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Accent Color 5" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Gauge Color 1" color="000000" m="0.85" s="0" />
+      <Material name="Gauge Color 2" color="FF8000" m="0" s="0.5" e="1" />
+      <Material name="Gauge Color 3" color="FFFFFF" m="0" s="0" e="1" />
+      <Material name="Gauge Color 4" color="FF0000" m="0" s="0" e="1" />
+      <Material name="Gauge Color 5" color="68D100" m="0" s="0" e="1" />
+      <Material name="Fabric Base" color="FFFFFF" m="0" s="0" d="0.2" />
+      <Material name="Fabric Detail" color="178BFF" m="0" s="0" d="0.1" />
+      <Material name="Brushed Light Metal" color="CBCDCE" m="0.85" s="0.3" d="0.5" />
+      <Material name="Brushed Heavy Metal" color="76736F" m="0.85" s="0.3" d="0.5" />
+      <Material name="Sun Insulation" color="574204" m="0.95" s="0.95" d="0.2" />
+      <Material name="Solar Cells" color="000046" m="0.85" s="0.5" d="0.1" />
+      <Material name="Light" color="FFEEB9" m="0" s="1" />
+      <Material name="Display" color="FFFFFF" m="0.1" s="0.08" />
+      <Material name="Glass Exterior" color="FFFFFF" m="1" s="1" t="0.8" />
+      <Material name="Glass Interior" color="808080" m="1" s="0" t="0.9" />
+    </Theme>
+  </Themes>
+</Craft>

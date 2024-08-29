@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="New" parent="" initialBoundsMin="-0.8359594,-7.990234,-0.8359594" initialBoundsMax="0.8359594,0.6316735,0.8359594" price="0" xmlVersion="2">
+   <Assembly>
+      <Parts>
+         <Part id="0" partType="CommandPod1" position="0,0,0" rotation="0,0,0" rootPart="true" materials="0,1,2,3">
+            <CommandPod />
+            <Gyroscope />
+            <FuelSource fuelTankPartIds="0" totalCapacity="2494.8" totalFuel="2494.8" />
+            <FuelSource />
+            <FuelTank />
+         </Part>
+         <Part id="1" partType="Fuselage1" position="0,-3.132,0" rotation="0,0,0" commandPodId="0" materials="0,0,0,0">
+            <Fuselage bottomScale="0.8,0.8" offset="0,2.5,0" topScale="0.8,0.8" />
+            <FuelTank capacity="5529.204" fuel="5529.204" />
+         </Part>
+         <Part id="2" partType="Engine1" position="0,-6.512,0" rotation="0,0,0" activationStage="0" commandPodId="0" materials="0,1,2,3">
+            <Engine />
+            <FuelSource fuelTankPartIds="1" totalCapacity="5529.204" totalFuel="5529.204" />
+         </Part>
+      </Parts>
+      <Connections>
+         <Connection partA="1" partB="0" attachPointsA="2" attachPointsB="0" />
+         <Connection partA="2" partB="1" attachPointsA="0" attachPointsB="1" />
+      </Connections>
+      <Collisions />
+      <Bodies>
+         <Body id="1" partIds="0,1,2" mass="80.79238" position="0,-2.931401,0" rotation="0,0,0" />
+      </Bodies>
+   </Assembly>
+   <DesignerSettings themeName="Custom">
+      <Theme name="Custom" id="cfd9b653-b504-4fab-9550-6235af550a2d">
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="178BFF" m="0.4" s="0.83" />
+         <Material color="7F7F7F" m="0.4" s="0.83" />
+         <Material color="454545" m="0.4" s="0.83" />
+         <Material color="171717" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+      </Theme>
+   </DesignerSettings>
+   <Themes>
+      <Theme name="Custom" id="9ffa45c3-bea6-455a-b59d-4e2086e52dc1">
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="178BFF" m="0.4" s="0.83" />
+         <Material color="7F7F7F" m="0.4" s="0.83" />
+         <Material color="454545" m="0.4" s="0.83" />
+         <Material color="171717" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+      </Theme>
+   </Themes>
+   <Symmetry />
+</Craft>

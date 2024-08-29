@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CelestialBody name="Boreas" author="Jundroo" version="1.3" versionTag="Boreas Juno 2.0" xmlVersion="2" seaLevel="-4200" hasTerrainPhysics="true" hasWater="true" radius="250000" surfaceGravity="1.2" angularVelocity="-4.3633231299858234E-05" uniformHeight="false" radiusScaledSpaceHeightAdjustment="0" skyboxFadeDuringDaytime="false" skyShaderEnabled="true" equirectMapBrightness="1" equirectMapLight="0.5" parentAncestryId="084decb5-0da3-482e-bc55-6bd2f8f60a88">
+  <FileReferences>
+    <File id="Snow" hash="2a045284-5810-92a2-007c-9acc95ac9881" />
+    <File id="Ice" hash="57bfc495-5c35-da2e-22e4-7a8906d5e5b5" />
+  </FileReferences>
+  <Description>A cold solid planet covered in partially cracked ice and many crater impacts.</Description>
+  <MusicKeywords>Gameplay,Gas Giant,Moon Non Earth</MusicKeywords>
+  <Scale angularVelocityScale="1" atmosphereScale="1" gravityScale="1" orbitScale="1" planetScale="1" />
+  <Atmosphere hasPhysicsAtmosphere="true" surfaceAirDensity="0.0001" meanMassPerMolecule="14" meanNightSurfaceTemperature="50" meanDaySurfaceTemperature="120" meanGamma="1" crushAltitude="0" fadeDistance="5000" atmosphereDensityThreshold="0.75" desc="" />
+  <Terrain uvSizeExponent="6">
+    <QualitySettings terrainQuadEdgeVertexCount="29" waterQuadEdgeVertexCount="29" minSubdivisionLevel="3" maxSubdivisionLevel="10" quadSphereActivationDistance="0" quadSphereTransitionDistance="0">
+      <Quality qualityLevel="Low" automatic="false" mobileOnly="false" targetVertexDistance="30" terrainQuadEdgeVertexCount="13" waterQuadEdgeVertexCount="13" />
+      <Quality qualityLevel="Medium" automatic="false" mobileOnly="false" targetVertexDistance="20" terrainQuadEdgeVertexCount="19" waterQuadEdgeVertexCount="19" />
+      <Quality qualityLevel="High" automatic="false" mobileOnly="false" targetVertexDistance="10" terrainQuadEdgeVertexCount="25" waterQuadEdgeVertexCount="25" />
+    </QualitySettings>
+    <WaterConfigDefault useDefaultConfig="false" temperature="275" density="1000" waterColorGradient="0,0.5372549,0.8117647,0.8470588|0.2,0.4706756,0.7821739,0.8470588|0.5000076,0.4546172,0.7750368,0.8470588|0.8,0.4424799,0.7696425,0.8470588|1,0.4313726,0.7647059,0.8470588" waterColorGradientMaxDepth="200" emissiveness="0" metallicness="0" smoothness="1" waveAmplitudeScale="100" transparencyDepthScale="100" transparencyStrength="13" reflectionStrength="50" foamStrength="53" textureStrength="0" underwaterColor="0.04705882,0.3411765,0.4509804" underwaterDarkColor="0,0,0" underwaterLightFadeDepth="750" underwaterLightFadeDistance="750" underwaterColorIntensity="0.5" reflectionDistortion="20" refractionDistortion="2" transparencyDepth="140" fresnelBias="0.2" foamDepth="0.35" foamColor="1,1,1" waveAmplitude="0.5" waveLength="50" waveSpeed="2" />
+    <Modifiers>
+      <Modifier type="VertexData.GetConstant" enabled="true" name="Get constant" container="" pass="Biome" dataIndexOutput="0" value="0" />
+      <Modifier type="VertexData.Biomes.SimpleBiomes" enabled="true" name="Simple biomes" container="" dataIndexInput="0">
+        <Biome index="0" range="0,0" />
+      </Modifier>
+      <Modifier type="VertexData.Biomes.ApplyBiomeData" enabled="true" name="Apply biomes" container="" />
+      <Modifier type="Material.TerrainDetailSplatmap" enabled="true" name="Splatmap">
+        <DistanceBlendedTextures>
+          <Texture path="Snow" />
+          <Texture path="Ice" />
+          <TilingConfig distanceAdjustment="0" distanceScalar="2" scaledUvStartLevel="12">
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.8" />
+            <TileLevel tiling="8" strength="1" />
+            <TileLevel tiling="8" strength="0.8" />
+            <TileLevel tiling="8" strength="0.6" />
+            <TileLevel tiling="8" strength="0.4" />
+            <TileLevel tiling="8" strength="0.2" />
+            <TileLevel tiling="4" strength="0.3" />
+            <TileLevel tiling="4" strength="0.4" />
+            <TileLevel tiling="4" strength="0.5" />
+            <TileLevel tiling="4" strength="0.6" />
+            <TileLevel tiling="4" strength="0.7" />
+            <TileLevel tiling="4" strength="0.8" />
+            <TileLevel tiling="4" strength="0.9" />
+            <TileLevel tiling="4" strength="1" />
+          </TilingConfig>
+        </DistanceBlendedTextures>
+        <GroundDetailTextures mipmapFadeRange="0,5" tilingScale="500">
+          <Texture path="Snow" colorStrength="0.3" />
+          <Texture path="Cracked" colorStrength="0.3" />
+        </GroundDetailTextures>
+      </Modifier>
+      <Modifier type="Material.WaterMaterialModifier" enabled="true" name="WaterMaterialModifier">
+        <TilingConfig distanceAdjustment="10" distanceScalar="1" scaledUvStartLevel="11">
+          <TileLevel tiling="402" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="201" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="100" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="50" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="25" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="13" strength="1" waveSpeed="0.02" specularity="0.95" />
+          <TileLevel tiling="6" strength="1" waveSpeed="0.01" specularity="0.95" />
+          <TileLevel tiling="3" strength="1" waveSpeed="0.01" specularity="0.925" />
+          <TileLevel tiling="2" strength="1" waveSpeed="0.01" specularity="0.9" />
+          <TileLevel tiling="1" strength="0.9" waveSpeed="0.01" specularity="0.85" />
+          <TileLevel tiling="1" strength="0.75" waveSpeed="0.01" specularity="0.8" />
+          <TileLevel tiling="50" strength="0.65" waveSpeed="0.005" specularity="0.8" />
+          <TileLevel tiling="50" strength="0.5" waveSpeed="0.005" specularity="0.8" />
+          <TileLevel tiling="25" strength="0.25" waveSpeed="0.005" specularity="0.7" />
+          <TileLevel tiling="25" strength="0.1" waveSpeed="0.005" specularity="0.6" />
+          <TileLevel tiling="13" strength="0.05" waveSpeed="0.005" specularity="0.6" />
+          <TileLevel tiling="13" strength="0.01" waveSpeed="0.005" specularity="0.6" />
+          <TileLevel tiling="6" strength="0.01" waveSpeed="0.005" specularity="0.6" />
+          <TileLevel tiling="3" strength="0.01" waveSpeed="0.005" specularity="0.5" />
+          <TileLevel tiling="2" strength="0.01" waveSpeed="0.005" specularity="0.5" />
+        </TilingConfig>
+      </Modifier>
+    </Modifiers>
+    <Biomes>
+      <Biome name="Ice">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers>
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Crevasses" container="" basicView="true" pass="Height" noiseType="ValueFractal" maskDataIndex="-1" seed="1460405837" lockSeed="false" frequency="0.2" strength="0.5" fractalType="BillowPowerV1" octaves="7" fractalLacunarityType="Default" lacunarity="3" fractalAmplitudeType="Default" gain="0.45" interpolation="Quintic" powerExponent="2" dataIndex="0" mapName="">
+            <DomainWarping domainWarpingType="Fractal" seed="85414118" frequency="2" amplitude="0.1" octaves="8" gain="0.45" lacunarity="2.5" interpolation="Quintic" />
+            <DomainWarping domainWarpingType="Scaled" warpScale="1.5,1,1.5" />
+          </Modifier>
+          <Modifier type="VertexData.Biomes.SingleValueBasedSubBiomes" enabled="true" name="Subbiomes" container="" pass="Height" dataIndexInput="0">
+            <SubBiome range="-1,-0.05">
+              <Data name="Ravines" slopeRange="0,0.1">
+                <PrimaryData emissiveness="0" metallicness="0.2" smoothness="0.8" textureIndex="1" tireTrackStrength="0.025" color="0.5372549,0.8117647,0.8470588,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="1" textureIndex="1" tireTrackStrength="0.01" color="0.654902,0.9098039,0.9372549,1" />
+              </Data>
+            </SubBiome>
+            <SubBiome range="-0.2,1">
+              <Data name="Crater fields" slopeRange="0.025,0.075">
+                <PrimaryData emissiveness="0" metallicness="0" smoothness="0.5" textureIndex="0" tireTrackStrength="0.025" color="0.9019608,0.9686275,1,1" />
+                <SlopeData emissiveness="0" metallicness="0" smoothness="0.8" textureIndex="1" tireTrackStrength="0.01" color="0.7803922,0.9803922,1,1" />
+              </Data>
+            </SubBiome>
+          </Modifier>
+          <Modifier type="VertexData.RemapCurve" enabled="true" name="Remap terrain" container="" pass="Height" dataIndexInput="0" dataIndexOutput="1" curve="-0.205,-5000,1269.274,1269.274,0.5,1,0,0|-0.16,-3000,82367.12,82367.12,0.5,0.5,0,0|-0.13,-500,27642.55,27642.55,0.5,0.5,0,0|-0.11,-150,563.0713,563.0713,0.5,0.5,0,0|-0.08,0,0.0008994787,0.0008994787,0,0,0,0" />
+          <Modifier type="VertexData.RemapLinear" enabled="true" name="Mask snow" container="" pass="Height" dataIndexInput="0" dataIndexOutput="0" fromMinValue="-0.1" fromMaxValue="0" toMinValue="0" toMaxValue="1" />
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Craters noise" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="-1" seed="1146717982" lockSeed="false" frequency="50" strength="2" fractalType="RigidMulti" octaves="8" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.5" interpolation="Quintic" dataIndex="3" />
+          <Modifier type="VertexData.CratersFast" enabled="true" name="Craters" container="" basicView="true" pass="Height" maskDataIndex="0" craterNoiseADataIndex="3" craterNoiseBDataIndex="-1" heightNoiseMinOutputDataIndex="2" maxHeightColorVariance="0,0,0" minHeightColorVariance="0.1,0.075,0.05" curve="0,-1,0,0,0,0,0,0|0.85,0.05,2.438755,2.438755,0,0,0,0|0.88,0.05,-0.9733779,-0.9733779,0,0,0,0|1,0,0,0,0,0,0,0">
+            <Pass enabled="true" seed="-1997843949" frequency="8" maxDepth="500" noiseStrength="1" noiseLerp="0" randomness="0.8" rotationAngle="0" rotationAxis="0,1,0" curve="0,-0.6,0,0,0,0,0,0|0.3,-1,9.218425E-08,9.218425E-08,0.5,0.5,0,0|0.85,0.05,2.438755,2.438755,0,0,0,0|0.88,0.05,-0.9733779,-0.9733779,0,0,0,0|1,0,0,0,0,0,0,0" />
+            <Pass enabled="true" seed="196830939" frequency="6" maxDepth="500" noiseStrength="1" noiseLerp="0" randomness="0.8" rotationAngle="0" rotationAxis="0,1,0" curve="0,-0.5,-0.2444876,-0.2444876,0,0,0,0|0.3,-0.99,-0.6039543,-0.6039543,0.5,0.5,0,0|0.6375,-0.4055699,0.6293945,0.6293945,0.5,0.5,0,0|0.8375001,0.02934034,2.438755,2.438755,0,0,0,0|0.88,0.05,-0.1505122,-0.1505122,0,0,0,0|1,0,0,0,0,0,0,0" />
+            <Pass enabled="true" seed="-1298649006" frequency="15" maxDepth="100" noiseStrength="0.5" noiseLerp="0" randomness="0.7" rotationAngle="0" rotationAxis="0,1,0" />
+            <Pass enabled="true" seed="-1158602648" frequency="10" maxDepth="100" noiseStrength="0.5" noiseLerp="0" randomness="0.8" rotationAngle="0" rotationAxis="0,1,0" />
+            <Pass enabled="true" seed="-388458769" frequency="30" maxDepth="100" noiseStrength="0.3" noiseLerp="0" randomness="0.6" rotationAngle="0" rotationAxis="0,1,0" curve="0,-1,0,0,0,0,0,0|1,0,0,0,0,0,0,0" />
+          </Modifier>
+          <Modifier type="VertexData.RemapLinear" enabled="true" name="Remap (Linear)" container="" pass="Height" dataIndexInput="2" dataIndexOutput="2" fromMinValue="0.8" fromMaxValue="1" toMinValue="0.25" toMaxValue="1" />
+          <Modifier type="VertexData.BasicArithmetic" enabled="true" name="Basic Arithmetic" container="" pass="Height" dataIndexInputA="0" dataIndexInputB="2" constantValueInputC="1" dataIndexOutput="0" arithmeticType="Multiply_A_TIMES_B" />
+          <Modifier type="VertexData.VertexDataNoise" enabled="true" name="Snow bumps" container="" basicView="true" pass="Height" noiseType="PerlinFractal" maskDataIndex="0" seed="0" lockSeed="false" frequency="100" strength="50" fractalType="FBM" octaves="6" fractalLacunarityType="Default" lacunarity="2" fractalAmplitudeType="Default" gain="0.6" interpolation="Quintic" dataIndex="2" />
+          <Modifier type="VertexData.BasicArithmetic" enabled="true" name="Basic Arithmetic" container="" pass="Height" dataIndexInputA="1" dataIndexInputB="2" constantValueInputC="1" dataIndexOutput="1" arithmeticType="Add_A_PLUS_B" />
+          <Modifier type="VertexData.UpdateFinalHeight" enabled="true" name="Update height" container="" pass="Height" dataIndex="1" />
+        </Modifiers>
+      </Biome>
+      <Biome name="Ice Lakes">
+        <WaterConfig useDefaultConfig="true" />
+        <Modifiers />
+      </Biome>
+    </Biomes>
+  </Terrain>
+  <TerrainShaderData>
+    <PlanetShaderData ambientLightDay="0,0,0,1" ambientLightNight="0.1019608,0.1686275,0.1921569,1" atmosScale="1" atmosScaleSpace="0" atmosScaleSurface="1" atmosSizeScale="1" debugScaler="0" duskColor="0,0,0,1" eSun="15" fresnelBias="0" g="-0.95" km="0.0001" kr="0.0005" maxColorValue="2" noonColor="0.62,0.64,0.65,1" samples="5" scaleDepth="0.4" scaleDepthMax="0.002" scaleDepthMin="1" waveLength="1,1,1,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="true" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </TerrainShaderData>
+  <SkyShaderData>
+    <PlanetShaderData ambientLightDay="0.5,0.5,0.5,1" ambientLightNight="0.5,0.5,0.5,1" atmosScale="1" atmosScaleSpace="0.3" atmosScaleSurface="0.3" atmosSizeScale="1" debugScaler="0" duskColor="1,1,1,1" eSun="15" fresnelBias="0" g="-0.95" km="0.0001" kr="0.0005" maxColorValue="2" noonColor="1,1,1,1" samples="5" scaleDepth="1" scaleDepthMax="0.1" scaleDepthMin="1" waveLength="1,1,1,1" waveLengthMag="1">
+      <ambientLightAltitudeRange MaxValue="10000" MinValue="0" />
+      <options atmosScaleAuto="false" legacySkyShader="false" scaleDepthAuto="true" />
+    </PlanetShaderData>
+  </SkyShaderData>
+</CelestialBody>

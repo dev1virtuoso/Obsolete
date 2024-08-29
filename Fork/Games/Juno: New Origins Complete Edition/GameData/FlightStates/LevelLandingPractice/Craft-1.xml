@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Craft name="Luna Lander" parent="" initialBoundsMin="-1.272899,-4.440137,-0.9586888" initialBoundsMax="1.272955,2.653925,1.245887" price="776010" xmlVersion="8">
+   <Assembly>
+      <Parts>
+         <Part id="0" partType="CommandPod4" position="3.97809E-05,2.022251,3.480911E-05" rotation="1.040424E-14,-9.003342E-07,1.324217E-06" activated="true" previouslyActivated="true" rootPart="true" commandPodId="0" materials="0,1,2,3,4">
+            <Drag drag="1.112569,1.119421,0.5400572,0,1.142323,1.142433" area="1.506608,1.506608,1.504627,0,1.532089,1.532089" />
+            <Config centerOfMass="0,-0.1,0" />
+            <CommandPod activationGroupNames=",,,,,,,Landing Gear,Solar Panels,RCS" activationGroupStates="false,false,false,false,false,false,false,false,false,true" currentStage="4" pidPitch="10,0,25" pidRoll="10,0,25" pilotSeatRotation="270,0,0">
+               <Controls />
+            </CommandPod>
+            <Gyroscope />
+            <FuelTank subPriority="9" />
+            <CrewCompartment capacity="0" crewExitPosition="0,0,-1" />
+            <ScalablePod radiusPercent="0.8" />
+         </Part>
+         <Part id="153" partType="RocketEngine1" position="-3.801983E-05,-2.909815,-3.290176E-05" rotation="-2.390566E-05,-1.68009E-05,1.117927E-06" activated="true" activationStage="3" stageOverride="true" commandPodId="0" materials="0,1,2,3,4">
+            <Drag drag="0.508992,0.5079413,0,0.1655713,0.5534352,0.5539774" area="0.6848482,0.6848482,0,0.3600743,0.7493407,0.7493407" />
+            <Config />
+            <FuelSource fuelTankPartIds="1,40,149" totalCapacity="4460.398" totalFuel="401.964722" />
+            <RocketEngine engineSubTypeId="Electric" mass="1.05564749" nozzleSize="0.7" nozzleThroatSize="1" price="195079" size="0.75" />
+         </Part>
+         <Part id="1" partType="Fuselage1" position="-3.806496E-05,-0.44481,-3.406405E-05" rotation="-2.390566E-05,-1.774032E-06,1.117925E-06" activated="true" previouslyActivated="true" commandPodId="0" materials="0,0,0,0,4">
+            <Drag drag="3.171382,4.074188,0,0,3.515384,3.483851" area="4.458157,4.762937,0,0,4.482724,4.492704" />
+            <Config />
+            <Fuselage bottomScale="0.8,0.8" fuelPercentage="0" offset="3.375078E-13,1.834999,-1.136868E-13" topScale="0.8,0.8" />
+            <FuelTank capacity="4058.433" fuel="248.08910824"/>
+         </Part>
+         <Part id="40" partType="Fuselage1" position="-3.800982E-05,-2.43981,-3.314018E-05" rotation="-2.390566E-05,-6.782988E-06,1.117927E-06" activated="true" previouslyActivated="true" commandPodId="0" materials="0,0,0,0,4">
+            <Drag drag="0.2724901,0.2724932,0,0.558567,0.2682329,0.2682147" area="0.4606602,0.4606602,0,0.9011681,0.461428,0.461428" />
+            <Config />
+            <Fuselage bottomScale="0.5899999,0.5899999" offset="7.105387E-15,0.1600003,-1.360686E-12" topScale="0.8,0.8" symmetryId="34e3b105-f14b-4153-8bfc-f83074e4dffc" />
+            <FuelTank capacity="269.106842" fuel="269.106842" symmetryId="d40d8e4e-0fc4-4eba-90d7-64e825784792" />
+         </Part>
+         <Part id="149" partType="Fuselage1" position="-3.802286E-05,-2.754812,-3.314018E-05" rotation="-2.390566E-05,-1.179194E-05,1.117927E-06" activated="true" previouslyActivated="true" commandPodId="0" materials="0,0,0,0,4">
+            <Drag drag="0.1811866,0.1811896,0,0.4665807,0.1784316,0.1784558" area="0.299429,0.299429,0,0.721199,0.299429,0.299429" />
+            <Config />
+            <Fuselage bottomScale="0.3999999,0.3999999" offset="-2.481295E-12,0.1550011,-3.726969E-09" topScale="0.5899999,0.5899999" symmetryId="1fdabd5a-76bf-46b9-acdc-ce9b90d1dc2a" />
+            <FuelTank capacity="132.85788" fuel="132.85788" symmetryId="bb5a2b86-e305-454c-9142-01822e2dbdfa" />
+         </Part>
+         <Part id="150" partType="LandingLeg1" position="-0.6928428,-2.159815,-0.3999772" rotation="-3.415094E-06,60,5.915117E-06" activationStage="4" stageOverride="true" commandPodId="0" materials="0,1,2,3,4" symmetryId="0a17f33f-754a-40b0-b9a3-d8a0f936f112">
+            <Drag drag="0.4436947,0.9781209,0.1067448,0.2438828,1.079025,0" area="0.6917582,1.249138,0.3051936,0.3128076,1.388093,0" />
+            <Config centerOfMass="9.934108E-09,0.923357,-0.03916666" />
+            <LandingLeg deployedAngle="45" deployedExtensionY="5.15" symmetryId="d1e1f0e0-92c0-4d6c-8e02-5182ead33964" />
+         </Part>
+         <Part id="151" partType="LandingLeg1" position="-3.079096E-05,-2.15985,0.7999122" rotation="-7.015067E-14,180,1.60486E-06" activationStage="4" stageOverride="true" commandPodId="0" materials="0,1,2,3,4" symmetryId="0a17f33f-754a-40b0-b9a3-d8a0f936f112">
+            <Drag drag="1.103419,0,0.1119288,0.245625,0.6987979,0.6941371" area="1.419569,0,0.3119177,0.3148842,0.7769803,0.7723737" />
+            <Config centerOfMass="2.483501E-09,0.923357,-0.03916667" />
+            <LandingLeg deployedAngle="45" deployedExtensionY="5.15" symmetryId="d1e1f0e0-92c0-4d6c-8e02-5182ead33964" />
+         </Part>
+         <Part id="152" partType="LandingLeg1" position="0.6928986,-2.159851,-0.3999069" rotation="-5.792519E-06,300,3.094819E-05" activationStage="4" stageOverride="true" commandPodId="0" materials="0,1,2,3,4" symmetryId="0a17f33f-754a-40b0-b9a3-d8a0f936f112">
+            <Drag drag="0.4435232,0.9778527,0.1067597,0.2439831,0,1.082782" area="0.6917582,1.249138,0.3052925,0.3129065,0,1.382719" />
+            <Config centerOfMass="4.967054E-09,0.923357,-0.03916667" />
+            <LandingLeg deployedAngle="45" deployedExtensionY="5.15" symmetryId="d1e1f0e0-92c0-4d6c-8e02-5182ead33964" />
+         </Part>
+      </Parts>
+      <Connections>
+         <Connection partA="1" partB="0" attachPointsA="2" attachPointsB="0" />
+         <Connection partA="150" partB="1" attachPointsA="0" attachPointsB="0" symmetryId="b94c7061-46f3-486c-85c1-12ba05f3cfff">
+            <BodyJoint body="1" connectedBody="2" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-0.6928425,-2.236495,-0.3999768" connectedPosition="0.03391945,-0.9233575,0.01958328" axis="0,0,1" secondaryAxis="0,1,0" />
+         </Connection>
+         <Connection partA="151" partB="1" attachPointsA="0" attachPointsB="0" symmetryId="b94c7061-46f3-486c-85c1-12ba05f3cfff">
+            <BodyJoint body="1" connectedBody="3" breakTorque="1E+07" breakForce="0" jointType="Normal" position="-3.049395E-05,-2.236531,0.7999126" connectedPosition="-2.680463E-08,-0.9233575,-0.03916675" axis="0,0,1" secondaryAxis="0,1,0" />
+         </Connection>
+         <Connection partA="152" partB="1" attachPointsA="0" attachPointsB="0" symmetryId="b94c7061-46f3-486c-85c1-12ba05f3cfff">
+            <BodyJoint body="1" connectedBody="4" breakTorque="1E+07" breakForce="0" jointType="Normal" position="0.6928989,-2.236531,-0.3999065" connectedPosition="-0.03391922,-0.9233575,0.01958382" axis="0,0,1" secondaryAxis="0,1,0" />
+         </Connection>
+         <Connection partA="40" partB="1" attachPointsA="2,4" attachPointsB="1,5" />
+         <Connection partA="149" partB="40" attachPointsA="2,4" attachPointsB="1,5" />
+         <Connection partA="153" partB="149" attachPointsA="0" attachPointsB="1" />
+      </Connections>
+      <Collisions>
+         <Collision partA="1" partB="150" colliderNameA="Collider" colliderNameB="Pivot" />
+         <Collision partA="1" partB="151" colliderNameA="Collider" colliderNameB="Pivot" />
+         <Collision partA="1" partB="152" colliderNameA="Collider" colliderNameB="Pivot" />
+      </Collisions>
+      <Bodies>
+         <Body id="1" partIds="0,1,40,149,153" mass="23.54" position="-2.970137E-07,0.07668036,-3.623682E-07" rotation="0,0,0" centerOfMass="0,0,0" />
+         <Body id="2" partIds="150" mass="0.244778752" position="-0.7267622,-1.236457,-0.4195605" rotation="0,0,0" centerOfMass="0,0,0" />
+         <Body id="3" partIds="151" mass="0.244778752" position="-3.076416E-05,-1.236493,0.839079" rotation="0,0,0" centerOfMass="0,0,0" />
+         <Body id="4" partIds="152" mass="0.244778752" position="0.7268178,-1.236493,-0.4194907" rotation="0,0,0" centerOfMass="0,0,0" />
+      </Bodies>
+   </Assembly>
+   <DesignerSettings themeName="Custom">
+      <Theme name="Custom" id="cfd9b653-b504-4fab-9550-6235af550a2d">
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="178BFF" m="0.4" s="0.83" />
+         <Material color="7F7F7F" m="0.4" s="0.83" />
+         <Material color="454545" m="0.4" s="0.83" />
+         <Material color="171717" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+      </Theme>
+   </DesignerSettings>
+   <Themes>
+      <Theme name="Custom" id="9ffa45c3-bea6-455a-b59d-4e2086e52dc1">
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="178BFF" m="0.4" s="0.83" />
+         <Material color="7F7F7F" m="0.4" s="0.83" />
+         <Material color="454545" m="0.4" s="0.83" />
+         <Material color="171717" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.1" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+         <Material color="FFFFFF" m="0.65" s="0.08" />
+      </Theme>
+   </Themes>
+   <Symmetry />
+</Craft>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DesignerParts>
+  <DesignerPart name="Small Light Box" category="Payloads" description="A small box." order="0" showInDesigner="true">
+    <Assembly xmlVersion="13">
+      <Parts>
+        <Part id="15" partType="Package" position="0,0,0" rotation="1.024528E-05,180,0" name="Small Light Box" materials="1,1,2,3,4" partStyleEnabled="false" texture="Fuselage10" textureTiling="2,5">
+          <Drag drag="0.03209063,0.03209063,0,0,0.02904257,0" area="0.03209063,0.03209063,0,0,0.02904257,0" />
+          <Config partScale="0.4,0.3,0.5" />
+          <Payload payloadId="Payload-Package-A1" />
+          <Package mass="0.2" />
+        </Part>
+      </Parts>
+      <Connections />
+      <Collisions />
+      <Bodies />
+    </Assembly>
+  </DesignerPart>
+</DesignerParts>

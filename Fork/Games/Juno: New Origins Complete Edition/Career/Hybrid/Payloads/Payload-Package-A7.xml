@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DesignerParts>
+  <DesignerPart name="Large Light Box" category="Payloads" description="A large box." order="20" showInDesigner="true">
+    <Assembly xmlVersion="13">
+      <Parts>
+        <Part id="18" partType="Package" position="2.384186E-07,0,0" rotation="1.024528E-05,180,0" name="Large Light Box" materials="1,1,2,3,4" partStyleEnabled="false" texture="Fuselage10" textureTiling="2,5">
+          <Drag drag="0.1444078,0.1444078,0.03209063,0.3570085,0.3001062,0" area="0.1444078,0.1444078,0.03209063,0.3570085,0.3001062,0" />
+          <Config partScale="0.75,0.75,2" />
+          <Payload payloadId="Payload-Package-A7" />
+          <Package mass="1" />
+        </Part>
+      </Parts>
+      <Connections />
+      <Collisions />
+      <Bodies />
+    </Assembly>
+  </DesignerPart>
+</DesignerParts>

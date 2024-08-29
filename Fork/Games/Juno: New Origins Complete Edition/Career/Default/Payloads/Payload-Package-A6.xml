@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DesignerParts>
+  <DesignerPart name="Heavy Box" category="Payloads" description="A heavy box." order="20" showInDesigner="true">
+    <Assembly xmlVersion="13">
+      <Parts>
+        <Part id="14" partType="Package" position="0,0,0" rotation="0,0,0" name="Heavy Box" materials="1,1,2,3,4" partStyleEnabled="false" texture="Fuselage10" textureTiling="2,5">
+          <Drag drag="0.1925438,0.1925438,0.1363851,0,0,0" area="0.1925438,0.1925438,0.1363851,0,0,0" />
+          <Config partScale="1,0.75,1" />
+          <Payload payloadId="Payload-Package-A6" />
+          <Package mass="10" />
+        </Part>
+      </Parts>
+      <Connections />
+      <Collisions />
+      <Bodies />
+    </Assembly>
+  </DesignerPart>
+</DesignerParts>
