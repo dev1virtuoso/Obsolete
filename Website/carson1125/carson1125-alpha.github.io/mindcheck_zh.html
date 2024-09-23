@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
+
 <head>
     <link rel="stylesheet" type="text/css" href="styles/styles_word.css">
     <script src="scripts/nor.js"></script>
     <script src="scripts/bw.js"></script>
     <meta charset="UTF-8">
-    <link href="images/favicon.ico" rel="shortcut icon"/>
+    <link href="images/favicon.ico" rel="shortcut icon" />
     <title>MindCheck | Carson Wu</title>
 </head>
+
 <body>
     <header>
-        <h1 style="position: fixed; top: 5px; left: 20px; z-index: 9999; cursor: pointer;" onclick="goToHomePage()">Carson Wu</h1>
+        <h1 style="position: fixed; top: 5px; left: 20px; z-index: 9999; cursor: pointer;" onclick="goToHomePage()">
+            Carson Wu</h1>
         <div class="dropdown">
             <button class="dropdown-btn btn dropbtn">
                 <span>Translate button</span>
@@ -29,7 +32,7 @@
                 <li><a href="contact.html" target="_blank">Contact</a></li>
                 <li><a href="project.html" target="_blank">Project</a></li>
             </ul>
-          </nav> 
+        </nav>
     </header>
     <nav>
         <ul style="display: flex; justify-content: flex-end;">
@@ -37,20 +40,22 @@
             <li style="margin-left: auto;"><a href="mindcheck.html" target="_blank">Overall</a></li>
         </ul>
     </nav>
-        <div class="container">
-            <h1>關於此項目</h1>
-            <img src="images/mindcheck.png" alt="MindCheck 的圖示" style="display: block; margin: 0 auto; width: 200px; height: 200px; border-radius: 10%;">
-            <p>MindCheck 是使用SwiftUI構建的，旨在提供全面的心理健康評估和支持。</p>
-            <p>運行平台: iOS</p>
-            <p>編程語言: SwiftUI</p>
-            <p>原始碼模式：開源 -- <a href="https://github.com/Carson-We/iOS-app/tree/main/MindCheck">GitHub</a></p>
-        </div>
-            <footer>
-                <p style="cursor: pointer;" onclick="goToCR()"><span id="cr"></span></p>
-                <p style="cursor: pointer;" onclick="goToVE()">Version: <span id="version"></span></p>
-            </footer>
-            <script src="scripts/version.js"></script>
-            <script src="scripts/cr_en.js"></script>
-            <iframe id="bottom-iframe" src="sitemap-b.html"></iframe>
+    <div class="container">
+        <h1>關於此項目</h1>
+        <img src="images/mindcheck.png" alt="MindCheck 的圖示"
+            style="display: block; margin: 0 auto; width: 200px; height: 200px; border-radius: 10%;">
+        <p>MindCheck 是使用SwiftUI構建的，旨在提供全面的心理健康評估和支持。</p>
+        <p>運行平台: iOS</p>
+        <p>編程語言: SwiftUI</p>
+        <p>原始碼模式：開源 -- <a href="https://github.com/Carson-We/iOS-app/tree/main/MindCheck">GitHub</a></p>
+    </div>
+    <footer>
+        <p style="cursor: pointer;" onclick="goToCR()"><span id="cr"></span></p>
+        <p style="cursor: pointer;" onclick="goToVE()">Version: <span id="version"></span></p>
+    </footer>
+    <script src="scripts/version.js"></script>
+    <script src="scripts/cr_en.js"></script>
+    <iframe id="bottom-iframe" src="sitemap-b.html"></iframe>
 </body>
+
 </html>
