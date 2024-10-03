@@ -7,11 +7,11 @@ function goToHomePage() {
 }
 
 function goToCR() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/li.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/li.html";
 }
 
 function goToVE() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/ve.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/ve.html";
 }
 
 function goToHomePagezh() {
@@ -19,11 +19,11 @@ function goToHomePagezh() {
 }
 
 function goToCRzh() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/li_zh.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/li_zh.html";
 }
 
 function goToVEzh() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/ve_zh.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/ve_zh.html";
 }
 
 function goToHomePagekr() {
@@ -31,11 +31,11 @@ function goToHomePagekr() {
 }
 
 function goToCRkr() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/li_kr.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/li_kr.html";
 }
 
 function goToVEkr() {
-    window.location.href = "https://carson-we.github.io/Website/carson1125/carson1125/ve_kr.html";
+    window.location.href = "https://dev1virtuoso.github.io/Website/carson1125/carson1125/ve_kr.html";
 }
 
 window.addEventListener('DOMContentLoaded', function() {

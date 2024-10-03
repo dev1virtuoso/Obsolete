@@ -4,7 +4,7 @@ var websiteUrls = [
     { url: "http://carson1125.hk/ana-webui.html", label: "ana-webui" },
     { url: "http://carson1125.hk/fc-webui.html", label: "fc-webui" },
     { url: "http://carson1125.hk/ic-webui.html", label: "ic-webui" },
-    { url: "https://carson-we.github.io/carson1125-beta.github.io/index.html", label: "github-pages" }
+    { url: "https://dev1virtuoso.github.io/carson1125-beta.github.io/index.html", label: "github-pages" }
 ];
 
 function checkWebsiteStatus(url) {
