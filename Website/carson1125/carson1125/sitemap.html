@@ -2,91 +2,31 @@
 <html lang="en-US">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <script src="scripts/nor.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link href="images/favicon.ico" rel="shortcut icon" />
-    <title>SITEMAP | Carson Wu</title>
+    <title>Sitemap | Carson Wu</title>
 </head>
 
 <body>
     <header>
         <h1 class="cw" onclick="goToHomePage()">Carson Wu</h1>
-        <div class="dropdown">
-            <button class="dropdown-btn btn dropbtn">🌍</button>
-            <ul class="dropdown-content">
-                <li><a href="sitemap_zh.html">中文</a></li>
-                <li><a href="sitemap.html">Eng</a></li>
-                <li><a href="sitemap_kr.html">한글</a></li>
-            </ul>
-        </div>
         <nav>
             <ul class="menu">
-                <li><a href="about.html" target="_blank">About</a></li>
-                <li><a href="Blog.html" target="_blank">Blog</a></li>
-                <li><a href="contact.html" target="_blank">Contact</a></li>
-                <li><a href="project.html" target="_blank">Project</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
-    <div class="stm-container">
-        <div>
-            <h2>About</h2>
-            <ul class="tree">
-                <li><a href="about.html" target="_blank">About</a></li>
-                <li><a href="Blog.html" target="_blank">Blog</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2><a href="project.html" target="_blank">Project</a></h2>
-        </div>
-        <div>
-            <h2>Support</h2>
-            <ul class="tree">
-                <li><a href="contact.html" target="_blank">Contact</a></li>
-                <li><a href="li.html" target="_blank">Copyright Information & License</a></li>
-                <li><a href="credits.html" target="_blank">Credits</a></li>
-                <li><a href="https://github.com/dev1virtuoso/Documentation" target="_blank">Documentation</a></li>
-                <li><a href="sitemap.html" target="_blank">Sitemap</a></li>
-                <li><a href="ve.html" target="_blank">Version</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2>Site</h2>
-            <ul>
-                <h3>carson1125</h3>
-                <ul class="tree">
-                    <li><a href="https://dev1virtuoso.github.io/Website/carson1125/carson1125/" target="_blank">My
-                            website</a></li>
-                    <li><a href="https://dev1virtuoso.github.io/Website/carson1125/carson1125-alpha.github.io/"
-                            target="_blank">My website(alpha version)</a></li>
-                    <li><a href="https://dev1virtuoso.github.io/Website/carson1125/carson1125-beta.github.io/"
-                            target="_blank">My website(beta version)</a></li>
-                </ul>
-                <h3>pess-unify</h3>
-                <ul class="tree">
-                    <li><a href="https://dev1virtuoso.github.io/Website/pess-unify/pess-unify-beta.github.io/"
-                            target="_blank">Unify website(beta version)</a></li>
-                    <li><a href="https://dev1virtuoso.github.io/Website/pess-unify/pess-unify.github.io/"
-                            target="_blank">Unify website(Deployed by Carson Wu)</a></li>
-                    <li><a href="https://pess-unify.github.io" target="_blank">Unify website(Deployed by pess-unify)</a>
-                    </li>
-                </ul>
-                <li><a href="https://dev1virtuoso.github.io/Website/Self/" target="_blank">My first website</a></li>
-                <h3>utility</h3>
-                <ul class="tree">
-                    <li><a href="https://dev1virtuoso.github.io/Website/Utility/Utility-alpha.github.io/"
-                            target="_blank">My utility website(alpha version)</a></li>
-                </ul>
-            </ul>
-        </div>
-    </div>
+    <iframe id="stm-iframe" src="sitemap-b.html"></iframe>
     <footer>
-        <p style="cursor: pointer;" onclick="goToCR()"><span class="cr"></span></p>
-        <p style="cursor: pointer;" onclick="goToVE()"><span class="version"></span></p>
+        <p style="cursor: pointer;"><span onclick="goToCR()" class="cr"></span> | <span onclick="goToVE()"
+                class="version"></span> | This site is open source. <a
+                href="https://dev1virtuoso.github.io/Website/carson1125" target="_blank">Improve this page.</a></p>
     </footer>
-    <script src="scripts/word.js"></script>
     <iframe id="bottom-iframe" src="sitemap-b.html"></iframe>
+    <script src="scripts/scripts.js"></script>
 </body>
 
 </html>

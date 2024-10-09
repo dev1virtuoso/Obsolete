@@ -22,7 +22,7 @@ This GitHub repository serves as a central location for storing the documentatio
 
 By organizing and maintaining documentation within this GitHub repository, it becomes a valuable resource for developers, users, and contributors looking to understand, utilize, and contribute to the projects effectively.
 
-## [Table of Content](CONTENT.md)
+## [Table of Contents](CONTENT.md)
 
 ## License
 
@@ -46,6 +46,6 @@ By contributing to this project, you agree to license your contributions under t
 
 ## Contact Information
 
-If you have any questions or suggestions regarding this documentation project, please feel free to contact me at [following methods](https://dev1virtuoso.github.io/dev1virtuoso.github.io/contact.html).
+If you have any questions or suggestions regarding this documentation project, please feel free to contact me at [following methods](https://github.com/dev1virtuoso/Documentation/blob/main/dev1virtuoso/Attachment/dev1virtuoso/carson-wu.md).
 
 Thank you for your interest and contributions to the project!
