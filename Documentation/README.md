@@ -2,23 +2,23 @@
 
 This GitHub repository serves as a central location for storing the documentation of the projects I have developed. It provides a comprehensive reference and guide for understanding and utilizing the various projects within the repository. The documentation covers the following aspects:
 
-1. **Project Overview**: An introduction to the purpose and goals of the projects included in the repository.
+1. **Project Overview:** An introduction to the purpose and goals of the projects included in the repository.
 
-2. **Installation**: Instructions on how to install and set up the required dependencies for running the projects locally.
+2. **Installation:** Instructions on how to install and set up the required dependencies for running the projects locally.
 
-3. **Usage**: A detailed guide on how to use and interact with the projects, including any necessary configurations or input requirements.
+3. **Usage:** A detailed guide on how to use and interact with the projects, including any necessary configurations or input requirements.
 
-4. **Features**: A comprehensive list and description of the key features and functionalities provided by each project.
+4. **Features:** A comprehensive list and description of the key features and functionalities provided by each project.
 
-5. **API Reference**: If applicable, an API reference documentation detailing the exposed endpoints, request/response formats, and usage examples.
+5. **API Reference:** If applicable, an API reference documentation detailing the exposed endpoints, request/response formats, and usage examples.
 
-6. **Troubleshooting**: Common issues and their solutions, along with troubleshooting tips and recommendations.
+6. **Troubleshooting:** Common issues and their solutions, along with troubleshooting tips and recommendations.
 
-7. **Examples**: Practical examples and use cases that demonstrate the projects' capabilities and provide insights into their potential applications.
+7. **Examples:** Practical examples and use cases that demonstrate the projects' capabilities and provide insights into their potential applications.
 
-8. **Contributing**: Guidelines and instructions for contributing to the projects, including information on bug reporting, feature requests, and pull requests.
+8. **Contributing:** Guidelines and instructions for contributing to the projects, including information on bug reporting, feature requests, and pull requests.
 
-9. **License**: Details about the licensing terms and conditions for using the projects included in the repository.
+9. **License:** Details about the licensing terms and conditions for using the projects included in the repository.
 
 By organizing and maintaining documentation within this GitHub repository, it becomes a valuable resource for developers, users, and contributors looking to understand, utilize, and contribute to the projects effectively.
 

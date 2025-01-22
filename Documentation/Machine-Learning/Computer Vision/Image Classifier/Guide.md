@@ -20,12 +20,12 @@ The code aims to train a CNN model to classify images into two classes (binary c
 
 ## Rationale for Using this Approach
 
-1. **Convolutional Neural Network**: CNNs are effective for image classification tasks as they can capture spatial relationships and hierarchical features in images.
-2. **ImageDataGenerator**: The `ImageDataGenerator` allows for efficient preprocessing and augmentation of image data, improving model generalization and performance.
-3. **Batch Training**: Training the model in batches helps to handle large datasets, reduces memory requirements, and allows for parallel processing.
-4. **Sequential Model**: The `Sequential` API provides a simple and intuitive way to build neural network models by stacking layers sequentially.
-5. **Binary Classification**: The model is configured for binary classification with a single output neuron and a sigmoid activation function.
-6. **Evaluation Metrics**: The model is evaluated using accuracy as the performance metric and binary cross-entropy as the loss function.
-7. **Visualization**: Plotting the training and validation accuracy and loss helps to assess model performance and identify overfitting or underfitting.
+1. **Convolutional Neural Network:** CNNs are effective for image classification tasks as they can capture spatial relationships and hierarchical features in images.
+2. **ImageDataGenerator:** The `ImageDataGenerator` allows for efficient preprocessing and augmentation of image data, improving model generalization and performance.
+3. **Batch Training:** Training the model in batches helps to handle large datasets, reduces memory requirements, and allows for parallel processing.
+4. **Sequential Model:** The `Sequential` API provides a simple and intuitive way to build neural network models by stacking layers sequentially.
+5. **Binary Classification:** The model is configured for binary classification with a single output neuron and a sigmoid activation function.
+6. **Evaluation Metrics:** The model is evaluated using accuracy as the performance metric and binary cross-entropy as the loss function.
+7. **Visualization:** Plotting the training and validation accuracy and loss helps to assess model performance and identify overfitting or underfitting.
 
 Overall, this approach combines the power of CNNs for image classification with the convenience of TensorFlow and Keras libraries, enabling the efficient training and evaluation of a binary image classification model.

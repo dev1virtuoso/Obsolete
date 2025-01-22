@@ -20,10 +20,10 @@ The code is used to train a recognition model based on a Convolutional Neural Ne
 
 ## Rationale for Using this Approach
 
-1. **CNN for Image Recognition**: CNNs are well-suited for image recognition tasks due to their ability to capture spatial hierarchies and patterns in images.
-2. **Ease of Model Construction**: The Keras `Sequential` API allows for a straightforward and intuitive way to construct a model by sequentially adding layers.
-3. **Efficient Data Augmentation**: The `ImageDataGenerator` class provides convenient methods for data augmentation, such as rescaling and image transformations, helping to improve model generalization.
-4. **Batch Training**: The use of batch training with a specified batch size helps in processing large datasets in smaller chunks, enabling efficient model training.
-5. **Model Saving**: The ability to save the trained model allows for later deployment, evaluation, and inference without the need to retrain the model from scratch.
+1. **CNN for Image Recognition:** CNNs are well-suited for image recognition tasks due to their ability to capture spatial hierarchies and patterns in images.
+2. **Ease of Model Construction:** The Keras `Sequential` API allows for a straightforward and intuitive way to construct a model by sequentially adding layers.
+3. **Efficient Data Augmentation:** The `ImageDataGenerator` class provides convenient methods for data augmentation, such as rescaling and image transformations, helping to improve model generalization.
+4. **Batch Training:** The use of batch training with a specified batch size helps in processing large datasets in smaller chunks, enabling efficient model training.
+5. **Model Saving:** The ability to save the trained model allows for later deployment, evaluation, and inference without the need to retrain the model from scratch.
 
 Overall, this approach combines the flexibility and power of deep learning models with the ease of use and convenience of the TensorFlow and Keras frameworks, enabling efficient training and deployment of a recognition model.

@@ -21,13 +21,13 @@ The code aims to train a recognition model using a CNN architecture to classify 
 
 ## Rationale for Using this Approach
 
-1. **Convolutional Neural Network**: CNNs are well-suited for image classification tasks as they can capture spatial hierarchies and patterns in images.
-2. **Sequential Model**: The `Sequential` API allows for a straightforward and intuitive way to construct a model by sequentially adding layers.
-3. **Dropout Regularization**: The addition of dropout layers helps to prevent overfitting by randomly dropping out neurons during training, thus reducing interdependencies between neurons.
-4. **Categorical Cross-Entropy Loss**: The choice of categorical cross-entropy as the loss function is suitable for multi-class classification tasks.
-5. **ImageDataGenerator**: The `ImageDataGenerator` provides convenient methods for data augmentation and preprocessing, such as rescaling, which can enhance model generalization and performance.
-6. **Batch Training**: Training the model in batches helps to handle large datasets efficiently and allows for parallel processing.
-7. **Validation Data**: Using a validation subset helps monitor the model's performance on unseen data and prevent overfitting.
-8. **Model Saving**: Saving the trained model facilitates later deployment, evaluation, and inference without the need to retrain the model from scratch.
+1. **Convolutional Neural Network:** CNNs are well-suited for image classification tasks as they can capture spatial hierarchies and patterns in images.
+2. **Sequential Model:** The `Sequential` API allows for a straightforward and intuitive way to construct a model by sequentially adding layers.
+3. **Dropout Regularization:** The addition of dropout layers helps to prevent overfitting by randomly dropping out neurons during training, thus reducing interdependencies between neurons.
+4. **Categorical Cross-Entropy Loss:** The choice of categorical cross-entropy as the loss function is suitable for multi-class classification tasks.
+5. **ImageDataGenerator:** The `ImageDataGenerator` provides convenient methods for data augmentation and preprocessing, such as rescaling, which can enhance model generalization and performance.
+6. **Batch Training:** Training the model in batches helps to handle large datasets efficiently and allows for parallel processing.
+7. **Validation Data:** Using a validation subset helps monitor the model's performance on unseen data and prevent overfitting.
+8. **Model Saving:** Saving the trained model facilitates later deployment, evaluation, and inference without the need to retrain the model from scratch.
 
 By leveraging the power of CNNs, the simplicity of the Keras API, and the flexibility of the TensorFlow framework, this approach enables efficient training and deployment of a recognition model for multi-class image classification.
